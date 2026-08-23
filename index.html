@@ -939,7 +939,7 @@
         </div>
     </div>
 
-    <script src="data.js"></script>
+    <script src="data.js?v=20260701_v3"></script>
     <script>
         let allTimetableData = window.EMBEDDED_TIMETABLE_DATA || [];
         let departuresByStation = {};
@@ -1581,6 +1581,7 @@
             currentModalTarget = type;
             document.getElementById('modalTitle').textContent = `🗺️ 選擇${type === 'origin' ? '出發' : '抵達'}車站（依縣市分類）`;
             document.getElementById('modalSearchInput').value = '';
+            renderStationModal();
             filterModalStations();
             document.getElementById('stationModal').classList.add('open');
         }
