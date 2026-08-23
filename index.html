@@ -915,6 +915,50 @@
             font-weight: 700;
         }
 
+    
+        .station-btn.express-hub {
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+            border: 1.5px solid #f43f5e;
+            color: #be123c;
+            font-weight: 800;
+            box-shadow: 0 1px 3px rgba(244, 63, 94, 0.15);
+        }
+        .station-btn.express-hub:hover {
+            background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+            color: #ffffff;
+            border-color: #be123c;
+            box-shadow: 0 4px 10px rgba(244, 63, 94, 0.35);
+        }
+        [data-theme="dark"] .station-btn.express-hub {
+            background: rgba(244, 63, 94, 0.18);
+            border-color: #fb7185;
+            color: #fda4af;
+        }
+        [data-theme="dark"] .station-btn.express-hub:hover {
+            background: #e11d48;
+            color: #ffffff;
+            border-color: #f43f5e;
+        }
+        .hub-legend-bar {
+            padding: 8px 24px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: var(--bg-subtle);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .hub-legend-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
     </style>
 </head>
 <body>
@@ -925,7 +969,7 @@
             <div class="nav-title">
                 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                     <h1>台鐵全路網時刻表 & 縣市導航智慧接駁系統</h1>
-                    <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v2.7.0 (2026.07.01版)</span>
+                    <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v2.8.0 (2026.07.01版)</span>
                 </div>
                 <p>2026/07/01 大改點全線全班次 · 全台 17 縣市依區域快速選站 · 支援無限次轉乘</p>
             </div>
@@ -1056,7 +1100,7 @@
         <div class="results-container" id="resultsList"></div>
 
         <footer style="text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px dashed var(--border-color); color: var(--text-muted); font-size: 0.85rem;">
-            <p>🚆 2026 台鐵全路網時刻表系統 · <strong>核心版本: v2.7.0 (支援車站全日發車時刻表與列車時刻雙彈窗) (支援列車全線時刻表彈窗) (含轉乘失敗第二備案)</strong> (2026/07/01 官方大改點完整收錄)</p>
+            <p>🚆 2026 台鐵全路網時刻表系統 · <strong>核心版本: v2.8.0 (自強號特快大站醒目標色) (支援車站全日發車時刻表與列車時刻雙彈窗) (支援列車全線時刻表彈窗) (含轉乘失敗第二備案)</strong> (2026/07/01 官方大改點完整收錄)</p>
             <p style="margin-top: 4px; font-size: 0.75rem;">100% 純前端離線運算 · 支援全台 17 縣市車站選單與無限多段轉乘智慧規劃</p>
         </footer>
     </div>
@@ -1147,6 +1191,13 @@
 
             <div class="modal-tabs-nav" id="modalCountyTabs"></div>
 
+            <div class="hub-legend-bar">
+                <span>圖例說明：</span>
+                <span class="hub-legend-tag" style="background:#ffe4e6; border:1px solid #f43f5e; color:#be123c;">⭐ 紅色為自強號停靠核心大站</span>
+                <span class="hub-legend-tag" style="background:var(--bg-subtle); border:1px solid var(--border-color); color:var(--text-main);">一般區間車站</span>
+            </div>
+
+
             <div class="modal-body" id="modalStationList"></div>
         </div>
     </div>
@@ -1234,6 +1285,42 @@
                 stations: ['池上', '海端', '關山', '月美', '瑞和', '瑞源', '鹿野', '山里', '台東', '康樂', '知本', '太麻里', '金崙', '瀧溪', '大武']
             }
         ];
+
+        
+        const EXPRESS_MAJOR_STATIONS = new Set([
+            // 基隆市
+            '基隆', '八堵', '七堵',
+            // 台北市
+            '南港', '松山', '台北', '萬華',
+            // 新北市
+            '板橋', '樹林', '鶯歌', '瑞芳', '雙溪',
+            // 桃園市
+            '桃園', '中壢', '楊梅',
+            // 新竹縣市
+            '竹北', '新竹',
+            // 苗栗縣
+            '竹南', '苗栗', '通霄', '苑裡',
+            // 台中市
+            '豐原', '台中', '新烏日', '大甲', '沙鹿',
+            // 彰化縣
+            '彰化', '員林', '田中', '二水',
+            // 雲林縣
+            '斗六', '斗南',
+            // 嘉義縣市
+            '大林', '民雄', '嘉義',
+            // 台南市
+            '新營', '善化', '台南',
+            // 高雄市
+            '岡山', '楠梓', '新左營', '高雄', '鳳山',
+            // 屏東縣
+            '屏東', '潮州', '南州', '林邊', '枋寮',
+            // 宜蘭縣
+            '頭城', '礁溪', '宜蘭', '羅東', '蘇澳新',
+            // 花蓮縣
+            '新城(太魯閣)', '花蓮', '吉安', '瑞穗', '玉里',
+            // 台東縣
+            '池上', '關山', '鹿野', '台東', '知本'
+        ]);
 
         const ALL_STATIONS = Array.from(new Set(COUNTY_GROUPS.flatMap(g => g.stations)));
 
@@ -2031,9 +2118,12 @@
                 <div class="county-section" id="county-${idx}">
                     <div class="county-section-title">📍 ${group.county} (${group.stations.length} 站)</div>
                     <div class="station-grid">
-                        ${group.stations.map(st => `
-                            <button class="station-btn" onclick="modalPickStation('${st}')">${st}</button>
-                        `).join('')}
+                        ${group.stations.map(st => {
+                            const isHub = EXPRESS_MAJOR_STATIONS.has(st);
+                            const hubClass = isHub ? 'express-hub' : '';
+                            const starIcon = isHub ? '⭐ ' : '';
+                            return `<button class="station-btn ${hubClass}" onclick="modalPickStation('${st}')" title="${isHub ? '自強號特快停靠核心大站' : ''}">${starIcon}${st}</button>`;
+                        }).join('')}
                     </div>
                 </div>
             `).join('');
