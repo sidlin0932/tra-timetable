@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>2026 台鐵時刻表與全路網跨區間轉乘規劃系統</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1038,7 +1041,7 @@
             <div class="nav-title">
                 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                     <h1>台鐵全路網時刻表 & 縣市導航智慧接駁系統</h1>
-                    <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v2.9.0 (2026.07.01版)</span>
+                    <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v3.0.0 (2026.07.01版)</span>
                 </div>
                 <p>2026/07/01 大改點全線全班次 · 全台 17 縣市依區域快速選站 · 支援無限次轉乘</p>
             </div>
@@ -1067,7 +1070,7 @@
                 <div class="form-group">
                     <label class="form-label" for="destInput">🏁 抵達站 (終點)</label>
                     <div class="station-input-box">
-                        <input type="text" id="destInput" class="station-input" value="內灣" placeholder="輸入站名 (如: 內灣、車埕、台東)..." autocomplete="off">
+                        <input type="text" id="destInput" class="station-input" value="台北" placeholder="輸入站名 (如: 內灣、車埕、台東)..." autocomplete="off">
                         <button class="btn-station-picker" onclick="openStationModal('dest')">🗺️ 依縣市選站</button>
                         <div class="autocomplete-list" id="destAutoList"></div>
                     </div>
@@ -1187,7 +1190,7 @@
         <div class="results-container" id="resultsList"></div>
 
         <footer style="text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px dashed var(--border-color); color: var(--text-muted); font-size: 0.85rem;">
-            <p>🚆 2026 台鐵全路網時刻表系統 · <strong>核心版本: v2.9.0 (一站式極速連續選站與常用大站快捷) (自強號特快大站醒目標色) (支援車站全日發車時刻表與列車時刻雙彈窗) (支援列車全線時刻表彈窗) (含轉乘失敗第二備案)</strong> (2026/07/01 官方大改點完整收錄)</p>
+            <p>🚆 2026 台鐵全路網時刻表系統 · <strong>核心版本: v3.0.0 (預設板橋➔台北 · 一站式連續選站 · 自強號大站標色) (一站式極速連續選站與常用大站快捷) (自強號特快大站醒目標色) (支援車站全日發車時刻表與列車時刻雙彈窗) (支援列車全線時刻表彈窗) (含轉乘失敗第二備案)</strong> (2026/07/01 官方大改點完整收錄)</p>
             <p style="margin-top: 4px; font-size: 0.75rem;">100% 純前端離線運算 · 支援全台 17 縣市車站選單與無限多段轉乘智慧規劃</p>
         </footer>
     </div>
@@ -1280,7 +1283,7 @@
                         <button class="modal-step-btn" id="modalStepDest" onclick="setModalTarget('dest')">
                             <span class="step-icon">🏁</span>
                             <span class="step-label">抵達站:</span>
-                            <strong id="modalDestVal">請選擇</strong>
+                            <strong id="modalDestVal">台北</strong>
                         </button>
                     </div>
                 </div>
