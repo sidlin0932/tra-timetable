@@ -1249,7 +1249,28 @@
                 }
             });
 
-            return allResults;
+            // Smart Transit Quality & Dominance Filter:
+            // Discard redundant 3-hop/4-hop detours if a cleaner route exists
+            const cleanResults = [];
+            allResults.sort((a, b) => a.transfers - b.transfers || a.duration - b.duration);
+
+            for (const r of allResults) {
+                const arrM = timeToMin(r.arr_time);
+                const depM = timeToMin(r.dep_time);
+                const isDominated = cleanResults.some(cr => {
+                    const cArr = timeToMin(cr.arr_time);
+                    const cDep = timeToMin(cr.dep_time);
+                    if (cDep >= depM && cArr <= arrM + 5 && cr.transfers < r.transfers) {
+                        return true;
+                    }
+                    return false;
+                });
+                if (!isDominated) {
+                    cleanResults.push(r);
+                }
+            }
+
+            return cleanResults;
         }
 
         function sortRoutes(routes) {
