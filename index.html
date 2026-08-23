@@ -959,6 +959,75 @@
             font-size: 0.75rem;
         }
 
+    
+        .quick-hubs-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding: 8px 12px;
+            background: var(--bg-subtle);
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+        .quick-hubs-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+        .quick-hubs-list {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .quick-hub-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .quick-hub-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .modal-trip-stepper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .modal-step-btn {
+            background: var(--bg-subtle);
+            border: 1.5px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+        .modal-step-btn.active {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            color: var(--primary);
+            font-weight: 700;
+            box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+        }
+        .modal-step-arrow {
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
     </style>
 </head>
 <body>
@@ -969,7 +1038,7 @@
             <div class="nav-title">
                 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                     <h1>台鐵全路網時刻表 & 縣市導航智慧接駁系統</h1>
-                    <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v2.8.0 (2026.07.01版)</span>
+                    <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v2.9.0 (2026.07.01版)</span>
                 </div>
                 <p>2026/07/01 大改點全線全班次 · 全台 17 縣市依區域快速選站 · 支援無限次轉乘</p>
             </div>
@@ -1004,6 +1073,24 @@
                     </div>
                 </div>
 
+            <!-- Quick Hub Station Pills -->
+            <div class="quick-hubs-bar">
+                <span class="quick-hubs-title">⚡ 常用大站快捷：</span>
+                <div class="quick-hubs-list">
+                    <button class="quick-hub-btn" onclick="quickFillStation('origin', '台北')">🚩 台北</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('origin', '板橋')">🚩 板橋</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('origin', '新竹')">🚩 新竹</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('origin', '台中')">🚩 台中</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('dest', '瑞芳')">🏁 瑞芳</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('dest', '八斗子')">🏁 八斗子</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('dest', '花蓮')">🏁 花蓮</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('dest', '台東')">🏁 台東</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('dest', '內灣')">🏁 內灣</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('dest', '高雄')">🏁 高雄</button>
+                </div>
+            </div>
+
+            <div class="query-grid">
                 <div class="form-group">
                     <label class="form-label" for="timeInput">🕒 出發時間</label>
                     <div class="time-select-group">
@@ -1100,7 +1187,7 @@
         <div class="results-container" id="resultsList"></div>
 
         <footer style="text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px dashed var(--border-color); color: var(--text-muted); font-size: 0.85rem;">
-            <p>🚆 2026 台鐵全路網時刻表系統 · <strong>核心版本: v2.8.0 (自強號特快大站醒目標色) (支援車站全日發車時刻表與列車時刻雙彈窗) (支援列車全線時刻表彈窗) (含轉乘失敗第二備案)</strong> (2026/07/01 官方大改點完整收錄)</p>
+            <p>🚆 2026 台鐵全路網時刻表系統 · <strong>核心版本: v2.9.0 (一站式極速連續選站與常用大站快捷) (自強號特快大站醒目標色) (支援車站全日發車時刻表與列車時刻雙彈窗) (支援列車全線時刻表彈窗) (含轉乘失敗第二備案)</strong> (2026/07/01 官方大改點完整收錄)</p>
             <p style="margin-top: 4px; font-size: 0.75rem;">100% 純前端離線運算 · 支援全台 17 縣市車站選單與無限多段轉乘智慧規劃</p>
         </footer>
     </div>
@@ -1181,7 +1268,22 @@
     <div class="modal-backdrop" id="stationModal" onclick="closeStationModal(event)">
         <div class="modal-dialog" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <h3 id="modalTitle">🗺️ 選擇車站（依縣市分類）</h3>
+                <div>
+                    <h3 id="modalTitle">🗺️ 快速選站（全台 17 縣市）</h3>
+                    <div class="modal-trip-stepper" id="modalTripStepper">
+                        <button class="modal-step-btn active" id="modalStepOrigin" onclick="setModalTarget('origin')">
+                            <span class="step-icon">🚩</span>
+                            <span class="step-label">出發站:</span>
+                            <strong id="modalOriginVal">台北</strong>
+                        </button>
+                        <span class="modal-step-arrow">➔</span>
+                        <button class="modal-step-btn" id="modalStepDest" onclick="setModalTarget('dest')">
+                            <span class="step-icon">🏁</span>
+                            <span class="step-label">抵達站:</span>
+                            <strong id="modalDestVal">請選擇</strong>
+                        </button>
+                    </div>
+                </div>
                 <button class="btn-modal-close" onclick="closeStationModal()">&times;</button>
             </div>
             
@@ -2157,11 +2259,7 @@
             });
         }
 
-        function modalPickStation(st) {
-            document.getElementById(`${currentModalTarget}Input`).value = st;
-            document.getElementById('stationModal').classList.remove('open');
-            executeSearch();
-        }
+
 
         function toggleTheme() {
             const current = document.documentElement.getAttribute('data-theme');
