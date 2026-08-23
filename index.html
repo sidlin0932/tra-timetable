@@ -646,9 +646,9 @@
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            max-width: 860px;
+            max-width: 920px;
             width: 100%;
-            max-height: 85vh;
+            max-height: 88vh;
             display: flex;
             flex-direction: column;
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.2);
@@ -676,26 +676,71 @@
             line-height: 1;
         }
 
+        .modal-tabs-nav {
+            display: flex;
+            overflow-x: auto;
+            gap: 6px;
+            padding: 10px 20px;
+            background: var(--bg-subtle);
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+        .modal-tab-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 5px 12px;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-decoration: none;
+        }
+        .modal-tab-pill:hover, .modal-tab-pill.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .modal-search-box {
+            padding: 10px 24px 4px;
+        }
+        .modal-filter-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-subtle);
+            color: var(--text-main);
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .modal-filter-input:focus { border-color: var(--primary); }
+
         .modal-body {
-            padding: 20px 24px;
+            padding: 16px 24px 24px;
             overflow-y: auto;
         }
 
-        .line-section { margin-bottom: 20px; }
-        .line-section-title {
-            font-size: 0.9rem;
-            font-weight: 700;
+        .county-section {
+            margin-bottom: 24px;
+            scroll-margin-top: 10px;
+        }
+        .county-section-title {
+            font-size: 0.95rem;
+            font-weight: 800;
             color: var(--primary);
             margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 6px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 2px solid var(--primary-light);
             padding-bottom: 4px;
         }
         .station-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(82px, 1fr));
             gap: 8px;
         }
         .station-btn {
@@ -714,7 +759,7 @@
             background: var(--primary);
             color: #fff;
             border-color: var(--primary);
-            transform: scale(1.03);
+            transform: scale(1.04);
         }
 
         .empty-state {
@@ -746,8 +791,8 @@
         <div class="nav-brand">
             <span class="nav-logo">🚆</span>
             <div class="nav-title">
-                <h1>台鐵全路網時刻表 & 全時段無縫轉乘導航</h1>
-                <p>2026/07/01 大改點全線全班次 · 支援全日早中晚無限次智慧接駁</p>
+                <h1>台鐵全路網時刻表 & 縣市導航智慧接駁系統</h1>
+                <p>2026/07/01 大改點全線全班次 · 全台 17 縣市依區域快速選站 · 支援無限次轉乘</p>
             </div>
         </div>
         <div class="nav-actions">
@@ -761,8 +806,8 @@
                 <div class="form-group">
                     <label class="form-label" for="originInput">🚩 出發站 (起點)</label>
                     <div class="station-input-box">
-                        <input type="text" id="originInput" class="station-input" value="菁桐" placeholder="輸入站名 (如: 菁桐、平溪、台北)..." autocomplete="off">
-                        <button class="btn-station-picker" onclick="openStationModal('origin')">📋 車站選單</button>
+                        <input type="text" id="originInput" class="station-input" value="台北" placeholder="輸入站名 (如: 台北、新竹、花蓮)..." autocomplete="off">
+                        <button class="btn-station-picker" onclick="openStationModal('origin')">🗺️ 依縣市選站</button>
                         <div class="autocomplete-list" id="originAutoList"></div>
                     </div>
                 </div>
@@ -774,8 +819,8 @@
                 <div class="form-group">
                     <label class="form-label" for="destInput">🏁 抵達站 (終點)</label>
                     <div class="station-input-box">
-                        <input type="text" id="destInput" class="station-input" value="內灣" placeholder="輸入站名 (如: 內灣、菁桐、花蓮)..." autocomplete="off">
-                        <button class="btn-station-picker" onclick="openStationModal('dest')">📋 車站選單</button>
+                        <input type="text" id="destInput" class="station-input" value="內灣" placeholder="輸入站名 (如: 內灣、車埕、台東)..." autocomplete="off">
+                        <button class="btn-station-picker" onclick="openStationModal('dest')">🗺️ 依縣市選站</button>
                         <div class="autocomplete-list" id="destAutoList"></div>
                     </div>
                 </div>
@@ -820,7 +865,7 @@
             <div class="sort-summary">
                 <span>📋 查詢結果：</span>
                 <span class="sort-count-badge" id="resultsCount">0 個方案</span>
-                <span id="routeSummaryText" style="color: var(--primary); font-weight: 700;">菁桐 ➔ 內灣</span>
+                <span id="routeSummaryText" style="color: var(--primary); font-weight: 700;">台北 ➔ 內灣</span>
             </div>
 
             <div class="multi-sort-controls">
@@ -876,12 +921,20 @@
         <div class="results-container" id="resultsList"></div>
     </div>
 
+    <!-- County-classified Station Modal -->
     <div class="modal-backdrop" id="stationModal" onclick="closeStationModal(event)">
         <div class="modal-dialog" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <h3 id="modalTitle">選擇車站</h3>
+                <h3 id="modalTitle">🗺️ 選擇車站（依縣市分類）</h3>
                 <button class="btn-modal-close" onclick="closeStationModal()">&times;</button>
             </div>
+            
+            <div class="modal-search-box">
+                <input type="text" id="modalSearchInput" class="modal-filter-input" placeholder="🔍 快速搜尋站名 (如: 台北、內灣、花蓮、車埕)..." oninput="filterModalStations()">
+            </div>
+
+            <div class="modal-tabs-nav" id="modalCountyTabs"></div>
+
             <div class="modal-body" id="modalStationList"></div>
         </div>
     </div>
@@ -898,50 +951,79 @@
         let activeSortDir = 'asc';
         let debounceTimer = null;
 
-        const STATION_GROUPS = [
+        // Grouped by Taiwan County / City (全台 17 縣市精確劃分)
+        const COUNTY_GROUPS = [
             {
-                line: '支線 (內灣 / 平溪 / 集集 / 沙崙)',
-                stations: ['內灣', '富貴', '合興', '九讚頭', '橫山', '竹東', '榮華', '上員', '六家', '竹中', '新莊', '千甲', '平溪', '菁桐', '嶺腳', '望古', '十分', '大華', '三貂嶺', '猴硐', '海科館', '八斗子', '車埕', '水里', '集集', '龍泉', '濁水', '源泉', '沙崙', '長榮大學']
+                county: '基隆市',
+                stations: ['基隆', '三坑', '八堵', '七堵', '百福', '暖暖', '海科館', '八斗子']
             },
             {
-                line: '西部幹線 (北部：基隆 ➔ 新竹)',
-                stations: ['基隆', '三坑', '八堵', '七堵', '百福', '五堵', '汐止', '汐科', '南港', '松山', '台北', '萬華', '板橋', '浮洲', '樹林', '南樹林', '山佳', '鶯歌', '桃園', '內壢', '中壢', '埔心', '楊梅', '富岡', '新富', '北湖', '湖口', '新豐', '竹北', '北新竹', '新竹']
+                county: '台北市',
+                stations: ['南港', '松山', '台北', '萬華']
             },
             {
-                line: '西部幹線 (台中線山線：新竹 ➔ 彰化)',
-                stations: ['三姓橋', '香山', '崎頂', '竹南', '造橋', '豐富', '苗栗', '南勢', '銅鑼', '三義', '泰安', '后里', '豐原', '栗林', '潭子', '頭家厝', '松竹', '太原', '精武', '台中', '五權', '大慶', '烏日', '新烏日', '成功', '彰化']
+                county: '新北市',
+                stations: ['五堵', '汐止', '汐科', '浮洲', '樹林', '南樹林', '山佳', '鶯歌', '四腳亭', '瑞芳', '猴硐', '三貂嶺', '牡丹', '雙溪', '貢寮', '福隆', '大華', '十分', '望古', '嶺腳', '平溪', '菁桐']
             },
             {
-                line: '西部幹線 (海岸線海線：竹南 ➔ 彰化)',
-                stations: ['談文', '大山', '後龍', '龍港', '白沙屯', '新埔', '通霄', '苑裡', '日南', '大甲', '台中港', '清水', '沙鹿', '龍井', '大肚', '追分']
+                county: '桃園市',
+                stations: ['桃園', '內壢', '中壢', '埔心', '楊梅', '富岡', '新富']
             },
             {
-                line: '西部幹線 (南部：彰化 ➔ 高雄)',
-                stations: ['花壇', '大村', '員林', '永靖', '社頭', '田中', '二水', '林內', '石榴', '斗六', '斗南', '石龜', '大林', '民雄', '嘉北', '嘉義', '水上', '南靖', '後壁', '新營', '柳營', '林鳳營', '隆田', '拔林', '善化', '南科', '新市', '永康', '大橋', '台南', '保安', '仁德', '中洲', '大湖', '路竹', '岡山', '橋頭', '楠梓', '新左營', '左營', '內惟', '美術館', '鼓山', '三塊厝', '高雄']
+                county: '新竹縣市',
+                stations: ['北湖', '湖口', '新豐', '竹北', '北新竹', '新竹', '三姓橋', '香山', '千甲', '新莊', '竹中', '六家', '上員', '榮華', '竹東', '橫山', '九讚頭', '合興', '富貴', '內灣']
             },
             {
-                line: '屏東線 (高雄 ➔ 枋寮)',
-                stations: ['民族', '科工館', '正義', '鳳山', '後庄', '九曲堂', '六塊厝', '屏東', '歸來', '麟洛', '西勢', '竹田', '潮州', '崁頂', '南州', '鎮安', '林邊', '佳冬', '東海', '枋寮']
+                county: '苗栗縣',
+                stations: ['崎頂', '竹南', '談文', '造橋', '大山', '後龍', '豐富', '苗栗', '龍港', '南勢', '白沙屯', '銅鑼', '新埔', '通霄', '三義', '苑裡']
             },
             {
-                line: '東部幹線 (宜蘭線：八堵 ➔ 蘇澳)',
-                stations: ['暖暖', '四腳亭', '瑞芳', '牡丹', '雙溪', '貢寮', '福隆', '石城', '大里', '大溪', '龜山', '外澳', '頭城', '頂埔', '礁溪', '四城', '宜蘭', '二結', '中里', '羅東', '冬山', '新馬', '蘇澳新', '蘇澳']
+                county: '台中市',
+                stations: ['日南', '大甲', '泰安', '后里', '台中港', '清水', '豐原', '栗林', '潭子', '頭家厝', '松竹', '太原', '精武', '台中', '五權', '大慶', '沙鹿', '龍井', '大肚', '追分', '烏日', '新烏日', '成功']
             },
             {
-                line: '東部幹線 (北迴線：蘇澳新 ➔ 花蓮)',
-                stations: ['永樂', '東澳', '南澳', '武塔', '漢本', '和平', '和仁', '崇德', '新城(太魯閣)', '景美', '北埔', '花蓮']
+                county: '彰化縣',
+                stations: ['彰化', '花壇', '大村', '員林', '永靖', '社頭', '田中', '二水', '源泉']
             },
             {
-                line: '東部幹線 (台東線：花蓮 ➔ 台東)',
-                stations: ['吉安', '志學', '平和', '壽豐', '豐田', '林榮新光', '南平', '鳳林', '萬榮', '光復', '大富', '富源', '瑞穗', '三民', '玉里', '東里', '東竹', '富里', '池上', '海端', '關山', '月美', '瑞和', '瑞源', '鹿野', '山里', '台東']
+                county: '南投縣',
+                stations: ['濁水', '龍泉', '集集', '水里', '車埕']
             },
             {
-                line: '南迴線 (枋寮 ➔ 台東)',
-                stations: ['加祿', '內獅', '枋山', '大武', '瀧溪', '金崙', '太麻里', '知本', '康樂']
+                county: '雲林縣',
+                stations: ['林內', '石榴', '斗六', '斗南', '石龜']
+            },
+            {
+                county: '嘉義縣市',
+                stations: ['大林', '民雄', '嘉北', '嘉義', '水上', '南靖']
+            },
+            {
+                county: '台南市',
+                stations: ['後壁', '新營', '柳營', '林鳳營', '隆田', '拔林', '善化', '南科', '新市', '永康', '大橋', '台南', '保安', '仁德', '中洲', '長榮大學', '沙崙']
+            },
+            {
+                county: '高雄市',
+                stations: ['大湖', '路竹', '岡山', '橋頭', '楠梓', '新左營', '左營', '內惟', '美術館', '鼓山', '三塊厝', '高雄', '民族', '科工館', '正義', '鳳山', '後庄', '九曲堂']
+            },
+            {
+                county: '屏東縣',
+                stations: ['六塊厝', '屏東', '歸來', '麟洛', '西勢', '竹田', '潮州', '崁頂', '南州', '鎮安', '林邊', '佳冬', '東海', '枋寮', '加祿', '內獅', '枋山']
+            },
+            {
+                county: '宜蘭縣',
+                stations: ['石城', '大里', '大溪', '龜山', '外澳', '頭城', '頂埔', '礁溪', '四城', '宜蘭', '二結', '中里', '羅東', '冬山', '新馬', '蘇澳新', '蘇澳', '永樂', '東澳', '南澳', '武塔', '漢本']
+            },
+            {
+                county: '花蓮縣',
+                stations: ['和平', '和仁', '崇德', '新城(太魯閣)', '景美', '北埔', '花蓮', '吉安', '志學', '平和', '壽豐', '豐田', '林榮新光', '南平', '鳳林', '萬榮', '光復', '大富', '富源', '瑞穗', '三民', '玉里', '東里', '東竹', '富里']
+            },
+            {
+                county: '台東縣',
+                stations: ['池上', '海端', '關山', '月美', '瑞和', '瑞源', '鹿野', '山里', '台東', '康樂', '知本', '太麻里', '金崙', '瀧溪', '大武']
             }
         ];
 
-        const ALL_STATIONS = Array.from(new Set(STATION_GROUPS.flatMap(g => g.stations)));
+        const ALL_STATIONS = Array.from(new Set(COUNTY_GROUPS.flatMap(g => g.stations)));
 
         const KEY_HUBS = new Set([
             '新竹', '北新竹', '竹中', '樹林', '板橋', '台北', '松山', '南港',
@@ -1033,7 +1115,6 @@
             return true;
         }
 
-        // All-Day Forward Multi-Hop Search Engine (Covers all morning, afternoon, evening and night departures)
         function planRoutes(orig, dest, startTimeMin) {
             if (!orig || !dest || orig === dest || allTimetableData.length === 0) {
                 return [];
@@ -1106,7 +1187,7 @@
 
                         for (const d of deps) {
                             if (d.depTimeMin < minDep) continue;
-                            if (d.depTimeMin > minDep + 90) continue; // max layover 90 mins
+                            if (d.depTimeMin > minDep + 90) continue;
                             if (!isTrainAllowed(d.train)) continue;
                             if (d.train.train_number === state.legs[state.legs.length - 1].train_number) continue;
 
@@ -1271,7 +1352,6 @@
 
             let rawRoutes = planRoutes(orig, dest, startTimeMin);
 
-            // Deduplicate routes with identical times and legs
             const seen = new Set();
             currentRoutes = rawRoutes.filter(r => {
                 const key = `${r.dep_time}-${r.arr_time}-${r.transfers}-${r.legs.map(l=>l.train_number).join('_')}`;
@@ -1478,7 +1558,9 @@
 
         function openStationModal(type) {
             currentModalTarget = type;
-            document.getElementById('modalTitle').textContent = `選擇${type === 'origin' ? '出發' : '抵達'}車站`;
+            document.getElementById('modalTitle').textContent = `🗺️ 選擇${type === 'origin' ? '出發' : '抵達'}車站（依縣市分類）`;
+            document.getElementById('modalSearchInput').value = '';
+            filterModalStations();
             document.getElementById('stationModal').classList.add('open');
         }
 
@@ -1489,10 +1571,16 @@
         }
 
         function renderStationModal() {
+            const tabsContainer = document.getElementById('modalCountyTabs');
             const body = document.getElementById('modalStationList');
-            body.innerHTML = STATION_GROUPS.map(group => `
-                <div class="line-section">
-                    <div class="line-section-title">📍 ${group.line}</div>
+
+            tabsContainer.innerHTML = COUNTY_GROUPS.map((group, idx) => `
+                <a href="#county-${idx}" class="modal-tab-pill" onclick="scrollToCounty('county-${idx}', event)">${group.county}</a>
+            `).join('');
+
+            body.innerHTML = COUNTY_GROUPS.map((group, idx) => `
+                <div class="county-section" id="county-${idx}">
+                    <div class="county-section-title">📍 ${group.county} (${group.stations.length} 站)</div>
                     <div class="station-grid">
                         ${group.stations.map(st => `
                             <button class="station-btn" onclick="modalPickStation('${st}')">${st}</button>
@@ -1500,6 +1588,34 @@
                     </div>
                 </div>
             `).join('');
+        }
+
+        function scrollToCounty(id, e) {
+            if (e) e.preventDefault();
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function filterModalStations() {
+            const query = (document.getElementById('modalSearchInput').value || '').trim().toLowerCase();
+            const sections = document.querySelectorAll('.county-section');
+
+            sections.forEach(sec => {
+                const btns = sec.querySelectorAll('.station-btn');
+                let hasMatch = false;
+                btns.forEach(btn => {
+                    const st = btn.textContent.toLowerCase();
+                    if (!query || st.includes(query)) {
+                        btn.style.display = 'block';
+                        hasMatch = true;
+                    } else {
+                        btn.style.display = 'none';
+                    }
+                });
+                sec.style.display = hasMatch ? 'block' : 'none';
+            });
         }
 
         function modalPickStation(st) {
