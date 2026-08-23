@@ -1041,7 +1041,7 @@
             <div class="nav-title">
                 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                     <h1>台鐵全路網時刻表 & 縣市導航智慧接駁系統</h1>
-                    <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v3.0.0 (2026.07.01版)</span>
+                    <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v3.0.1 (2026.07.01版)</span>
                 </div>
                 <p>2026/07/01 大改點全線全班次 · 全台 17 縣市依區域快速選站 · 支援無限次轉乘</p>
             </div>
@@ -1190,7 +1190,7 @@
         <div class="results-container" id="resultsList"></div>
 
         <footer style="text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px dashed var(--border-color); color: var(--text-muted); font-size: 0.85rem;">
-            <p>🚆 2026 台鐵全路網時刻表系統 · <strong>核心版本: v3.0.0 (預設板橋➔台北 · 一站式連續選站 · 自強號大站標色) (一站式極速連續選站與常用大站快捷) (自強號特快大站醒目標色) (支援車站全日發車時刻表與列車時刻雙彈窗) (支援列車全線時刻表彈窗) (含轉乘失敗第二備案)</strong> (2026/07/01 官方大改點完整收錄)</p>
+            <p>🚆 2026 台鐵全路網時刻表系統 · <strong>核心版本: v3.0.1 (完美修復一站式選站點擊) (預設板橋➔台北 · 一站式連續選站 · 自強號大站標色) (一站式極速連續選站與常用大站快捷) (自強號特快大站醒目標色) (支援車站全日發車時刻表與列車時刻雙彈窗) (支援列車全線時刻表彈窗) (含轉乘失敗第二備案)</strong> (2026/07/01 官方大改點完整收錄)</p>
             <p style="margin-top: 4px; font-size: 0.75rem;">100% 純前端離線運算 · 支援全台 17 縣市車站選單與無限多段轉乘智慧規劃</p>
         </footer>
     </div>
@@ -2196,13 +2196,60 @@
             executeSearch();
         }
 
+        
         function openStationModal(type) {
-            currentModalTarget = type;
-            document.getElementById('modalTitle').textContent = `🗺️ 選擇${type === 'origin' ? '出發' : '抵達'}車站（依縣市分類）`;
+            setModalTarget(type || 'origin');
             document.getElementById('modalSearchInput').value = '';
             renderStationModal();
             filterModalStations();
             document.getElementById('stationModal').classList.add('open');
+        }
+
+        function setModalTarget(type) {
+            currentModalTarget = type;
+            const origVal = document.getElementById('originInput').value || '未選擇';
+            const destVal = document.getElementById('destInput').value || '未選擇';
+            
+            const origEl = document.getElementById('modalOriginVal');
+            const destEl = document.getElementById('modalDestVal');
+            if (origEl) origEl.textContent = origVal;
+            if (destEl) destEl.textContent = destVal;
+
+            const btnOrig = document.getElementById('modalStepOrigin');
+            const btnDest = document.getElementById('modalStepDest');
+
+            if (type === 'origin') {
+                if (btnOrig) btnOrig.classList.add('active');
+                if (btnDest) btnDest.classList.remove('active');
+                document.getElementById('modalTitle').textContent = '🗺️ 第 1 步：請點選【出發站】';
+            } else {
+                if (btnOrig) btnOrig.classList.remove('active');
+                if (btnDest) btnDest.classList.add('active');
+                document.getElementById('modalTitle').textContent = '🗺️ 第 2 步：請點選【抵達站】';
+            }
+        }
+
+        function modalPickStation(st) {
+            if (currentModalTarget === 'origin') {
+                document.getElementById('originInput').value = st;
+                const origEl = document.getElementById('modalOriginVal');
+                if (origEl) origEl.textContent = st;
+                // Move to Destination selection
+                setModalTarget('dest');
+                document.getElementById('modalSearchInput').value = '';
+                filterModalStations();
+            } else {
+                document.getElementById('destInput').value = st;
+                const destEl = document.getElementById('modalDestVal');
+                if (destEl) destEl.textContent = st;
+                document.getElementById('stationModal').classList.remove('open');
+                executeSearch();
+            }
+        }
+
+        function quickFillStation(target, st) {
+            document.getElementById(`${target}Input`).value = st;
+            executeSearch();
         }
 
         function closeStationModal(e) {
