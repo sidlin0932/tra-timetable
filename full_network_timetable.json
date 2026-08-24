@@ -20555,22 +20555,10 @@
     "train_type": "自強號",
     "train_model": "PP自強號",
     "is_trpass": true,
-    "origin": "鳳山",
-    "dest": "高雄",
+    "origin": "基隆",
+    "dest": "潮州",
     "line": "屏東線",
     "stops": [
-      {
-        "station": "鳳山",
-        "time": "00:05"
-      },
-      {
-        "station": "屏東",
-        "time": "00:18"
-      },
-      {
-        "station": "潮州",
-        "time": "00:31"
-      },
       {
         "station": "基隆",
         "time": "18:13"
@@ -20654,6 +20642,18 @@
       {
         "station": "高雄",
         "time": "23:59"
+      },
+      {
+        "station": "鳳山",
+        "time": "00:05"
+      },
+      {
+        "station": "屏東",
+        "time": "00:18"
+      },
+      {
+        "station": "潮州",
+        "time": "00:31"
       }
     ]
   },
@@ -20765,22 +20765,10 @@
     "train_type": "自強號",
     "train_model": "PP自強號",
     "is_trpass": true,
-    "origin": "台北",
-    "dest": "板橋",
+    "origin": "潮州",
+    "dest": "汐止",
     "line": "屏東線",
     "stops": [
-      {
-        "station": "台北",
-        "time": "00:05"
-      },
-      {
-        "station": "松山",
-        "time": "00:13"
-      },
-      {
-        "station": "汐止",
-        "time": "00:23"
-      },
       {
         "station": "潮州",
         "time": "18:27"
@@ -20856,6 +20844,18 @@
       {
         "station": "板橋",
         "time": "23:53"
+      },
+      {
+        "station": "台北",
+        "time": "00:05"
+      },
+      {
+        "station": "松山",
+        "time": "00:13"
+      },
+      {
+        "station": "汐止",
+        "time": "00:23"
       }
     ]
   },
@@ -21259,10 +21259,6 @@
         "time": "07:57"
       },
       {
-        "station": "Kaohsiung",
-        "time": "07:57"
-      },
-      {
         "station": "台南",
         "time": "08:28"
       },
@@ -21367,10 +21363,6 @@
       },
       {
         "station": "高雄",
-        "time": "09:49"
-      },
-      {
-        "station": "Kaohsiung",
         "time": "09:49"
       },
       {
@@ -21616,10 +21608,6 @@
       },
       {
         "station": "高雄",
-        "time": "17:49"
-      },
-      {
-        "station": "Kaohsiung",
         "time": "17:49"
       },
       {
@@ -26526,16 +26514,16 @@
     "train_type": "普悠瑪",
     "train_model": "普悠瑪號",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "樹林",
     "line": "東部幹線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "05:50"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "06:02"
       },
       {
@@ -26561,10 +26549,6 @@
       {
         "station": "台北",
         "time": "08:18"
-      },
-      {
-        "station": "Taipei",
-        "time": "08:23"
       },
       {
         "station": "板橋",
@@ -27260,10 +27244,6 @@
         "time": "07:27"
       },
       {
-        "station": "Hualien",
-        "time": "07:30"
-      },
-      {
         "station": "南澳",
         "time": "08:12"
       },
@@ -27294,10 +27274,6 @@
       {
         "station": "台北",
         "time": "10:08"
-      },
-      {
-        "station": "Taipei",
-        "time": "10:11"
       },
       {
         "station": "板橋",
@@ -27396,12 +27372,12 @@
     "train_type": "自強號",
     "train_model": "PP自強號",
     "is_trpass": true,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "樹林",
     "line": "東部幹線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "08:04"
       },
       {
@@ -27435,10 +27411,6 @@
       {
         "station": "台北",
         "time": "10:52"
-      },
-      {
-        "station": "Taipei",
-        "time": "10:55"
       },
       {
         "station": "板橋",
@@ -27488,20 +27460,12 @@
         "time": "18:22"
       },
       {
-        "station": "Hualien",
-        "time": "18:28"
-      },
-      {
         "station": "松山",
         "time": "20:41"
       },
       {
         "station": "台北",
         "time": "20:48"
-      },
-      {
-        "station": "Taipei",
-        "time": "20:51"
       },
       {
         "station": "板橋",
@@ -29287,16 +29251,16 @@
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "樹林",
     "line": "東部幹線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "10:24"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "10:36"
       },
       {
@@ -29334,10 +29298,6 @@
       {
         "station": "台北",
         "time": "13:03"
-      },
-      {
-        "station": "Taipei",
-        "time": "13:05"
       },
       {
         "station": "板橋",
@@ -30833,12 +30793,12 @@
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "樹林",
     "line": "東部幹線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "12:03"
       },
       {
@@ -30860,10 +30820,6 @@
       {
         "station": "台北",
         "time": "14:29"
-      },
-      {
-        "station": "Taipei",
-        "time": "14:31"
       },
       {
         "station": "板橋",
@@ -31921,12 +31877,12 @@
     "train_type": "太魯閣",
     "train_model": "太魯閣號",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "樹林",
     "line": "東部幹線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "11:02"
       },
       {
@@ -31948,10 +31904,6 @@
       {
         "station": "台北",
         "time": "13:22"
-      },
-      {
-        "station": "Taipei",
-        "time": "13:24"
       },
       {
         "station": "板橋",
@@ -33162,16 +33114,16 @@
     "train_type": "普悠瑪",
     "train_model": "普悠瑪號",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "樹林",
     "line": "東部幹線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "12:14"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "12:26"
       },
       {
@@ -33213,10 +33165,6 @@
       {
         "station": "台北",
         "time": "14:53"
-      },
-      {
-        "station": "Taipei",
-        "time": "14:56"
       },
       {
         "station": "板橋",
@@ -34066,10 +34014,6 @@
         "time": "09:13"
       },
       {
-        "station": "Hualien",
-        "time": "09:19"
-      },
-      {
         "station": "瑞穗",
         "time": "10:04"
       },
@@ -34566,12 +34510,12 @@
     "train_type": "自強號",
     "train_model": "PP自強號",
     "is_trpass": true,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "樹林",
     "line": "東部幹線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "12:39"
       },
       {
@@ -34621,10 +34565,6 @@
       {
         "station": "台北",
         "time": "15:45"
-      },
-      {
-        "station": "Taipei",
-        "time": "15:48"
       },
       {
         "station": "板橋",
@@ -35820,12 +35760,12 @@
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "樹林",
     "line": "東部幹線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "14:51"
       },
       {
@@ -35839,10 +35779,6 @@
       {
         "station": "台北",
         "time": "17:15"
-      },
-      {
-        "station": "Taipei",
-        "time": "17:18"
       },
       {
         "station": "板橋",
@@ -36783,7 +36719,7 @@
         "time": "14:01"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "14:33"
       },
       {
@@ -39802,12 +39738,12 @@
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "壽豐",
     "line": "東部幹線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "16:43"
       },
       {
@@ -39829,12 +39765,12 @@
     "train_type": "太魯閣",
     "train_model": "太魯閣號",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "樹林",
     "line": "東部幹線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "16:45"
       },
       {
@@ -39856,10 +39792,6 @@
       {
         "station": "台北",
         "time": "19:07"
-      },
-      {
-        "station": "Taipei",
-        "time": "19:10"
       },
       {
         "station": "板橋",
@@ -39909,10 +39841,6 @@
         "time": "16:36"
       },
       {
-        "station": "Hualien",
-        "time": "16:43"
-      },
-      {
         "station": "吉安",
         "time": "16:48"
       },
@@ -39931,12 +39859,12 @@
     "train_type": "太魯閣",
     "train_model": "太魯閣號",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "樹林",
     "line": "東部幹線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "18:02"
       },
       {
@@ -39954,10 +39882,6 @@
       {
         "station": "台北",
         "time": "20:20"
-      },
-      {
-        "station": "Taipei",
-        "time": "20:25"
       },
       {
         "station": "板橋",
@@ -40013,16 +39937,16 @@
     "train_type": "普悠瑪",
     "train_model": "普悠瑪號",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "樹林",
     "line": "東部幹線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "18:32"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "18:44"
       },
       {
@@ -40076,10 +40000,6 @@
       {
         "station": "台北",
         "time": "21:19"
-      },
-      {
-        "station": "Taipei",
-        "time": "21:22"
       },
       {
         "station": "板橋",
@@ -40139,16 +40059,16 @@
     "train_type": "普悠瑪",
     "train_model": "普悠瑪號",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "樹林",
     "line": "東部幹線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "19:38"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "19:50"
       },
       {
@@ -40170,10 +40090,6 @@
       {
         "station": "台北",
         "time": "22:02"
-      },
-      {
-        "station": "Taipei",
-        "time": "22:06"
       },
       {
         "station": "板橋",
@@ -40259,7 +40175,7 @@
         "time": "18:21"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "18:57"
       },
       {
@@ -40330,7 +40246,7 @@
         "time": "21:22"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "21:45"
       },
       {
@@ -41581,16 +41497,12 @@
         "time": "22:11"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "23:00"
       },
       {
         "station": "花蓮",
         "time": "23:11"
-      },
-      {
-        "station": "Hualien",
-        "time": "23:14"
       },
       {
         "station": "吉安",
@@ -44780,7 +44692,7 @@
         "time": "12:04"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "12:40"
       },
       {
@@ -45070,12 +44982,12 @@
     "train_type": "普悠瑪",
     "train_model": "普悠瑪號",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "彰化",
     "line": "西部幹線特快",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "10:19"
       },
       {
@@ -45100,10 +45012,6 @@
       },
       {
         "station": "台北",
-        "time": "12:45"
-      },
-      {
-        "station": "Taipei",
         "time": "12:45"
       },
       {
@@ -45542,7 +45450,7 @@
         "time": "09:40"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "10:27"
       },
       {
@@ -45895,12 +45803,12 @@
     "train_type": "普悠瑪",
     "train_model": "普悠瑪號",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "彰化",
     "line": "西部幹線特快",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "14:18"
       },
       {
@@ -45924,10 +45832,6 @@
         "time": "16:45"
       },
       {
-        "station": "Taipei",
-        "time": "16:45"
-      },
-      {
         "station": "板橋",
         "time": "16:53"
       },
@@ -45942,16 +45846,16 @@
     "train_type": "自強號",
     "train_model": "PP自強號",
     "is_trpass": true,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "斗南",
     "line": "西部幹線特快",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "14:22"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "14:35"
       },
       {
@@ -46000,10 +45904,6 @@
       },
       {
         "station": "台北",
-        "time": "17:38"
-      },
-      {
-        "station": "Taipei",
         "time": "17:38"
       },
       {
@@ -46199,32 +46099,16 @@
     "train_type": "自強號",
     "train_model": "PP自強號",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "台南",
+    "origin": "花蓮",
+    "dest": "屏東",
     "line": "屏東線",
     "stops": [
       {
-        "station": "新左營",
-        "time": "00:12"
-      },
-      {
-        "station": "高雄",
-        "time": "00:23"
-      },
-      {
-        "station": "鳳山",
-        "time": "00:30"
-      },
-      {
-        "station": "屏東",
-        "time": "00:43"
-      },
-      {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "16:23"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "16:36"
       },
       {
@@ -46265,10 +46149,6 @@
       },
       {
         "station": "台北",
-        "time": "19:30"
-      },
-      {
-        "station": "Taipei",
         "time": "19:30"
       },
       {
@@ -46314,6 +46194,22 @@
       {
         "station": "台南",
         "time": "23:46"
+      },
+      {
+        "station": "新左營",
+        "time": "00:12"
+      },
+      {
+        "station": "高雄",
+        "time": "00:23"
+      },
+      {
+        "station": "鳳山",
+        "time": "00:30"
+      },
+      {
+        "station": "屏東",
+        "time": "00:43"
       }
     ]
   },
@@ -46386,10 +46282,6 @@
         "time": "17:40"
       },
       {
-        "station": "Hualien",
-        "time": "17:43"
-      },
-      {
         "station": "羅東",
         "time": "18:43"
       },
@@ -46411,10 +46303,6 @@
       },
       {
         "station": "台北",
-        "time": "20:20"
-      },
-      {
-        "station": "Taipei",
         "time": "20:20"
       },
       {
@@ -46448,12 +46336,12 @@
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "彰化",
     "line": "西部幹線特快",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "18:15"
       },
       {
@@ -46474,10 +46362,6 @@
       },
       {
         "station": "台北",
-        "time": "20:46"
-      },
-      {
-        "station": "Taipei",
         "time": "20:46"
       },
       {
@@ -47192,10 +47076,6 @@
         "time": "09:22"
       },
       {
-        "station": "Taitung",
-        "time": "09:22"
-      },
-      {
         "station": "玉里",
         "time": "10:06"
       },
@@ -47524,10 +47404,6 @@
       {
         "station": "高雄",
         "time": "13:56"
-      },
-      {
-        "station": "Kaohsiung",
-        "time": "13:59"
       },
       {
         "station": "新左營",
@@ -48040,10 +47916,6 @@
       {
         "station": "高雄",
         "time": "16:49"
-      },
-      {
-        "station": "Kaohsiung",
-        "time": "16:52"
       },
       {
         "station": "新左營",
@@ -48769,10 +48641,6 @@
         "time": "20:04"
       },
       {
-        "station": "Kaohsiung",
-        "time": "20:07"
-      },
-      {
         "station": "新左營",
         "time": "20:16"
       }
@@ -48833,10 +48701,6 @@
       },
       {
         "station": "高雄",
-        "time": "12:42"
-      },
-      {
-        "station": "Kaohsiung",
         "time": "12:42"
       },
       {
@@ -49429,12 +49293,12 @@
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "新左營",
     "line": "屏東線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "06:21"
       },
       {
@@ -49486,10 +49350,6 @@
         "time": "08:33"
       },
       {
-        "station": "Taitung",
-        "time": "08:37"
-      },
-      {
         "station": "知本",
         "time": "08:47"
       },
@@ -49531,10 +49391,6 @@
       },
       {
         "station": "高雄",
-        "time": "10:52"
-      },
-      {
-        "station": "Kaohsiung",
         "time": "10:52"
       },
       {
@@ -50968,10 +50824,6 @@
       },
       {
         "station": "高雄",
-        "time": "14:37"
-      },
-      {
-        "station": "Kaohsiung",
         "time": "14:37"
       },
       {
@@ -54072,10 +53924,6 @@
       },
       {
         "station": "高雄",
-        "time": "15:42"
-      },
-      {
-        "station": "Kaohsiung",
         "time": "15:42"
       },
       {
@@ -65452,10 +65300,6 @@
         "time": "21:16"
       },
       {
-        "station": "Taitung",
-        "time": "21:16"
-      },
-      {
         "station": "鹿野",
         "time": "21:28"
       },
@@ -66688,12 +66532,12 @@
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "台南",
     "line": "屏東線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "16:01"
       },
       {
@@ -66713,10 +66557,6 @@
         "time": "17:46"
       },
       {
-        "station": "Taitung",
-        "time": "17:52"
-      },
-      {
         "station": "知本",
         "time": "18:02"
       },
@@ -66730,10 +66570,6 @@
       },
       {
         "station": "高雄",
-        "time": "19:50"
-      },
-      {
-        "station": "Kaohsiung",
         "time": "19:50"
       },
       {
@@ -72286,14 +72122,10 @@
     "train_type": "區間車",
     "train_model": "EMU系列",
     "is_trpass": true,
-    "origin": "高雄",
-    "dest": "三塊厝",
+    "origin": "彰化",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "stops": [
-      {
-        "station": "高雄",
-        "time": "00:01"
-      },
       {
         "station": "彰化",
         "time": "20:14"
@@ -72473,6 +72305,10 @@
       {
         "station": "三塊厝",
         "time": "23:49"
+      },
+      {
+        "station": "高雄",
+        "time": "00:01"
       }
     ]
   },
@@ -73212,14 +73048,10 @@
     "train_type": "區間車",
     "train_model": "EMU系列",
     "is_trpass": true,
-    "origin": "台南",
-    "dest": "大橋",
+    "origin": "彰化",
+    "dest": "台南",
     "line": "縱貫線南段",
     "stops": [
-      {
-        "station": "台南",
-        "time": "00:01"
-      },
       {
         "station": "彰化",
         "time": "21:21"
@@ -73339,6 +73171,10 @@
       {
         "station": "大橋",
         "time": "23:57"
+      },
+      {
+        "station": "台南",
+        "time": "00:01"
       }
     ]
   },
@@ -73823,10 +73659,6 @@
       {
         "station": "高雄",
         "time": "08:29"
-      },
-      {
-        "station": "Kaohsiung",
-        "time": "08:31"
       },
       {
         "station": "新左營",
@@ -81137,10 +80969,6 @@
         "time": "19:35"
       },
       {
-        "station": "Kaohsiung",
-        "time": "19:35"
-      },
-      {
         "station": "新左營",
         "time": "19:45"
       },
@@ -81814,20 +81642,12 @@
         "time": "06:33"
       },
       {
-        "station": "Hualien",
-        "time": "06:36"
-      },
-      {
         "station": "宜蘭",
         "time": "07:38"
       },
       {
         "station": "台北",
         "time": "08:48"
-      },
-      {
-        "station": "Taipei",
-        "time": "08:50"
       },
       {
         "station": "板橋",
@@ -82280,10 +82100,6 @@
         "time": "08:19"
       },
       {
-        "station": "Hualien",
-        "time": "08:22"
-      },
-      {
         "station": "瑞穗",
         "time": "08:59"
       },
@@ -82302,10 +82118,6 @@
       {
         "station": "台東",
         "time": "10:10"
-      },
-      {
-        "station": "Taitung",
-        "time": "10:18"
       },
       {
         "station": "康樂",
@@ -84273,10 +84085,6 @@
         "time": "07:52"
       },
       {
-        "station": "Hualien",
-        "time": "07:55"
-      },
-      {
         "station": "羅東",
         "time": "08:54"
       },
@@ -84295,10 +84103,6 @@
       {
         "station": "台北",
         "time": "10:25"
-      },
-      {
-        "station": "Taipei",
-        "time": "10:28"
       },
       {
         "station": "板橋",
@@ -84354,10 +84158,6 @@
       {
         "station": "花蓮",
         "time": "08:57"
-      },
-      {
-        "station": "Hualien",
-        "time": "09:01"
       },
       {
         "station": "吉安",
@@ -84471,11 +84271,7 @@
         "time": "08:53"
       },
       {
-        "station": "Hualien",
-        "time": "08:57"
-      },
-      {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "09:09"
       },
       {
@@ -84497,10 +84293,6 @@
       {
         "station": "台北",
         "time": "11:28"
-      },
-      {
-        "station": "Taipei",
-        "time": "11:31"
       },
       {
         "station": "板橋",
@@ -84540,10 +84332,6 @@
       {
         "station": "花蓮",
         "time": "09:35"
-      },
-      {
-        "station": "Hualien",
-        "time": "09:38"
       },
       {
         "station": "玉里",
@@ -84595,10 +84383,6 @@
       {
         "station": "花蓮",
         "time": "10:18"
-      },
-      {
-        "station": "Hualien",
-        "time": "10:21"
       },
       {
         "station": "吉安",
@@ -84653,10 +84437,6 @@
         "time": "12:32"
       },
       {
-        "station": "Taitung",
-        "time": "12:35"
-      },
-      {
         "station": "知本",
         "time": "12:45"
       },
@@ -84698,10 +84478,6 @@
       },
       {
         "station": "高雄",
-        "time": "14:53"
-      },
-      {
-        "station": "Kaohsiung",
         "time": "14:53"
       },
       {
@@ -85313,10 +85089,6 @@
         "time": "07:43"
       },
       {
-        "station": "Taitung",
-        "time": "07:43"
-      },
-      {
         "station": "鹿野",
         "time": "07:54"
       },
@@ -85353,10 +85125,6 @@
         "time": "09:50"
       },
       {
-        "station": "Hualien",
-        "time": "09:55"
-      },
-      {
         "station": "羅東",
         "time": "10:55"
       },
@@ -85379,10 +85147,6 @@
       {
         "station": "台北",
         "time": "12:25"
-      },
-      {
-        "station": "Taipei",
-        "time": "12:28"
       },
       {
         "station": "板橋",
@@ -88329,10 +88093,6 @@
         "time": "09:41"
       },
       {
-        "station": "Taitung",
-        "time": "09:41"
-      },
-      {
         "station": "關山",
         "time": "10:02"
       },
@@ -88381,10 +88141,6 @@
         "time": "11:44"
       },
       {
-        "station": "Hualien",
-        "time": "11:47"
-      },
-      {
         "station": "羅東",
         "time": "12:46"
       },
@@ -88403,10 +88159,6 @@
       {
         "station": "台北",
         "time": "14:14"
-      },
-      {
-        "station": "Taipei",
-        "time": "14:18"
       },
       {
         "station": "板橋",
@@ -89061,10 +88813,6 @@
         "time": "11:48"
       },
       {
-        "station": "Hualien",
-        "time": "11:51"
-      },
-      {
         "station": "瑞穗",
         "time": "12:35"
       },
@@ -89392,10 +89140,6 @@
         "time": "11:04"
       },
       {
-        "station": "Taitung",
-        "time": "11:04"
-      },
-      {
         "station": "關山",
         "time": "11:25"
       },
@@ -89416,10 +89160,6 @@
         "time": "12:45"
       },
       {
-        "station": "Hualien",
-        "time": "12:49"
-      },
-      {
         "station": "羅東",
         "time": "13:47"
       },
@@ -89438,10 +89178,6 @@
       {
         "station": "台北",
         "time": "15:08"
-      },
-      {
-        "station": "Taipei",
-        "time": "15:11"
       },
       {
         "station": "板橋",
@@ -90500,10 +90236,6 @@
         "time": "11:48"
       },
       {
-        "station": "Hualien",
-        "time": "11:51"
-      },
-      {
         "station": "瑞穗",
         "time": "12:35"
       },
@@ -91409,10 +91141,6 @@
         "time": "13:50"
       },
       {
-        "station": "Hualien",
-        "time": "13:53"
-      },
-      {
         "station": "羅東",
         "time": "14:52"
       },
@@ -91431,10 +91159,6 @@
       {
         "station": "台北",
         "time": "16:20"
-      },
-      {
-        "station": "Taipei",
-        "time": "16:22"
       },
       {
         "station": "板橋",
@@ -92327,10 +92051,6 @@
         "time": "13:55"
       },
       {
-        "station": "Hualien",
-        "time": "13:58"
-      },
-      {
         "station": "吉安",
         "time": "14:03"
       },
@@ -92958,20 +92678,12 @@
         "time": "14:30"
       },
       {
-        "station": "Hualien",
-        "time": "14:33"
-      },
-      {
         "station": "松山",
         "time": "16:45"
       },
       {
         "station": "台北",
         "time": "16:52"
-      },
-      {
-        "station": "Taipei",
-        "time": "16:54"
       },
       {
         "station": "板橋",
@@ -93652,10 +93364,6 @@
         "time": "13:01"
       },
       {
-        "station": "Hualien",
-        "time": "13:06"
-      },
-      {
         "station": "壽豐",
         "time": "13:20"
       },
@@ -93696,10 +93404,6 @@
         "time": "15:05"
       },
       {
-        "station": "Taitung",
-        "time": "15:09"
-      },
-      {
         "station": "知本",
         "time": "15:20"
       },
@@ -93713,10 +93417,6 @@
       },
       {
         "station": "高雄",
-        "time": "17:02"
-      },
-      {
-        "station": "Kaohsiung",
         "time": "17:02"
       },
       {
@@ -94663,10 +94363,6 @@
         "time": "13:20"
       },
       {
-        "station": "Taitung",
-        "time": "13:20"
-      },
-      {
         "station": "鹿野",
         "time": "13:31"
       },
@@ -94715,10 +94411,6 @@
         "time": "15:22"
       },
       {
-        "station": "Hualien",
-        "time": "15:25"
-      },
-      {
         "station": "羅東",
         "time": "16:25"
       },
@@ -94737,10 +94429,6 @@
       {
         "station": "台北",
         "time": "17:53"
-      },
-      {
-        "station": "Taipei",
-        "time": "17:55"
       },
       {
         "station": "板橋",
@@ -96575,10 +96263,6 @@
         "time": "17:25"
       },
       {
-        "station": "Hualien",
-        "time": "17:28"
-      },
-      {
         "station": "羅東",
         "time": "18:27"
       },
@@ -96597,10 +96281,6 @@
       {
         "station": "台北",
         "time": "19:55"
-      },
-      {
-        "station": "Taipei",
-        "time": "19:58"
       },
       {
         "station": "板橋",
@@ -96871,10 +96551,6 @@
         "time": "14:55"
       },
       {
-        "station": "Hualien",
-        "time": "14:58"
-      },
-      {
         "station": "玉里",
         "time": "15:48"
       },
@@ -96922,10 +96598,6 @@
         "time": "17:25"
       },
       {
-        "station": "Hualien",
-        "time": "17:28"
-      },
-      {
         "station": "羅東",
         "time": "18:27"
       },
@@ -96944,10 +96616,6 @@
       {
         "station": "台北",
         "time": "19:55"
-      },
-      {
-        "station": "Taipei",
-        "time": "19:58"
       },
       {
         "station": "板橋",
@@ -97001,16 +96669,12 @@
         "time": "15:21"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "16:10"
       },
       {
         "station": "花蓮",
         "time": "16:21"
-      },
-      {
-        "station": "Hualien",
-        "time": "16:24"
       },
       {
         "station": "吉安",
@@ -97065,10 +96729,6 @@
         "time": "18:30"
       },
       {
-        "station": "Taitung",
-        "time": "18:33"
-      },
-      {
         "station": "知本",
         "time": "18:43"
       },
@@ -97110,10 +96770,6 @@
       },
       {
         "station": "高雄",
-        "time": "20:51"
-      },
-      {
-        "station": "Kaohsiung",
         "time": "20:51"
       },
       {
@@ -97172,10 +96828,6 @@
         "time": "15:10"
       },
       {
-        "station": "Taitung",
-        "time": "15:10"
-      },
-      {
         "station": "鹿野",
         "time": "15:21"
       },
@@ -97220,10 +96872,6 @@
         "time": "17:20"
       },
       {
-        "station": "Hualien",
-        "time": "17:23"
-      },
-      {
         "station": "羅東",
         "time": "18:22"
       },
@@ -97242,10 +96890,6 @@
       {
         "station": "台北",
         "time": "19:49"
-      },
-      {
-        "station": "Taipei",
-        "time": "19:52"
       },
       {
         "station": "板橋",
@@ -97303,10 +96947,6 @@
         "time": "17:26"
       },
       {
-        "station": "Hualien",
-        "time": "17:29"
-      },
-      {
         "station": "鳳林",
         "time": "17:51"
       },
@@ -97333,10 +96973,6 @@
       {
         "station": "台東",
         "time": "19:20"
-      },
-      {
-        "station": "Taitung",
-        "time": "19:30"
       },
       {
         "station": "知本",
@@ -97380,10 +97016,6 @@
       },
       {
         "station": "高雄",
-        "time": "21:49"
-      },
-      {
-        "station": "Kaohsiung",
         "time": "21:49"
       },
       {
@@ -97434,10 +97066,6 @@
         "time": "18:26"
       },
       {
-        "station": "Hualien",
-        "time": "18:29"
-      },
-      {
         "station": "吉安",
         "time": "18:37"
       },
@@ -97482,10 +97110,6 @@
         "time": "20:46"
       },
       {
-        "station": "Taitung",
-        "time": "20:50"
-      },
-      {
         "station": "知本",
         "time": "21:02"
       },
@@ -97515,10 +97139,6 @@
       },
       {
         "station": "高雄",
-        "time": "22:56"
-      },
-      {
-        "station": "Kaohsiung",
         "time": "22:56"
       },
       {
@@ -97555,10 +97175,6 @@
       {
         "station": "花蓮",
         "time": "20:15"
-      },
-      {
-        "station": "Hualien",
-        "time": "20:20"
       },
       {
         "station": "玉里",
@@ -97606,10 +97222,6 @@
       {
         "station": "花蓮",
         "time": "20:49"
-      },
-      {
-        "station": "Hualien",
-        "time": "20:54"
       },
       {
         "station": "光復",
@@ -97707,10 +97319,6 @@
         "time": "19:03"
       },
       {
-        "station": "Hualien",
-        "time": "19:06"
-      },
-      {
         "station": "羅東",
         "time": "20:06"
       },
@@ -97725,10 +97333,6 @@
       {
         "station": "台北",
         "time": "21:34"
-      },
-      {
-        "station": "Taipei",
-        "time": "21:37"
       },
       {
         "station": "板橋",
@@ -97814,10 +97418,6 @@
         "time": "17:46"
       },
       {
-        "station": "Taitung",
-        "time": "17:46"
-      },
-      {
         "station": "玉里",
         "time": "18:29"
       },
@@ -97826,20 +97426,12 @@
         "time": "19:16"
       },
       {
-        "station": "Hualien",
-        "time": "19:19"
-      },
-      {
         "station": "松山",
         "time": "21:31"
       },
       {
         "station": "台北",
         "time": "21:38"
-      },
-      {
-        "station": "Taipei",
-        "time": "21:42"
       },
       {
         "station": "板橋",
@@ -97909,16 +97501,12 @@
         "time": "18:49"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "19:32"
       },
       {
         "station": "花蓮",
         "time": "19:43"
-      },
-      {
-        "station": "Hualien",
-        "time": "19:46"
       },
       {
         "station": "鳳林",
@@ -97992,10 +97580,6 @@
         "time": "17:54"
       },
       {
-        "station": "Taitung",
-        "time": "17:54"
-      },
-      {
         "station": "玉里",
         "time": "18:53"
       },
@@ -98008,20 +97592,12 @@
         "time": "20:07"
       },
       {
-        "station": "Hualien",
-        "time": "20:17"
-      },
-      {
         "station": "南港",
         "time": "22:20"
       },
       {
         "station": "台北",
         "time": "22:30"
-      },
-      {
-        "station": "Taipei",
-        "time": "22:33"
       },
       {
         "station": "板橋",
@@ -98095,10 +97671,6 @@
         "time": "18:35"
       },
       {
-        "station": "Taitung",
-        "time": "18:35"
-      },
-      {
         "station": "關山",
         "time": "18:57"
       },
@@ -98143,11 +97715,7 @@
         "time": "20:33"
       },
       {
-        "station": "Hualien",
-        "time": "20:36"
-      },
-      {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "20:48"
       },
       {
@@ -98173,10 +97741,6 @@
       {
         "station": "台北",
         "time": "23:07"
-      },
-      {
-        "station": "Taipei",
-        "time": "23:12"
       },
       {
         "station": "板橋",
@@ -98234,10 +97798,6 @@
         "time": "21:49"
       },
       {
-        "station": "Hualien",
-        "time": "21:53"
-      },
-      {
         "station": "羅東",
         "time": "22:52"
       },
@@ -98256,10 +97816,6 @@
       {
         "station": "台北",
         "time": "00:15"
-      },
-      {
-        "station": "Taipei",
-        "time": "00:18"
       },
       {
         "station": "板橋",
@@ -98311,10 +97867,6 @@
       {
         "station": "花蓮",
         "time": "22:21"
-      },
-      {
-        "station": "Hualien",
-        "time": "22:24"
       },
       {
         "station": "吉安",
@@ -99229,10 +98781,70 @@
     "train_type": "普悠瑪",
     "train_model": "普悠瑪號",
     "is_trpass": false,
-    "origin": "板橋",
-    "dest": "樹林",
+    "origin": "瑞穗",
+    "dest": "光復",
     "line": "屏東線",
     "stops": [
+      {
+        "station": "瑞穗",
+        "time": "04:03"
+      },
+      {
+        "station": "玉里",
+        "time": "04:19"
+      },
+      {
+        "station": "富里",
+        "time": "04:32"
+      },
+      {
+        "station": "池上",
+        "time": "04:40"
+      },
+      {
+        "station": "關山",
+        "time": "04:51"
+      },
+      {
+        "station": "鹿野",
+        "time": "05:08"
+      },
+      {
+        "station": "台東",
+        "time": "05:20"
+      },
+      {
+        "station": "知本",
+        "time": "05:40"
+      },
+      {
+        "station": "枋寮",
+        "time": "06:47"
+      },
+      {
+        "station": "潮州",
+        "time": "07:12"
+      },
+      {
+        "station": "屏東",
+        "time": "07:25"
+      },
+      {
+        "station": "鳳山",
+        "time": "07:36"
+      },
+      {
+        "station": "高雄",
+        "time": "07:44"
+      },
+      {
+        "station": "新左營",
+        "time": "07:52"
+      },
+      {
+        "station": "樹林",
+        "time": "23:57"
+      },
       {
         "station": "板橋",
         "time": "00:06"
@@ -99270,16 +98882,12 @@
         "time": "02:00"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "02:49"
       },
       {
         "station": "花蓮",
         "time": "03:00"
-      },
-      {
-        "station": "Hualien",
-        "time": "03:10"
       },
       {
         "station": "吉安",
@@ -99296,74 +98904,6 @@
       {
         "station": "光復",
         "time": "03:49"
-      },
-      {
-        "station": "瑞穗",
-        "time": "04:03"
-      },
-      {
-        "station": "玉里",
-        "time": "04:19"
-      },
-      {
-        "station": "富里",
-        "time": "04:32"
-      },
-      {
-        "station": "池上",
-        "time": "04:40"
-      },
-      {
-        "station": "關山",
-        "time": "04:51"
-      },
-      {
-        "station": "鹿野",
-        "time": "05:08"
-      },
-      {
-        "station": "台東",
-        "time": "05:20"
-      },
-      {
-        "station": "Taitung",
-        "time": "05:29"
-      },
-      {
-        "station": "知本",
-        "time": "05:40"
-      },
-      {
-        "station": "枋寮",
-        "time": "06:47"
-      },
-      {
-        "station": "潮州",
-        "time": "07:12"
-      },
-      {
-        "station": "屏東",
-        "time": "07:25"
-      },
-      {
-        "station": "鳳山",
-        "time": "07:36"
-      },
-      {
-        "station": "高雄",
-        "time": "07:44"
-      },
-      {
-        "station": "Kaohsiung",
-        "time": "07:44"
-      },
-      {
-        "station": "新左營",
-        "time": "07:52"
-      },
-      {
-        "station": "樹林",
-        "time": "23:57"
       }
     ]
   },
@@ -101392,10 +100932,6 @@
         "time": "11:07"
       },
       {
-        "station": "Hualien",
-        "time": "11:10"
-      },
-      {
         "station": "吉安",
         "time": "11:15"
       },
@@ -102215,10 +101751,6 @@
         "time": "15:57"
       },
       {
-        "station": "Hualien",
-        "time": "16:05"
-      },
-      {
         "station": "羅東",
         "time": "17:05"
       },
@@ -102236,10 +101768,6 @@
       },
       {
         "station": "台北",
-        "time": "18:41"
-      },
-      {
-        "station": "Taipei",
         "time": "18:41"
       },
       {
@@ -103983,22 +103511,10 @@
     "train_type": "莒光號",
     "train_model": "莒光號客車",
     "is_trpass": true,
-    "origin": "和平",
-    "dest": "南澳",
+    "origin": "潮州",
+    "dest": "花蓮",
     "line": "屏東線",
     "stops": [
-      {
-        "station": "和平",
-        "time": "00:14"
-      },
-      {
-        "station": "新城(太魯閣)Xincheng",
-        "time": "00:38"
-      },
-      {
-        "station": "花蓮",
-        "time": "00:53"
-      },
       {
         "station": "潮州",
         "time": "12:57"
@@ -104178,6 +103694,18 @@
       {
         "station": "南澳",
         "time": "23:56"
+      },
+      {
+        "station": "和平",
+        "time": "00:14"
+      },
+      {
+        "station": "新城(太魯閣)",
+        "time": "00:38"
+      },
+      {
+        "station": "花蓮",
+        "time": "00:53"
       }
     ]
   },
@@ -104186,12 +103714,12 @@
     "train_type": "莒光號",
     "train_model": "莒光號客車",
     "is_trpass": true,
-    "origin": "Hualien",
+    "origin": "花蓮",
     "dest": "台東",
     "line": "東部幹線",
     "stops": [
       {
-        "station": "Hualien",
+        "station": "花蓮",
         "time": "06:34"
       },
       {
@@ -104346,15 +103874,11 @@
         "time": "15:09"
       },
       {
-        "station": "Hualien",
-        "time": "15:13"
-      },
-      {
         "station": "北埔",
         "time": "15:20"
       },
       {
-        "station": "新城(太魯閣)Xincheng",
+        "station": "新城(太魯閣)",
         "time": "15:37"
       },
       {
@@ -104427,10 +103951,6 @@
       },
       {
         "station": "台北",
-        "time": "19:16"
-      },
-      {
-        "station": "Taipei",
         "time": "19:16"
       },
       {
@@ -104554,10 +104074,6 @@
       },
       {
         "station": "高雄",
-        "time": "18:34"
-      },
-      {
-        "station": "Kaohsiung",
         "time": "18:34"
       },
       {
