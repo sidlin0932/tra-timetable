@@ -8,6 +8,7 @@ __pycache__/
 *.aux
 *.out
 *.png
+!icon-*.png
 *.txt
 calc_route.py
 test_*.py
