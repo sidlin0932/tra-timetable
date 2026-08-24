@@ -4,6 +4,14 @@
 
 ---
 
+## [v3.8.10] - 2026-08-25
+
+### 📱 W3C 標準 PWA 配置強化 (W3C Standard App ID & Scope)
+- 依 W3C Web App Manifest 規範更新 `id: "/tra-timetable/"` 與嚴格相對路徑，確保 Android Chrome 完整觸發原生 WebAPK 安裝流程。
+- 同步升級 Service Worker 快取至 `v3.8.10`。
+
+---
+
 ## [v3.8.9] - 2026-08-25
 
 ### 🎨 圖示與 Favicon 全面升級 (Favicon & Icon Overhaul)

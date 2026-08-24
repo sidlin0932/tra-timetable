@@ -1,5 +1,5 @@
-// Service Worker for 2026 台鐵時刻表 PWA (v3.8.9)
-const CACHE_NAME = 'tra-timetable-pwa-v389';
+// Service Worker for 2026 台鐵時刻表 PWA (v3.8.10)
+const CACHE_NAME = 'tra-timetable-pwa-v3810';
 const LOCAL_ASSETS = [
   './',
   './index.html',
