@@ -3475,9 +3475,16 @@
         }
 
         function scrollToCounty(id, e) {
-            if (e) e.preventDefault();
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
             const el = document.getElementById(id);
-            if (el) {
+            const container = document.getElementById('modalStationList');
+            if (el && container) {
+                const elTop = el.offsetTop;
+                container.scrollTo({ top: elTop - 10, behavior: 'smooth' });
+            } else if (el) {
                 el.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
