@@ -1831,7 +1831,7 @@
         </div>
     </div>
 
-    <script src="data.js?v=20260701_v384"></script>
+    <script src="data.js?v=20260701_v385"></script>
     <script>
         let allTimetableData = window.EMBEDDED_TIMETABLE_DATA || [];
         let departuresByStation = {};
@@ -2298,8 +2298,55 @@
         }
 
         // ==========================================
-        // Single-Leg & Chained Multi-Leg Routing Core (Optimized Memoized BFS)
+        // Single-Leg & Chained Multi-Leg Routing Core
         // ==========================================
+        function getDirectLegTrains(orig, dest, startTimeMin) {
+            const origDeps = departuresByStation[orig] || [];
+            const results = [];
+
+            origDeps.forEach(firstDep => {
+                if (firstDep.depTimeMin < startTimeMin) return;
+                if (!isTrainAllowed(firstDep.train)) return;
+
+                const train1 = firstDep.train;
+                for (let j = firstDep.stopIdx + 1; j < train1.stops.length; j++) {
+                    if (train1.stops[j].station === dest) {
+                        const arrMin = timeToMin(train1.stops[j].time);
+                        if (arrMin <= firstDep.depTimeMin) continue;
+
+                        const leg1 = {
+                            train_number: train1.train_number,
+                            train_type: train1.train_type,
+                            train_model: train1.train_model,
+                            is_trpass: train1.is_trpass,
+                            origin: train1.origin,
+                            dest: train1.dest,
+                            from: orig,
+                            to: dest,
+                            dep: train1.stops[firstDep.stopIdx].time,
+                            arr: train1.stops[j].time,
+                            layover: 0,
+                            all_stops: train1.stops.slice(firstDep.stopIdx, j + 1)
+                        };
+
+                        results.push({
+                            transfers: 0,
+                            dep_time: leg1.dep,
+                            arr_time: leg1.arr,
+                            duration: arrMin - firstDep.depTimeMin,
+                            is_trpass: leg1.is_trpass,
+                            train_types: [leg1.train_type],
+                            transfer_stations: [],
+                            legs: [leg1]
+                        });
+                    }
+                }
+            });
+
+            results.sort((a, b) => timeToMin(a.dep_time) - timeToMin(b.dep_time));
+            return results;
+        }
+
         function planRoutes(orig, dest, startTimeMin, viaStation = '') {
             if (!orig || !dest || orig === dest || allTimetableData.length === 0) {
                 return [];
@@ -2372,7 +2419,7 @@
 
                         for (const d of deps) {
                             if (d.depTimeMin < minDep) continue;
-                            if (d.depTimeMin > minDep + 90) continue; // Allow up to 90 min transfer layover
+                            if (d.depTimeMin > minDep + 90) continue;
                             if (!isTrainAllowed(d.train)) continue;
                             if (d.train.train_number === state.legs[state.legs.length - 1].train_number) continue;
 
@@ -2502,18 +2549,26 @@
                 return planRoutes(wps[0].station, wps[1].station, startTimeMin, via);
             }
 
-            // Step 1: Precompute all single-leg route tables across the entire day (just 1 search per leg!)
+            // Step 1: Precompute leg tables
+            // For multi-stop tours between hubs, get ALL direct trains across the full day; if none, fallback to planRoutes
             const legTables = [];
             for (let k = 0; k < wps.length - 1; k++) {
                 const fSt = wps[k].station;
                 const tSt = wps[k + 1].station;
                 if (!fSt || !tSt || fSt === tSt) return [];
-                const legRoutes = planRoutes(fSt, tSt, (k === 0 ? startTimeMin : 0), '');
-                if (legRoutes.length === 0) return [];
-                legTables.push(legRoutes);
+
+                const minT = (k === 0 ? startTimeMin : 0);
+                let directs = getDirectLegTrains(fSt, tSt, minT);
+                if (directs.length > 0) {
+                    legTables.push(directs);
+                } else {
+                    const fallbackRoutes = planRoutes(fSt, tSt, minT, '');
+                    if (fallbackRoutes.length === 0) return [];
+                    legTables.push(fallbackRoutes);
+                }
             }
 
-            // Step 2: Ultra-fast memory chaining across legs
+            // Step 2: Chain legs efficiently in memory across the entire day
             let currentItineraries = legTables[0].map(r => ({
                 legs: [...r.legs],
                 stopovers: [],
@@ -2536,7 +2591,7 @@
                     const arrM = timeToMin(itin.arr_time);
                     const lastLeg = itin.legs[itin.legs.length - 1];
 
-                    // Direct Through Ride Check (Same train continues from fromSt to toSt)
+                    // Option A: Direct through-ride check on the SAME train
                     if (minStay === 0) {
                         const trainObj = allTimetableData.find(t => t.train_number === lastLeg.train_number);
                         if (trainObj) {
@@ -2577,7 +2632,7 @@
                         }
                     }
 
-                    // Fast Next Train Connection
+                    // Option B: Next train connection across the whole day
                     const earliestNextDepMin = arrM + (minStay > 0 ? (minStay + 3) : 3);
                     for (const nxt of nextLegRoutes) {
                         const nxtDepM = timeToMin(nxt.dep_time);
@@ -2604,7 +2659,7 @@
 
                 if (nextItineraries.length === 0) return [];
 
-                // Deduplicate and retain diversity
+                // Deduplicate
                 const seenKeys = new Set();
                 const deduped = [];
                 for (const item of nextItineraries) {
@@ -2615,8 +2670,7 @@
                     }
                 }
 
-                deduped.sort((a, b) => timeToMin(a.arr_time) - timeToMin(b.arr_time) || a.duration - b.duration);
-                currentItineraries = deduped.slice(0, 100);
+                currentItineraries = deduped;
             }
 
             currentItineraries.forEach(itin => {
