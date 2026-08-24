@@ -1,36 +1,38 @@
-# -*- coding: utf-8 -*-
-import sys
-sys.stdout.reconfigure(encoding='utf-8')
-import json
-
-# 1. Create manifest.json
-manifest = {
-    "name": "2026 台鐵全路網時刻表 & 智慧接駁系統",
-    "short_name": "台鐵時刻表",
-    "description": "2026/07/01 大改點全線時刻表，支援多站中繼遊程規劃、平日/週末開行日精確過濾與全島離線極速查詢。",
-    "start_url": "./index.html",
-    "scope": "./",
-    "display": "standalone",
-    "orientation": "portrait",
-    "background_color": "#0f172a",
-    "theme_color": "#0284c7",
-    "icons": [
-        {
-            "src": "icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "any maskable"
-        },
-        {
-            "src": "icon-512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "any maskable"
-        }
-    ]
+{
+  "id": "tra-timetable-2026",
+  "name": "2026 台鐵全路網時刻表 & 智慧接駁系統",
+  "short_name": "台鐵時刻表",
+  "description": "2026/07/01 大改點全線時刻表，支援多站中繼遊程規劃、平日/週末開行日精確過濾與全島離線極速查詢。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#0284c7",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
 }
-
-with open('f:/Antigravity/台鐵時刻表0701/manifest.json', 'w', encoding='utf-8') as f:
-    json.dump(manifest, f, ensure_ascii=False, indent=2)
-
-print("Created manifest.json")
