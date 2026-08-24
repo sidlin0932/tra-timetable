@@ -1088,8 +1088,8 @@
 
         .query-main-row {
             display: grid;
-            grid-template-columns: 1fr auto 1fr 180px;
-            gap: 14px;
+            grid-template-columns: 1.15fr auto 1.15fr 1fr 170px;
+            gap: 12px;
             align-items: flex-end;
         }
 
@@ -1201,45 +1201,278 @@
             transform: translateY(-1px);
         }
 
-        .query-filter-row {
+        /* Day of Week Selector Bar */
+        .day-filter-bar {
             display: flex;
-            align-items: flex-end;
-            gap: 16px;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            background: var(--bg-subtle);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
             flex-wrap: wrap;
         }
-        .search-btn-wrapper {
-            margin-left: auto;
-            align-self: flex-end;
+        .day-filter-title {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        .day-segmented-control {
+            display: flex;
+            gap: 4px;
+            background: var(--bg-card);
+            padding: 3px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+        .day-btn {
+            background: transparent;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 7px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .day-btn:hover {
+            color: var(--text-main);
+            background: var(--bg-subtle);
+        }
+        .day-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
         }
 
-        @media (max-width: 900px) {
-            .query-main-row {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            .swap-wrapper {
-                height: auto;
-                margin: 0;
-            }
-            .btn-swap {
-                transform: rotate(90deg);
-                margin: 2px auto;
-            }
-            .btn-swap:hover {
-                transform: rotate(270deg);
-            }
-            .search-btn-wrapper {
-                margin-left: 0;
-                width: 100%;
-            }
-            .btn-search {
-                width: 100%;
-                justify-content: center;
-            }
-            .query-filter-row {
-                flex-direction: column;
-                align-items: stretch;
-            }
+        /* Google Maps Style Waypoint Planner */
+        .waypoints-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .waypoints-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .waypoints-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .waypoint-badge-count {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+        .btn-add-waypoint {
+            background: var(--primary-light);
+            border: 1.5px dashed var(--primary);
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.82rem;
+            padding: 6px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .btn-add-waypoint:hover {
+            background: var(--primary);
+            color: #ffffff;
+            border-style: solid;
+            transform: translateY(-1px);
+        }
+        .waypoint-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+        }
+        .waypoint-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: var(--bg-subtle);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.15s;
+        }
+        .waypoint-item:focus-within {
+            border-color: var(--primary);
+        }
+        .waypoint-letter-badge {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #ffffff;
+            flex-shrink: 0;
+        }
+        .waypoint-letter-badge.origin { background: #10b981; }
+        .waypoint-letter-badge.via { background: #f59e0b; }
+        .waypoint-letter-badge.dest { background: #ef4444; }
+        
+        .waypoint-input-wrapper {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .waypoint-station-input {
+            width: 100%;
+            padding: 8px 12px;
+            padding-right: 110px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-card);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 700;
+            outline: none;
+        }
+        .waypoint-station-input:focus {
+            border-color: var(--primary);
+        }
+        .btn-waypoint-picker {
+            position: absolute;
+            right: 4px;
+            padding: 5px 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid var(--border-color);
+            background: var(--bg-subtle);
+            color: var(--text-muted);
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .btn-waypoint-picker:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        .waypoint-stay-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .waypoint-stay-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+        .waypoint-stay-select {
+            padding: 7px 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-main);
+            font-size: 0.82rem;
+            font-weight: 700;
+            outline: none;
+            cursor: pointer;
+        }
+        .waypoint-actions {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .btn-waypoint-action {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .btn-waypoint-action:hover:not(:disabled) {
+            color: var(--primary);
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+        .btn-waypoint-action:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        .btn-waypoint-delete:hover {
+            color: #ef4444 !important;
+            border-color: #ef4444 !important;
+            background: #fee2e2 !important;
+        }
+
+        .badge-service-day {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: 10px;
+            margin-left: 6px;
+            white-space: nowrap;
+        }
+        .badge-service-weekday {
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #bfdbfe;
+        }
+        [data-theme="dark"] .badge-service-weekday {
+            background: rgba(30, 58, 138, 0.3);
+            color: #93c5fd;
+            border-color: rgba(147, 197, 253, 0.3);
+        }
+        .badge-service-weekend {
+            background: #fff7ed;
+            color: #c2410c;
+            border: 1px solid #fed7aa;
+        }
+        [data-theme="dark"] .badge-service-weekend {
+            background: rgba(154, 52, 18, 0.3);
+            color: #fdba74;
+            border-color: rgba(253, 186, 116, 0.3);
+        }
+
+        .waypoint-meta-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding-top: 6px;
         }
 
     </style>
@@ -1252,9 +1485,9 @@
             <div class="nav-title">
                 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                     <h1>台鐵全路網時刻表 & 縣市導航智慧接駁系統</h1>
-                    <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v3.6.2 (2026.07.01版)</span>
+                    <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v3.8.0 (2026.07.01版)</span>
                 </div>
-                <p>2026/07/01 大改點全線全班次 · 全台 17 縣市依區域快速選站 · 支援無限次轉乘</p>
+                <p>2026/07/01 大改點全線全班次 · 支援 Google Maps 多站中繼遊程 · 支援平日/週末開行日精確過濾 · 混合車種智慧接駁</p>
             </div>
         </div>
         <div class="nav-actions">
@@ -1263,65 +1496,103 @@
     </header>
 
     <div class="container">
-                <section class="query-panel">
-            <!-- Row 1: Station Inputs & Departure Time -->
-            <div class="query-main-row">
-                <div class="form-group origin-group">
-                    <label class="form-label" for="originInput">🚩 出發站 (起點)</label>
-                    <div class="station-input-box">
-                        <input type="text" id="originInput" class="station-input" value="板橋" placeholder="輸入站名 (如: 台北、新竹)..." autocomplete="off">
-                        <button class="btn-station-picker" onclick="openStationModal('origin')">🗺️ 依縣市選站</button>
-                        <div class="autocomplete-list" id="originAutoList"></div>
+        <section class="query-panel">
+            <!-- Row 1: Day-of-Week Selector Bar (平日 / 週末開行過濾) -->
+            <div class="day-filter-bar">
+                <div class="day-filter-title">
+                    <span>📅 搭乘日期 / 星期：</span>
+                </div>
+                <div class="day-segmented-control" id="dayFilter">
+                    <button class="day-btn active" id="dayBtn-today" onclick="setDayFilter('today', this)">⚡ 今天 (<span id="todayDayName">週二</span>)</button>
+                    <button class="day-btn" id="dayBtn-1" onclick="setDayFilter('1', this)">週一</button>
+                    <button class="day-btn" id="dayBtn-2" onclick="setDayFilter('2', this)">週二</button>
+                    <button class="day-btn" id="dayBtn-3" onclick="setDayFilter('3', this)">週三</button>
+                    <button class="day-btn" id="dayBtn-4" onclick="setDayFilter('4', this)">週四</button>
+                    <button class="day-btn" id="dayBtn-5" onclick="setDayFilter('5', this)">週五</button>
+                    <button class="day-btn" id="dayBtn-6" onclick="setDayFilter('6', this)">週六</button>
+                    <button class="day-btn" id="dayBtn-0" onclick="setDayFilter('0', this)">週日</button>
+                    <button class="day-btn" id="dayBtn-all" onclick="setDayFilter('all', this)">全部班次 (不限)</button>
+                </div>
+            </div>
+
+            <!-- Row 2: Google Maps Multi-Stop Waypoint Planner Card -->
+            <div class="waypoints-card">
+                <div class="waypoints-header">
+                    <div class="waypoints-title">
+                        <span>🗺️ 行程路線規劃 (Google Maps 多中繼點)</span>
+                        <span class="waypoint-badge-count" id="waypointsCountBadge">2 個站點 (A ➔ B)</span>
+                    </div>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <button class="btn-add-waypoint" onclick="addWaypoint()">
+                            <span>➕</span> 新增中途停靠站
+                        </button>
+                        <button class="btn-swap" onclick="reverseWaypoints()" title="對調/反向起訖路線" style="width:32px; height:32px; font-size:1rem;">⇄</button>
                     </div>
                 </div>
 
-                <div class="swap-wrapper">
-                    <button class="btn-swap" onclick="swapStations()" title="對調出發與抵達站">⇄</button>
+                <div class="waypoint-list" id="waypointsList">
+                    <!-- Dynamically populated by renderWaypointsUI() -->
                 </div>
 
-                <div class="form-group dest-group">
-                    <label class="form-label" for="destInput">🏁 抵達站 (終點)</label>
-                    <div class="station-input-box">
-                        <input type="text" id="destInput" class="station-input" value="台北" placeholder="輸入站名 (如: 內灣、花蓮)..." autocomplete="off">
-                        <button class="btn-station-picker" onclick="openStationModal('dest')">🗺️ 依縣市選站</button>
-                        <div class="autocomplete-list" id="destAutoList"></div>
+                <div class="waypoint-meta-row">
+                    <div class="form-group time-group" style="margin: 0; min-width: 240px;">
+                        <label class="form-label" for="timeInput" style="margin-bottom: 4px;">🕒 第一段出發時間</label>
+                        <div class="time-select-group">
+                            <input type="time" id="timeInput" class="time-input" value="05:00">
+                            <button class="btn-current-time" onclick="setCurrentTime()" title="設為現在時間">現在</button>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group time-group">
-                    <label class="form-label" for="timeInput">🕒 出發時間</label>
-                    <div class="time-select-group">
-                        <input type="time" id="timeInput" class="time-input" value="05:00">
-                        <button class="btn-current-time" onclick="setCurrentTime()" title="設為現在時間">現在</button>
+                    <div class="form-group via-group" id="viaGroupBlock" style="margin: 0; min-width: 280px; flex: 1;">
+                        <label class="form-label" for="viaInput" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                            <span>🔀 指定轉乘站 (2點查詢時可選)</span>
+                            <button class="btn-clear-via" id="btnClearVia" onclick="clearViaStation()" style="background: none; border: none; color: var(--primary); font-size: 0.75rem; font-weight: 700; cursor: pointer; display: none;">✕ 清除</button>
+                        </label>
+                        <div class="station-input-box">
+                            <input type="text" id="viaInput" class="station-input" value="" placeholder="不限轉乘站 (預設)" autocomplete="off">
+                            <button class="btn-station-picker" onclick="openStationModal('via')">🗺️ 選轉乘站</button>
+                            <div class="autocomplete-list" id="viaAutoList"></div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Row 2: Quick Hubs Bar (Full Width) -->
+            <!-- Row 3: Quick Hubs Bar (Full Width) -->
             <div class="quick-hubs-bar">
-                <span class="quick-hubs-title">⚡ 常用大站：</span>
+                <span class="quick-hubs-title">⚡ 常用快捷：</span>
                 <div class="quick-hubs-list">
-                    <button class="quick-hub-btn" onclick="quickFillStation('origin', '台北')">🚩 台北</button>
-                    <button class="quick-hub-btn" onclick="quickFillStation('origin', '板橋')">🚩 板橋</button>
-                    <button class="quick-hub-btn" onclick="quickFillStation('origin', '新竹')">🚩 新竹</button>
-                    <button class="quick-hub-btn" onclick="quickFillStation('origin', '台中')">🚩 台中</button>
-                    <button class="quick-hub-btn" onclick="quickFillStation('dest', '瑞芳')">🏁 瑞芳</button>
-                    <button class="quick-hub-btn" onclick="quickFillStation('dest', '八斗子')">🏁 八斗子</button>
-                    <button class="quick-hub-btn" onclick="quickFillStation('dest', '花蓮')">🏁 花蓮</button>
-                    <button class="quick-hub-btn" onclick="quickFillStation('dest', '台東')">🏁 台東</button>
-                    <button class="quick-hub-btn" onclick="quickFillStation('dest', '內灣')">🏁 內灣</button>
-                    <button class="quick-hub-btn" onclick="quickFillStation('dest', '高雄')">🏁 高雄</button>
+                    <button class="quick-hub-btn" onclick="quickFillWaypoint(0, '台北')">🚩 台北</button>
+                    <button class="quick-hub-btn" onclick="quickFillWaypoint(0, '板橋')">🚩 板橋</button>
+                    <button class="quick-hub-btn" onclick="quickFillWaypoint(0, '新竹')">🚩 新竹</button>
+                    <button class="quick-hub-btn" onclick="quickFillWaypoint(0, '台中')">🚩 台中</button>
+                    <button class="quick-hub-btn" onclick="quickFillWaypoint('dest', '瑞芳')">🏁 瑞芳</button>
+                    <button class="quick-hub-btn" onclick="quickFillWaypoint('dest', '花蓮')">🏁 花蓮</button>
+                    <button class="quick-hub-btn" onclick="quickFillWaypoint('dest', '台東')">🏁 台東</button>
+                    <button class="quick-hub-btn" onclick="quickFillWaypoint('dest', '內灣')">🏁 內灣</button>
+                    <button class="quick-hub-btn" onclick="quickFillWaypoint('dest', '高雄')">🏁 高雄</button>
+                    <span style="color: var(--border-color); margin: 0 4px;">|</span>
+                    <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary);">🔀 指定轉乘：</span>
+                    <button class="quick-hub-btn" onclick="quickFillStation('via', '')">不限</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('via', '八堵')">八堵</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('via', '七堵')">七堵</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('via', '松山')">松山</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('via', '台北')">台北</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('via', '板橋')">板橋</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('via', '新竹')">新竹</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('via', '彰化')">彰化</button>
+                    <button class="quick-hub-btn" onclick="quickFillStation('via', '高雄')">高雄</button>
                 </div>
             </div>
 
-            <!-- Row 3: Filter Preferences & Search Action Button -->
+            <!-- Row 4: Filter Preferences & Search Action Button -->
             <div class="query-filter-row">
                 <div class="form-group">
                     <span class="form-label">🔀 轉乘條件</span>
                     <div class="segmented-control" id="transferFilter">
-                        <button class="segment-btn active" onclick="setTransferCondition('all', this)">無限次轉乘 (推薦)</button>
-                        <button class="segment-btn" onclick="setTransferCondition('max2', this)">最多 2 次</button>
+                        <button class="segment-btn active" onclick="setTransferCondition('all', this)">全部方案 (推薦)</button>
+                        <button class="segment-btn" onclick="setTransferCondition('transfer_only', this)">僅轉乘方案 🌟</button>
                         <button class="segment-btn" onclick="setTransferCondition('max1', this)">最多 1 次</button>
+                        <button class="segment-btn" onclick="setTransferCondition('max2', this)">最多 2 次</button>
                         <button class="segment-btn" onclick="setTransferCondition('direct', this)">限直達車</button>
                     </div>
                 </div>
@@ -1330,6 +1601,7 @@
                     <span class="form-label">🚆 車種偏好</span>
                     <div class="segmented-control" id="typeFilter">
                         <button class="segment-btn active" onclick="setTypeFilter('all', this)">全部車種</button>
+                        <button class="segment-btn" onclick="setTypeFilter('mixed', this)">🔀 混搭接駁 (自強+區間)</button>
                         <button class="segment-btn" onclick="setTypeFilter('trpass', this)">✅ TR-PASS 適用</button>
                         <button class="segment-btn" onclick="setTypeFilter('express', this)">對號特快</button>
                         <button class="segment-btn" onclick="setTypeFilter('local', this)">非對號區間</button>
@@ -1359,16 +1631,23 @@
                         <option value="arr_time-desc">抵達時間 最晚 (晚➔早)</option>
                         <option value="dep_time-asc">出發時間 最早 (早➔晚)</option>
                         <option value="dep_time-desc">出發時間 最晚 (晚➔早)</option>
-                        <option value="duration-asc">行駛時間 最短 (快➔慢)</option>
-                        <option value="duration-desc">行駛時間 最長 (慢➔快)</option>
+                        <option value="duration-asc">總行駛時間 最短 (快➔慢)</option>
+                        <option value="duration-desc">總行駛時間 最長 (慢➔快)</option>
+                        <option value="pure_moving-asc">純車行時間 最短 (扣除轉乘等車) 🚀</option>
+                        <option value="pure_moving-desc">純車行時間 最長</option>
+                        <option value="layover-asc">轉乘等候時間 最少 (等車最短) ⏳</option>
+                        <option value="layover-desc">轉乘等候時間 最長 (等車最充裕)</option>
                         <option value="transfers-asc">轉乘次數 最少 (少➔多)</option>
+                        <option value="transfers-desc">轉乘次數 最多 (多➔少)</option>
                     </select>
                 </div>
 
                 <div class="sort-pill-select">
                     <span>🥈 次排序：</span>
                     <select class="sort-select" id="secondarySort" onchange="handleSortChange()">
-                        <option value="duration-asc">行駛時間 最短</option>
+                        <option value="duration-asc">總行駛時間 最短</option>
+                        <option value="pure_moving-asc">純車行時間 最短 🚀</option>
+                        <option value="layover-asc">轉乘等候時間 最少 ⏳</option>
                         <option value="transfers-asc">轉乘次數 最少</option>
                         <option value="dep_time-asc">出發時間 最早</option>
                         <option value="arr_time-asc">抵達時間 最早</option>
@@ -1404,7 +1683,7 @@
         <div class="results-container" id="resultsList"></div>
 
         <footer style="text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px dashed var(--border-color); color: var(--text-muted); font-size: 0.85rem;">
-            <p>🚆 2026 台鐵全路網時刻表系統 · <strong>核心版本: v3.6.2 (完美重構全台17縣市快速導航選籤 · 告別擠壓與破版) (新增純車行時間最短 & 等車時間最少自訂排序指標) (全方位乘車數據外露 · 車程/等候時間/每段行駛分鐘一目了然) (轉乘站名直接外露精確等候時間 · 緊湊轉乘高亮) (觀光支線清新森林綠標示 · 自強號大站紅光 · 階層清晰) (出發連選抵達 · 抵達單擊秒關 · 最完美選站流) (直覺單擊選定起訖站 · 點哪站選哪站) (全台西部幹線區間車多段智慧縫合 · 直達特快與全區間接駁雙軌並存) (跨日列車時間軸排序校正 · 149次基隆➔潮州跨日修復 · 單字站名全量洗淨) (全量車站名稱校正 · 松山/山佳/冬山名詞修復 · 4154直通拼接完善) (預設板橋➔台北 · 一站式連續選站 · 自強號大站標色) (一站式極速連續選站與常用大站快捷) (自強號特快大站醒目標色) (支援車站全日發車時刻表與列車時刻雙彈窗) (支援列車全線時刻表彈窗) (含轉乘失敗第二備案)</strong> (2026/07/01 官方大改點完整收錄)</p>
+            <p>🚆 2026 台鐵全路網時刻表系統 · <strong>核心版本: v3.7.0 (新增指定轉乘站功能 · 區間+自強/自強+區間混搭接駁全量釋放 · 僅轉乘模式 🌟) (列車停靠清單車站全量支援點擊連動車站時刻表 · 支援多層彈窗深度互動) (完美重構全台17縣市快速導航選籤 · 告別擠壓與破版) (新增純車行時間最短 & 等車時間最少自訂排序指標) (全方位乘車數據外露 · 車程/等候時間/每段行駛分鐘一目了然) (轉乘站名直接外露精確等候時間 · 緊湊轉乘高亮) (觀光支線清新森林綠標示 · 自強號大站紅光 · 階層清晰) (出發連選抵達 · 抵達單擊秒關 · 最完美選站流) (直覺單擊選定起訖站 · 點哪站選哪站) (全台西部幹線區間車多段智慧縫合 · 直達特快與全區間接駁雙軌並存) (跨日列車時間軸排序校正 · 149次基隆➔潮州跨日修復 · 單字站名全量洗淨) (全量車站名稱校正 · 松山/山佳/冬山名詞修復 · 4154直通拼接完善) (預設板橋➔台北 · 一站式連續選站 · 自強號大站標色) (一站式極速連續選站與常用大站快捷) (自強號特快大站醒目標色) (支援車站全日發車時刻表與列車時刻雙彈窗) (支援列車全線時刻表彈窗) (含轉乘失敗第二備案)</strong> (2026/07/01 官方大改點完整收錄)</p>
             <p style="margin-top: 4px; font-size: 0.75rem;">100% 純前端離線運算 · 支援全台 17 縣市車站選單與無限多段轉乘智慧規劃</p>
         </footer>
     </div>
@@ -1483,20 +1762,20 @@
 
     <!-- County-classified Station Modal -->
     <div class="modal-backdrop" id="stationModal" onclick="closeStationModal(event)">
-        <div class="modal-dialog" onclick="event.stopPropagation()">
+<div class="modal-dialog" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <div>
                     <h3 id="modalTitle">🗺️ 快速選站（全台 17 縣市）</h3>
                     <div class="modal-trip-stepper" id="modalTripStepper">
-                        <button class="modal-step-btn active" id="modalStepOrigin" onclick="setModalTarget('origin')">
+                        <button class="modal-step-btn active" id="modalStep-0" onclick="setModalTarget('waypoint-0')">
                             <span class="step-icon">🚩</span>
-                            <span class="step-label">出發站:</span>
+                            <span class="step-label">出發:</span>
                             <strong id="modalOriginVal">板橋</strong>
                         </button>
                         <span class="modal-step-arrow">➔</span>
-                        <button class="modal-step-btn" id="modalStepDest" onclick="setModalTarget('dest')">
+                        <button class="modal-step-btn" id="modalStep-1" onclick="setModalTarget('waypoint-1')">
                             <span class="step-icon">🏁</span>
-                            <span class="step-label">抵達站:</span>
+                            <span class="step-label">抵達:</span>
                             <strong id="modalDestVal">台北</strong>
                         </button>
                     </div>
@@ -1522,17 +1801,93 @@
         </div>
     </div>
 
-    <script src="data.js?v=20260701_v362_1787524998"></script>
+    <script src="data.js?v=20260701_v380"></script>
     <script>
         let allTimetableData = window.EMBEDDED_TIMETABLE_DATA || [];
         let departuresByStation = {};
         let currentRoutes = [];
-        let currentModalTarget = 'origin';
-        let transferCondition = 'all'; // 'all' | 'max2' | 'max1' | 'direct'
+        let currentModalTarget = 'waypoint-0';
+        let transferCondition = 'all'; // 'all' | 'transfer_only' | 'max2' | 'max1' | 'direct'
         let typeFilter = 'all';
+        let currentDayFilter = 'today'; // 'today' | '1' | '2' | '3' | '4' | '5' | '6' | '0' | 'all'
         let activeSortColumn = 'arr_time';
         let activeSortDir = 'asc';
         let debounceTimer = null;
+
+        let waypoints = [
+            { station: '板橋', minStay: 0 },
+            { station: '台北', minStay: 0 }
+        ];
+
+        // Train service days mapping for weekday/weekend operating patterns
+        const TRAIN_SERVICE_DAYS = {
+            // Weekday-only (Mon-Fri: 1, 2, 3, 4, 5)
+            '4006': [1,2,3,4,5], '1120': [1,2,3,4,5], '1130': [1,2,3,4,5], '1008': [1,2,3,4,5],
+            '1140': [1,2,3,4,5], '1004': [1,2,3,4,5], '1180': [1,2,3,4,5], '1182': [1,2,3,4,5],
+            '1036': [1,2,3,4,5], '4022': [1,2,3,4,5], '2114': [1,2,3,4,5], '2120': [1,2,3,4,5],
+            '2124': [1,2,3,4,5], '2134': [1,2,3,4,5], '2144': [1,2,3,4,5], '2154': [1,2,3,4,5],
+            '2174': [1,2,3,4,5], '2184': [1,2,3,4,5], '2194': [1,2,3,4,5], '2204': [1,2,3,4,5],
+            '2214': [1,2,3,4,5], '2224': [1,2,3,4,5], '2234': [1,2,3,4,5], '2244': [1,2,3,4,5],
+            '2254': [1,2,3,4,5], '2264': [1,2,3,4,5], '2274': [1,2,3,4,5],
+            // Weekend/Holiday-only (Sat-Sun: 6, 0)
+            '4008': [6,0], '2008': [6,0], '2504': [6,0], '2522': [6,0], '1006': [6,0],
+            '2538': [6,0], '2542': [6,0], '1038': [6,0], '2554': [6,0], '2046': [6,0],
+            '1048': [6,0], '4046': [6,0],
+            // Friday only
+            '199': [5],
+            // Friday & Sunday extra
+            '161': [5,0], '280': [5,0], '127': [5,0], '135': [5,0], '143': [5,0]
+        };
+
+        function getTrainServiceInfo(trainNo) {
+            const days = TRAIN_SERVICE_DAYS[trainNo];
+            if (!days) {
+                return { isDaily: true, label: '🟢 每日行駛', days: [0,1,2,3,4,5,6] };
+            }
+            if (days.length === 5 && days.includes(1) && days.includes(5)) {
+                return { isDaily: false, label: '💼 平日行駛 (週一至五)', days };
+            }
+            if (days.length === 2 && days.includes(6) && days.includes(0)) {
+                return { isDaily: false, label: '🏖️ 假日行駛 (週六日/例假日)', days };
+            }
+            if (days.length === 1 && days.includes(5)) {
+                return { isDaily: false, label: '⚡ 逢週五行駛', days };
+            }
+            if (days.length === 2 && days.includes(5) && days.includes(0)) {
+                return { isDaily: false, label: '⚡ 逢週五、日行駛', days };
+            }
+            return { isDaily: false, label: `📅 逢週${days.map(d=>d===0?'日':d).join('、')}行駛`, days };
+        }
+
+        function getSelectedDayOfWeek() {
+            if (currentDayFilter === 'all') return -1;
+            if (currentDayFilter === 'today') {
+                return new Date().getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+            }
+            return parseInt(currentDayFilter, 10);
+        }
+
+        function isTrainRunningOnSelectedDay(trainNo) {
+            const targetDay = getSelectedDayOfWeek();
+            if (targetDay === -1) return true;
+            const info = getTrainServiceInfo(trainNo);
+            return info.days.includes(targetDay);
+        }
+
+        function setDayFilter(day, btn) {
+            currentDayFilter = day;
+            const btns = document.querySelectorAll('#dayFilter .day-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            executeSearch();
+        }
+
+        function initDayFilterDisplay() {
+            const dayNames = ['週日', '週一', '週二', '週三', '週四', '週五', '週六'];
+            const todayIdx = new Date().getDay();
+            const el = document.getElementById('todayDayName');
+            if (el) el.textContent = dayNames[todayIdx];
+        }
 
         // Grouped by Taiwan County / City (全台 17 縣市精確劃分)
         const COUNTY_GROUPS = [
@@ -1606,99 +1961,71 @@
             }
         ];
 
-        
-        
         const BRANCH_LINE_STATIONS = new Set([
-            // 平溪/深澳線
             '海科館', '八斗子', '大華', '十分', '望古', '嶺腳', '平溪', '菁桐',
-            // 內灣/六家線
             '千甲', '新莊', '竹中', '六家', '上員', '榮華', '竹東', '橫山', '九讚頭', '合興', '富貴', '內灣',
-            // 集集線
-            '源泉', '濁水', '龍泉', '集集', '水里', '車埕',
-            // 沙崙線
+            '濁水', '龍泉', '集集', '水里', '車埕',
             '長榮大學', '沙崙'
         ]);
 
         const EXPRESS_MAJOR_STATIONS = new Set([
-            // 基隆市
-            '基隆', '八堵', '七堵',
-            // 台北市
-            '南港', '松山', '台北', '萬華',
-            // 新北市
-            '板橋', '樹林', '鶯歌', '瑞芳', '雙溪',
-            // 桃園市
-            '桃園', '中壢', '楊梅',
-            // 新竹縣市
-            '竹北', '新竹',
-            // 苗栗縣
-            '竹南', '苗栗', '通霄', '苑裡',
-            // 台中市
-            '豐原', '台中', '新烏日', '大甲', '沙鹿',
-            // 彰化縣
-            '彰化', '員林', '田中', '二水',
-            // 雲林縣
-            '斗六', '斗南',
-            // 嘉義縣市
-            '大林', '民雄', '嘉義',
-            // 台南市
-            '新營', '善化', '台南',
-            // 高雄市
-            '岡山', '楠梓', '新左營', '高雄', '鳳山',
-            // 屏東縣
-            '屏東', '潮州', '南州', '林邊', '枋寮',
-            // 宜蘭縣
-            '頭城', '礁溪', '宜蘭', '羅東', '蘇澳新',
-            // 花蓮縣
-            '新城(太魯閣)', '花蓮', '吉安', '瑞穗', '玉里',
-            // 台東縣
-            '池上', '關山', '鹿野', '台東', '知本'
+            '基隆', '七堵', '八堵', '南港', '松山', '台北', '萬華', '板橋', '樹林', '鶯歌',
+            '桃園', '中壢', '楊梅', '新竹', '竹南', '苗栗', '豐原', '台中', '新烏日', '彰化',
+            '員林', '田中', '斗六', '斗南', '嘉義', '新營', '善化', '台南', '新左營', '高雄',
+            '鳳山', '屏東', '潮州', '枋寮', '頭城', '礁溪', '宜蘭', '羅東', '蘇澳新', '東澳',
+            '南澳', '新城(太魯閣)', '花蓮', '吉安', '壽豐', '鳳林', '光復', '瑞穗', '玉里',
+            '池上', '關山', '鹿野', '台東', '知本', '太麻里', '大武'
         ]);
-
-        const ALL_STATIONS = Array.from(new Set(COUNTY_GROUPS.flatMap(g => g.stations)));
 
         const KEY_HUBS = new Set([
-            '新竹', '北新竹', '竹中', '樹林', '板橋', '台北', '松山', '南港',
-            '七堵', '八堵', '瑞芳', '宜蘭', '羅東', '花蓮', '竹南', '苗栗', '豐原',
-            '台中', '彰化', '員林', '二水', '斗六', '大林', '嘉義', '新營', '善化',
-            '台南', '中洲', '新左營', '高雄', '屏東', '潮州', '枋寮', '台東'
+            '基隆', '八堵', '七堵', '南港', '松山', '台北', '板橋', '樹林', '桃園', '中壢',
+            '新竹', '竹南', '苗栗', '豐原', '台中', '彰化', '員林', '田中', '二水', '斗六',
+            '嘉義', '新營', '善化', '台南', '新左營', '高雄', '鳳山', '屏東', '潮州', '枋寮',
+            '瑞芳', '雙溪', '福隆', '頭城', '礁溪', '宜蘭', '羅東', '蘇澳新', '東澳', '南澳',
+            '新城(太魯閣)', '花蓮', '壽豐', '鳳林', '光復', '瑞穗', '玉里', '池上', '關山', '台東',
+            '竹中', '濁水'
         ]);
 
+        const ALL_STATIONS = [];
+        COUNTY_GROUPS.forEach(g => {
+            g.stations.forEach(st => {
+                if (!ALL_STATIONS.includes(st)) ALL_STATIONS.push(st);
+            });
+        });
+
         function timeToMin(tStr) {
-            if (!tStr || !tStr.includes(':')) return -1;
+            if (!tStr) return 0;
             const [h, m] = tStr.split(':').map(Number);
             return h * 60 + m;
         }
 
-        function minToDuration(mins) {
-            const h = Math.floor(mins / 60);
-            const m = mins % 60;
+        function minToDuration(min) {
+            if (min < 0) min += 1440;
+            const h = Math.floor(min / 60);
+            const m = min % 60;
             if (h === 0) return `${m} 分鐘`;
             return `${h} 小時 ${m > 0 ? m + ' 分' : ''}`;
         }
 
-        window.addEventListener('DOMContentLoaded', async () => {
-            await loadTimetableData();
-            buildDeparturesIndex();
-            setupAutocomplete();
-            renderStationModal();
-            bindLiveInputs();
-            executeSearch();
+        window.addEventListener('DOMContentLoaded', () => {
+            initDayFilterDisplay();
+            renderWaypointsUI();
+            if (allTimetableData.length > 0) {
+                buildDeparturesIndex();
+                executeSearch();
+            } else {
+                fetch('full_network_timetable.json')
+                    .then(res => res.json())
+                    .then(data => {
+                        allTimetableData = data;
+                        buildDeparturesIndex();
+                        executeSearch();
+                    })
+                    .catch(err => {
+                        console.error('Failed to load JSON timetable:', err);
+                    });
+            }
         });
-
-        async function loadTimetableData() {
-            if (window.EMBEDDED_TIMETABLE_DATA && window.EMBEDDED_TIMETABLE_DATA.length > 0) {
-                allTimetableData = window.EMBEDDED_TIMETABLE_DATA;
-                return;
-            }
-            try {
-                const res = await fetch('full_network_timetable.json');
-                if (res.ok) {
-                    allTimetableData = await res.json();
-                }
-            } catch (err) {
-                console.error('Failed to load JSON timetable:', err);
-            }
-        }
 
         function buildDeparturesIndex() {
             departuresByStation = {};
@@ -1720,34 +2047,232 @@
             }
         }
 
-        function bindLiveInputs() {
-            const orig = document.getElementById('originInput');
-            const dest = document.getElementById('destInput');
-            const time = document.getElementById('timeInput');
-
-            const triggerLiveSearch = () => {
-                clearTimeout(debounceTimer);
-                debounceTimer = setTimeout(() => {
-                    executeSearch();
-                }, 200);
-            };
-
-            orig.addEventListener('input', triggerLiveSearch);
-            orig.addEventListener('change', triggerLiveSearch);
-            dest.addEventListener('input', triggerLiveSearch);
-            dest.addEventListener('change', triggerLiveSearch);
-            time.addEventListener('input', triggerLiveSearch);
-            time.addEventListener('change', triggerLiveSearch);
-        }
-
         function isTrainAllowed(t) {
+            if (!isTrainRunningOnSelectedDay(t.train_number)) return false;
             if (typeFilter === 'trpass' && !t.is_trpass) return false;
             if (typeFilter === 'express' && !['自強號', '新自強(EMU3000)', '普悠瑪', '太魯閣', '莒光號'].includes(t.train_type)) return false;
             if (typeFilter === 'local' && !['區間車', '區間快'].includes(t.train_type)) return false;
             return true;
         }
 
-        function planRoutes(orig, dest, startTimeMin) {
+        // ==========================================
+        // Google Maps Multi-Stop Waypoint UI Management
+        // ==========================================
+        function renderWaypointsUI() {
+            const listEl = document.getElementById('waypointsList');
+            if (!listEl) return;
+            const countBadge = document.getElementById('waypointsCountBadge');
+            if (countBadge) {
+                const letters = waypoints.map((_, i) => String.fromCharCode(65 + i)).join(' ➔ ');
+                countBadge.textContent = `${waypoints.length} 個站點 (${letters})`;
+            }
+
+            const viaBlock = document.getElementById('viaGroupBlock');
+            if (viaBlock) {
+                viaBlock.style.display = (waypoints.length === 2) ? 'block' : 'none';
+            }
+
+            listEl.innerHTML = waypoints.map((wp, idx) => {
+                const letter = String.fromCharCode(65 + idx);
+                const isFirst = idx === 0;
+                const isLast = idx === waypoints.length - 1;
+                const badgeClass = isFirst ? 'origin' : (isLast ? 'dest' : 'via');
+                const roleLabel = isFirst ? '起點' : (isLast ? '終點' : '中途站');
+
+                let stayHtml = '';
+                if (!isFirst) {
+                    stayHtml = `
+                        <div class="waypoint-stay-group">
+                            <span class="waypoint-stay-label">☕ 停留:</span>
+                            <select class="waypoint-stay-select" onchange="updateWaypointStay(${idx}, this.value)">
+                                <option value="0" ${wp.minStay == 0 ? 'selected' : ''}>順暢接駁 (最快)</option>
+                                <option value="15" ${wp.minStay == 15 ? 'selected' : ''}>停留 15 分</option>
+                                <option value="30" ${wp.minStay == 30 ? 'selected' : ''}>停留 30 分</option>
+                                <option value="60" ${wp.minStay == 60 ? 'selected' : ''}>停留 1 小時</option>
+                                <option value="90" ${wp.minStay == 90 ? 'selected' : ''}>停留 1.5 小時</option>
+                                <option value="120" ${wp.minStay == 120 ? 'selected' : ''}>停留 2 小時</option>
+                                <option value="180" ${wp.minStay == 180 ? 'selected' : ''}>停留 3 小時</option>
+                            </select>
+                        </div>
+                    `;
+                }
+
+                return `
+                    <div class="waypoint-item">
+                        <div class="waypoint-letter-badge ${badgeClass}" title="${roleLabel}">${letter}</div>
+                        <div class="waypoint-input-wrapper">
+                            <input type="text" id="wpInput-${idx}" class="waypoint-station-input" value="${wp.station}" placeholder="輸入 ${roleLabel} 站名..." autocomplete="off" oninput="handleWaypointInput(${idx}, this.value)">
+                            <button class="btn-waypoint-picker" onclick="openStationModal('waypoint-${idx}')">🗺️ 選站</button>
+                            <div class="autocomplete-list" id="wpAutoList-${idx}"></div>
+                        </div>
+                        ${stayHtml}
+                        <div class="waypoint-actions">
+                            <button class="btn-waypoint-action" onclick="moveWaypoint(${idx}, -1)" ${isFirst ? 'disabled' : ''} title="向上移動">↑</button>
+                            <button class="btn-waypoint-action" onclick="moveWaypoint(${idx}, 1)" ${isLast ? 'disabled' : ''} title="向下移動">↓</button>
+                            <button class="btn-waypoint-action btn-waypoint-delete" onclick="removeWaypoint(${idx})" ${waypoints.length <= 2 ? 'disabled' : ''} title="刪除此停靠站">✕</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            setupWaypointAutocompletes();
+        }
+
+        function setupWaypointAutocompletes() {
+            waypoints.forEach((_, idx) => {
+                const input = document.getElementById(`wpInput-${idx}`);
+                const list = document.getElementById(`wpAutoList-${idx}`);
+                if (!input || !list) return;
+
+                input.addEventListener('input', () => {
+                    const query = input.value.trim().toLowerCase();
+                    if (!query) {
+                        list.style.display = 'none';
+                        return;
+                    }
+                    const matches = ALL_STATIONS.filter(st => st.toLowerCase().includes(query)).slice(0, 8);
+                    if (matches.length > 0) {
+                        list.innerHTML = matches.map(st => `
+                            <div class="autocomplete-item" onclick="selectWaypointStation(${idx}, '${st}')">
+                                <span>${st}</span>
+                                <span class="autocomplete-line-tag">台鐵車站</span>
+                            </div>
+                        `).join('');
+                        list.style.display = 'block';
+                    } else {
+                        list.style.display = 'none';
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!input.contains(e.target) && !list.contains(e.target)) {
+                        list.style.display = 'none';
+                    }
+                });
+            });
+
+            // Also via autocomplete
+            const viaInput = document.getElementById('viaInput');
+            const viaList = document.getElementById('viaAutoList');
+            if (viaInput && viaList) {
+                viaInput.addEventListener('input', () => {
+                    const query = viaInput.value.trim().toLowerCase();
+                    if (!query) {
+                        viaList.style.display = 'none';
+                        return;
+                    }
+                    const matches = ALL_STATIONS.filter(st => st.toLowerCase().includes(query)).slice(0, 8);
+                    if (matches.length > 0) {
+                        viaList.innerHTML = matches.map(st => `
+                            <div class="autocomplete-item" onclick="selectViaStation('${st}')">
+                                <span>${st}</span>
+                                <span class="autocomplete-line-tag">台鐵車站</span>
+                            </div>
+                        `).join('');
+                        viaList.style.display = 'block';
+                    } else {
+                        viaList.style.display = 'none';
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!viaInput.contains(e.target) && !viaList.contains(e.target)) {
+                        viaList.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        function handleWaypointInput(idx, val) {
+            if (waypoints[idx]) {
+                waypoints[idx].station = val.trim();
+            }
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                executeSearch();
+            }, 250);
+        }
+
+        function selectWaypointStation(idx, st) {
+            if (waypoints[idx]) {
+                waypoints[idx].station = st;
+            }
+            const list = document.getElementById(`wpAutoList-${idx}`);
+            if (list) list.style.display = 'none';
+            renderWaypointsUI();
+            executeSearch();
+        }
+
+        function selectViaStation(st) {
+            const input = document.getElementById('viaInput');
+            if (input) input.value = st;
+            const list = document.getElementById('viaAutoList');
+            if (list) list.style.display = 'none';
+            updateClearViaButton();
+            executeSearch();
+        }
+
+        function updateWaypointStay(idx, val) {
+            if (waypoints[idx]) {
+                waypoints[idx].minStay = parseInt(val, 10) || 0;
+            }
+            executeSearch();
+        }
+
+        function addWaypoint() {
+            if (waypoints.length >= 6) {
+                alert('最多支援新增至 6 個中途停靠站點！');
+                return;
+            }
+            const defaultHubs = ['新竹', '台中', '彰化', '嘉義', '台南', '花蓮', '宜蘭', '高雄'];
+            const currentStations = new Set(waypoints.map(w => w.station));
+            const nextSt = defaultHubs.find(h => !currentStations.has(h)) || '新竹';
+            
+            // Insert before the final destination
+            const last = waypoints.pop();
+            waypoints.push({ station: nextSt, minStay: 30 });
+            waypoints.push(last);
+            renderWaypointsUI();
+            executeSearch();
+        }
+
+        function removeWaypoint(idx) {
+            if (waypoints.length <= 2) return;
+            waypoints.splice(idx, 1);
+            renderWaypointsUI();
+            executeSearch();
+        }
+
+        function moveWaypoint(idx, dir) {
+            const targetIdx = idx + dir;
+            if (targetIdx < 0 || targetIdx >= waypoints.length) return;
+            const temp = waypoints[idx];
+            waypoints[idx] = waypoints[targetIdx];
+            waypoints[targetIdx] = temp;
+            renderWaypointsUI();
+            executeSearch();
+        }
+
+        function reverseWaypoints() {
+            waypoints.reverse();
+            renderWaypointsUI();
+            executeSearch();
+        }
+
+        function quickFillWaypoint(target, st) {
+            if (target === 'dest') {
+                waypoints[waypoints.length - 1].station = st;
+            } else if (typeof target === 'number' && waypoints[target]) {
+                waypoints[target].station = st;
+            }
+            renderWaypointsUI();
+            executeSearch();
+        }
+
+        // ==========================================
+        // Single-Leg & Chained Multi-Leg Routing Core
+        // ==========================================
+        function planRoutes(orig, dest, startTimeMin, viaStation = '') {
             if (!orig || !dest || orig === dest || allTimetableData.length === 0) {
                 return [];
             }
@@ -1756,7 +2281,7 @@
             if (transferCondition === 'direct') maxAllowedTransfers = 0;
             else if (transferCondition === 'max1') maxAllowedTransfers = 1;
             else if (transferCondition === 'max2') maxAllowedTransfers = 2;
-            else if (transferCondition === 'all') maxAllowedTransfers = 4;
+            else if (transferCondition === 'all' || transferCondition === 'transfer_only') maxAllowedTransfers = 4;
 
             const origDeps = departuresByStation[orig] || [];
             const allResults = [];
@@ -1799,7 +2324,7 @@
                             transfer_stations: [],
                             legs: [leg1]
                         });
-                    } else if (maxAllowedTransfers > 0 && (KEY_HUBS.has(nextSt) || j === train1.stops.length - 1)) {
+                    } else if (maxAllowedTransfers > 0 && (KEY_HUBS.has(nextSt) || nextSt === viaStation || j === train1.stops.length - 1)) {
                         queue.push({
                             currentStation: nextSt,
                             currentTimeMin: arrMin,
@@ -1809,7 +2334,7 @@
                     }
                 }
 
-                const bestAtStationForThisDep = {};
+                const bestAtStation = {};
 
                 for (let hop = 1; hop <= maxAllowedTransfers; hop++) {
                     const nextQueue = [];
@@ -1819,7 +2344,7 @@
 
                         for (const d of deps) {
                             if (d.depTimeMin < minDep) continue;
-                            if (d.depTimeMin > minDep + 90) continue;
+                            if (d.depTimeMin > minDep + 60) continue;
                             if (!isTrainAllowed(d.train)) continue;
                             if (d.train.train_number === state.legs[state.legs.length - 1].train_number) continue;
 
@@ -1830,7 +2355,7 @@
                                 if (arrMin <= d.depTimeMin) continue;
                                 if (state.visited.has(nextSt)) continue;
 
-                                if (nextSt !== dest && !KEY_HUBS.has(nextSt) && j !== train.stops.length - 1) continue;
+                                if (nextSt !== dest && !KEY_HUBS.has(nextSt) && nextSt !== viaStation && j !== train.stops.length - 1) continue;
 
                                 const newLeg = {
                                     train_number: train.train_number,
@@ -1861,8 +2386,8 @@
                                         legs: newLegs
                                     });
                                 } else if (hop < maxAllowedTransfers) {
-                                    if (!bestAtStationForThisDep[nextSt] || arrMin < bestAtStationForThisDep[nextSt]) {
-                                        bestAtStationForThisDep[nextSt] = arrMin;
+                                    if (!bestAtStation[nextSt] || arrMin < bestAtStation[nextSt]) {
+                                        bestAtStation[nextSt] = arrMin;
                                         const nextVis = new Set(state.visited);
                                         nextVis.add(nextSt);
                                         nextQueue.push({
@@ -1881,37 +2406,134 @@
                 }
             });
 
-            // Smart Transit Quality & Dominance Filter:
-            // Discard redundant detours, but preserve pure commuter (Local) chains alongside Express
-            const cleanResults = [];
-            allResults.sort((a, b) => a.transfers - b.transfers || a.duration - b.duration);
+            // Post-search Filtering
+            let filteredResults = allResults;
 
-            for (const r of allResults) {
-                const arrM = timeToMin(r.arr_time);
-                const depM = timeToMin(r.dep_time);
-                const isAllLocal = r.legs.every(l => ['區間車', '區間快'].includes(l.train_type));
+            if (viaStation) {
+                filteredResults = filteredResults.filter(r => r.transfer_stations.includes(viaStation));
+            } else if (transferCondition === 'direct') {
+                filteredResults = filteredResults.filter(r => r.transfers === 0);
+            } else if (transferCondition === 'transfer_only') {
+                filteredResults = filteredResults.filter(r => r.transfers > 0);
+            }
 
-                const isDominated = cleanResults.some(cr => {
-                    const cArr = timeToMin(cr.arr_time);
-                    const cDep = timeToMin(cr.dep_time);
-                    const crAllLocal = cr.legs.every(l => ['區間車', '區間快'].includes(l.train_type));
+            if (typeFilter === 'mixed') {
+                filteredResults = filteredResults.filter(r => r.legs.length > 1 && 
+                    r.train_types.some(t => ['自強號', '新自強(EMU3000)', '普悠瑪', '太魯閣', '莒光號'].includes(t)) && 
+                    r.train_types.some(t => ['區間車', '區間快'].includes(t))
+                );
+            } else if (typeFilter === 'trpass') {
+                filteredResults = filteredResults.filter(r => r.is_trpass);
+            } else if (typeFilter === 'express') {
+                filteredResults = filteredResults.filter(r => r.train_types.every(t => ['自強號', '新自強(EMU3000)', '普悠瑪', '太魯閣', '莒光號'].includes(t)));
+            } else if (typeFilter === 'local') {
+                filteredResults = filteredResults.filter(r => r.train_types.every(t => ['區間車', '區間快'].includes(t)));
+            }
 
-                    // Only express dominates express, or local dominates local with fewer transfers
-                    if (isAllLocal && !crAllLocal) {
-                        return false; // Do not let express kill all-local commuter chains!
-                    }
-
-                    if (cDep >= depM && cArr <= arrM + 5 && cr.transfers < r.transfers) {
-                        return true;
-                    }
-                    return false;
-                });
-                if (!isDominated) {
-                    cleanResults.push(r);
+            // Deduplication & Diversity Filtering
+            const seen = new Map();
+            const uniqueResults = [];
+            for (const r of filteredResults) {
+                const key = `${r.dep_time}_${r.arr_time}_${r.train_types.join('+')}_${r.transfer_stations.join('>')}`;
+                if (!seen.has(key)) {
+                    seen.set(key, r);
+                    uniqueResults.push(r);
                 }
             }
 
-            return cleanResults;
+            const groupedByFirstLeg = {};
+            for (const r of uniqueResults) {
+                if (r.transfers === 0) {
+                    const key = `direct_${r.dep_time}_${r.legs[0].train_number}`;
+                    if (!groupedByFirstLeg[key]) groupedByFirstLeg[key] = [];
+                    groupedByFirstLeg[key].push(r);
+                } else {
+                    const firstTrain = r.legs[0].train_number;
+                    const key = `trans_${firstTrain}_${r.dep_time}`;
+                    if (!groupedByFirstLeg[key]) groupedByFirstLeg[key] = [];
+                    groupedByFirstLeg[key].push(r);
+                }
+            }
+
+            const finalResults = [];
+            for (const [k, list] of Object.entries(groupedByFirstLeg)) {
+                if (k.startsWith('direct_')) {
+                    finalResults.push(...list);
+                } else {
+                    list.sort((a, b) => timeToMin(a.arr_time) - timeToMin(b.arr_time) || a.duration - b.duration);
+                    finalResults.push(...list.slice(0, 3));
+                }
+            }
+
+            finalResults.sort((a, b) => timeToMin(a.dep_time) - timeToMin(b.dep_time));
+            return finalResults;
+        }
+
+        function planMultiStopRoutes(wps, startTimeMin) {
+            if (wps.length < 2) return [];
+            if (wps.length === 2) {
+                const via = (document.getElementById('viaInput') && document.getElementById('viaInput').value) ? document.getElementById('viaInput').value.trim() : '';
+                return planRoutes(wps[0].station, wps[1].station, startTimeMin, via);
+            }
+
+            // Leg 0: wps[0] -> wps[1]
+            const leg0Routes = planRoutes(wps[0].station, wps[1].station, startTimeMin, '');
+            if (leg0Routes.length === 0) return [];
+
+            let currentItineraries = leg0Routes.slice(0, 10).map(r => ({
+                legs: [...r.legs],
+                stopovers: [],
+                dep_time: r.dep_time,
+                arr_time: r.arr_time,
+                duration: r.duration,
+                is_trpass: r.is_trpass,
+                train_types: [...r.train_types],
+                transfer_stations: [...r.transfer_stations]
+            }));
+
+            for (let i = 1; i < wps.length - 1; i++) {
+                const fromSt = wps[i].station;
+                const toSt = wps[i + 1].station;
+                const minStay = wps[i].minStay || 0;
+                const nextItineraries = [];
+
+                for (const itin of currentItineraries) {
+                    const arrM = timeToMin(itin.arr_time);
+                    const earliestNextDepMin = arrM + minStay + 3; // 3 min buffer
+
+                    const nextLegRoutes = planRoutes(fromSt, toSt, earliestNextDepMin, '');
+                    for (const nxt of nextLegRoutes.slice(0, 3)) {
+                        const nxtDepM = timeToMin(nxt.dep_time);
+                        if (nxtDepM < earliestNextDepMin) continue;
+                        const actualStayMin = nxtDepM - arrM;
+
+                        const mergedLegs = [...itin.legs, ...nxt.legs];
+                        const finalArrM = timeToMin(nxt.arr_time);
+                        const startDepM = timeToMin(itin.dep_time);
+
+                        nextItineraries.push({
+                            legs: mergedLegs,
+                            stopovers: [...itin.stopovers, { station: fromSt, stayMin: actualStayMin }],
+                            dep_time: itin.dep_time,
+                            arr_time: nxt.arr_time,
+                            duration: finalArrM - startDepM,
+                            is_trpass: itin.is_trpass && nxt.is_trpass,
+                            train_types: [...itin.train_types, ...nxt.train_types],
+                            transfer_stations: [...itin.transfer_stations, fromSt, ...nxt.transfer_stations]
+                        });
+                    }
+                }
+
+                if (nextItineraries.length === 0) return [];
+                nextItineraries.sort((a, b) => timeToMin(a.arr_time) - timeToMin(b.arr_time) || a.duration - b.duration);
+                currentItineraries = nextItineraries.slice(0, 25);
+            }
+
+            currentItineraries.forEach(itin => {
+                itin.transfers = itin.legs.length - 1;
+            });
+
+            return currentItineraries;
         }
 
         function sortRoutes(routes) {
@@ -1928,10 +2550,11 @@
                 if (key === 'transfers') return item.transfers;
                 if (key === 'train_no') return item.legs[0].train_number;
                 if (key === 'layover') {
-                    return item.legs.reduce((sum, l) => sum + (l.layover || 0), 0);
+                    const stopoverM = item.stopovers ? item.stopovers.reduce((s, st) => s + st.stayMin, 0) : 0;
+                    return item.legs.reduce((sum, l) => sum + (l.layover || 0), 0) + stopoverM;
                 }
                 if (key === 'pure_moving') {
-                    const totalLayover = item.legs.reduce((sum, l) => sum + (l.layover || 0), 0);
+                    const totalLayover = item.legs.reduce((sum, l) => sum + (l.layover || 0), 0) + (item.stopovers ? item.stopovers.reduce((s, st) => s + st.stayMin, 0) : 0);
                     return item.duration - totalLayover;
                 }
                 return 0;
@@ -2012,14 +2635,28 @@
         }
 
         function executeSearch() {
-            const orig = document.getElementById('originInput').value.trim();
-            const dest = document.getElementById('destInput').value.trim();
-            const timeStr = document.getElementById('timeInput').value || '00:00';
+            const timeStr = document.getElementById('timeInput') ? (document.getElementById('timeInput').value || '00:00') : '00:00';
             const startTimeMin = timeToMin(timeStr);
+            const via = document.getElementById('viaInput') ? document.getElementById('viaInput').value.trim() : '';
 
-            document.getElementById('routeSummaryText').textContent = `${orig} ➔ ${dest}`;
+            // Update route summary text
+            const routeStr = waypoints.map(w => w.station).join(' ➔ ');
+            const summaryEl = document.getElementById('routeSummaryText');
+            if (summaryEl) {
+                if (waypoints.length === 2 && via) {
+                    summaryEl.textContent = `${waypoints[0].station} ➔ [經由 ${via}] ➔ ${waypoints[1].station}`;
+                } else {
+                    summaryEl.textContent = routeStr;
+                }
+            }
+            updateClearViaButton();
 
-            let rawRoutes = planRoutes(orig, dest, startTimeMin);
+            let rawRoutes = [];
+            if (waypoints.length === 2) {
+                rawRoutes = planRoutes(waypoints[0].station, waypoints[1].station, startTimeMin, via);
+            } else {
+                rawRoutes = planMultiStopRoutes(waypoints, startTimeMin);
+            }
 
             const seen = new Set();
             currentRoutes = rawRoutes.filter(r => {
@@ -2037,6 +2674,7 @@
             const depMin = timeToMin(currentDepTime);
             const candidates = [];
             allTimetableData.forEach(t => {
+                if (!isTrainRunningOnSelectedDay(t.train_number)) return;
                 const fromStop = t.stops.find(s => s.station === fromStation);
                 const toStop = t.stops.find(s => s.station === toStation);
                 if (fromStop && toStop) {
@@ -2070,7 +2708,7 @@
                 container.innerHTML = `
                     <div class="empty-state">
                         <h3>🔍 查無符合條件的列車乘車方案</h3>
-                        <p>建議調整出發時間、選擇「無限次轉乘」或確認起訖站點是否正確。</p>
+                        <p>建議調整出發時間、搭乘星期、選擇「全部方案」或確認起訖站點是否正確。</p>
                     </div>
                 `;
                 return;
@@ -2079,7 +2717,7 @@
             container.innerHTML = currentRoutes.map((route, rIdx) => {
                 const isDirect = route.transfers === 0;
                 
-                const totalLayoverMin = route.legs.reduce((sum, l) => sum + (l.layover || 0), 0);
+                const totalLayoverMin = route.legs.reduce((sum, l) => sum + (l.layover || 0), 0) + (route.stopovers ? route.stopovers.reduce((s, st) => s + st.stayMin, 0) : 0);
                 const pureMovingMin = route.duration - totalLayoverMin;
 
                 const transferStationsWithLayovers = route.legs.slice(0, -1).map((leg, idx) => {
@@ -2092,10 +2730,16 @@
                     return `${leg.to}${layoverStr}`;
                 }).join('、');
 
+                const isMultiStop = waypoints.length > 2;
+
                 const transferTagHtml = isDirect 
                     ? `<span class="transfer-tag transfer-direct">🟢 直達無須換車</span>`
-                    : `<span class="transfer-tag transfer-hop">🟠 轉乘 ${route.transfers} 次 (${transferStationsWithLayovers})</span>
-                       <div style="font-size:0.75rem; color:var(--text-muted); margin-top:2px;">純車行 ${minToDuration(pureMovingMin)} · 總等車 ${totalLayoverMin}分</div>`;
+                    : (isMultiStop
+                        ? `<span class="transfer-tag transfer-hop">🗺️ 多站行程 (${route.legs.length}段列車)</span>
+                           <div style="font-size:0.75rem; color:var(--text-muted); margin-top:2px;">純車行 ${minToDuration(pureMovingMin)} · 總停留 ${totalLayoverMin}分</div>`
+                        : `<span class="transfer-tag transfer-hop">🟠 轉乘 ${route.transfers} 次 (${transferStationsWithLayovers})</span>
+                           <div style="font-size:0.75rem; color:var(--text-muted); margin-top:2px;">純車行 ${minToDuration(pureMovingMin)} · 總等車 ${totalLayoverMin}分</div>`
+                      );
 
                 const legsBadgesWithDuration = route.legs.map(l => {
                     const legDurationMin = timeToMin(l.arr) - timeToMin(l.dep);
@@ -2107,12 +2751,18 @@
                     ? `<span class="badge-trpass">✅ TR-PASS 適用</span>`
                     : `<span class="badge-not-trpass">⚠️ 部分列車禁用TR-PASS</span>`;
 
-                const legsBadges = route.legs.map(l => getTrainTypeBadge(l.train_type, l.train_number, l.from, l.to)).join(' ');
-
                 const hasTightTransfer = route.legs.some(l => l.layover > 0 && l.layover <= 15);
                 const tightTransferBadge = hasTightTransfer 
                     ? `<span class="badge-tight-transfer">⚡ 含緊湊轉乘 · 附備案</span>`
                     : '';
+
+                // Service day badges
+                const trainServiceBadges = route.legs.map(l => {
+                    const info = getTrainServiceInfo(l.train_number);
+                    if (info.isDaily) return '';
+                    const badgeClass = info.label.includes('平日') ? 'badge-service-weekday' : 'badge-service-weekend';
+                    return `<span class="badge-service-day ${badgeClass}">${l.train_number}次: ${info.label}</span>`;
+                }).filter(Boolean).join(' ');
 
                 const itineraryHtml = route.legs.map((leg, legIdx) => {
                     let layoverAlert = '';
@@ -2139,6 +2789,11 @@
                         }
                     }
 
+                    const serviceInfo = getTrainServiceInfo(leg.train_number);
+                    const serviceNoteTag = !serviceInfo.isDaily 
+                        ? `<span style="font-size:0.75rem; font-weight:700; color:var(--primary); margin-left:6px;">(${serviceInfo.label})</span>`
+                        : '';
+
                     const stopsChips = leg.all_stops.map(s => 
                         `<span class="stop-chip clickable" onclick="openStationTimetable('${s.station}')" title="查看 ${s.station} 全日發車時刻表">${s.station} (${s.time})</span>`
                     ).join('');
@@ -2155,6 +2810,7 @@
                                     </div>
                                     <div>
                                         ${getTrainTypeBadge(leg.train_type, leg.train_number, leg.from, leg.to)}
+                                        ${serviceNoteTag}
                                         <span style="font-size:0.8rem; color:var(--text-muted); margin-left:6px;">(${leg.origin} 開往 ${leg.dest})</span>
                                     </div>
                                 </div>
@@ -2176,6 +2832,7 @@
                                 ${legsBadgesWithDuration}
                                 ${trPassBadge}
                                 ${tightTransferBadge}
+                                ${trainServiceBadges}
                             </div>
                             <div>
                                 <div class="time-display">${route.dep_time}</div>
@@ -2219,9 +2876,15 @@
             return `<span class="train-badge clickable ${badgeClass}" onclick="event.stopPropagation(); openTrainTimetable('${number}', ${fromArg}, ${toArg})" title="點擊查看 ${type} ${number} 次全線停靠時刻表">${type} ${number} 🔍</span>`;
         }
 
-        
         let currentStationDepList = [];
         let currentStationDepFilter = 'all';
+        let activeModalZIndex = 1000;
+
+        function bringModalToFront(modal) {
+            if (!modal) return;
+            activeModalZIndex += 2;
+            modal.style.zIndex = activeModalZIndex;
+        }
 
         function openStationTimetable(stationName) {
             const deps = [];
@@ -2249,14 +2912,15 @@
             document.getElementById('stationDepModalTitle').innerHTML = `📍 <strong>${stationName}</strong> 車站全日發車時刻表`;
             document.getElementById('stationDepModalSubtitle').textContent = `全日共收錄 ${deps.length} 班出發列車 · 依發車時間順序排列`;
 
-            // Reset segmented control filter
             const filterBtns = document.querySelectorAll('#stationDepTypeFilter .segment-btn');
             filterBtns.forEach(b => b.classList.remove('active'));
             if (filterBtns[0]) filterBtns[0].classList.add('active');
             currentStationDepFilter = 'all';
 
             renderStationDepRows();
-            document.getElementById('stationDeparturesModal').classList.add('open');
+            const modal = document.getElementById('stationDeparturesModal');
+            bringModalToFront(modal);
+            modal.classList.add('open');
         }
 
         function filterStationDepTable(filterType, btn) {
@@ -2296,11 +2960,11 @@
                             ${getTrainTypeBadge(d.train_type, d.train_number)}
                         </td>
                         <td>
-                            <strong style="font-size: 1rem;">開往 ${d.dest}</strong>
-                            <span style="font-size: 0.78rem; color: var(--text-muted); display: block;">始發: ${d.origin}</span>
+                            <strong style="font-size: 1rem;">開往 <span class="clickable-station" onclick="openStationTimetable('${d.dest}')" title="查看 ${d.dest} 全日發車時刻表">${d.dest}</span></strong>
+                            <span style="font-size: 0.78rem; color: var(--text-muted); display: block;">始發: <span class="clickable-station" onclick="openStationTimetable('${d.origin}')" title="查看 ${d.origin} 全日發車時刻表">${d.origin}</span></span>
                         </td>
                         <td style="color: var(--text-muted); font-size: 0.9rem;">
-                            ➔ ${d.nextStation}
+                            ➔ <span class="clickable-station" onclick="openStationTimetable('${d.nextStation}')" title="查看 ${d.nextStation} 全日發車時刻表">${d.nextStation}</span>
                         </td>
                         <td style="text-align: right;">
                             ${trBadge}
@@ -2330,7 +2994,7 @@
 
             title.innerHTML = `
                 ${getTrainTypeBadge(train.train_type, train.train_number)}
-                <span>${train.origin} ➔ ${train.dest}</span>
+                <span><span class="clickable-station" onclick="openStationTimetable('${train.origin}')" title="查看 ${train.origin} 全日發車時刻表">${train.origin}</span> ➔ <span class="clickable-station" onclick="openStationTimetable('${train.dest}')" title="查看 ${train.dest} 全日發車時刻表">${train.dest}</span></span>
             `;
 
             const trBadge = train.is_trpass 
@@ -2355,9 +3019,9 @@
                     <tr class="${rowClass}">
                         <td><span class="station-dot-seq">${sIdx + 1}</span></td>
                         <td>
-                            <strong style="font-size: 1.05rem;">${stop.station}</strong>
-                            ${stop.station === train.origin ? '<span style="font-size:0.75rem; color:var(--primary); margin-left:4px;">[始發站]</span>' : ''}
-                            ${stop.station === train.dest ? '<span style="font-size:0.75rem; color:var(--primary); margin-left:4px;">[終點站]</span>' : ''}
+                            <strong style="font-size: 1.05rem;" class="clickable-station" onclick="openStationTimetable('${stop.station}')" title="查看 ${stop.station} 全日發車時刻表">${stop.station}</strong>
+                            ${stop.station === train.origin ? `<span class="clickable-station" onclick="openStationTimetable('${train.origin}')" style="font-size:0.75rem; color:var(--primary); margin-left:4px;" title="查看 ${train.origin} 全日發車時刻表">[始發站]</span>` : ''}
+                            ${stop.station === train.dest ? `<span class="clickable-station" onclick="openStationTimetable('${train.dest}')" style="font-size:0.75rem; color:var(--primary); margin-left:4px;" title="查看 ${train.dest} 全日發車時刻表">[終點站]</span>` : ''}
                         </td>
                         <td style="text-align: right; font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700;">
                             ${stop.time}
@@ -2366,6 +3030,7 @@
                 `;
             }).join('');
 
+            bringModalToFront(modal);
             modal.classList.add('open');
         }
 
@@ -2374,7 +3039,6 @@
                 document.getElementById('trainTimetableModal').classList.remove('open');
             }
         }
-
 
         function toggleDetails(idx) {
             const panel = document.getElementById(`details-${idx}`);
@@ -2388,20 +3052,12 @@
             }
         }
 
-        function swapStations() {
-            const origInput = document.getElementById('originInput');
-            const destInput = document.getElementById('destInput');
-            const temp = origInput.value;
-            origInput.value = destInput.value;
-            destInput.value = temp;
-            executeSearch();
-        }
-
         function setCurrentTime() {
             const now = new Date();
             const h = String(now.getHours()).padStart(2, '0');
             const m = String(now.getMinutes()).padStart(2, '0');
-            document.getElementById('timeInput').value = `${h}:${m}`;
+            const timeInput = document.getElementById('timeInput');
+            if (timeInput) timeInput.value = `${h}:${m}`;
             executeSearch();
         }
 
@@ -2421,112 +3077,112 @@
             executeSearch();
         }
 
-        function setupAutocomplete() {
-            ['origin', 'dest'].forEach(type => {
-                const input = document.getElementById(`${type}Input`);
-                const list = document.getElementById(`${type}AutoList`);
-
-                input.addEventListener('input', () => {
-                    const query = input.value.trim().toLowerCase();
-                    if (!query) {
-                        list.style.display = 'none';
-                        return;
-                    }
-
-                    const matches = ALL_STATIONS.filter(st => st.toLowerCase().includes(query)).slice(0, 8);
-                    if (matches.length > 0) {
-                        list.innerHTML = matches.map(st => `
-                            <div class="autocomplete-item" onclick="selectStation('${type}', '${st}')">
-                                <span>${st}</span>
-                                <span class="autocomplete-line-tag">台鐵車站</span>
-                            </div>
-                        `).join('');
-                        list.style.display = 'block';
-                    } else {
-                        list.style.display = 'none';
-                    }
-                });
-
-                document.addEventListener('click', (e) => {
-                    if (!input.contains(e.target) && !list.contains(e.target)) {
-                        list.style.display = 'none';
-                    }
-                });
-            });
-        }
-
-        function selectStation(type, st) {
-            document.getElementById(`${type}Input`).value = st;
-            document.getElementById(`${type}AutoList`).style.display = 'none';
+        function clearViaStation() {
+            const input = document.getElementById('viaInput');
+            if (input) input.value = '';
+            updateClearViaButton();
             executeSearch();
         }
 
-        
-        
-        
-        let modalInitialTarget = 'origin';
+        function updateClearViaButton() {
+            const viaVal = document.getElementById('viaInput') ? document.getElementById('viaInput').value.trim() : '';
+            const btn = document.getElementById('btnClearVia');
+            if (btn) btn.style.display = viaVal ? 'inline-block' : 'none';
+        }
+
+        let modalInitialTarget = 'waypoint-0';
 
         function openStationModal(type) {
-            modalInitialTarget = type || 'origin';
-            setModalTarget(type || 'origin');
+            modalInitialTarget = type || 'waypoint-0';
+            setModalTarget(type || 'waypoint-0');
             document.getElementById('modalSearchInput').value = '';
             renderStationModal();
             filterModalStations();
-            document.getElementById('stationModal').classList.add('open');
+            const modal = document.getElementById('stationModal');
+            bringModalToFront(modal);
+            modal.classList.add('open');
+        }
+
+        function updateModalTripStepper() {
+            const stepper = document.getElementById('modalTripStepper');
+            if (!stepper) return;
+
+            let buttonsHtml = waypoints.map((wp, idx) => {
+                const letter = String.fromCharCode(65 + idx);
+                const isFirst = idx === 0;
+                const isLast = idx === waypoints.length - 1;
+                const icon = isFirst ? '🚩' : (isLast ? '🏁' : '📍');
+                const role = isFirst ? '出發' : (isLast ? '抵達' : `停靠 ${letter}`);
+                const activeClass = currentModalTarget === `waypoint-${idx}` ? 'active' : '';
+
+                return `
+                    <button class="modal-step-btn ${activeClass}" id="modalStep-${idx}" onclick="setModalTarget('waypoint-${idx}')">
+                        <span class="step-icon">${icon}</span>
+                        <span class="step-label">${role}:</span>
+                        <strong>${wp.station || '未選'}</strong>
+                    </button>
+                `;
+            }).join('<span class="modal-step-arrow">➔</span>');
+
+            if (waypoints.length === 2) {
+                const viaVal = (document.getElementById('viaInput') && document.getElementById('viaInput').value.trim()) ? document.getElementById('viaInput').value.trim() : '不限';
+                const activeVia = currentModalTarget === 'via' ? 'active' : '';
+                buttonsHtml += `
+                    <span class="modal-step-arrow" style="margin:0 4px; color:var(--text-muted);">|</span>
+                    <button class="modal-step-btn ${activeVia}" id="modalStep-via" onclick="setModalTarget('via')">
+                        <span class="step-icon">🔀</span>
+                        <span class="step-label">指定轉乘:</span>
+                        <strong>${viaVal}</strong>
+                    </button>
+                `;
+            }
+
+            stepper.innerHTML = buttonsHtml;
         }
 
         function setModalTarget(type) {
             currentModalTarget = type;
-            const origVal = document.getElementById('originInput').value || '未選擇';
-            const destVal = document.getElementById('destInput').value || '未選擇';
-            
-            const origEl = document.getElementById('modalOriginVal');
-            const destEl = document.getElementById('modalDestVal');
-            if (origEl) origEl.textContent = origVal;
-            if (destEl) destEl.textContent = destVal;
+            updateModalTripStepper();
 
-            const btnOrig = document.getElementById('modalStepOrigin');
-            const btnDest = document.getElementById('modalStepDest');
-
-            if (type === 'origin') {
-                if (btnOrig) btnOrig.classList.add('active');
-                if (btnDest) btnDest.classList.remove('active');
-                document.getElementById('modalTitle').textContent = '🗺️ 第 1 步：請點選【出發站】（選完自動跳抵達站）';
-            } else {
-                if (btnOrig) btnOrig.classList.remove('active');
-                if (btnDest) btnDest.classList.add('active');
-                document.getElementById('modalTitle').textContent = '🗺️ 請點選【抵達站】（點擊即選定完成）';
+            if (type.startsWith('waypoint-')) {
+                const idx = parseInt(type.replace('waypoint-', ''), 10);
+                const letter = String.fromCharCode(65 + idx);
+                if (idx === 0) {
+                    document.getElementById('modalTitle').textContent = `🗺️ 第 1 步：請點選【${letter} 出發站】（選完自動跳下一站）`;
+                } else if (idx === waypoints.length - 1) {
+                    document.getElementById('modalTitle').textContent = `🗺️ 請點選【${letter} 最終抵達站】（點擊即選定完成）`;
+                } else {
+                    document.getElementById('modalTitle').textContent = `🗺️ 請點選【${letter} 中途停靠站】（點擊即選定）`;
+                }
+            } else if (type === 'via') {
+                document.getElementById('modalTitle').textContent = '🔀 請點選【指定轉乘站】（點擊即選定轉乘站）';
             }
         }
 
         function modalPickStation(st) {
-            if (currentModalTarget === 'origin') {
-                document.getElementById('originInput').value = st;
-                const origEl = document.getElementById('modalOriginVal');
-                if (origEl) origEl.textContent = st;
+            if (currentModalTarget.startsWith('waypoint-')) {
+                const idx = parseInt(currentModalTarget.replace('waypoint-', ''), 10);
+                if (waypoints[idx]) {
+                    waypoints[idx].station = st;
+                }
+                renderWaypointsUI();
 
-                if (modalInitialTarget === 'origin') {
-                    // Started from Origin: Seamlessly advance to Destination selection!
-                    setModalTarget('dest');
+                if (idx === 0 && modalInitialTarget === 'waypoint-0') {
+                    // Auto advance to next waypoint
+                    setModalTarget('waypoint-1');
                     document.getElementById('modalSearchInput').value = '';
                     filterModalStations();
                 } else {
                     document.getElementById('stationModal').classList.remove('open');
                     executeSearch();
                 }
-            } else {
-                // Picked Destination: Close and search immediately!
-                document.getElementById('destInput').value = st;
-                const destEl = document.getElementById('modalDestVal');
-                if (destEl) destEl.textContent = st;
+            } else if (currentModalTarget === 'via') {
+                const viaInput = document.getElementById('viaInput');
+                if (viaInput) viaInput.value = st;
+                updateClearViaButton();
                 document.getElementById('stationModal').classList.remove('open');
                 executeSearch();
             }
-        }
-
-        function quickFillStation(target, st) {
-            document.getElementById(`${target}Input`).value = st;
-            executeSearch();
         }
 
         function closeStationModal(e) {
@@ -2599,8 +3255,6 @@
                 sec.style.display = hasMatch ? 'block' : 'none';
             });
         }
-
-
 
         function toggleTheme() {
             const current = document.documentElement.getAttribute('data-theme');
