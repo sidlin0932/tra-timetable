@@ -4,6 +4,14 @@
 
 ---
 
+## [v3.8.8] - 2026-08-25
+
+### 📱 PWA 與 Android WebAPK 專屬優化 (Android Compatibility)
+- 更新 `manifest.json` 為標準 WebAPK `start_url: "index.html"` 與專屬 App ID 格式，徹底杜絕 Android 桌面捷徑無效綁定問題。
+- 完善 Service Worker 快取更新機制。
+
+---
+
 ## [v3.8.7] - 2026-08-25
 
 ### 🔧 部署與版本規範 (Release & Build Policy)
