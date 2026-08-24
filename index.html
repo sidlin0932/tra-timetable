@@ -386,7 +386,7 @@
 
         .table-header-bar {
             display: grid;
-            grid-template-columns: 2fr 1.2fr 1.2fr 1.2fr 1.5fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr 1fr 2.2fr 0.9fr;
             padding: 12px 20px;
             background: var(--bg-subtle);
             border: 1px solid var(--border-color);
@@ -437,11 +437,11 @@
 
         .trip-header-row {
             display: grid;
-            grid-template-columns: 2fr 1.2fr 1.2fr 1.2fr 1.5fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr 1fr 2.2fr 0.9fr;
             padding: 16px 20px;
             align-items: center;
             cursor: pointer;
-            gap: 8px;
+            gap: 12px;
         }
         @media (max-width: 900px) {
             .trip-header-row {
@@ -514,17 +514,47 @@
         .transfers-badge-group {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 3px;
+            min-width: 0;
         }
         .transfer-tag {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
+            line-height: 1.45;
+            word-break: normal;
         }
         .transfer-direct { color: #059669; }
         .transfer-hop { color: #d97706; }
+        .transfer-hop-station {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            color: var(--text-main);
+        }
+        .transfer-hop-wait {
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 1px 5px;
+            border-radius: 4px;
+            margin-left: 3px;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .transfer-hop-wait.normal {
+            background: var(--bg-subtle);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+        }
+        .transfer-hop-wait.tight {
+            background: #ffe4e6;
+            color: #e11d48;
+            border: 1px solid #fecdd3;
+        }
+        [data-theme="dark"] .transfer-hop-wait.tight {
+            background: rgba(225, 29, 72, 0.25);
+            color: #fda4af;
+            border-color: rgba(253, 164, 175, 0.3);
+        }
 
         .btn-toggle-details {
             display: inline-flex;
@@ -2724,20 +2754,22 @@
                     const nextLeg = route.legs[idx + 1];
                     const layoverM = (nextLeg && nextLeg.layover) ? nextLeg.layover : 0;
                     const isTight = layoverM > 0 && layoverM <= 15;
+                    const badgeClass = isTight ? 'transfer-hop-wait tight' : 'transfer-hop-wait normal';
+                    const waitIcon = isTight ? '⚡等' : '等';
                     const layoverStr = layoverM > 0 
-                        ? (isTight ? ` · <strong style="color:#e11d48;">⚡等 ${layoverM}分</strong>` : ` · 等 ${layoverM}分`)
+                        ? `<span class="${badgeClass}">${waitIcon} ${layoverM}分</span>`
                         : '';
-                    return `${leg.to}${layoverStr}`;
-                }).join('、');
+                    return `<span class="transfer-hop-station">${leg.to}${layoverStr}</span>`;
+                }).join('<span style="color:var(--text-muted); margin:0 3px;">、</span>');
 
                 const isMultiStop = waypoints.length > 2;
 
                 const transferTagHtml = isDirect 
-                    ? `<span class="transfer-tag transfer-direct">🟢 直達無須換車</span>`
+                    ? `<div class="transfer-tag transfer-direct">🟢 直達無須換車</div>`
                     : (isMultiStop
-                        ? `<span class="transfer-tag transfer-hop">🗺️ 多站行程 (${route.legs.length}段列車)</span>
+                        ? `<div class="transfer-tag transfer-hop">🗺️ 多站行程 (${route.legs.length}段列車)</div>
                            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:2px;">純車行 ${minToDuration(pureMovingMin)} · 總停留 ${totalLayoverMin}分</div>`
-                        : `<span class="transfer-tag transfer-hop">🟠 轉乘 ${route.transfers} 次 (${transferStationsWithLayovers})</span>
+                        : `<div class="transfer-tag transfer-hop">🟠 轉乘 ${route.transfers} 次 (${transferStationsWithLayovers})</div>
                            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:2px;">純車行 ${minToDuration(pureMovingMin)} · 總等車 ${totalLayoverMin}分</div>`
                       );
 
