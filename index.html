@@ -1831,7 +1831,7 @@
         </div>
     </div>
 
-    <script src="data.js?v=20260701_v383"></script>
+    <script src="data.js?v=20260701_v384"></script>
     <script>
         let allTimetableData = window.EMBEDDED_TIMETABLE_DATA || [];
         let departuresByStation = {};
@@ -2298,7 +2298,7 @@
         }
 
         // ==========================================
-        // Single-Leg & Chained Multi-Leg Routing Core
+        // Single-Leg & Chained Multi-Leg Routing Core (Optimized Memoized BFS)
         // ==========================================
         function planRoutes(orig, dest, startTimeMin, viaStation = '') {
             if (!orig || !dest || orig === dest || allTimetableData.length === 0) {
@@ -2502,11 +2502,19 @@
                 return planRoutes(wps[0].station, wps[1].station, startTimeMin, via);
             }
 
-            // Leg 0: wps[0] -> wps[1]
-            const leg0Routes = planRoutes(wps[0].station, wps[1].station, startTimeMin, '');
-            if (leg0Routes.length === 0) return [];
+            // Step 1: Precompute all single-leg route tables across the entire day (just 1 search per leg!)
+            const legTables = [];
+            for (let k = 0; k < wps.length - 1; k++) {
+                const fSt = wps[k].station;
+                const tSt = wps[k + 1].station;
+                if (!fSt || !tSt || fSt === tSt) return [];
+                const legRoutes = planRoutes(fSt, tSt, (k === 0 ? startTimeMin : 0), '');
+                if (legRoutes.length === 0) return [];
+                legTables.push(legRoutes);
+            }
 
-            let currentItineraries = leg0Routes.map(r => ({
+            // Step 2: Ultra-fast memory chaining across legs
+            let currentItineraries = legTables[0].map(r => ({
                 legs: [...r.legs],
                 stopovers: [],
                 dep_time: r.dep_time,
@@ -2521,6 +2529,7 @@
                 const fromSt = wps[i].station;
                 const toSt = wps[i + 1].station;
                 const minStay = wps[i].minStay || 0;
+                const nextLegRoutes = legTables[i];
                 const nextItineraries = [];
 
                 for (const itin of currentItineraries) {
@@ -2568,9 +2577,8 @@
                         }
                     }
 
-                    // Transfer / Next Train Route Check across the full day
+                    // Fast Next Train Connection
                     const earliestNextDepMin = arrM + (minStay > 0 ? (minStay + 3) : 3);
-                    const nextLegRoutes = planRoutes(fromSt, toSt, earliestNextDepMin, '');
                     for (const nxt of nextLegRoutes) {
                         const nxtDepM = timeToMin(nxt.dep_time);
                         if (nxtDepM < earliestNextDepMin) continue;
@@ -2727,7 +2735,6 @@
             const startTimeMin = timeToMin(timeStr);
             const via = document.getElementById('viaInput') ? document.getElementById('viaInput').value.trim() : '';
 
-            // Update route summary text
             const routeStr = waypoints.map(w => w.station).join(' ➔ ');
             const summaryEl = document.getElementById('routeSummaryText');
             if (summaryEl) {
