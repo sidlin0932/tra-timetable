@@ -1,6 +1,14 @@
 # 📋 更新日誌 (Changelog)
 
-本專案遵守 [Semantic Versioning (語意化版本)](https://semver.org/lang/zh-TW/) 規範。
+本專案遵守 [Semantic Versioning (語意化版本)](https://semver.org/lang/zh-TW/) 規範，**每次 Push 一律遞增 Patch 作為 Build 版本識別**。
+
+---
+
+## [v3.8.7] - 2026-08-25
+
+### 🔧 部署與版本規範 (Release & Build Policy)
+- 確立「**每次 Push 必跳 Patch（Patch-as-Build）**」機制，自動更新前端 UI 徽章、PWA 快取金鑰（`CACHE_NAME`）與更新日誌。
+- 同步啟用全域快取立即刷新機制，確保使用者永遠載入最新發布版本。
 
 ---
 

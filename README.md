@@ -1,8 +1,8 @@
-# 🚆 2026 台鐵全路網時刻表 & 縣市導航智慧接駁系統 (v3.8.5)
+# 🚆 2026 台鐵全路網時刻表 & 縣市導航智慧接駁系統 (v3.8.7)
 
 > **2026/07/01 大改點全線全班次 · 100% 純前端離線運算 · 支援 Google Maps 多中繼站遊程規劃 · PWA 離線手機 App**
 
-[![Version](https://img.shields.io/badge/version-v3.8.5-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-v3.8.7-blue.svg)](CHANGELOG.md)
 [![PWA](https://img.shields.io/badge/PWA-100%25%20Offline-success.svg)](manifest.json)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
