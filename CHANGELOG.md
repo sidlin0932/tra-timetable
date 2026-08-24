@@ -4,6 +4,17 @@
 
 ---
 
+## [v3.8.11] - 2026-08-25
+
+### 📝 PWA 離線手機 App 化成功技術總結 (Reason Why Success)
+- **1. 清理 Manifest 語法污染**：將 `manifest.json` 徹底回歸純淨 JSON，移除 Python 腳本註解，使 Android Chrome WebAPK 解析器順利通過語法檢驗。
+- **2. 補齊 Android 12+ 自適應圖示 (Any & Maskable)**：同時配置 192x192 與 512x512 的 `any` 與 `maskable` 雙規範圖示，滿足 Android 桌面自適應圖示合規性。
+- **3. Service Worker 容錯快取架構**：將 `sw.js` 重構為安全獨立快取循環，排除外部 CDN CORS 潛在阻塞，確保離線導航攔截 100% 命中。
+- **4. 顯式 Favicon 鏈接綁定**：在 `<head>` 中顯式宣告 `shortcut icon` 與 `apple-touch-icon`，杜絕 Android 降級抓取 `github.io` 網域黑底標誌。
+- **5. Patch-as-Build 快取即時失效**：透過遞增快取金鑰強迫瀏覽器背景更新，達成「安裝即用、斷網秒開」。
+
+---
+
 ## [v3.8.10] - 2026-08-25
 
 ### 📱 W3C 標準 PWA 配置強化 (W3C Standard App ID & Scope)
