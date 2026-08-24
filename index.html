@@ -1831,7 +1831,7 @@
         </div>
     </div>
 
-    <script src="data.js?v=20260701_v380"></script>
+    <script src="data.js?v=20260701_v383"></script>
     <script>
         let allTimetableData = window.EMBEDDED_TIMETABLE_DATA || [];
         let departuresByStation = {};
@@ -2013,7 +2013,7 @@
             '嘉義', '新營', '善化', '台南', '新左營', '高雄', '鳳山', '屏東', '潮州', '枋寮',
             '瑞芳', '雙溪', '福隆', '頭城', '礁溪', '宜蘭', '羅東', '蘇澳新', '東澳', '南澳',
             '新城(太魯閣)', '花蓮', '壽豐', '鳳林', '光復', '瑞穗', '玉里', '池上', '關山', '台東',
-            '竹中', '濁水'
+            '知本', '枋山', '竹中', '濁水'
         ]);
 
         const ALL_STATIONS = [];
@@ -2115,7 +2115,7 @@
                         <div class="waypoint-stay-group">
                             <span class="waypoint-stay-label">☕ 停留:</span>
                             <select class="waypoint-stay-select" onchange="updateWaypointStay(${idx}, this.value)">
-                                <option value="0" ${wp.minStay == 0 ? 'selected' : ''}>順暢接駁 (最快)</option>
+                                <option value="0" ${wp.minStay == 0 ? 'selected' : ''}>順暢接駁 (最快/同車續搭)</option>
                                 <option value="15" ${wp.minStay == 15 ? 'selected' : ''}>停留 15 分</option>
                                 <option value="30" ${wp.minStay == 30 ? 'selected' : ''}>停留 30 分</option>
                                 <option value="60" ${wp.minStay == 60 ? 'selected' : ''}>停留 1 小時</option>
@@ -2181,7 +2181,6 @@
                 });
             });
 
-            // Also via autocomplete
             const viaInput = document.getElementById('viaInput');
             const viaList = document.getElementById('viaAutoList');
             if (viaInput && viaList) {
@@ -2254,13 +2253,12 @@
                 alert('最多支援新增至 6 個中途停靠站點！');
                 return;
             }
-            const defaultHubs = ['新竹', '台中', '彰化', '嘉義', '台南', '花蓮', '宜蘭', '高雄'];
+            const defaultHubs = ['潮州', '台東', '花蓮', '宜蘭', '台中', '彰化', '嘉義', '台南', '高雄'];
             const currentStations = new Set(waypoints.map(w => w.station));
             const nextSt = defaultHubs.find(h => !currentStations.has(h)) || '新竹';
             
-            // Insert before the final destination
             const last = waypoints.pop();
-            waypoints.push({ station: nextSt, minStay: 30 });
+            waypoints.push({ station: nextSt, minStay: 0 });
             waypoints.push(last);
             renderWaypointsUI();
             executeSearch();
@@ -2374,7 +2372,7 @@
 
                         for (const d of deps) {
                             if (d.depTimeMin < minDep) continue;
-                            if (d.depTimeMin > minDep + 60) continue;
+                            if (d.depTimeMin > minDep + 90) continue; // Allow up to 90 min transfer layover
                             if (!isTrainAllowed(d.train)) continue;
                             if (d.train.train_number === state.legs[state.legs.length - 1].train_number) continue;
 
@@ -2436,7 +2434,6 @@
                 }
             });
 
-            // Post-search Filtering
             let filteredResults = allResults;
 
             if (viaStation) {
@@ -2460,7 +2457,6 @@
                 filteredResults = filteredResults.filter(r => r.train_types.every(t => ['區間車', '區間快'].includes(t)));
             }
 
-            // Deduplication & Diversity Filtering
             const seen = new Map();
             const uniqueResults = [];
             for (const r of filteredResults) {
@@ -2510,7 +2506,7 @@
             const leg0Routes = planRoutes(wps[0].station, wps[1].station, startTimeMin, '');
             if (leg0Routes.length === 0) return [];
 
-            let currentItineraries = leg0Routes.slice(0, 10).map(r => ({
+            let currentItineraries = leg0Routes.map(r => ({
                 legs: [...r.legs],
                 stopovers: [],
                 dep_time: r.dep_time,
@@ -2529,10 +2525,53 @@
 
                 for (const itin of currentItineraries) {
                     const arrM = timeToMin(itin.arr_time);
-                    const earliestNextDepMin = arrM + minStay + 3; // 3 min buffer
+                    const lastLeg = itin.legs[itin.legs.length - 1];
 
+                    // Direct Through Ride Check (Same train continues from fromSt to toSt)
+                    if (minStay === 0) {
+                        const trainObj = allTimetableData.find(t => t.train_number === lastLeg.train_number);
+                        if (trainObj) {
+                            const fIdx = trainObj.stops.findIndex(s => s.station === fromSt);
+                            const tIdx = trainObj.stops.findIndex(s => s.station === toSt);
+                            if (fIdx !== -1 && tIdx !== -1 && fIdx < tIdx) {
+                                const throughArrTime = trainObj.stops[tIdx].time;
+                                const throughArrM = timeToMin(throughArrTime);
+                                if (throughArrM > arrM) {
+                                    const throughLeg = {
+                                        train_number: trainObj.train_number,
+                                        train_type: trainObj.train_type,
+                                        train_model: trainObj.train_model,
+                                        is_trpass: trainObj.is_trpass,
+                                        origin: trainObj.origin,
+                                        dest: trainObj.dest,
+                                        from: fromSt,
+                                        to: toSt,
+                                        dep: trainObj.stops[fIdx].time,
+                                        arr: throughArrTime,
+                                        layover: 0,
+                                        is_through: true,
+                                        all_stops: trainObj.stops.slice(fIdx, tIdx + 1)
+                                    };
+
+                                    nextItineraries.push({
+                                        legs: [...itin.legs, throughLeg],
+                                        stopovers: [...itin.stopovers, { station: fromSt, stayMin: 0, is_through: true }],
+                                        dep_time: itin.dep_time,
+                                        arr_time: throughArrTime,
+                                        duration: throughArrM - timeToMin(itin.dep_time),
+                                        is_trpass: itin.is_trpass && throughLeg.is_trpass,
+                                        train_types: [...itin.train_types, throughLeg.train_type],
+                                        transfer_stations: [...itin.transfer_stations]
+                                    });
+                                }
+                            }
+                        }
+                    }
+
+                    // Transfer / Next Train Route Check across the full day
+                    const earliestNextDepMin = arrM + (minStay > 0 ? (minStay + 3) : 3);
                     const nextLegRoutes = planRoutes(fromSt, toSt, earliestNextDepMin, '');
-                    for (const nxt of nextLegRoutes.slice(0, 3)) {
+                    for (const nxt of nextLegRoutes) {
                         const nxtDepM = timeToMin(nxt.dep_time);
                         if (nxtDepM < earliestNextDepMin) continue;
                         const actualStayMin = nxtDepM - arrM;
@@ -2540,10 +2579,11 @@
                         const mergedLegs = [...itin.legs, ...nxt.legs];
                         const finalArrM = timeToMin(nxt.arr_time);
                         const startDepM = timeToMin(itin.dep_time);
+                        if (finalArrM <= startDepM) continue;
 
                         nextItineraries.push({
                             legs: mergedLegs,
-                            stopovers: [...itin.stopovers, { station: fromSt, stayMin: actualStayMin }],
+                            stopovers: [...itin.stopovers, { station: fromSt, stayMin: actualStayMin, is_through: false }],
                             dep_time: itin.dep_time,
                             arr_time: nxt.arr_time,
                             duration: finalArrM - startDepM,
@@ -2555,12 +2595,30 @@
                 }
 
                 if (nextItineraries.length === 0) return [];
-                nextItineraries.sort((a, b) => timeToMin(a.arr_time) - timeToMin(b.arr_time) || a.duration - b.duration);
-                currentItineraries = nextItineraries.slice(0, 25);
+
+                // Deduplicate and retain diversity
+                const seenKeys = new Set();
+                const deduped = [];
+                for (const item of nextItineraries) {
+                    const key = `${item.dep_time}_${item.arr_time}_${item.legs.map(l=>l.train_number).join('-')}`;
+                    if (!seenKeys.has(key)) {
+                        seenKeys.add(key);
+                        deduped.push(item);
+                    }
+                }
+
+                deduped.sort((a, b) => timeToMin(a.arr_time) - timeToMin(b.arr_time) || a.duration - b.duration);
+                currentItineraries = deduped.slice(0, 100);
             }
 
             currentItineraries.forEach(itin => {
-                itin.transfers = itin.legs.length - 1;
+                let actualTransfers = 0;
+                for (let k = 1; k < itin.legs.length; k++) {
+                    if (itin.legs[k].train_number !== itin.legs[k - 1].train_number) {
+                        actualTransfers++;
+                    }
+                }
+                itin.transfers = actualTransfers;
             });
 
             return currentItineraries;
@@ -2580,11 +2638,11 @@
                 if (key === 'transfers') return item.transfers;
                 if (key === 'train_no') return item.legs[0].train_number;
                 if (key === 'layover') {
-                    const stopoverM = item.stopovers ? item.stopovers.reduce((s, st) => s + st.stayMin, 0) : 0;
+                    const stopoverM = item.stopovers ? item.stopovers.reduce((s, st) => s + (st.is_through ? 0 : st.stayMin), 0) : 0;
                     return item.legs.reduce((sum, l) => sum + (l.layover || 0), 0) + stopoverM;
                 }
                 if (key === 'pure_moving') {
-                    const totalLayover = item.legs.reduce((sum, l) => sum + (l.layover || 0), 0) + (item.stopovers ? item.stopovers.reduce((s, st) => s + st.stayMin, 0) : 0);
+                    const totalLayover = item.legs.reduce((sum, l) => sum + (l.layover || 0), 0) + (item.stopovers ? item.stopovers.reduce((s, st) => s + (st.is_through ? 0 : st.stayMin), 0) : 0);
                     return item.duration - totalLayover;
                 }
                 return 0;
@@ -2747,11 +2805,14 @@
             container.innerHTML = currentRoutes.map((route, rIdx) => {
                 const isDirect = route.transfers === 0;
                 
-                const totalLayoverMin = route.legs.reduce((sum, l) => sum + (l.layover || 0), 0) + (route.stopovers ? route.stopovers.reduce((s, st) => s + st.stayMin, 0) : 0);
+                const totalLayoverMin = route.legs.reduce((sum, l) => sum + (l.layover || 0), 0) + (route.stopovers ? route.stopovers.reduce((s, st) => s + (st.is_through ? 0 : st.stayMin), 0) : 0);
                 const pureMovingMin = route.duration - totalLayoverMin;
 
                 const transferStationsWithLayovers = route.legs.slice(0, -1).map((leg, idx) => {
                     const nextLeg = route.legs[idx + 1];
+                    if (nextLeg && nextLeg.is_through) {
+                        return `<span class="transfer-hop-station">${leg.to}<span class="transfer-hop-wait normal" style="background:#ecfdf5; color:#059669; border-color:#a7f3d0;">🟢原車續乘</span></span>`;
+                    }
                     const layoverM = (nextLeg && nextLeg.layover) ? nextLeg.layover : 0;
                     const isTight = layoverM > 0 && layoverM <= 15;
                     const badgeClass = isTight ? 'transfer-hop-wait tight' : 'transfer-hop-wait normal';
@@ -2767,7 +2828,7 @@
                 const transferTagHtml = isDirect 
                     ? `<div class="transfer-tag transfer-direct">🟢 直達無須換車</div>`
                     : (isMultiStop
-                        ? `<div class="transfer-tag transfer-hop">🗺️ 多站行程 (${route.legs.length}段列車)</div>
+                        ? `<div class="transfer-tag transfer-hop">🗺️ 多站行程 (${route.legs.length}段列車 · 換車${route.transfers}次)</div>
                            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:2px;">純車行 ${minToDuration(pureMovingMin)} · 總停留 ${totalLayoverMin}分</div>`
                         : `<div class="transfer-tag transfer-hop">🟠 轉乘 ${route.transfers} 次 (${transferStationsWithLayovers})</div>
                            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:2px;">純車行 ${minToDuration(pureMovingMin)} · 總等車 ${totalLayoverMin}分</div>`
@@ -2783,7 +2844,7 @@
                     ? `<span class="badge-trpass">✅ TR-PASS 適用</span>`
                     : `<span class="badge-not-trpass">⚠️ 部分列車禁用TR-PASS</span>`;
 
-                const hasTightTransfer = route.legs.some(l => l.layover > 0 && l.layover <= 15);
+                const hasTightTransfer = route.legs.some(l => !l.is_through && l.layover > 0 && l.layover <= 15);
                 const tightTransferBadge = hasTightTransfer 
                     ? `<span class="badge-tight-transfer">⚡ 含緊湊轉乘 · 附備案</span>`
                     : '';
@@ -2800,7 +2861,9 @@
                     let layoverAlert = '';
                     let planBHtml = '';
 
-                    if (leg.layover) {
+                    if (leg.is_through) {
+                        layoverAlert = `<div class="layover-alert through" style="background:#f0fdf4; color:#166534; border:1px solid #bbf7d0; padding:8px 12px; border-radius:6px; margin-bottom:8px; font-size:0.85rem;">🟢 <strong>原車直通繼續行駛</strong> · 列車抵達 <strong>${leg.from}</strong> 站後繼續開往 <strong>${leg.to}</strong>，旅客留在原車即可。</div>`;
+                    } else if (leg.layover) {
                         const isTight = leg.layover <= 15;
                         const alertClass = isTight ? 'layover-alert tight' : 'layover-alert';
                         const tightNotice = isTight ? ' <span style="color:#ef4444; font-weight:800;">(⚠️ 緊湊轉乘)</span>' : '';
@@ -2832,7 +2895,7 @@
 
                     return `
                         <div class="timeline-step">
-                            <div class="timeline-dot ${legIdx > 0 ? 'transfer' : ''}"></div>
+                            <div class="timeline-dot ${legIdx > 0 ? (leg.is_through ? 'through' : 'transfer') : ''}"></div>
                             ${layoverAlert}
                             ${planBHtml}
                             <div class="leg-card">
@@ -3184,7 +3247,7 @@
                 } else if (idx === waypoints.length - 1) {
                     document.getElementById('modalTitle').textContent = `🗺️ 請點選【${letter} 最終抵達站】（點擊即選定完成）`;
                 } else {
-                    document.getElementById('modalTitle').textContent = `🗺️ 請點選【${letter} 中途停靠站】（點擊即選定）`;
+                    document.getElementById('modalTitle').textContent = `🗺️ 請點選【${letter} 中途停靠站】（點擊即選定跳下一站）`;
                 }
             } else if (type === 'via') {
                 document.getElementById('modalTitle').textContent = '🔀 請點選【指定轉乘站】（點擊即選定轉乘站）';
@@ -3199,11 +3262,13 @@
                 }
                 renderWaypointsUI();
 
-                if (idx === 0 && modalInitialTarget === 'waypoint-0') {
-                    // Auto advance to next waypoint
-                    setModalTarget('waypoint-1');
+                if (idx < waypoints.length - 1) {
+                    const nextIdx = idx + 1;
+                    setModalTarget(`waypoint-${nextIdx}`);
                     document.getElementById('modalSearchInput').value = '';
                     filterModalStations();
+                    const stationList = document.getElementById('modalStationList');
+                    if (stationList) stationList.scrollTop = 0;
                 } else {
                     document.getElementById('stationModal').classList.remove('open');
                     executeSearch();
