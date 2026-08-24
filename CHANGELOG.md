@@ -4,6 +4,14 @@
 
 ---
 
+## [v3.8.9] - 2026-08-25
+
+### 🎨 圖示與 Favicon 全面升級 (Favicon & Icon Overhaul)
+- 加入完整的 `<link rel="shortcut icon">`、`<link rel="icon">` 與多尺寸 Apple Touch Icon 宣告，徹底阻絕瀏覽器回退至 GitHub 黑底預設圖示之問題。
+- 優化 GitHub Pages 子路徑相對路徑鏈接，全面確保 Android WebAPK 專屬火車圖示封裝正常。
+
+---
+
 ## [v3.8.8] - 2026-08-25
 
 ### 📱 PWA 與 Android WebAPK 專屬優化 (Android Compatibility)
