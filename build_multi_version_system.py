@@ -25,6 +25,7 @@ if sys.platform.startswith('win'):
 
 # List of key historical release commits mapped to version tags
 HISTORICAL_COMMITS = [
+    {"version": "v3.9.18", "commit": "HEAD",    "date": "2026-08-25", "desc": "精準車次快搜 ＆ 列車沿途完整停靠時刻表互動彈窗"},
     {"version": "v3.9.17", "commit": "HEAD",    "date": "2026-08-25", "desc": "Pareto 最優剪枝 ＆ 徹底根除反向折返與假轉乘"},
     {"version": "v3.9.16", "commit": "HEAD",    "date": "2026-08-25", "desc": "全日時刻暢查 ＆ 6大時段快選 ＆ 多維度排序系統"},
     {"version": "v3.9.15", "commit": "HEAD",    "date": "2026-08-25", "desc": "頂部版本下拉選單直接納入【⚡ 極速極簡版 SuperLite】與即時切換"},

@@ -616,7 +616,7 @@
     <header>
         <div class="brand">
             <span>🚆 台鐵時刻表</span>
-            <span class="badge-lite">⚡ SuperLite 極速極簡版 v3.9.17-lite</span>
+            <span class="badge-lite">⚡ SuperLite 極速極簡版 v3.9.18-lite</span>
         </div>
         
         <div class="header-actions">
@@ -624,7 +624,7 @@
                 <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; margin-right: 4px;">🔖 版本切換:</span>
                 <select id="versionSelectorLite" onchange="switchVersion(this.value)" style="border: none; background: transparent; color: var(--primary); font-size: 0.78rem; font-weight: 700; cursor: pointer; outline: none;">
                     <option value="lite" selected>⚡ 極速極簡版 (TRA SuperLite)</option>
-                    <option value="latest">🌟 全功能旗艦版 (v3.9.17)</option>
+                    <option value="latest">🌟 全功能旗艦版 (v3.9.18)</option>
                     <option value="hub">📋 所有歷史版本中心...</option>
                 </select>
             </div>
@@ -646,6 +646,14 @@
         </div>
 
         <div class="waypoints-list" id="waypointsList"></div>
+
+        <!-- Train Number Quick Search Box -->
+        <div style="display: flex; gap: 8px; margin-bottom: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; align-items: center;">
+            <span style="font-size: 0.82rem; font-weight: 800; color: var(--text-main); white-space: nowrap;">🔍 快速查車次：</span>
+            <input type="text" id="trainNoInput" placeholder="輸入車次 (如 152, 4154, 229...)" style="flex: 1; height: 32px; padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border); font-size: 0.88rem; font-weight: 700; outline: none;" onkeydown="if(event.key==='Enter') searchTrainNo()">
+            <button onclick="searchTrainNo()" style="background: var(--primary); color: #fff; border: none; border-radius: 6px; padding: 4px 12px; font-size: 0.82rem; font-weight: 700; cursor: pointer;">查詢</button>
+        </div>
+
 
         <div class="chips-row">
             <span style="font-size:0.75rem; font-weight:700; color:var(--text-muted); align-self:center;">常用：</span>
@@ -702,6 +710,18 @@
     <div class="result-list" id="resultsList"></div>
     <button id="btnLoadMore" class="btn-load-more" style="display:none;" onclick="loadMoreResults()">🔽 載入後續班次 (+50 筆)</button>
 
+    
+    <!-- Train Details Modal (車次完整停靠站彈窗) -->
+    <div class="modal-overlay" id="trainModal" onclick="closeTrainModal(event)">
+        <div class="modal-card" style="max-width: 520px;">
+            <div class="modal-header">
+                <span class="modal-title" id="trainModalTitle">🚆 車次詳細停靠表</span>
+                <button class="btn-modal-close" onclick="closeTrainModalDirect()">✕</button>
+            </div>
+            <div class="modal-body" id="trainModalBody" style="padding: 16px;"></div>
+        </div>
+    </div>
+
     <!-- Ultra-Fast Station Selection Modal -->
     <div class="modal-overlay" id="stationModal" onclick="closeModal(event)">
         <div class="modal-card">
@@ -722,7 +742,7 @@
     </footer>
 
     <!-- Embedded Local Database -->
-    <script src="data.js?v=3.9.17"></script>
+    <script src="data.js?v=3.9.18"></script>
 
     <script>
         function switchVersion(val) {
@@ -737,6 +757,65 @@
             }
         }
         window.switchVersion = switchVersion;
+
+        // ==========================================
+        // Train Detail & Lookup System (車次快搜與停靠表)
+        // ==========================================
+        let trainsMap = {};
+        function buildTrainIndex() {
+            trainsMap = {};
+            timetableData.forEach(t => {
+                trainsMap[String(t.train_number)] = t;
+            });
+        }
+
+        function showTrainDetail(trainNo) {
+            const t = trainsMap[String(trainNo)];
+            if (!t) {
+                alert(`查無車次 ${trainNo} 的時刻資料！`);
+                return;
+            }
+
+            document.getElementById('trainModalTitle').innerHTML = `🚆 ${getTrainBadge(t.train_type, t.train_number)} 停靠時刻表`;
+            
+            const stopsHtml = t.stops.map((s, idx) => {
+                const isOrigin = idx === 0;
+                const isDest = idx === t.stops.length - 1;
+                const badge = isOrigin ? '<span style="color:#10b981; font-weight:800;">(始發站)</span>' : (isDest ? '<span style="color:#ef4444; font-weight:800;">(終點站)</span>' : '');
+                return `
+                    <div style="display: flex; justify-content: space-between; padding: 8px 12px; border-bottom: 1px solid var(--border); background: ${idx % 2 === 0 ? 'var(--bg)' : '#fff'}; font-size: 0.88rem;">
+                        <span><strong style="color:var(--text-main); font-size:0.95rem;">${s.station}</strong> ${badge}</span>
+                        <span style="font-family: monospace; font-weight: 800; color: var(--primary); font-size: 0.95rem;">${s.time}</span>
+                    </div>
+                `;
+            }).join('');
+
+            const metaHtml = `
+                <div style="background: var(--primary-light); border: 1px solid rgba(2,132,199,0.25); border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; font-size: 0.82rem;">
+                    <div style="font-weight: 800; color: var(--primary-dark); margin-bottom: 4px;">📌 行駛區間：${t.stops[0].station} ➔ ${t.stops[t.stops.length-1].station} (${t.line || '全線'})</div>
+                    <div style="color: var(--text-muted); font-weight: 700;">📅 備註/開行：${t.notes || '每日行駛'} · ${t.is_trpass ? '🟢 適用 TR-PASS' : '🟠 不適用 TR-PASS'}</div>
+                </div>
+            `;
+
+            document.getElementById('trainModalBody').innerHTML = metaHtml + `<div style="max-height: 50vh; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px;">${stopsHtml}</div>`;
+            document.getElementById('trainModal').classList.add('open');
+        }
+
+        function closeTrainModal(e) {
+            if (e.target.id === 'trainModal') closeTrainModalDirect();
+        }
+        function closeTrainModalDirect() {
+            document.getElementById('trainModal').classList.remove('open');
+        }
+
+        function searchTrainNo() {
+            const no = document.getElementById('trainNoInput').value.trim();
+            if (!no) { alert('請輸入車次代號 (如 152, 4154, 229)'); return; }
+            showTrainDetail(no);
+        }
+        window.showTrainDetail = showTrainDetail;
+        window.searchTrainNo = searchTrainNo;
+
 
         const MAJOR_STATIONS = new Set([
             '基隆', '七堵', '八堵', '南港', '松山', '台北', '萬華', '板橋', '樹林',
@@ -824,7 +903,7 @@
             else if (type.includes('自強')) cls = 'badge-tzu-chiang';
             else if (type.includes('莒光')) cls = 'badge-chu-kuang';
             else if (type.includes('區間快')) cls = 'badge-local-fast';
-            return `<span class="badge ${cls}">${type} ${no}次</span>`;
+            return `<span class=\"badge ${cls}\" style=\"cursor:pointer;\" onclick=\"event.stopPropagation(); showTrainDetail('${no}')\" title=\"點擊查看 ${no} 次完整停靠時刻表\">${type} ${no}次 🔍</span>`;
         }
 
         function isTypeAllowed(type, isTrPass, filter) {
@@ -1378,6 +1457,7 @@
 
         window.addEventListener('DOMContentLoaded', () => {
             buildIndex();
+            buildTrainIndex();
             renderWaypointsUI();
             setTimeVal('now');
         });
