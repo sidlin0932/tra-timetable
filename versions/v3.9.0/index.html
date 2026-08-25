@@ -1520,7 +1520,7 @@
         
         
         /* =========================================================
-           v3.9.1 Station Modal Layout & Guaranteed Smooth Scrolling
+           v3.9.2 Station Modal Layout & Guaranteed Smooth Scrolling
            ========================================================= */
         .modal-backdrop {
             position: fixed;
@@ -2016,7 +2016,7 @@
             <div class="nav-title">
                     <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                         <h1>台鐵全路網時刻表 & 縣市導航智慧接駁系統</h1>
-                        <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v3.9.1 (2026.07.01 最新版)</span>
+                        <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v3.9.2 (2026.07.01 最新版)</span>
                         <div id="networkStatusBadge" class="network-status-pill online" title="網路連線狀態（本系統支援 100% 純離線離網運算）">
                             <span class="status-indicator-dot"></span>
                             <span id="networkStatusText">🟢 連線中 (離線已就緒)</span>
@@ -2024,7 +2024,7 @@
                         <div style="display: inline-flex; align-items: center; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: 8px; padding: 2px 8px;">
                             <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-right: 4px;">🔖 版本切換:</span>
                             <select id="versionSelector" onchange="switchVersion(this.value)" style="border: none; background: transparent; color: var(--primary); font-size: 0.78rem; font-weight: 700; cursor: pointer; outline: none; font-family: 'Outfit', sans-serif;">
-                                <option value="latest" selected>v3.9.1 (最新穩定版)</option>
+                                <option value="latest" selected>v3.9.2 (最新穩定版)</option>
                                 <option value="v3.8.14">v3.8.14 (純離線保證版)</option>
                                 <option value="v3.8.13">v3.8.13 (多版本架構版)</option>
                                 <option value="v3.8.12">v3.8.12 (自動門禁測試版)</option>
@@ -2418,785 +2418,942 @@
             <!-- Mode 2: Interactive SVG Map Mode -->
             <div id="modalMapView" style="display: none;">
                 
-    <div class="taiwan-map-container" id="taiwanMapContainer">
-        <div class="map-toolbar">
-            <div class="map-hint-box">
-                <span class="map-hint-icon">🗺️</span>
-                <span class="map-hint-text"><strong>地圖直接點選車站</strong>（★ 紅色為自強大站，綠色為觀光支線），選完自動跳下一站或關閉！</span>
-            </div>
-            <div class="map-legend">
-                <span class="legend-item"><span class="legend-dot hub"></span> 自強特快大站</span>
-                <span class="legend-item"><span class="legend-dot branch"></span> 觀光支線</span>
-                <span class="legend-item"><span class="legend-dot main"></span> 沿線各站</span>
-            </div>
+    <div class="taiwan-map-wrapper" id="taiwanMapWrapper">
+        <!-- Region Filter Bar (Mobile-first Quick Zoom) -->
+        <div class="map-region-tabs" id="mapRegionTabs">
+            <button class="region-tab-btn active" onclick="zoomMapRegion('all', this)">🗺️ 全島總覽</button>
+            <button class="region-tab-btn" onclick="zoomMapRegion('north', this)">🚄 北部幹線</button>
+            <button class="region-tab-btn" onclick="zoomMapRegion('central', this)">🚄 中部山海</button>
+            <button class="region-tab-btn" onclick="zoomMapRegion('south', this)">🚄 南部高屏</button>
+            <button class="region-tab-btn" onclick="zoomMapRegion('east', this)">🌊 東部南迴</button>
+            <button class="region-tab-btn" onclick="zoomMapRegion('branch', this)">🌿 觀光支線</button>
         </div>
 
-        <div class="map-viewport">
-            <svg viewBox="50 20 420 690" class="taiwan-rail-svg" xmlns="http://www.w3.org/2000/svg">
+        <div class="map-instruction-banner">
+            👉 <strong>點選地圖上的車站</strong> 可直接設為出發／抵達站（點擊即選定）
+        </div>
+
+        <!-- SVG Map Container -->
+        <div class="map-svg-container">
+            <svg id="taiwanRailSvg" viewBox="40 10 440 700" class="taiwan-rail-svg" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <filter id="mapShadow" x="-10%" y="-10%" width="120%" height="120%">
-                        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.12" flood-color="#0f172a" />
+                    <filter id="islandGlow" x="-10%" y="-10%" width="120%" height="120%">
+                        <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.15" flood-color="#0f172a" />
                     </filter>
                 </defs>
 
                 <!-- Taiwan Island Mainland Geography Outline -->
                 <path class="taiwan-island-bg" d="
-                    M 385,52 C 415,55 450,105 440,165
-                    C 435,205 425,275 410,350
-                    C 395,425 350,535 315,605
-                    C 285,655 235,700 200,705
-                    C 185,705 160,695 140,685
-                    C 105,665 95,615 100,565
-                    C 105,515 115,445 110,385
-                    C 100,315 115,245 145,195
-                    C 175,145 230,110 295,85
-                    C 345,60 365,48 385,52 Z
-                " fill="#eaf4db" stroke="#a3cf78" stroke-width="2.5" filter="url(#mapShadow)" />
+                    M 370,45 C 405,48 440,95 435,155
+                    C 430,195 425,270 410,345
+                    C 395,420 350,530 315,600
+                    C 285,650 235,695 200,700
+                    C 185,700 160,690 140,680
+                    C 105,660 95,610 100,560
+                    C 105,510 115,440 110,380
+                    C 100,310 115,240 145,190
+                    C 175,140 230,105 295,80
+                    C 340,55 355,42 370,45 Z
+                " fill="#eef7e6" stroke="#86efac" stroke-width="3" filter="url(#islandGlow)" />
 
-                <!-- Soft County Region Background Patches -->
-                <g class="county-zones" opacity="0.6">
-                    <path d="M 350,55 Q 390,50 405,70 Q 370,80 350,55 Z" fill="#d9ebd0" class="county-shape" data-county="基隆市" onclick="filterByCountyFromMap('基隆市')" />
-                    <path d="M 270,95 Q 310,90 320,120 Q 280,125 270,95 Z" fill="#d0e6c5" class="county-shape" data-county="台北市" onclick="filterByCountyFromMap('台北市')" />
-                    <path d="M 220,135 Q 275,105 345,110 Q 430,125 430,155 Q 355,145 220,135 Z" fill="#d9ebd0" class="county-shape" data-county="新北市" onclick="filterByCountyFromMap('新北市')" />
-                    <path d="M 165,185 Q 225,155 235,200 Q 175,220 165,185 Z" fill="#e2f0d9" class="county-shape" data-county="桃園市" onclick="filterByCountyFromMap('桃園市')" />
-                    <path d="M 120,235 Q 175,215 185,260 Q 130,270 120,235 Z" fill="#d4eac9" class="county-shape" data-county="新竹縣市" onclick="filterByCountyFromMap('新竹縣市')" />
-                    <path d="M 90,285 Q 145,265 150,335 Q 95,350 90,285 Z" fill="#e5f2dc" class="county-shape" data-county="苗栗縣" onclick="filterByCountyFromMap('苗栗縣')" />
-                    <path d="M 90,355 Q 160,345 160,435 Q 105,445 90,355 Z" fill="#d2e8c7" class="county-shape" data-county="台中市" onclick="filterByCountyFromMap('台中市')" />
-                    <path d="M 110,450 Q 150,445 150,515 Q 115,520 110,450 Z" fill="#e1f0d8" class="county-shape" data-county="彰化縣" onclick="filterByCountyFromMap('彰化縣')" />
-                    <path d="M 150,455 Q 235,455 225,535 Q 150,530 150,455 Z" fill="#d5ebcc" class="county-shape" data-county="南投縣" onclick="filterByCountyFromMap('南投縣')" />
-                    <path d="M 110,525 Q 145,523 140,560 Q 110,560 110,525 Z" fill="#e3f1db" class="county-shape" data-county="雲林縣" onclick="filterByCountyFromMap('雲林縣')" />
-                    <path d="M 100,565 Q 140,563 135,605 Q 100,605 100,565 Z" fill="#d7eccf" class="county-shape" data-county="嘉義縣市" onclick="filterByCountyFromMap('嘉義縣市')" />
-                    <path d="M 85,610 Q 130,607 130,685 Q 85,685 85,610 Z" fill="#e0efd7" class="county-shape" data-county="台南市" onclick="filterByCountyFromMap('台南市')" />
-                    <path d="M 90,690 Q 140,687 145,745 Q 95,745 90,690 Z" fill="#d4eac9" class="county-shape" data-county="高雄市" onclick="filterByCountyFromMap('高雄市')" />
-                    <path d="M 135,740 Q 190,740 185,765 Q 135,760 135,740 Z" fill="#e3f1db" class="county-shape" data-county="屏東縣" onclick="filterByCountyFromMap('屏東縣')" />
-                    <path d="M 395,155 Q 440,165 425,285 Q 385,275 395,155 Z" fill="#d8edd0" class="county-shape" data-county="宜蘭縣" onclick="filterByCountyFromMap('宜蘭縣')" />
-                    <path d="M 335,335 Q 410,325 370,575 Q 315,565 335,335 Z" fill="#d0e7c5" class="county-shape" data-county="花蓮縣" onclick="filterByCountyFromMap('花蓮縣')" />
-                    <path d="M 245,595 Q 325,585 265,735 Q 215,735 245,595 Z" fill="#dcefd6" class="county-shape" data-county="台東縣" onclick="filterByCountyFromMap('台東縣')" />
-                </g>
-
-                <!-- County Region Geographic Labels -->
-                <g class="county-map-labels" font-size="11px" font-weight="800" fill="#4d7c0f" opacity="0.85">
-                    <text x="358" y="46" class="map-label-pill" onclick="filterByCountyFromMap('基隆市')">基隆</text>
-                    <text x="290" y="80" class="map-label-pill" onclick="filterByCountyFromMap('台北市')">台北市</text>
-                    <text x="340" y="112" class="map-label-pill" onclick="filterByCountyFromMap('新北市')">新北市</text>
-                    <text x="220" y="142" class="map-label-pill" onclick="filterByCountyFromMap('桃園市')">桃園</text>
-                    <text x="175" y="215" class="map-label-pill" onclick="filterByCountyFromMap('新竹縣市')">新竹</text>
-                    <text x="155" y="285" class="map-label-pill" onclick="filterByCountyFromMap('苗栗縣')">苗栗</text>
-                    <text x="170" y="365" class="map-label-pill" onclick="filterByCountyFromMap('台中市')">台中</text>
-                    <text x="98" y="455" class="map-label-pill" onclick="filterByCountyFromMap('彰化縣')">彰化</text>
-                    <text x="195" y="455" class="map-label-pill" onclick="filterByCountyFromMap('南投縣')">南投 (集集線)</text>
-                    <text x="100" y="515" class="map-label-pill" onclick="filterByCountyFromMap('雲林縣')">雲林</text>
-                    <text x="150" y="555" class="map-label-pill" onclick="filterByCountyFromMap('嘉義縣市')">嘉義</text>
-                    <text x="145" y="605" class="map-label-pill" onclick="filterByCountyFromMap('台南市')">台南</text>
-                    <text x="145" y="655" class="map-label-pill" onclick="filterByCountyFromMap('高雄市')">高雄</text>
-                    <text x="175" y="670" class="map-label-pill" onclick="filterByCountyFromMap('屏東縣')">屏東</text>
-                    <text x="415" y="195" class="map-label-pill" onclick="filterByCountyFromMap('宜蘭縣')">宜蘭</text>
-                    <text x="365" y="350" class="map-label-pill" onclick="filterByCountyFromMap('花蓮縣')">花蓮</text>
-                    <text x="295" y="635" class="map-label-pill" onclick="filterByCountyFromMap('台東縣')">台東</text>
-                </g>
-
-                <!-- ============================================== -->
-                <!-- Railway Tracks (Base Track & Dashed Rail Ties) -->
-                <!-- ============================================== -->
-                
+                <!-- Railway Tracks -->
                 <!-- 1. Western Trunk North -->
-                <path d="M 385,52 L 375,62 L 365,70 L 355,78 L 345,86 L 335,92 L 325,98 L 318,102 L 308,108 L 296,112 L 282,118 L 270,124 L 256,132 L 245,140 L 235,148 L 225,156 L 216,164 L 204,174 L 194,184 L 184,194 L 174,204 L 164,214 L 154,222 L 146,230 L 138,238 L 130,246 L 122,254 L 110,272" fill="none" stroke="#1e293b" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M 385,52 L 375,62 L 365,70 L 355,78 L 345,86 L 335,92 L 325,98 L 318,102 L 308,108 L 296,112 L 282,118 L 270,124 L 256,132 L 245,140 L 235,148 L 225,156 L 216,164 L 204,174 L 194,184 L 184,194 L 174,204 L 164,214 L 154,222 L 146,230 L 138,238 L 130,246 L 122,254 L 110,272" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-dasharray="5 4" stroke-linecap="butt" />
+                <path d="M 370,45 L 350,60 L 335,72 L 315,86 L 295,98 L 275,108 L 252,118 L 230,130 L 210,144 L 192,158 L 178,174 L 162,194 L 148,214 L 136,234 L 122,252 L 108,274" fill="none" stroke="#1e293b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M 370,45 L 350,60 L 335,72 L 315,86 L 295,98 L 275,108 L 252,118 L 230,130 L 210,144 L 192,158 L 178,174 L 162,194 L 148,214 L 136,234 L 122,252 L 108,274" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-dasharray="6 5" stroke-linecap="butt" />
 
-                <!-- 2. Mountain Line (Zhunan -> Miaoli -> Taichung -> Changhua) -->
-                <path d="M 110,272 L 124,286 L 128,302 L 132,320 L 136,338 L 140,358 L 144,378 L 140,396 L 126,412" fill="none" stroke="#1e293b" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M 110,272 L 124,286 L 128,302 L 132,320 L 136,338 L 140,358 L 144,378 L 140,396 L 126,412" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-dasharray="5 4" stroke-linecap="butt" />
+                <!-- 2. Mountain Line -->
+                <path d="M 108,274 L 122,296 L 126,320 L 132,344 L 138,374 L 132,396 L 118,415" fill="none" stroke="#1e293b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M 108,274 L 122,296 L 126,320 L 132,344 L 138,374 L 132,396 L 118,415" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-dasharray="6 5" stroke-linecap="butt" />
 
-                <!-- 3. Coast Line (Zhunan -> Baishatun -> Dajia -> Shalu -> Changhua) -->
-                <path d="M 110,272 L 96,284 L 90,300 L 88,318 L 92,334 L 96,348 L 104,368 L 110,384 L 126,412" fill="none" stroke="#1e293b" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M 110,272 L 96,284 L 90,300 L 88,318 L 92,334 L 96,348 L 104,368 L 110,384 L 126,412" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-dasharray="5 4" stroke-linecap="butt" />
+                <!-- 3. Coast Line -->
+                <path d="M 108,274 L 88,296 L 84,320 L 88,348 L 96,378 L 118,415" fill="none" stroke="#1e293b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M 108,274 L 88,296 L 84,320 L 88,348 L 96,378 L 118,415" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-dasharray="6 5" stroke-linecap="butt" />
 
-                <!-- 4. Western Trunk South (Changhua -> Chiayi -> Tainan -> Kaohsiung -> Chaozhou -> Fangliao) -->
-                <path d="M 126,412 L 130,432 L 134,452 L 138,468 L 134,488 L 130,504 L 126,522 L 122,540 L 116,562 L 112,580 L 108,598 L 104,614 L 112,624 L 108,636 L 112,650 L 116,664 L 126,668 L 144,672 L 158,678 L 174,684 L 188,688" fill="none" stroke="#1e293b" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M 126,412 L 130,432 L 134,452 L 138,468 L 134,488 L 130,504 L 126,522 L 122,540 L 116,562 L 112,580 L 108,598 L 104,614 L 112,624 L 108,636 L 112,650 L 116,664 L 126,668 L 144,672 L 158,678 L 174,684 L 188,688" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-dasharray="5 4" stroke-linecap="butt" />
+                <!-- 4. Western Trunk South -->
+                <path d="M 118,415 L 124,438 L 128,460 L 134,476 L 130,498 L 124,516 L 118,540 L 112,564 L 106,586 L 100,612 L 112,622 L 104,638 L 108,654 L 114,668 L 128,674 L 148,678 L 164,684 L 188,692" fill="none" stroke="#1e293b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M 118,415 L 124,438 L 128,460 L 134,476 L 130,498 L 124,516 L 118,540 L 112,564 L 106,586 L 100,612 L 112,622 L 104,638 L 108,654 L 114,668 L 128,674 L 148,678 L 164,684 L 188,692" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-dasharray="6 5" stroke-linecap="butt" />
 
-                <!-- 5. South Link Line (Fangliao -> Taitung) -->
-                <path d="M 188,688 L 222,664 L 248,642 L 268,620 L 284,598 L 296,574" fill="none" stroke="#1e293b" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M 188,688 L 222,664 L 248,642 L 268,620 L 284,598 L 296,574" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-dasharray="5 4" stroke-linecap="butt" />
+                <!-- 5. South Link Line -->
+                <path d="M 188,692 L 222,670 L 258,638 L 278,614 L 292,590 L 302,566" fill="none" stroke="#1e293b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M 188,692 L 222,670 L 258,638 L 278,614 L 292,590 L 302,566" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-dasharray="6 5" stroke-linecap="butt" />
 
-                <!-- 6. Eastern Taitung Line (Taitung -> Hualien) -->
-                <path d="M 296,574 L 306,550 L 316,528 L 326,506 L 338,480 L 350,456 L 360,432 L 368,410 L 376,386 L 384,362 L 392,338 L 400,314" fill="none" stroke="#1e293b" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M 296,574 L 306,550 L 316,528 L 326,506 L 338,480 L 350,456 L 360,432 L 368,410 L 376,386 L 384,362 L 392,338 L 400,314" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-dasharray="5 4" stroke-linecap="butt" />
+                <!-- 6. Eastern Trunk Line -->
+                <path d="M 302,566 L 314,538 L 324,512 L 336,486 L 348,458 L 360,428 L 370,398 L 380,368 L 390,338 L 402,310" fill="none" stroke="#1e293b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M 302,566 L 314,538 L 324,512 L 336,486 L 348,458 L 360,428 L 370,398 L 380,368 L 390,338 L 402,310" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-dasharray="6 5" stroke-linecap="butt" />
 
-                <!-- 7. North Link Line & Yilan Line (Hualien -> Suao -> Yilan -> Badu) -->
-                <path d="M 400,314 L 406,284 L 414,252 L 420,222 L 424,194 L 426,172 L 424,150 L 422,132 L 418,120 L 412,118 L 400,108 L 388,96 L 382,88 L 375,78 L 365,70" fill="none" stroke="#1e293b" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M 400,314 L 406,284 L 414,252 L 420,222 L 424,194 L 426,172 L 424,150 L 422,132 L 418,120 L 412,118 L 400,108 L 388,96 L 382,88 L 375,78 L 365,70" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-dasharray="5 4" stroke-linecap="butt" />
+                <!-- 7. North Link Line & Yilan Line -->
+                <path d="M 402,310 L 408,276 L 416,238 L 422,208 L 426,184 L 428,162 L 426,142 L 424,126 L 420,112 L 425,118 L 410,105 L 372,72 L 350,60" fill="none" stroke="#1e293b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M 402,310 L 408,276 L 416,238 L 422,208 L 426,184 L 428,162 L 426,142 L 424,126 L 420,112 L 425,118 L 410,105 L 372,72 L 350,60" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-dasharray="6 5" stroke-linecap="butt" />
 
                 <!-- 8. Branch Lines (Amber Orange) -->
-                <!-- Shenao Line -->
-                <path d="M 375,78 L 398,48 L 408,50" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="4 3" stroke-linecap="round" />
-                <!-- Pingxi Line -->
-                <path d="M 388,96 L 376,102 L 364,108 L 352,112" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="4 3" stroke-linecap="round" />
-                <!-- Neiwan & Liujia Line -->
-                <path d="M 122,254 L 134,258 L 144,252" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="4 3" stroke-linecap="round" />
-                <path d="M 134,258 L 148,266 L 158,274" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="4 3" stroke-linecap="round" />
-                <!-- Jiji Line -->
-                <path d="M 138,468 L 152,470 L 168,472 L 184,474 L 198,476" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="4 3" stroke-linecap="round" />
-                <!-- Shalun Line -->
-                <path d="M 112,624 L 124,626" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="4 3" stroke-linecap="round" />
+                <!-- Shenao -->
+                <path d="M 350,60 L 370,45 L 396,45" fill="none" stroke="#d97706" stroke-width="3.5" stroke-dasharray="5 4" stroke-linecap="round" />
+                <!-- Pingxi -->
+                <path d="M 372,72 L 386,90 L 396,105 L 375,115 L 355,120" fill="none" stroke="#d97706" stroke-width="3.5" stroke-dasharray="5 4" stroke-linecap="round" />
+                <!-- Neiwan & Liujia -->
+                <path d="M 122,252 L 138,254 L 150,242" fill="none" stroke="#d97706" stroke-width="3.5" stroke-dasharray="5 4" stroke-linecap="round" />
+                <path d="M 138,254 L 158,262 L 176,272" fill="none" stroke="#d97706" stroke-width="3.5" stroke-dasharray="5 4" stroke-linecap="round" />
+                <!-- Jiji -->
+                <path d="M 134,476 L 154,478 L 172,478 L 192,478 L 210,478" fill="none" stroke="#d97706" stroke-width="3.5" stroke-dasharray="5 4" stroke-linecap="round" />
+                <!-- Shalun -->
+                <path d="M 112,622 L 128,624" fill="none" stroke="#d97706" stroke-width="3.5" stroke-dasharray="5 4" stroke-linecap="round" />
                 <!-- Suao Branch -->
-                <path d="M 424,194 L 434,196" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="4 3" stroke-linecap="round" />
+                <path d="M 426,184 L 438,184" fill="none" stroke="#d97706" stroke-width="3.5" stroke-dasharray="5 4" stroke-linecap="round" />
 
-                <!-- ============================================== -->
                 <!-- Station Nodes Layer -->
-                <!-- ============================================== -->
                 <g class="map-stations-layer">
                     
-        <g class="map-station-node" data-station="基隆" data-county="基隆市" onclick="modalPickStation('基隆')">
-            <circle cx="385" cy="52" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="385" cy="52" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="385" y="43" text-anchor="middle" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 基隆</text>
-        </g>
-
-        <g class="map-station-node" data-station="三坑" data-county="基隆市" onclick="modalPickStation('三坑')">
-            <circle cx="375" cy="62" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="375" cy="62" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="八堵" data-county="基隆市" onclick="modalPickStation('八堵')">
-            <circle cx="365" cy="70" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="365" cy="70" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="356" y="74" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 八堵</text>
-        </g>
-
-        <g class="map-station-node" data-station="七堵" data-county="基隆市" onclick="modalPickStation('七堵')">
-            <circle cx="355" cy="78" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="355" cy="78" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="346" y="82" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 七堵</text>
-        </g>
-
-        <g class="map-station-node" data-station="百福" data-county="基隆市" onclick="modalPickStation('百福')">
-            <circle cx="345" cy="86" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="345" cy="86" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="海科館" data-county="基隆市" onclick="modalPickStation('海科館')">
-            <circle cx="398" cy="48" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="398" cy="48" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="八斗子" data-county="基隆市" onclick="modalPickStation('八斗子')">
-            <circle cx="408" cy="50" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="408" cy="50" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            <text x="417" y="54" text-anchor="start" font-size="10px" font-weight="700" fill="#047857" class="map-station-name">八斗子</text>
-        </g>
-
-        <g class="map-station-node" data-station="五堵" data-county="新北市" onclick="modalPickStation('五堵')">
-            <circle cx="335" cy="92" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="335" cy="92" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="汐止" data-county="新北市" onclick="modalPickStation('汐止')">
-            <circle cx="325" cy="98" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="325" cy="98" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="316" y="102" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 汐止</text>
-        </g>
-
-        <g class="map-station-node" data-station="汐科" data-county="新北市" onclick="modalPickStation('汐科')">
-            <circle cx="318" cy="102" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="318" cy="102" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="南港" data-county="台北市" onclick="modalPickStation('南港')">
-            <circle cx="308" cy="108" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="308" cy="108" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="308" y="99" text-anchor="middle" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 南港</text>
-        </g>
-
-        <g class="map-station-node" data-station="松山" data-county="台北市" onclick="modalPickStation('松山')">
-            <circle cx="296" cy="112" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="296" cy="112" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="296" y="103" text-anchor="middle" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 松山</text>
-        </g>
-
-        <g class="map-station-node" data-station="台北" data-county="台北市" onclick="modalPickStation('台北')">
-            <circle cx="282" cy="118" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="282" cy="118" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="282" y="109" text-anchor="middle" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 台北</text>
-        </g>
-
-        <g class="map-station-node" data-station="萬華" data-county="台北市" onclick="modalPickStation('萬華')">
-            <circle cx="270" cy="124" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="270" cy="124" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="板橋" data-county="新北市" onclick="modalPickStation('板橋')">
-            <circle cx="256" cy="132" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="256" cy="132" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="247" y="136" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 板橋</text>
-        </g>
-
-        <g class="map-station-node" data-station="浮洲" data-county="新北市" onclick="modalPickStation('浮洲')">
-            <circle cx="245" cy="140" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="245" cy="140" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="樹林" data-county="新北市" onclick="modalPickStation('樹林')">
-            <circle cx="235" cy="148" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="235" cy="148" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="226" y="152" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 樹林</text>
-        </g>
-
-        <g class="map-station-node" data-station="山佳" data-county="新北市" onclick="modalPickStation('山佳')">
-            <circle cx="225" cy="156" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="225" cy="156" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="鶯歌" data-county="新北市" onclick="modalPickStation('鶯歌')">
-            <circle cx="216" cy="164" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="216" cy="164" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="207" y="168" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 鶯歌</text>
-        </g>
-
-        <g class="map-station-node" data-station="瑞芳" data-county="新北市" onclick="modalPickStation('瑞芳')">
-            <circle cx="375" cy="78" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="375" cy="78" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="384" y="82" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 瑞芳</text>
-        </g>
-
-        <g class="map-station-node" data-station="猴硐" data-county="新北市" onclick="modalPickStation('猴硐')">
-            <circle cx="382" cy="88" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="382" cy="88" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="三貂嶺" data-county="新北市" onclick="modalPickStation('三貂嶺')">
-            <circle cx="388" cy="96" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="388" cy="96" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="十分" data-county="新北市" onclick="modalPickStation('十分')">
-            <circle cx="376" cy="102" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="376" cy="102" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="平溪" data-county="新北市" onclick="modalPickStation('平溪')">
-            <circle cx="364" cy="108" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="364" cy="108" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="菁桐" data-county="新北市" onclick="modalPickStation('菁桐')">
-            <circle cx="352" cy="112" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="352" cy="112" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            <text x="352" y="128" text-anchor="middle" font-size="10px" font-weight="700" fill="#047857" class="map-station-name">菁桐</text>
-        </g>
-
-        <g class="map-station-node" data-station="雙溪" data-county="新北市" onclick="modalPickStation('雙溪')">
-            <circle cx="400" cy="108" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="400" cy="108" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="409" y="112" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 雙溪</text>
-        </g>
-
-        <g class="map-station-node" data-station="福隆" data-county="新北市" onclick="modalPickStation('福隆')">
-            <circle cx="412" cy="118" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="412" cy="118" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="421" y="122" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 福隆</text>
-        </g>
-
-        <g class="map-station-node" data-station="桃園" data-county="桃園市" onclick="modalPickStation('桃園')">
-            <circle cx="204" cy="174" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="204" cy="174" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="195" y="178" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 桃園</text>
-        </g>
-
-        <g class="map-station-node" data-station="內壢" data-county="桃園市" onclick="modalPickStation('內壢')">
-            <circle cx="194" cy="184" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="194" cy="184" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="中壢" data-county="桃園市" onclick="modalPickStation('中壢')">
-            <circle cx="184" cy="194" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="184" cy="194" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="175" y="198" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 中壢</text>
-        </g>
-
-        <g class="map-station-node" data-station="埔心" data-county="桃園市" onclick="modalPickStation('埔心')">
-            <circle cx="174" cy="204" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="174" cy="204" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="楊梅" data-county="桃園市" onclick="modalPickStation('楊梅')">
-            <circle cx="164" cy="214" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="164" cy="214" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="155" y="218" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 楊梅</text>
-        </g>
-
-        <g class="map-station-node" data-station="富岡" data-county="桃園市" onclick="modalPickStation('富岡')">
-            <circle cx="154" cy="222" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="154" cy="222" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="湖口" data-county="新竹縣市" onclick="modalPickStation('湖口')">
-            <circle cx="146" cy="230" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="146" cy="230" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="新豐" data-county="新竹縣市" onclick="modalPickStation('新豐')">
-            <circle cx="138" cy="238" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="138" cy="238" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="竹北" data-county="新竹縣市" onclick="modalPickStation('竹北')">
-            <circle cx="130" cy="246" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="130" cy="246" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="121" y="250" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 竹北</text>
-        </g>
-
-        <g class="map-station-node" data-station="新竹" data-county="新竹縣市" onclick="modalPickStation('新竹')">
-            <circle cx="122" cy="254" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="122" cy="254" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="113" y="258" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 新竹</text>
-        </g>
-
-        <g class="map-station-node" data-station="竹中" data-county="新竹縣市" onclick="modalPickStation('竹中')">
-            <circle cx="134" cy="258" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="134" cy="258" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="六家" data-county="新竹縣市" onclick="modalPickStation('六家')">
-            <circle cx="144" cy="252" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="144" cy="252" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="144" y="243" text-anchor="middle" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 六家</text>
-        </g>
-
-        <g class="map-station-node" data-station="竹東" data-county="新竹縣市" onclick="modalPickStation('竹東')">
-            <circle cx="148" cy="266" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="148" cy="266" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="內灣" data-county="新竹縣市" onclick="modalPickStation('內灣')">
-            <circle cx="158" cy="274" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="158" cy="274" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="167" y="278" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 內灣</text>
-        </g>
-
-        <g class="map-station-node" data-station="竹南" data-county="苗栗縣" onclick="modalPickStation('竹南')">
-            <circle cx="110" cy="272" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="110" cy="272" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="101" y="276" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 竹南</text>
-        </g>
-
-        <g class="map-station-node" data-station="苗栗" data-county="苗栗縣" onclick="modalPickStation('苗栗')">
-            <circle cx="124" cy="286" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="124" cy="286" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="115" y="290" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 苗栗</text>
-        </g>
-
-        <g class="map-station-node" data-station="三義" data-county="苗栗縣" onclick="modalPickStation('三義')">
-            <circle cx="128" cy="302" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="128" cy="302" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="119" y="306" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 三義</text>
-        </g>
-
-        <g class="map-station-node" data-station="後龍" data-county="苗栗縣" onclick="modalPickStation('後龍')">
-            <circle cx="96" cy="284" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="96" cy="284" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="白沙屯" data-county="苗栗縣" onclick="modalPickStation('白沙屯')">
-            <circle cx="90" cy="300" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="90" cy="300" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="81" y="304" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 白沙屯</text>
-        </g>
-
-        <g class="map-station-node" data-station="通霄" data-county="苗栗縣" onclick="modalPickStation('通霄')">
-            <circle cx="88" cy="318" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="88" cy="318" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="79" y="322" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 通霄</text>
-        </g>
-
-        <g class="map-station-node" data-station="苑裡" data-county="苗栗縣" onclick="modalPickStation('苑裡')">
-            <circle cx="92" cy="334" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="92" cy="334" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="大甲" data-county="台中市" onclick="modalPickStation('大甲')">
-            <circle cx="96" cy="348" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="96" cy="348" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="87" y="352" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 大甲</text>
-        </g>
-
-        <g class="map-station-node" data-station="清水" data-county="台中市" onclick="modalPickStation('清水')">
-            <circle cx="104" cy="368" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="104" cy="368" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="沙鹿" data-county="台中市" onclick="modalPickStation('沙鹿')">
-            <circle cx="110" cy="384" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="110" cy="384" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="101" y="388" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 沙鹿</text>
-        </g>
-
-        <g class="map-station-node" data-station="后里" data-county="台中市" onclick="modalPickStation('后里')">
-            <circle cx="132" cy="320" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="132" cy="320" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="豐原" data-county="台中市" onclick="modalPickStation('豐原')">
-            <circle cx="136" cy="338" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="136" cy="338" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="145" y="342" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 豐原</text>
-        </g>
-
-        <g class="map-station-node" data-station="潭子" data-county="台中市" onclick="modalPickStation('潭子')">
-            <circle cx="140" cy="358" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="140" cy="358" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="台中" data-county="台中市" onclick="modalPickStation('台中')">
-            <circle cx="144" cy="378" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="144" cy="378" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="153" y="382" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 台中</text>
-        </g>
-
-        <g class="map-station-node" data-station="新烏日" data-county="台中市" onclick="modalPickStation('新烏日')">
-            <circle cx="140" cy="396" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="140" cy="396" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="149" y="400" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 新烏日</text>
-        </g>
-
-        <g class="map-station-node" data-station="彰化" data-county="彰化縣" onclick="modalPickStation('彰化')">
-            <circle cx="126" cy="412" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="126" cy="412" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="117" y="416" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 彰化</text>
-        </g>
-
-        <g class="map-station-node" data-station="員林" data-county="彰化縣" onclick="modalPickStation('員林')">
-            <circle cx="130" cy="432" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="130" cy="432" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="121" y="436" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 員林</text>
-        </g>
-
-        <g class="map-station-node" data-station="田中" data-county="彰化縣" onclick="modalPickStation('田中')">
-            <circle cx="134" cy="452" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="134" cy="452" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="二水" data-county="彰化縣" onclick="modalPickStation('二水')">
-            <circle cx="138" cy="468" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="138" cy="468" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="129" y="472" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 二水</text>
-        </g>
-
-        <g class="map-station-node" data-station="濁水" data-county="南投縣" onclick="modalPickStation('濁水')">
-            <circle cx="152" cy="470" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="152" cy="470" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="集集" data-county="南投縣" onclick="modalPickStation('集集')">
-            <circle cx="168" cy="472" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="168" cy="472" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="168" y="463" text-anchor="middle" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 集集</text>
-        </g>
-
-        <g class="map-station-node" data-station="水里" data-county="南投縣" onclick="modalPickStation('水里')">
-            <circle cx="184" cy="474" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="184" cy="474" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="車埕" data-county="南投縣" onclick="modalPickStation('車埕')">
-            <circle cx="198" cy="476" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="198" cy="476" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="207" y="480" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 車埕</text>
-        </g>
-
-        <g class="map-station-node" data-station="斗六" data-county="雲林縣" onclick="modalPickStation('斗六')">
-            <circle cx="134" cy="488" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="134" cy="488" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="125" y="492" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 斗六</text>
-        </g>
-
-        <g class="map-station-node" data-station="斗南" data-county="雲林縣" onclick="modalPickStation('斗南')">
-            <circle cx="130" cy="504" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="130" cy="504" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="121" y="508" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 斗南</text>
-        </g>
-
-        <g class="map-station-node" data-station="民雄" data-county="嘉義縣市" onclick="modalPickStation('民雄')">
-            <circle cx="126" cy="522" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="126" cy="522" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="嘉義" data-county="嘉義縣市" onclick="modalPickStation('嘉義')">
-            <circle cx="122" cy="540" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="122" cy="540" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="113" y="544" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 嘉義</text>
-        </g>
-
-        <g class="map-station-node" data-station="新營" data-county="台南市" onclick="modalPickStation('新營')">
-            <circle cx="116" cy="562" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="116" cy="562" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="107" y="566" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 新營</text>
-        </g>
-
-        <g class="map-station-node" data-station="善化" data-county="台南市" onclick="modalPickStation('善化')">
-            <circle cx="112" cy="580" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="112" cy="580" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="103" y="584" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 善化</text>
-        </g>
-
-        <g class="map-station-node" data-station="永康" data-county="台南市" onclick="modalPickStation('永康')">
-            <circle cx="108" cy="598" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="108" cy="598" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="台南" data-county="台南市" onclick="modalPickStation('台南')">
-            <circle cx="104" cy="614" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="104" cy="614" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="95" y="618" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 台南</text>
-        </g>
-
-        <g class="map-station-node" data-station="中洲" data-county="台南市" onclick="modalPickStation('中洲')">
-            <circle cx="112" cy="624" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="112" cy="624" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="沙崙" data-county="台南市" onclick="modalPickStation('沙崙')">
-            <circle cx="124" cy="626" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="124" cy="626" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="124" y="642" text-anchor="middle" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 沙崙</text>
-        </g>
-
-        <g class="map-station-node" data-station="岡山" data-county="高雄市" onclick="modalPickStation('岡山')">
-            <circle cx="108" cy="636" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="108" cy="636" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="99" y="640" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 岡山</text>
-        </g>
-
-        <g class="map-station-node" data-station="新左營" data-county="高雄市" onclick="modalPickStation('新左營')">
-            <circle cx="112" cy="650" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="112" cy="650" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="103" y="654" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 新左營</text>
-        </g>
-
-        <g class="map-station-node" data-station="高雄" data-county="高雄市" onclick="modalPickStation('高雄')">
-            <circle cx="116" cy="664" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="116" cy="664" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="107" y="668" text-anchor="end" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 高雄</text>
-        </g>
-
-        <g class="map-station-node" data-station="鳳山" data-county="高雄市" onclick="modalPickStation('鳳山')">
-            <circle cx="126" cy="668" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="126" cy="668" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="126" y="684" text-anchor="middle" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 鳳山</text>
-        </g>
-
-        <g class="map-station-node" data-station="屏東" data-county="屏東縣" onclick="modalPickStation('屏東')">
-            <circle cx="144" cy="672" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="144" cy="672" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="144" y="663" text-anchor="middle" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 屏東</text>
-        </g>
-
-        <g class="map-station-node" data-station="潮州" data-county="屏東縣" onclick="modalPickStation('潮州')">
-            <circle cx="158" cy="678" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="158" cy="678" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="158" y="694" text-anchor="middle" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 潮州</text>
-        </g>
-
-        <g class="map-station-node" data-station="林邊" data-county="屏東縣" onclick="modalPickStation('林邊')">
-            <circle cx="174" cy="684" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="174" cy="684" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="枋寮" data-county="屏東縣" onclick="modalPickStation('枋寮')">
-            <circle cx="188" cy="688" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="188" cy="688" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="188" y="704" text-anchor="middle" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 枋寮</text>
-        </g>
-
-        <g class="map-station-node" data-station="大武" data-county="台東縣" onclick="modalPickStation('大武')">
-            <circle cx="222" cy="664" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="222" cy="664" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="222" y="680" text-anchor="middle" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 大武</text>
-        </g>
-
-        <g class="map-station-node" data-station="金崙" data-county="台東縣" onclick="modalPickStation('金崙')">
-            <circle cx="248" cy="642" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="248" cy="642" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="太麻里" data-county="台東縣" onclick="modalPickStation('太麻里')">
-            <circle cx="268" cy="620" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="268" cy="620" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="277" y="624" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 太麻里</text>
-        </g>
-
-        <g class="map-station-node" data-station="知本" data-county="台東縣" onclick="modalPickStation('知本')">
-            <circle cx="284" cy="598" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="284" cy="598" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="293" y="602" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 知本</text>
-        </g>
-
-        <g class="map-station-node" data-station="台東" data-county="台東縣" onclick="modalPickStation('台東')">
-            <circle cx="296" cy="574" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="296" cy="574" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="305" y="578" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 台東</text>
-        </g>
-
-        <g class="map-station-node" data-station="鹿野" data-county="台東縣" onclick="modalPickStation('鹿野')">
-            <circle cx="306" cy="550" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="306" cy="550" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="關山" data-county="台東縣" onclick="modalPickStation('關山')">
-            <circle cx="316" cy="528" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="316" cy="528" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="325" y="532" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 關山</text>
-        </g>
-
-        <g class="map-station-node" data-station="池上" data-county="台東縣" onclick="modalPickStation('池上')">
-            <circle cx="326" cy="506" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="326" cy="506" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="335" y="510" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 池上</text>
-        </g>
-
-        <g class="map-station-node" data-station="富里" data-county="花蓮縣" onclick="modalPickStation('富里')">
-            <circle cx="338" cy="480" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="338" cy="480" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="玉里" data-county="花蓮縣" onclick="modalPickStation('玉里')">
-            <circle cx="350" cy="456" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="350" cy="456" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="359" y="460" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 玉里</text>
-        </g>
-
-        <g class="map-station-node" data-station="瑞穗" data-county="花蓮縣" onclick="modalPickStation('瑞穗')">
-            <circle cx="360" cy="432" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="360" cy="432" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="369" y="436" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 瑞穗</text>
-        </g>
-
-        <g class="map-station-node" data-station="光復" data-county="花蓮縣" onclick="modalPickStation('光復')">
-            <circle cx="368" cy="410" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="368" cy="410" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="鳳林" data-county="花蓮縣" onclick="modalPickStation('鳳林')">
-            <circle cx="376" cy="386" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="376" cy="386" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="壽豐" data-county="花蓮縣" onclick="modalPickStation('壽豐')">
-            <circle cx="384" cy="362" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="384" cy="362" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="吉安" data-county="花蓮縣" onclick="modalPickStation('吉安')">
-            <circle cx="392" cy="338" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="392" cy="338" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="花蓮" data-county="花蓮縣" onclick="modalPickStation('花蓮')">
-            <circle cx="400" cy="314" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="400" cy="314" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="409" y="318" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 花蓮</text>
-        </g>
-
-        <g class="map-station-node" data-station="新城" data-county="花蓮縣" onclick="modalPickStation('新城')">
-            <circle cx="406" cy="284" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="406" cy="284" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="415" y="288" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 新城</text>
-        </g>
-
-        <g class="map-station-node" data-station="和平" data-county="花蓮縣" onclick="modalPickStation('和平')">
-            <circle cx="414" cy="252" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="414" cy="252" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
-        </g>
-
-        <g class="map-station-node" data-station="南澳" data-county="宜蘭縣" onclick="modalPickStation('南澳')">
-            <circle cx="420" cy="222" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="420" cy="222" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="429" y="226" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 南澳</text>
-        </g>
-
-        <g class="map-station-node" data-station="蘇澳新" data-county="宜蘭縣" onclick="modalPickStation('蘇澳新')">
-            <circle cx="424" cy="194" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="424" cy="194" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="433" y="198" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 蘇澳新</text>
-        </g>
-
-        <g class="map-station-node" data-station="蘇澳" data-county="宜蘭縣" onclick="modalPickStation('蘇澳')">
-            <circle cx="434" cy="196" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="434" cy="196" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="434" y="212" text-anchor="middle" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 蘇澳</text>
-        </g>
-
-        <g class="map-station-node" data-station="羅東" data-county="宜蘭縣" onclick="modalPickStation('羅東')">
-            <circle cx="426" cy="172" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="426" cy="172" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="435" y="176" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 羅東</text>
-        </g>
-
-        <g class="map-station-node" data-station="宜蘭" data-county="宜蘭縣" onclick="modalPickStation('宜蘭')">
-            <circle cx="424" cy="150" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="424" cy="150" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="433" y="154" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 宜蘭</text>
-        </g>
-
-        <g class="map-station-node" data-station="礁溪" data-county="宜蘭縣" onclick="modalPickStation('礁溪')">
-            <circle cx="422" cy="132" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="422" cy="132" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="station-dot" />
-            <text x="431" y="136" text-anchor="start" font-size="11px" font-weight="800" fill="#b91c1c" class="map-station-name">★ 礁溪</text>
-        </g>
-
-        <g class="map-station-node" data-station="頭城" data-county="宜蘭縣" onclick="modalPickStation('頭城')">
-            <circle cx="418" cy="120" r="14" fill="none" stroke="none" class="station-hitbox" />
-            <circle cx="418" cy="120" r="3.5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.2" class="station-dot" />
-            
+        <g class="map-station-node" data-station="基隆" onclick="openMapStationAction('基隆', event)" ontouchstart="openMapStationAction('基隆', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="370" cy="45" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="370" cy="45" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="370" cy="45" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="370" y="35" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 基隆</text>
+        </g>
+
+        <g class="map-station-node" data-station="八斗子" onclick="openMapStationAction('八斗子', event)" ontouchstart="openMapStationAction('八斗子', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="396" cy="45" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="396" cy="45" r="7.5" fill="#ffffff" opacity="0.9" />
+            <circle cx="396" cy="45" r="5.0" fill="#10b981" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="406" y="49" text-anchor="start" font-size="11.5px" font-weight="800" fill="#065f46" class="map-station-name">八斗子</text>
+        </g>
+
+        <g class="map-station-node" data-station="八堵" onclick="openMapStationAction('八堵', event)" ontouchstart="openMapStationAction('八堵', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="350" cy="60" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="350" cy="60" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="350" cy="60" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="340" y="64" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 八堵</text>
+        </g>
+
+        <g class="map-station-node" data-station="七堵" onclick="openMapStationAction('七堵', event)" ontouchstart="openMapStationAction('七堵', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="335" cy="72" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="335" cy="72" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="335" cy="72" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="325" y="76" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 七堵</text>
+        </g>
+
+        <g class="map-station-node" data-station="汐止" onclick="openMapStationAction('汐止', event)" ontouchstart="openMapStationAction('汐止', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="315" cy="86" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="315" cy="86" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="315" cy="86" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="305" y="90" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 汐止</text>
+        </g>
+
+        <g class="map-station-node" data-station="南港" onclick="openMapStationAction('南港', event)" ontouchstart="openMapStationAction('南港', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="295" cy="98" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="295" cy="98" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="295" cy="98" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="295" y="88" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 南港</text>
+        </g>
+
+        <g class="map-station-node" data-station="松山" onclick="openMapStationAction('松山', event)" ontouchstart="openMapStationAction('松山', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="275" cy="108" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="275" cy="108" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="275" cy="108" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="275" y="98" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 松山</text>
+        </g>
+
+        <g class="map-station-node" data-station="台北" onclick="openMapStationAction('台北', event)" ontouchstart="openMapStationAction('台北', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="252" cy="118" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="252" cy="118" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="252" cy="118" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="252" y="108" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 台北</text>
+        </g>
+
+        <g class="map-station-node" data-station="板橋" onclick="openMapStationAction('板橋', event)" ontouchstart="openMapStationAction('板橋', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="230" cy="130" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="230" cy="130" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="230" cy="130" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="220" y="134" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 板橋</text>
+        </g>
+
+        <g class="map-station-node" data-station="樹林" onclick="openMapStationAction('樹林', event)" ontouchstart="openMapStationAction('樹林', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="210" cy="144" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="210" cy="144" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="210" cy="144" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="200" y="148" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 樹林</text>
+        </g>
+
+        <g class="map-station-node" data-station="鶯歌" onclick="openMapStationAction('鶯歌', event)" ontouchstart="openMapStationAction('鶯歌', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="192" cy="158" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="192" cy="158" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="192" cy="158" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="182" y="162" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 鶯歌</text>
+        </g>
+
+        <g class="map-station-node" data-station="瑞芳" onclick="openMapStationAction('瑞芳', event)" ontouchstart="openMapStationAction('瑞芳', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="372" cy="72" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="372" cy="72" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="372" cy="72" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="382" y="76" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 瑞芳</text>
+        </g>
+
+        <g class="map-station-node" data-station="猴硐" onclick="openMapStationAction('猴硐', event)" ontouchstart="openMapStationAction('猴硐', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="386" cy="90" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="386" cy="90" r="7.5" fill="#ffffff" opacity="0.9" />
+            <circle cx="386" cy="90" r="5.0" fill="#10b981" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="396" y="94" text-anchor="start" font-size="11.5px" font-weight="800" fill="#065f46" class="map-station-name">猴硐</text>
+        </g>
+
+        <g class="map-station-node" data-station="十分" onclick="openMapStationAction('十分', event)" ontouchstart="openMapStationAction('十分', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="396" cy="105" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="396" cy="105" r="7.5" fill="#ffffff" opacity="0.9" />
+            <circle cx="396" cy="105" r="5.0" fill="#10b981" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="406" y="109" text-anchor="start" font-size="11.5px" font-weight="800" fill="#065f46" class="map-station-name">十分</text>
+        </g>
+
+        <g class="map-station-node" data-station="平溪" onclick="openMapStationAction('平溪', event)" ontouchstart="openMapStationAction('平溪', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="375" cy="115" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="375" cy="115" r="7.5" fill="#ffffff" opacity="0.9" />
+            <circle cx="375" cy="115" r="5.0" fill="#10b981" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="365" y="119" text-anchor="end" font-size="11.5px" font-weight="800" fill="#065f46" class="map-station-name">平溪</text>
+        </g>
+
+        <g class="map-station-node" data-station="菁桐" onclick="openMapStationAction('菁桐', event)" ontouchstart="openMapStationAction('菁桐', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="355" cy="120" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="355" cy="120" r="7.5" fill="#ffffff" opacity="0.9" />
+            <circle cx="355" cy="120" r="5.0" fill="#10b981" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="355" y="136" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#065f46" class="map-station-name">菁桐</text>
+        </g>
+
+        <g class="map-station-node" data-station="雙溪" onclick="openMapStationAction('雙溪', event)" ontouchstart="openMapStationAction('雙溪', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="410" cy="105" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="410" cy="105" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="410" cy="105" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="420" y="109" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 雙溪</text>
+        </g>
+
+        <g class="map-station-node" data-station="福隆" onclick="openMapStationAction('福隆', event)" ontouchstart="openMapStationAction('福隆', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="425" cy="118" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="425" cy="118" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="425" cy="118" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="435" y="122" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 福隆</text>
+        </g>
+
+        <g class="map-station-node" data-station="桃園" onclick="openMapStationAction('桃園', event)" ontouchstart="openMapStationAction('桃園', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="178" cy="174" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="178" cy="174" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="178" cy="174" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="168" y="178" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 桃園</text>
+        </g>
+
+        <g class="map-station-node" data-station="中壢" onclick="openMapStationAction('中壢', event)" ontouchstart="openMapStationAction('中壢', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="162" cy="194" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="162" cy="194" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="162" cy="194" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="152" y="198" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 中壢</text>
+        </g>
+
+        <g class="map-station-node" data-station="楊梅" onclick="openMapStationAction('楊梅', event)" ontouchstart="openMapStationAction('楊梅', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="148" cy="214" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="148" cy="214" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="148" cy="214" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="138" y="218" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 楊梅</text>
+        </g>
+
+        <g class="map-station-node" data-station="竹北" onclick="openMapStationAction('竹北', event)" ontouchstart="openMapStationAction('竹北', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="136" cy="234" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="136" cy="234" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="136" cy="234" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="126" y="238" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 竹北</text>
+        </g>
+
+        <g class="map-station-node" data-station="新竹" onclick="openMapStationAction('新竹', event)" ontouchstart="openMapStationAction('新竹', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="122" cy="252" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="122" cy="252" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="122" cy="252" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="112" y="256" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 新竹</text>
+        </g>
+
+        <g class="map-station-node" data-station="竹中" onclick="openMapStationAction('竹中', event)" ontouchstart="openMapStationAction('竹中', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="138" cy="254" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="138" cy="254" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="138" cy="254" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="138" y="270" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 竹中</text>
+        </g>
+
+        <g class="map-station-node" data-station="六家" onclick="openMapStationAction('六家', event)" ontouchstart="openMapStationAction('六家', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="150" cy="242" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="150" cy="242" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="150" cy="242" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="150" y="232" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 六家</text>
+        </g>
+
+        <g class="map-station-node" data-station="竹東" onclick="openMapStationAction('竹東', event)" ontouchstart="openMapStationAction('竹東', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="158" cy="262" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="158" cy="262" r="7.5" fill="#ffffff" opacity="0.9" />
+            <circle cx="158" cy="262" r="5.0" fill="#10b981" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="168" y="266" text-anchor="start" font-size="11.5px" font-weight="800" fill="#065f46" class="map-station-name">竹東</text>
+        </g>
+
+        <g class="map-station-node" data-station="內灣" onclick="openMapStationAction('內灣', event)" ontouchstart="openMapStationAction('內灣', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="176" cy="272" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="176" cy="272" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="176" cy="272" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="186" y="276" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 內灣</text>
+        </g>
+
+        <g class="map-station-node" data-station="竹南" onclick="openMapStationAction('竹南', event)" ontouchstart="openMapStationAction('竹南', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="108" cy="274" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="108" cy="274" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="108" cy="274" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="98" y="278" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 竹南</text>
+        </g>
+
+        <g class="map-station-node" data-station="苗栗" onclick="openMapStationAction('苗栗', event)" ontouchstart="openMapStationAction('苗栗', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="122" cy="296" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="122" cy="296" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="122" cy="296" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="132" y="300" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 苗栗</text>
+        </g>
+
+        <g class="map-station-node" data-station="三義" onclick="openMapStationAction('三義', event)" ontouchstart="openMapStationAction('三義', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="126" cy="320" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="126" cy="320" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="126" cy="320" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="136" y="324" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 三義</text>
+        </g>
+
+        <g class="map-station-node" data-station="白沙屯" onclick="openMapStationAction('白沙屯', event)" ontouchstart="openMapStationAction('白沙屯', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="88" cy="296" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="88" cy="296" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="88" cy="296" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="78" y="300" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 白沙屯</text>
+        </g>
+
+        <g class="map-station-node" data-station="通霄" onclick="openMapStationAction('通霄', event)" ontouchstart="openMapStationAction('通霄', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="84" cy="320" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="84" cy="320" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="84" cy="320" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="74" y="324" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 通霄</text>
+        </g>
+
+        <g class="map-station-node" data-station="大甲" onclick="openMapStationAction('大甲', event)" ontouchstart="openMapStationAction('大甲', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="88" cy="348" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="88" cy="348" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="88" cy="348" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="78" y="352" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 大甲</text>
+        </g>
+
+        <g class="map-station-node" data-station="沙鹿" onclick="openMapStationAction('沙鹿', event)" ontouchstart="openMapStationAction('沙鹿', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="96" cy="378" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="96" cy="378" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="96" cy="378" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="86" y="382" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 沙鹿</text>
+        </g>
+
+        <g class="map-station-node" data-station="豐原" onclick="openMapStationAction('豐原', event)" ontouchstart="openMapStationAction('豐原', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="132" cy="344" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="132" cy="344" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="132" cy="344" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="142" y="348" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 豐原</text>
+        </g>
+
+        <g class="map-station-node" data-station="台中" onclick="openMapStationAction('台中', event)" ontouchstart="openMapStationAction('台中', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="138" cy="374" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="138" cy="374" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="138" cy="374" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="148" y="378" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 台中</text>
+        </g>
+
+        <g class="map-station-node" data-station="新烏日" onclick="openMapStationAction('新烏日', event)" ontouchstart="openMapStationAction('新烏日', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="132" cy="396" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="132" cy="396" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="132" cy="396" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="142" y="400" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 新烏日</text>
+        </g>
+
+        <g class="map-station-node" data-station="彰化" onclick="openMapStationAction('彰化', event)" ontouchstart="openMapStationAction('彰化', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="118" cy="415" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="118" cy="415" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="118" cy="415" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="108" y="419" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 彰化</text>
+        </g>
+
+        <g class="map-station-node" data-station="員林" onclick="openMapStationAction('員林', event)" ontouchstart="openMapStationAction('員林', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="124" cy="438" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="124" cy="438" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="124" cy="438" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="114" y="442" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 員林</text>
+        </g>
+
+        <g class="map-station-node" data-station="田中" onclick="openMapStationAction('田中', event)" ontouchstart="openMapStationAction('田中', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="128" cy="460" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="128" cy="460" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="128" cy="460" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="118" y="464" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 田中</text>
+        </g>
+
+        <g class="map-station-node" data-station="二水" onclick="openMapStationAction('二水', event)" ontouchstart="openMapStationAction('二水', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="134" cy="476" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="134" cy="476" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="134" cy="476" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="124" y="480" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 二水</text>
+        </g>
+
+        <g class="map-station-node" data-station="濁水" onclick="openMapStationAction('濁水', event)" ontouchstart="openMapStationAction('濁水', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="154" cy="478" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="154" cy="478" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="154" cy="478" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="154" y="494" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 濁水</text>
+        </g>
+
+        <g class="map-station-node" data-station="集集" onclick="openMapStationAction('集集', event)" ontouchstart="openMapStationAction('集集', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="172" cy="478" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="172" cy="478" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="172" cy="478" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="172" y="468" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 集集</text>
+        </g>
+
+        <g class="map-station-node" data-station="水里" onclick="openMapStationAction('水里', event)" ontouchstart="openMapStationAction('水里', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="192" cy="478" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="192" cy="478" r="7.5" fill="#ffffff" opacity="0.9" />
+            <circle cx="192" cy="478" r="5.0" fill="#10b981" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="192" y="494" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#065f46" class="map-station-name">水里</text>
+        </g>
+
+        <g class="map-station-node" data-station="車埕" onclick="openMapStationAction('車埕', event)" ontouchstart="openMapStationAction('車埕', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="210" cy="478" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="210" cy="478" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="210" cy="478" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="220" y="482" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 車埕</text>
+        </g>
+
+        <g class="map-station-node" data-station="斗六" onclick="openMapStationAction('斗六', event)" ontouchstart="openMapStationAction('斗六', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="130" cy="498" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="130" cy="498" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="130" cy="498" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="120" y="502" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 斗六</text>
+        </g>
+
+        <g class="map-station-node" data-station="斗南" onclick="openMapStationAction('斗南', event)" ontouchstart="openMapStationAction('斗南', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="124" cy="516" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="124" cy="516" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="124" cy="516" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="114" y="520" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 斗南</text>
+        </g>
+
+        <g class="map-station-node" data-station="嘉義" onclick="openMapStationAction('嘉義', event)" ontouchstart="openMapStationAction('嘉義', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="118" cy="540" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="118" cy="540" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="118" cy="540" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="108" y="544" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 嘉義</text>
+        </g>
+
+        <g class="map-station-node" data-station="新營" onclick="openMapStationAction('新營', event)" ontouchstart="openMapStationAction('新營', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="112" cy="564" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="112" cy="564" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="112" cy="564" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="102" y="568" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 新營</text>
+        </g>
+
+        <g class="map-station-node" data-station="善化" onclick="openMapStationAction('善化', event)" ontouchstart="openMapStationAction('善化', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="106" cy="586" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="106" cy="586" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="106" cy="586" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="96" y="590" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 善化</text>
+        </g>
+
+        <g class="map-station-node" data-station="台南" onclick="openMapStationAction('台南', event)" ontouchstart="openMapStationAction('台南', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="100" cy="612" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="100" cy="612" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="100" cy="612" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="90" y="616" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 台南</text>
+        </g>
+
+        <g class="map-station-node" data-station="中洲" onclick="openMapStationAction('中洲', event)" ontouchstart="openMapStationAction('中洲', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="112" cy="622" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="112" cy="622" r="7.5" fill="#ffffff" opacity="0.9" />
+            <circle cx="112" cy="622" r="5.0" fill="#0284c7" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="102" y="626" text-anchor="end" font-size="11.5px" font-weight="800" fill="#0f172a" class="map-station-name">中洲</text>
+        </g>
+
+        <g class="map-station-node" data-station="沙崙" onclick="openMapStationAction('沙崙', event)" ontouchstart="openMapStationAction('沙崙', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="128" cy="624" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="128" cy="624" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="128" cy="624" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="138" y="628" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 沙崙</text>
+        </g>
+
+        <g class="map-station-node" data-station="岡山" onclick="openMapStationAction('岡山', event)" ontouchstart="openMapStationAction('岡山', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="104" cy="638" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="104" cy="638" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="104" cy="638" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="94" y="642" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 岡山</text>
+        </g>
+
+        <g class="map-station-node" data-station="新左營" onclick="openMapStationAction('新左營', event)" ontouchstart="openMapStationAction('新左營', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="108" cy="654" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="108" cy="654" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="108" cy="654" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="98" y="658" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 新左營</text>
+        </g>
+
+        <g class="map-station-node" data-station="高雄" onclick="openMapStationAction('高雄', event)" ontouchstart="openMapStationAction('高雄', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="114" cy="668" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="114" cy="668" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="114" cy="668" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="104" y="672" text-anchor="end" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 高雄</text>
+        </g>
+
+        <g class="map-station-node" data-station="鳳山" onclick="openMapStationAction('鳳山', event)" ontouchstart="openMapStationAction('鳳山', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="128" cy="674" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="128" cy="674" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="128" cy="674" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="128" y="690" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 鳳山</text>
+        </g>
+
+        <g class="map-station-node" data-station="屏東" onclick="openMapStationAction('屏東', event)" ontouchstart="openMapStationAction('屏東', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="148" cy="678" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="148" cy="678" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="148" cy="678" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="148" y="668" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 屏東</text>
+        </g>
+
+        <g class="map-station-node" data-station="潮州" onclick="openMapStationAction('潮州', event)" ontouchstart="openMapStationAction('潮州', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="164" cy="684" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="164" cy="684" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="164" cy="684" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="164" y="700" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 潮州</text>
+        </g>
+
+        <g class="map-station-node" data-station="枋寮" onclick="openMapStationAction('枋寮', event)" ontouchstart="openMapStationAction('枋寮', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="188" cy="692" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="188" cy="692" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="188" cy="692" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="188" y="708" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 枋寮</text>
+        </g>
+
+        <g class="map-station-node" data-station="大武" onclick="openMapStationAction('大武', event)" ontouchstart="openMapStationAction('大武', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="222" cy="670" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="222" cy="670" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="222" cy="670" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="222" y="686" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 大武</text>
+        </g>
+
+        <g class="map-station-node" data-station="金崙" onclick="openMapStationAction('金崙', event)" ontouchstart="openMapStationAction('金崙', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="258" cy="638" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="258" cy="638" r="7.5" fill="#ffffff" opacity="0.9" />
+            <circle cx="258" cy="638" r="5.0" fill="#0284c7" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="268" y="642" text-anchor="start" font-size="11.5px" font-weight="800" fill="#0f172a" class="map-station-name">金崙</text>
+        </g>
+
+        <g class="map-station-node" data-station="太麻里" onclick="openMapStationAction('太麻里', event)" ontouchstart="openMapStationAction('太麻里', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="278" cy="614" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="278" cy="614" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="278" cy="614" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="288" y="618" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 太麻里</text>
+        </g>
+
+        <g class="map-station-node" data-station="知本" onclick="openMapStationAction('知本', event)" ontouchstart="openMapStationAction('知本', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="292" cy="590" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="292" cy="590" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="292" cy="590" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="302" y="594" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 知本</text>
+        </g>
+
+        <g class="map-station-node" data-station="台東" onclick="openMapStationAction('台東', event)" ontouchstart="openMapStationAction('台東', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="302" cy="566" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="302" cy="566" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="302" cy="566" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="312" y="570" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 台東</text>
+        </g>
+
+        <g class="map-station-node" data-station="鹿野" onclick="openMapStationAction('鹿野', event)" ontouchstart="openMapStationAction('鹿野', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="314" cy="538" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="314" cy="538" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="314" cy="538" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="324" y="542" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 鹿野</text>
+        </g>
+
+        <g class="map-station-node" data-station="關山" onclick="openMapStationAction('關山', event)" ontouchstart="openMapStationAction('關山', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="324" cy="512" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="324" cy="512" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="324" cy="512" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="334" y="516" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 關山</text>
+        </g>
+
+        <g class="map-station-node" data-station="池上" onclick="openMapStationAction('池上', event)" ontouchstart="openMapStationAction('池上', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="336" cy="486" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="336" cy="486" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="336" cy="486" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="346" y="490" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 池上</text>
+        </g>
+
+        <g class="map-station-node" data-station="玉里" onclick="openMapStationAction('玉里', event)" ontouchstart="openMapStationAction('玉里', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="348" cy="458" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="348" cy="458" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="348" cy="458" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="358" y="462" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 玉里</text>
+        </g>
+
+        <g class="map-station-node" data-station="瑞穗" onclick="openMapStationAction('瑞穗', event)" ontouchstart="openMapStationAction('瑞穗', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="360" cy="428" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="360" cy="428" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="360" cy="428" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="370" y="432" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 瑞穗</text>
+        </g>
+
+        <g class="map-station-node" data-station="光復" onclick="openMapStationAction('光復', event)" ontouchstart="openMapStationAction('光復', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="370" cy="398" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="370" cy="398" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="370" cy="398" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="380" y="402" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 光復</text>
+        </g>
+
+        <g class="map-station-node" data-station="鳳林" onclick="openMapStationAction('鳳林', event)" ontouchstart="openMapStationAction('鳳林', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="380" cy="368" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="380" cy="368" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="380" cy="368" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="390" y="372" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 鳳林</text>
+        </g>
+
+        <g class="map-station-node" data-station="壽豐" onclick="openMapStationAction('壽豐', event)" ontouchstart="openMapStationAction('壽豐', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="390" cy="338" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="390" cy="338" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="390" cy="338" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="400" y="342" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 壽豐</text>
+        </g>
+
+        <g class="map-station-node" data-station="花蓮" onclick="openMapStationAction('花蓮', event)" ontouchstart="openMapStationAction('花蓮', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="402" cy="310" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="402" cy="310" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="402" cy="310" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="412" y="314" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 花蓮</text>
+        </g>
+
+        <g class="map-station-node" data-station="新城(太魯閣)" onclick="openMapStationAction('新城(太魯閣)', event)" ontouchstart="openMapStationAction('新城(太魯閣)', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="408" cy="276" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="408" cy="276" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="408" cy="276" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="418" y="280" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 新城(太魯閣)</text>
+        </g>
+
+        <g class="map-station-node" data-station="和平" onclick="openMapStationAction('和平', event)" ontouchstart="openMapStationAction('和平', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="416" cy="238" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="416" cy="238" r="7.5" fill="#ffffff" opacity="0.9" />
+            <circle cx="416" cy="238" r="5.0" fill="#0284c7" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="426" y="242" text-anchor="start" font-size="11.5px" font-weight="800" fill="#0f172a" class="map-station-name">和平</text>
+        </g>
+
+        <g class="map-station-node" data-station="南澳" onclick="openMapStationAction('南澳', event)" ontouchstart="openMapStationAction('南澳', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="422" cy="208" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="422" cy="208" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="422" cy="208" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="432" y="212" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 南澳</text>
+        </g>
+
+        <g class="map-station-node" data-station="蘇澳新" onclick="openMapStationAction('蘇澳新', event)" ontouchstart="openMapStationAction('蘇澳新', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="426" cy="184" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="426" cy="184" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="426" cy="184" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="436" y="188" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 蘇澳新</text>
+        </g>
+
+        <g class="map-station-node" data-station="蘇澳" onclick="openMapStationAction('蘇澳', event)" ontouchstart="openMapStationAction('蘇澳', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="438" cy="184" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="438" cy="184" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="438" cy="184" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="438" y="200" text-anchor="middle" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 蘇澳</text>
+        </g>
+
+        <g class="map-station-node" data-station="羅東" onclick="openMapStationAction('羅東', event)" ontouchstart="openMapStationAction('羅東', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="428" cy="162" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="428" cy="162" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="428" cy="162" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="438" y="166" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 羅東</text>
+        </g>
+
+        <g class="map-station-node" data-station="宜蘭" onclick="openMapStationAction('宜蘭', event)" ontouchstart="openMapStationAction('宜蘭', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="426" cy="142" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="426" cy="142" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="426" cy="142" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="436" y="146" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 宜蘭</text>
+        </g>
+
+        <g class="map-station-node" data-station="礁溪" onclick="openMapStationAction('礁溪', event)" ontouchstart="openMapStationAction('礁溪', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="424" cy="126" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="424" cy="126" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="424" cy="126" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="434" y="130" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 礁溪</text>
+        </g>
+
+        <g class="map-station-node" data-station="頭城" onclick="openMapStationAction('頭城', event)" ontouchstart="openMapStationAction('頭城', event)">
+            <!-- Huge invisible touch target (r=24 / 48px) for effortless mobile tapping -->
+            <circle cx="420" cy="112" r="22" fill="transparent" stroke="none" class="station-touch-hitbox" />
+            <!-- Visual Station Pin -->
+            <circle cx="420" cy="112" r="9.0" fill="#ffffff" opacity="0.9" />
+            <circle cx="420" cy="112" r="6.5" fill="#ef4444" stroke="#ffffff" stroke-width="2" class="station-dot" />
+            <!-- Label Badge with high readability -->
+            <text x="430" y="116" text-anchor="start" font-size="11.5px" font-weight="800" fill="#991b1b" class="map-station-name">★ 頭城</text>
         </g>
                 </g>
             </svg>
+        </div>
+
+        <!-- Floating Station Action Sheet upon tap -->
+        <div id="mapStationActionSheet" class="map-action-sheet" style="display:none;">
+            <div class="action-sheet-header">
+                <span class="action-station-badge" id="actionStationName">台北</span>
+                <button class="action-sheet-close" onclick="closeMapActionSheet()">✕</button>
+            </div>
+            <div class="action-sheet-buttons">
+                <button class="btn-sheet-action dep" onclick="confirmMapStationPick('origin')">🚩 設為出發站</button>
+                <button class="btn-sheet-action arr" onclick="confirmMapStationPick('dest')">🏁 設為抵達站</button>
+                <button class="btn-sheet-action via" onclick="confirmMapStationPick('via')">🔀 指定為轉乘站</button>
+            </div>
         </div>
     </div>
     
             </div>
         </div>
     </div>
-<script src="data.js?v=20260701_v391"></script>
+<script src="data.js?v=20260701_v392"></script>
     <script>
         let allTimetableData = window.EMBEDDED_TIMETABLE_DATA || [];
         let departuresByStation = {};
@@ -4553,7 +4710,7 @@
 
         
         // ==========================================
-        // v3.9.1 Multi-County Checkbox & Map System
+        // v3.9.2 Multi-County Checkbox & Map System
         // ==========================================
         let modalViewMode = 'list'; // 'list' | 'map'
         let selectedCounties = new Set(COUNTY_GROUPS.map(g => g.county));

@@ -25,6 +25,7 @@ if sys.platform.startswith('win'):
 
 # List of key historical release commits mapped to version tags
 HISTORICAL_COMMITS = [
+    {"version": "v3.9.5", "commit": "HEAD",    "date": "2026-08-25", "desc": "完整選站互動修復 ＆ 真實 X/Y 列車進度條清晰呈現"},
     {"version": "v3.9.4", "commit": "HEAD",    "date": "2026-08-25", "desc": "介面 60 FPS 非同步零延遲排程 ＆ LRU 記憶體快取極速引擎"},
     {"version": "v3.9.3", "commit": "HEAD",    "date": "2026-08-25", "desc": "真實 X / Y 列車算路進度條 ＆ 枝葉剪枝極速路由引擎 (微秒直出)"},
     {"version": "v3.9.2", "commit": "321dfd6", "date": "2026-08-25", "desc": "手機優先 48px 觸控熱區、全島地圖 6 大分區縮放與頁尾現代化重構"},
