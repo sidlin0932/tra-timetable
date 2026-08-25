@@ -1931,78 +1931,7 @@
         }
 
 
-        /* ==========================================
-           Instant UI Feedback, Progress Bar & Skeletons
-           ========================================== */
-        .search-loading-wrapper {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            padding: 28px 24px;
-            text-align: center;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow);
-            animation: fadeIn 0.2s ease;
-        }
-        .progress-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-            font-weight: 800;
-            font-size: 0.95rem;
-            color: var(--primary);
-        }
-        .progress-bar-track {
-            width: 100%;
-            height: 8px;
-            background: var(--bg-subtle);
-            border-radius: 6px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            position: relative;
-        }
-        .progress-bar-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #0284c7, #38bdf8, #22c55e);
-            border-radius: 6px;
-            transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-        .progress-bar-fill::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            animation: progress-shimmer 1.2s infinite;
-        }
-        @keyframes progress-shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        .skeleton-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            padding: 16px 20px;
-            margin-bottom: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            animation: pulse-skeleton 1.5s infinite ease-in-out;
-        }
-        .skeleton-line {
-            height: 14px;
-            background: var(--bg-subtle);
-            border-radius: 6px;
-        }
-        .skeleton-line.title { width: 35%; height: 18px; }
-        .skeleton-line.badge { width: 60%; }
-        .skeleton-line.meta { width: 85%; }
-        @keyframes pulse-skeleton {
-            0%, 100% { opacity: 1; }
+        
             50% { opacity: 0.45; }
         }
 
@@ -3973,11 +3902,12 @@
             return multiRoutes;
         }
 
+        
         // ==========================================
-        // High-Speed Router & Instant UI Engine
+        // Ultra-Fast Direct Search Engine (0ms True Instant)
         // ==========================================
         const ROUTE_LRU_CACHE = new Map();
-        const MAX_LRU_SIZE = 150;
+        const MAX_LRU_SIZE = 200;
 
         function buildDeparturesIndex() {
             departuresByStation = {};
@@ -3994,42 +3924,8 @@
                 });
             });
 
-            // Pre-sort every station's departures by departure time for O(1) pruning
             for (const st in departuresByStation) {
                 departuresByStation[st].sort((a, b) => a.depTimeMin - b.depTimeMin);
-            }
-        }
-
-        function showSearchingState(routeStr) {
-            const container = document.getElementById('resultsList');
-            const countBadge = document.getElementById('resultsCount');
-            if (countBadge) countBadge.textContent = '⚡ 智慧算路中...';
-
-            if (container) {
-                container.innerHTML = `
-                    <div class="search-loading-wrapper">
-                        <div class="progress-header">
-                            <span id="progressStatusLabel">🚀 正在為您規劃【${routeStr}】最佳列車組合...</span>
-                            <span id="progressPercentLabel" style="font-family:'Outfit', sans-serif;">45%</span>
-                        </div>
-                        <div class="progress-bar-track">
-                            <div class="progress-bar-fill" id="searchProgressBar" style="width: 45%;"></div>
-                        </div>
-                        <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;">
-                            ⚡ 100% 純本地記憶體極速運算 · 全台 1,465 班列車排程即時解析
-                        </div>
-                    </div>
-                    <div class="skeleton-card">
-                        <div class="skeleton-line title"></div>
-                        <div class="skeleton-line badge"></div>
-                        <div class="skeleton-line meta"></div>
-                    </div>
-                    <div class="skeleton-card">
-                        <div class="skeleton-line title"></div>
-                        <div class="skeleton-line badge"></div>
-                        <div class="skeleton-line meta"></div>
-                    </div>
-                `;
             }
         }
 
@@ -4049,55 +3945,38 @@
             }
             updateClearViaButton();
 
-            // 1. UI FIRST: Immediately render progress & skeleton feedback on frame 0
-            showSearchingState(routeStr);
+            // Direct, true instant route calculation with LRU cache
+            const cacheKey = `${waypoints.map(w=>w.station+'_'+w.minStay).join('|')}-${startTimeMin}-${via}-${transferCondition}-${typeFilter}-${currentDayFilter}`;
+            
+            let rawRoutes = [];
+            if (ROUTE_LRU_CACHE.has(cacheKey)) {
+                rawRoutes = ROUTE_LRU_CACHE.get(cacheKey);
+            } else {
+                if (waypoints.length === 2) {
+                    rawRoutes = planRoutes(waypoints[0].station, waypoints[1].station, startTimeMin, via);
+                } else {
+                    rawRoutes = planMultiStopRoutes(waypoints, startTimeMin);
+                }
+                if (ROUTE_LRU_CACHE.size >= MAX_LRU_SIZE) {
+                    const firstKey = ROUTE_LRU_CACHE.keys().next().value;
+                    ROUTE_LRU_CACHE.delete(firstKey);
+                }
+                ROUTE_LRU_CACHE.set(cacheKey, rawRoutes);
+            }
 
-            // 2. ASYNC ROUTING: Yield to browser repaint, then execute calculation
-            requestAnimationFrame(() => {
-                setTimeout(() => {
-                    const progressBar = document.getElementById('searchProgressBar');
-                    const progressPercent = document.getElementById('progressPercentLabel');
-                    if (progressBar) progressBar.style.width = '85%';
-                    if (progressPercent) progressPercent.textContent = '85%';
-
-                    const cacheKey = `${waypoints.map(w=>w.station+'_'+w.minStay).join('|')}-${startTimeMin}-${via}-${transferCondition}-${typeFilter}-${currentDayFilter}`;
-                    
-                    let rawRoutes = [];
-                    if (ROUTE_LRU_CACHE.has(cacheKey)) {
-                        rawRoutes = ROUTE_LRU_CACHE.get(cacheKey);
-                    } else {
-                        if (waypoints.length === 2) {
-                            rawRoutes = planRoutes(waypoints[0].station, waypoints[1].station, startTimeMin, via);
-                        } else {
-                            rawRoutes = planMultiStopRoutes(waypoints, startTimeMin);
-                        }
-                        if (ROUTE_LRU_CACHE.size >= MAX_LRU_SIZE) {
-                            const firstKey = ROUTE_LRU_CACHE.keys().next().value;
-                            ROUTE_LRU_CACHE.delete(firstKey);
-                        }
-                        ROUTE_LRU_CACHE.set(cacheKey, rawRoutes);
-                    }
-
-                    const seen = new Set();
-                    currentRoutes = rawRoutes.filter(r => {
-                        const key = `${r.dep_time}-${r.arr_time}-${r.transfers}-${r.legs.map(l=>l.train_number).join('_')}`;
-                        if (seen.has(key)) return false;
-                        seen.add(key);
-                        return true;
-                    });
-
-                    currentRoutes = sortRoutes(currentRoutes);
-
-                    if (progressBar) progressBar.style.width = '100%';
-                    if (progressPercent) progressPercent.textContent = '100%';
-
-                    // Smooth transition to final results
-                    setTimeout(() => {
-                        renderResults();
-                    }, 40);
-                }, 10);
+            const seen = new Set();
+            currentRoutes = rawRoutes.filter(r => {
+                const key = `${r.dep_time}-${r.arr_time}-${r.transfers}-${r.legs.map(l=>l.train_number).join('_')}`;
+                if (seen.has(key)) return false;
+                seen.add(key);
+                return true;
             });
+
+            currentRoutes = sortRoutes(currentRoutes);
+            renderResults();
         }
+
+
 
 
 

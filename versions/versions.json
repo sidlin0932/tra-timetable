@@ -1,5 +1,11 @@
 [
   {
+    "version": "v3.9.6",
+    "commit": "HEAD",
+    "date": "2026-08-25",
+    "desc": "即時快取更新 (Network-First) ＆ DOM 虛擬渲染 (解決卡頓)"
+  },
+  {
     "version": "v3.9.5",
     "commit": "HEAD",
     "date": "2026-08-25",
