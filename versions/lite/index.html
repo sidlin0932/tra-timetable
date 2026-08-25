@@ -53,10 +53,10 @@
         .badge-lite {
             background: #10b981;
             color: #fff;
-            font-size: 0.7rem;
-            padding: 2px 8px;
+            font-size: 0.75rem;
+            padding: 3px 10px;
             border-radius: 20px;
-            font-weight: 700;
+            font-weight: 800;
         }
         .header-actions {
             display: flex;
@@ -236,6 +236,19 @@
             background: var(--primary-light);
             color: var(--primary);
             border-color: var(--primary);
+        }
+
+        /* Major Station Border Outline */
+        .modal-station-chip.major-station {
+            border: 1.5px solid #0284c7 !important;
+            color: #0369a1 !important;
+            font-weight: 800 !important;
+            background: #ffffff !important;
+            box-shadow: 0 1px 3px rgba(2, 132, 199, 0.12);
+        }
+        .modal-station-chip.major-station:hover {
+            background: #e0f2fe !important;
+            border-color: #0369a1 !important;
         }
 
         /* Filter Controls */
@@ -548,26 +561,6 @@
             color: var(--text-muted);
             margin-top: 20px;
         }
-    
-        /* Major Station Border Outline */
-        .modal-station-chip.major-station {
-            border: 1.5px solid #0284c7 !important;
-            color: #0369a1 !important;
-            font-weight: 800 !important;
-            background: #ffffff !important;
-            box-shadow: 0 1px 3px rgba(2, 132, 199, 0.12);
-        }
-        .modal-station-chip.major-station:hover {
-            background: #e0f2fe !important;
-            border-color: #0369a1 !important;
-        }
-        .chip.major-station {
-            border: 1.5px solid #0284c7 !important;
-            color: #0369a1 !important;
-            font-weight: 800 !important;
-            background: #ffffff !important;
-        }
-
     </style>
 </head>
 <body>
@@ -575,7 +568,7 @@
     <header>
         <div class="brand">
             <span>🚆 台鐵時刻表</span>
-            <span class="badge-lite">極速極簡版</span>
+            <span class="badge-lite">⚡ SuperLite 極速極簡版 v3.9.14-lite</span>
         </div>
         <div class="header-actions">
             <span style="font-size:0.75rem; color:#059669; font-weight:700;" id="perfCounter">⚡ 0.2ms</span>
@@ -619,7 +612,7 @@
                 <option value="all">全部車種</option>
                 <option value="express">對號特快 (自強/普悠瑪/EMU3000)</option>
                 <option value="local">非對號 (區間/區間快)</option>
-                <option value="trpass">TR-PASS 適用</option>
+                <option value="trpass">🎫 TPASS/TR-PASS 適用</option>
             </select>
         </div>
 
@@ -653,9 +646,16 @@
     </footer>
 
     <!-- Embedded Local Database -->
-    <script src="data.js?v=3.9.13"></script>
+    <script src="data.js?v=3.9.14"></script>
 
     <script>
+        const MAJOR_STATIONS = new Set([
+            '基隆', '七堵', '八堵', '南港', '松山', '台北', '萬華', '板橋', '樹林',
+            '桃園', '中壢', '新竹', '竹南', '苗栗', '豐原', '台中', '彰化', '員林',
+            '斗六', '嘉義', '新營', '台南', '新左營', '高雄', '鳳山', '屏東', '潮州',
+            '枋寮', '台東', '玉里', '花蓮', '蘇澳新', '羅東', '宜蘭', '瑞芳'
+        ]);
+
         const COUNTY_DATA = [
             { county: '基隆市', stations: ['基隆', '三坑', '八堵', '七堵', '百福', '暖暖', '海科館', '八斗子'] },
             { county: '台北市', stations: ['南港', '松山', '台北', '萬華'] },
@@ -675,14 +675,6 @@
             { county: '花蓮縣', stations: ['和平', '和仁', '崇德', '新城(太魯閣)', '景美', '北埔', '花蓮', '吉安', '志學', '平和', '壽豐', '豐田', '林榮新光', '南平', '鳳林', '萬榮', '光復', '大富', '富源', '瑞穗', '三民', '玉里', '東里', '東竹', '富里'] },
             { county: '台東縣', stations: ['池上', '海端', '關山', '月美', '瑞和', '瑞源', '鹿野', '山里', '台東', '康樂', '知本', '太麻里', '金崙', '瀧溪', '大武', '古莊'] }
         ];
-
-        
-        const MAJOR_STATIONS = new Set([
-            '基隆', '七堵', '八堵', '南港', '松山', '台北', '萬華', '板橋', '樹林',
-            '桃園', '中壢', '新竹', '竹南', '苗栗', '豐原', '台中', '彰化', '員林',
-            '斗六', '嘉義', '新營', '台南', '新左營', '高雄', '鳳山', '屏東', '潮州',
-            '枋寮', '台東', '玉里', '花蓮', '蘇澳新', '羅東', '宜蘭', '瑞芳'
-        ]);
 
         const ALL_STATIONS = [];
         COUNTY_DATA.forEach(g => g.stations.forEach(s => { if (!ALL_STATIONS.includes(s)) ALL_STATIONS.push(s); }));
@@ -751,8 +743,6 @@
             return true;
         }
 
-        // Single-leg 2-point routing
-        
         function getBackupTrains(transferStation, destStation, minDepTime) {
             const deps = departuresByStation[transferStation] || [];
             const backups = [];
@@ -880,7 +870,6 @@
             return routes;
         }
 
-        // Multi-stop chained planner
         function planMultiStop(wps, startMin, transferMax, typeF) {
             if (wps.length === 2) {
                 return planLeg(wps[0].station, wps[1].station, startMin, transferMax, typeF);
@@ -1052,7 +1041,6 @@
                 let detailsHtml = '';
                 if (openDetailsIdx === idx) {
                     detailsHtml = `
-                        
                         <div class="route-details">
                             ${r.legs.map((l, lIdx) => {
                                 let backupHtml = '';
@@ -1080,7 +1068,7 @@
                                 `;
                             }).join('')}
                         </div>
-
+                    `;
                 }
 
                 return `
@@ -1091,7 +1079,7 @@
                             <span class="time-arr">${r.arrTime}</span>
                         </div>
                         <div class="route-info">
-                            <div class="train-badges">${badges} ${transferTag} ${r.is_trpass ? '<span class="badge" style="background:#ecfdf5; color:#059669; border:1px solid #a7f3d0;">🎫 TPASS/TR-PASS 適用</span>' : ''}</div>
+                            <div class="train-badges">${badges} ${transferTag}</div>
                             <div class="route-meta">${r.legs[0].from} 開 ➔ ${r.legs[r.legs.length-1].to} 到</div>
                         </div>
                         <div class="route-duration">${minToDuration(r.duration)}</div>
@@ -1200,9 +1188,12 @@
                         <div class="modal-county-block">
                             <div class="modal-county-title">📍 ${c.county}</div>
                             <div class="modal-station-chips">
-                                ${matchedStations.map(st => `
-                                    <button class="modal-station-chip ${MAJOR_STATIONS.has(st)?\'major-station\':\'\'}" onclick="modalPick(\'${st}\')">${MAJOR_STATIONS.has(st)?\'★ \':\'\'}${st}</button>
-                                `).join('')}
+                                ${matchedStations.map(st => {
+                                    const isMajor = MAJOR_STATIONS.has(st);
+                                    const majorClass = isMajor ? 'major-station' : '';
+                                    const majorStar = isMajor ? '★ ' : '';
+                                    return `<button class="modal-station-chip ${majorClass}" onclick="modalPick('${st}')">${majorStar}${st}</button>`;
+                                }).join('')}
                             </div>
                         </div>
                     `;

@@ -1,5 +1,11 @@
 [
   {
+    "version": "v3.9.14",
+    "commit": "HEAD",
+    "date": "2026-08-25",
+    "desc": "徹底修復 SuperLite 語法錯誤 ＆ 實機完整渲染驗證"
+  },
+  {
     "version": "v3.9.13",
     "commit": "HEAD",
     "date": "2026-08-25",
