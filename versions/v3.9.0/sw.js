@@ -1,6 +1,6 @@
-// Service Worker for 2026 台鐵時刻表 PWA (v3.9.5)
-const CACHE_NAME = 'tra-timetable-pwa-v395';
-const RUNTIME_CACHE = 'tra-runtime-v395';
+// Service Worker for 2026 台鐵時刻表 PWA (v3.9.6)
+const CACHE_NAME = 'tra-timetable-pwa-v396';
+const RUNTIME_CACHE = 'tra-runtime-v396';
 
 // Core Application Shell & Timetable Data Assets
 const CORE_ASSETS = [
@@ -49,40 +49,35 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// 3. Fetch Strategy: Cache-First with ignoreSearch & Navigation Fallback (100% Offline Guaranteed)
+// 3. Fetch Strategy: Network-First when Online, Instant Cache Fallback when Offline
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
 
   const url = new URL(req.url);
 
-  // Strategy A: Page Navigation (HTML documents)
-  if (req.mode === 'navigate' || req.destination === 'document') {
+  // Strategy A: Page Navigation & Core JS Data
+  if (req.mode === 'navigate' || req.destination === 'document' || url.pathname.endsWith('index.html') || url.pathname.endsWith('data.js')) {
     event.respondWith(
       (async () => {
         try {
-          // Try network first with a short timeout to get latest version if online
-          const networkResponse = await fetch(req);
-          if (networkResponse && networkResponse.ok) {
+          // Network-first with fresh content
+          const netRes = await fetch(req, { cache: 'no-cache' });
+          if (netRes && netRes.ok) {
             const cache = await caches.open(CACHE_NAME);
-            cache.put(req, networkResponse.clone());
-            return networkResponse;
+            cache.put(req, netRes.clone());
+            return netRes;
           }
         } catch (err) {
-          // Offline mode - network failed
+          // Offline or network error -> fallback to cache
         }
 
-        // Return cached page immediately (ignore query parameters)
         const cachedDoc = await caches.match(req, { ignoreSearch: true })
           || await caches.match('./index.html', { ignoreSearch: true })
-          || await caches.match('./', { ignoreSearch: true })
-          || await caches.match('index.html', { ignoreSearch: true });
+          || await caches.match('./', { ignoreSearch: true });
 
-        if (cachedDoc) {
-          return cachedDoc;
-        }
+        if (cachedDoc) return cachedDoc;
 
-        // Fallback generic response if somehow not found
         return new Response('<h1>2026 台鐵時刻表 (離線模式)</h1><p>請重新整理載入快取頁面。</p>', {
           headers: { 'Content-Type': 'text/html; charset=utf-8' }
         });
@@ -91,76 +86,24 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Strategy B: Local Static Assets (data.js, manifest, icons, json)
-  if (url.origin === self.location.origin) {
-    event.respondWith(
-      (async () => {
-        // Match cache with ignoreSearch: true so data.js?v=... matches data.js!
-        const cachedResponse = await caches.match(req, { ignoreSearch: true });
-        if (cachedResponse) {
-          // Revalidate in background if online
-          fetch(req).then(async (netRes) => {
-            if (netRes && netRes.ok) {
-              const cache = await caches.open(CACHE_NAME);
-              cache.put(req, netRes);
-            }
-          }).catch(() => {/* Ignore offline background fetch */});
-          return cachedResponse;
-        }
-
-        // Not in cache, try fetching from network
-        try {
-          const netRes = await fetch(req);
-          if (netRes && netRes.ok) {
-            const cache = await caches.open(CACHE_NAME);
-            cache.put(req, netRes.clone());
-          }
-          return netRes;
-        } catch (err) {
-          // Offline fallback for same-origin resources
-          const fallback = await caches.match(url.pathname, { ignoreSearch: true });
-          if (fallback) return fallback;
-          throw err;
-        }
-      })()
-    );
-    return;
-  }
-
-  // Strategy C: External Resources (Google Fonts, CDNs)
-  if (url.origin.includes('fonts.googleapis.com') || url.origin.includes('fonts.gstatic.com')) {
-    event.respondWith(
-      (async () => {
-        const cachedFont = await caches.match(req);
-        if (cachedFont) return cachedFont;
-
-        try {
-          const fontRes = await fetch(req);
-          if (fontRes && fontRes.ok) {
-            const cache = await caches.open(RUNTIME_CACHE);
-            cache.put(req, fontRes.clone());
-          }
-          return fontRes;
-        } catch (err) {
-          // When offline, fonts will gracefully fallback to system sans-serif
-          return cachedFont || new Response('', { status: 200, statusText: 'Offline Font Fallback' });
-        }
-      })()
-    );
-    return;
-  }
-
-  // Strategy D: Default stale-while-revalidate for any other GET requests
+  // Strategy B: Static Assets (JSON, PNG, Icons)
   event.respondWith(
-    caches.match(req, { ignoreSearch: true }).then((cached) => {
-      if (cached) return cached;
-      return fetch(req).then((res) => {
-        if (res && res.ok) {
-          const cacheCopy = res.clone();
-          caches.open(RUNTIME_CACHE).then((cache) => cache.put(req, cacheCopy));
+    (async () => {
+      try {
+        const netRes = await fetch(req);
+        if (netRes && netRes.ok) {
+          const cache = await caches.open(CACHE_NAME);
+          cache.put(req, netRes.clone());
+          return netRes;
         }
-        return res;
-      });
-    })
+      } catch (e) {
+        // Fallback to cache
+      }
+
+      const cached = await caches.match(req, { ignoreSearch: true });
+      if (cached) return cached;
+
+      return new Response('', { status: 404, statusText: 'Not Found' });
+    })()
   );
 });

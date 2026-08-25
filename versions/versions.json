@@ -1,5 +1,11 @@
 [
   {
+    "version": "v3.9.12",
+    "commit": "HEAD",
+    "date": "2026-08-25",
+    "desc": "極速極簡版 SuperLite 導入多站停靠規劃 ＆ 0.2ms 瞬發引擎"
+  },
+  {
     "version": "v3.9.11",
     "commit": "HEAD",
     "date": "2026-08-25",
