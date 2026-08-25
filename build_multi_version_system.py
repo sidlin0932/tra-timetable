@@ -25,7 +25,7 @@ if sys.platform.startswith('win'):
 
 # List of key historical release commits mapped to version tags
 HISTORICAL_COMMITS = [
-    {"version": "v3.9.0",  "commit": "HEAD", "date": "2026-08-25", "desc": "台灣鐵路地理地圖模式 & 全台 17 縣市多選勾選過濾系統 (Minor 大版升級)"},
+    {"version": "v3.9.1",  "commit": "HEAD", "date": "2026-08-25", "desc": "內灣線全班次補齊 (69方案) & 車站彈窗雙模式滾動修復"},
     {"version": "v3.8.15", "commit": "04b2084", "date": "2026-08-25", "desc": "0ms 極速首屏靜態預渲染 & 縣市快捷錨點精準校正 (修復新竹/苗栗偏移)"},
     {"version": "v3.8.14", "commit": "c10e6a8", "date": "2026-08-25", "desc": "100% 純離線保證架構 (啟用 ignoreSearch、導航保底攔截與字體優雅降級)"},
     {"version": "v3.8.13", "commit": "48a67d7", "date": "2026-08-25", "desc": "多版本隨時回退與切換架構 (支援導航列下拉選單、URL ?v= 參數與獨立快照封裝)"},
