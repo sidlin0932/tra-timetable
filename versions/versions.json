@@ -1,5 +1,11 @@
 [
   {
+    "version": "v3.9.13",
+    "commit": "HEAD",
+    "date": "2026-08-25",
+    "desc": "主要大站質感邊框標示 ＆ SuperLite 專區獨立註記"
+  },
+  {
     "version": "v3.9.12",
     "commit": "HEAD",
     "date": "2026-08-25",
