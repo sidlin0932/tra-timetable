@@ -1,5 +1,11 @@
 [
   {
+    "version": "v3.9.4",
+    "commit": "HEAD",
+    "date": "2026-08-25",
+    "desc": "介面 60 FPS 非同步零延遲排程 ＆ LRU 記憶體快取極速引擎"
+  },
+  {
     "version": "v3.9.3",
     "commit": "HEAD",
     "date": "2026-08-25",
