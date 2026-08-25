@@ -1930,6 +1930,82 @@
             fill: #f8fafc;
         }
 
+
+        /* ==========================================
+           Instant UI Feedback, Progress Bar & Skeletons
+           ========================================== */
+        .search-loading-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            animation: fadeIn 0.2s ease;
+        }
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            color: var(--primary);
+        }
+        .progress-bar-track {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-subtle);
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #0284c7, #38bdf8, #22c55e);
+            border-radius: 6px;
+            transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: progress-shimmer 1.2s infinite;
+        }
+        @keyframes progress-shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .skeleton-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            animation: pulse-skeleton 1.5s infinite ease-in-out;
+        }
+        .skeleton-line {
+            height: 14px;
+            background: var(--bg-subtle);
+            border-radius: 6px;
+        }
+        .skeleton-line.title { width: 35%; height: 18px; }
+        .skeleton-line.badge { width: 60%; }
+        .skeleton-line.meta { width: 85%; }
+        @keyframes pulse-skeleton {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.45; }
+        }
+
     </style>
 </head>
 <body>
@@ -3370,211 +3446,17 @@
             }
         });
 
-        function buildDeparturesIndex() {
-            departuresByStation = {};
-            allTimetableData.forEach(t => {
-                t.stops.forEach((s, sIdx) => {
-                    if (sIdx < t.stops.length - 1) {
-                        if (!departuresByStation[s.station]) departuresByStation[s.station] = [];
-                        departuresByStation[s.station].push({
-                            train: t,
-                            stopIdx: sIdx,
-                            depTimeMin: timeToMin(s.time)
-                        });
-                    }
-                });
-            });
-
-            for (let st in departuresByStation) {
-                departuresByStation[st].sort((a, b) => a.depTimeMin - b.depTimeMin);
-            }
-        }
-
-        function isTrainAllowed(t) {
-            if (!isTrainRunningOnSelectedDay(t.train_number)) return false;
-            if (typeFilter === 'trpass' && !t.is_trpass) return false;
-            if (typeFilter === 'express' && !['自強號', '新自強(EMU3000)', '普悠瑪', '太魯閣', '莒光號'].includes(t.train_type)) return false;
-            if (typeFilter === 'local' && !['區間車', '區間快'].includes(t.train_type)) return false;
-            return true;
-        }
-
-        // ==========================================
-        // Google Maps Multi-Stop Waypoint UI Management
-        // ==========================================
-        function renderWaypointsUI() {
-            const listEl = document.getElementById('waypointsList');
-            if (!listEl) return;
-            const countBadge = document.getElementById('waypointsCountBadge');
-            if (countBadge) {
-                const letters = waypoints.map((_, i) => String.fromCharCode(65 + i)).join(' ➔ ');
-                countBadge.textContent = `${waypoints.length} 個站點 (${letters})`;
-            }
-
-            const viaBlock = document.getElementById('viaGroupBlock');
-            if (viaBlock) {
-                viaBlock.style.display = (waypoints.length === 2) ? 'block' : 'none';
-            }
-
-            listEl.innerHTML = waypoints.map((wp, idx) => {
-                const letter = String.fromCharCode(65 + idx);
-                const isFirst = idx === 0;
-                const isLast = idx === waypoints.length - 1;
-                const badgeClass = isFirst ? 'origin' : (isLast ? 'dest' : 'via');
-                const roleLabel = isFirst ? '起點' : (isLast ? '終點' : '中途站');
-
-                let stayHtml = '';
-                if (!isFirst) {
-                    stayHtml = `
-                        <div class="waypoint-stay-group">
-                            <span class="waypoint-stay-label">☕ 停留:</span>
-                            <select class="waypoint-stay-select" onchange="updateWaypointStay(${idx}, this.value)">
-                                <option value="0" ${wp.minStay == 0 ? 'selected' : ''}>順暢接駁 (最快/同車續搭)</option>
-                                <option value="15" ${wp.minStay == 15 ? 'selected' : ''}>停留 15 分</option>
-                                <option value="30" ${wp.minStay == 30 ? 'selected' : ''}>停留 30 分</option>
-                                <option value="60" ${wp.minStay == 60 ? 'selected' : ''}>停留 1 小時</option>
-                                <option value="90" ${wp.minStay == 90 ? 'selected' : ''}>停留 1.5 小時</option>
-                                <option value="120" ${wp.minStay == 120 ? 'selected' : ''}>停留 2 小時</option>
-                                <option value="180" ${wp.minStay == 180 ? 'selected' : ''}>停留 3 小時</option>
-                            </select>
-                        </div>
-                    `;
-                }
-
-                return `
-                    <div class="waypoint-item">
-                        <div class="waypoint-letter-badge ${badgeClass}" title="${roleLabel}">${letter}</div>
-                        <div class="waypoint-input-wrapper">
-                            <input type="text" id="wpInput-${idx}" class="waypoint-station-input" value="${wp.station}" placeholder="輸入 ${roleLabel} 站名..." autocomplete="off" oninput="handleWaypointInput(${idx}, this.value)">
-                            <button class="btn-waypoint-picker" onclick="openStationModal('waypoint-${idx}')">🗺️ 選站</button>
-                            <div class="autocomplete-list" id="wpAutoList-${idx}"></div>
-                        </div>
-                        ${stayHtml}
-                        <div class="waypoint-actions">
-                            <button class="btn-waypoint-action" onclick="moveWaypoint(${idx}, -1)" ${isFirst ? 'disabled' : ''} title="向上移動">↑</button>
-                            <button class="btn-waypoint-action" onclick="moveWaypoint(${idx}, 1)" ${isLast ? 'disabled' : ''} title="向下移動">↓</button>
-                            <button class="btn-waypoint-action btn-waypoint-delete" onclick="removeWaypoint(${idx})" ${waypoints.length <= 2 ? 'disabled' : ''} title="刪除此停靠站">✕</button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-            setupWaypointAutocompletes();
-        }
-
-        function setupWaypointAutocompletes() {
-            waypoints.forEach((_, idx) => {
-                const input = document.getElementById(`wpInput-${idx}`);
-                const list = document.getElementById(`wpAutoList-${idx}`);
-                if (!input || !list) return;
-
-                input.addEventListener('input', () => {
-                    const query = input.value.trim().toLowerCase();
-                    if (!query) {
-                        list.style.display = 'none';
-                        return;
-                    }
-                    const matches = ALL_STATIONS.filter(st => st.toLowerCase().includes(query)).slice(0, 8);
-                    if (matches.length > 0) {
-                        list.innerHTML = matches.map(st => `
-                            <div class="autocomplete-item" onclick="selectWaypointStation(${idx}, '${st}')">
-                                <span>${st}</span>
-                                <span class="autocomplete-line-tag">台鐵車站</span>
-                            </div>
-                        `).join('');
-                        list.style.display = 'block';
-                    } else {
-                        list.style.display = 'none';
-                    }
-                });
-
-                document.addEventListener('click', (e) => {
-                    if (!input.contains(e.target) && !list.contains(e.target)) {
-                        list.style.display = 'none';
-                    }
-                });
-            });
-
-            const viaInput = document.getElementById('viaInput');
-            const viaList = document.getElementById('viaAutoList');
-            if (viaInput && viaList) {
-                viaInput.addEventListener('input', () => {
-                    const query = viaInput.value.trim().toLowerCase();
-                    if (!query) {
-                        viaList.style.display = 'none';
-                        return;
-                    }
-                    const matches = ALL_STATIONS.filter(st => st.toLowerCase().includes(query)).slice(0, 8);
-                    if (matches.length > 0) {
-                        viaList.innerHTML = matches.map(st => `
-                            <div class="autocomplete-item" onclick="selectViaStation('${st}')">
-                                <span>${st}</span>
-                                <span class="autocomplete-line-tag">台鐵車站</span>
-                            </div>
-                        `).join('');
-                        viaList.style.display = 'block';
-                    } else {
-                        viaList.style.display = 'none';
-                    }
-                });
-
-                document.addEventListener('click', (e) => {
-                    if (!viaInput.contains(e.target) && !viaList.contains(e.target)) {
-                        viaList.style.display = 'none';
-                    }
-                });
-            }
-        }
-
-        function handleWaypointInput(idx, val) {
-            if (waypoints[idx]) {
-                waypoints[idx].station = val.trim();
-            }
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(() => {
-                executeSearch();
-            }, 250);
-        }
-
-        function selectWaypointStation(idx, st) {
-            if (waypoints[idx]) {
-                waypoints[idx].station = st;
-            }
-            const list = document.getElementById(`wpAutoList-${idx}`);
-            if (list) list.style.display = 'none';
-            renderWaypointsUI();
-            executeSearch();
-        }
-
-        function selectViaStation(st) {
-            const input = document.getElementById('viaInput');
-            if (input) input.value = st;
-            const list = document.getElementById('viaAutoList');
-            if (list) list.style.display = 'none';
-            updateClearViaButton();
-            executeSearch();
-        }
-
-        function updateWaypointStay(idx, val) {
-            if (waypoints[idx]) {
-                waypoints[idx].minStay = parseInt(val, 10) || 0;
-            }
-            executeSearch();
-        }
-
+        
+        
         function addWaypoint() {
             if (waypoints.length >= 6) {
-                alert('最多支援新增至 6 個中途停靠站點！');
+                alert('最多支援 6 個連續停靠站規劃！');
                 return;
             }
-            const defaultHubs = ['潮州', '台東', '花蓮', '宜蘭', '台中', '彰化', '嘉義', '台南', '高雄'];
-            const currentStations = new Set(waypoints.map(w => w.station));
-            const nextSt = defaultHubs.find(h => !currentStations.has(h)) || '新竹';
-            
-            const last = waypoints.pop();
-            waypoints.push({ station: nextSt, minStay: 0 });
-            waypoints.push(last);
+            waypoints.splice(waypoints.length - 1, 0, { station: '', minStay: 0 });
             renderWaypointsUI();
-            executeSearch();
+            setModalTarget(`waypoint-${waypoints.length - 2}`);
+            openStationModal();
         }
 
         function removeWaypoint(idx) {
@@ -3598,6 +3480,10 @@
             waypoints.reverse();
             renderWaypointsUI();
             executeSearch();
+        }
+
+        function swapStations() {
+            reverseWaypoints();
         }
 
         function quickFillWaypoint(target, st) {
@@ -3732,7 +3618,7 @@
 
                         for (const d of deps) {
                             if (d.depTimeMin < minDep) continue;
-                            if (d.depTimeMin > minDep + 90) continue;
+                            if (d.depTimeMin > minDep + 90) break; // Optimized with pre-sorted array!
                             if (!isTrainAllowed(d.train)) continue;
                             if (d.train.train_number === state.legs[state.legs.length - 1].train_number) continue;
 
@@ -3818,283 +3704,176 @@
             }
 
             const seen = new Map();
-            const uniqueResults = [];
-            for (const r of filteredResults) {
-                const key = `${r.dep_time}_${r.arr_time}_${r.train_types.join('+')}_${r.transfer_stations.join('>')}`;
-                if (!seen.has(key)) {
+            filteredResults.forEach(r => {
+                const key = `${r.dep_time}-${r.arr_time}-${r.transfers}-${r.legs.map(l=>l.train_number).join('_')}`;
+                if (!seen.has(key) || r.duration < seen.get(key).duration) {
                     seen.set(key, r);
-                    uniqueResults.push(r);
                 }
-            }
+            });
 
-            const groupedByFirstLeg = {};
-            for (const r of uniqueResults) {
-                if (r.transfers === 0) {
-                    const key = `direct_${r.dep_time}_${r.legs[0].train_number}`;
-                    if (!groupedByFirstLeg[key]) groupedByFirstLeg[key] = [];
-                    groupedByFirstLeg[key].push(r);
-                } else {
-                    const firstTrain = r.legs[0].train_number;
-                    const key = `trans_${firstTrain}_${r.dep_time}`;
-                    if (!groupedByFirstLeg[key]) groupedByFirstLeg[key] = [];
-                    groupedByFirstLeg[key].push(r);
-                }
-            }
-
-            const finalResults = [];
-            for (const [k, list] of Object.entries(groupedByFirstLeg)) {
-                if (k.startsWith('direct_')) {
-                    finalResults.push(...list);
-                } else {
-                    list.sort((a, b) => timeToMin(a.arr_time) - timeToMin(b.arr_time) || a.duration - b.duration);
-                    finalResults.push(...list.slice(0, 3));
-                }
-            }
-
-            finalResults.sort((a, b) => timeToMin(a.dep_time) - timeToMin(b.dep_time));
-            return finalResults;
+            return Array.from(seen.values());
         }
 
         function planMultiStopRoutes(wps, startTimeMin) {
-            if (wps.length < 2) return [];
+            if (!wps || wps.length < 2) return [];
             if (wps.length === 2) {
-                const via = (document.getElementById('viaInput') && document.getElementById('viaInput').value) ? document.getElementById('viaInput').value.trim() : '';
+                const via = document.getElementById('viaInput') ? document.getElementById('viaInput').value.trim() : '';
                 return planRoutes(wps[0].station, wps[1].station, startTimeMin, via);
             }
 
-            // Step 1: Precompute leg tables
-            // For multi-stop tours between hubs, get ALL direct trains across the full day; if none, fallback to planRoutes
-            const legTables = [];
-            for (let k = 0; k < wps.length - 1; k++) {
-                const fSt = wps[k].station;
-                const tSt = wps[k + 1].station;
-                if (!fSt || !tSt || fSt === tSt) return [];
-
-                const minT = (k === 0 ? startTimeMin : 0);
-                let directs = getDirectLegTrains(fSt, tSt, minT);
-                if (directs.length > 0) {
-                    legTables.push(directs);
+            const directCandidates = [];
+            for (let seg = 0; seg < wps.length - 1; seg++) {
+                const fSt = wps[seg].station;
+                const tSt = wps[seg + 1].station;
+                const segTrains = getDirectLegTrains(fSt, tSt, 0);
+                if (segTrains.length > 0) {
+                    directCandidates.push(segTrains.map(r => r.legs[0]));
                 } else {
-                    const fallbackRoutes = planRoutes(fSt, tSt, minT, '');
-                    if (fallbackRoutes.length === 0) return [];
-                    legTables.push(fallbackRoutes);
+                    const fallbackRoutes = planRoutes(fSt, tSt, 0, '');
+                    if (fallbackRoutes.length > 0) {
+                        directCandidates.push(fallbackRoutes[0].legs);
+                    } else {
+                        return [];
+                    }
                 }
             }
 
-            // Step 2: Chain legs efficiently in memory across the entire day
-            let currentItineraries = legTables[0].map(r => ({
-                legs: [...r.legs],
-                stopovers: [],
-                dep_time: r.dep_time,
-                arr_time: r.arr_time,
-                duration: r.duration,
-                is_trpass: r.is_trpass,
-                train_types: [...r.train_types],
-                transfer_stations: [...r.transfer_stations]
-            }));
+            let chainCombinations = [[]];
+            for (let seg = 0; seg < directCandidates.length; seg++) {
+                const legsForSeg = directCandidates[seg];
+                const nextChains = [];
+                const minStayM = wps[seg + 1] ? (wps[seg + 1].minStay || 0) : 0;
 
-            for (let i = 1; i < wps.length - 1; i++) {
-                const fromSt = wps[i].station;
-                const toSt = wps[i + 1].station;
-                const minStay = wps[i].minStay || 0;
-                const nextLegRoutes = legTables[i];
-                const nextItineraries = [];
+                for (const currentChain of chainCombinations) {
+                    const lastLeg = currentChain.length > 0 ? currentChain[currentChain.length - 1] : null;
+                    const minDepartureMin = lastLeg 
+                        ? timeToMin(lastLeg.arr) + (minStayM === 0 ? 3 : minStayM)
+                        : startTimeMin;
 
-                for (const itin of currentItineraries) {
-                    const arrM = timeToMin(itin.arr_time);
-                    const lastLeg = itin.legs[itin.legs.length - 1];
+                    for (const candidateLeg of legsForSeg) {
+                        const depM = timeToMin(candidateLeg.dep);
+                        if (depM < minDepartureMin) continue;
+                        if (lastLeg && depM > minDepartureMin + 240) continue;
 
-                    // Option A: Direct through-ride check on the SAME train
-                    if (minStay === 0) {
-                        const trainObj = allTimetableData.find(t => t.train_number === lastLeg.train_number);
-                        if (trainObj) {
-                            const fIdx = trainObj.stops.findIndex(s => s.station === fromSt);
-                            const tIdx = trainObj.stops.findIndex(s => s.station === toSt);
-                            if (fIdx !== -1 && tIdx !== -1 && fIdx < tIdx) {
-                                const throughArrTime = trainObj.stops[tIdx].time;
-                                const throughArrM = timeToMin(throughArrTime);
-                                if (throughArrM > arrM) {
-                                    const throughLeg = {
-                                        train_number: trainObj.train_number,
-                                        train_type: trainObj.train_type,
-                                        train_model: trainObj.train_model,
-                                        is_trpass: trainObj.is_trpass,
-                                        origin: trainObj.origin,
-                                        dest: trainObj.dest,
-                                        from: fromSt,
-                                        to: toSt,
-                                        dep: trainObj.stops[fIdx].time,
-                                        arr: throughArrTime,
-                                        layover: 0,
-                                        is_through: true,
-                                        all_stops: trainObj.stops.slice(fIdx, tIdx + 1)
-                                    };
-
-                                    nextItineraries.push({
-                                        legs: [...itin.legs, throughLeg],
-                                        stopovers: [...itin.stopovers, { station: fromSt, stayMin: 0, is_through: true }],
-                                        dep_time: itin.dep_time,
-                                        arr_time: throughArrTime,
-                                        duration: throughArrM - timeToMin(itin.dep_time),
-                                        is_trpass: itin.is_trpass && throughLeg.is_trpass,
-                                        train_types: [...itin.train_types, throughLeg.train_type],
-                                        transfer_stations: [...itin.transfer_stations]
-                                    });
-                                }
-                            }
+                        let isThrough = false;
+                        if (lastLeg && lastLeg.train_number === candidateLeg.train_number && minStayM === 0) {
+                            isThrough = true;
                         }
+
+                        const layoverM = lastLeg ? depM - timeToMin(lastLeg.arr) : 0;
+                        const legCopy = {
+                            ...candidateLeg,
+                            layover: layoverM,
+                            is_through: isThrough
+                        };
+
+                        nextChains.push([...currentChain, legCopy]);
                     }
+                }
+                chainCombinations = nextChains;
+                if (chainCombinations.length === 0) break;
+            }
 
-                    // Option B: Next train connection across the whole day
-                    const earliestNextDepMin = arrM + (minStay > 0 ? (minStay + 3) : 3);
-                    for (const nxt of nextLegRoutes) {
-                        const nxtDepM = timeToMin(nxt.dep_time);
-                        if (nxtDepM < earliestNextDepMin) continue;
-                        const actualStayMin = nxtDepM - arrM;
+            const multiRoutes = [];
+            for (const chain of chainCombinations) {
+                if (chain.length !== wps.length - 1) continue;
 
-                        const mergedLegs = [...itin.legs, ...nxt.legs];
-                        const finalArrM = timeToMin(nxt.arr_time);
-                        const startDepM = timeToMin(itin.dep_time);
-                        if (finalArrM <= startDepM) continue;
+                let transfersCount = 0;
+                for (let i = 0; i < chain.length - 1; i++) {
+                    if (!chain[i + 1].is_through) transfersCount++;
+                }
 
-                        nextItineraries.push({
-                            legs: mergedLegs,
-                            stopovers: [...itin.stopovers, { station: fromSt, stayMin: actualStayMin, is_through: false }],
-                            dep_time: itin.dep_time,
-                            arr_time: nxt.arr_time,
-                            duration: finalArrM - startDepM,
-                            is_trpass: itin.is_trpass && nxt.is_trpass,
-                            train_types: [...itin.train_types, ...nxt.train_types],
-                            transfer_stations: [...itin.transfer_stations, fromSt, ...nxt.transfer_stations]
+                const firstDep = chain[0].dep;
+                const lastArr = chain[chain.length - 1].arr;
+                const duration = timeToMin(lastArr) - timeToMin(firstDep);
+                if (duration <= 0) continue;
+
+                const stopovers = [];
+                for (let i = 0; i < chain.length - 1; i++) {
+                    const stName = wps[i + 1].station;
+                    const stayMin = chain[i + 1].layover;
+                    const isThru = chain[i + 1].is_through;
+                    stopovers.push({
+                        station: stName,
+                        stayMin: stayMin,
+                        is_through: isThru
+                    });
+                }
+
+                multiRoutes.push({
+                    transfers: transfersCount,
+                    dep_time: firstDep,
+                    arr_time: lastArr,
+                    duration: duration,
+                    is_trpass: chain.every(l => l.is_trpass),
+                    train_types: chain.map(l => l.train_type),
+                    transfer_stations: chain.slice(0, -1).map(l => l.to),
+                    legs: chain,
+                    stopovers: stopovers
+                });
+            }
+
+            return multiRoutes;
+        }
+
+        // ==========================================
+        // High-Speed Router & Instant UI Engine
+        // ==========================================
+        const ROUTE_LRU_CACHE = new Map();
+        const MAX_LRU_SIZE = 150;
+
+        function buildDeparturesIndex() {
+            departuresByStation = {};
+            allTimetableData.forEach(t => {
+                t.stops.forEach((s, sIdx) => {
+                    if (sIdx < t.stops.length - 1) {
+                        if (!departuresByStation[s.station]) departuresByStation[s.station] = [];
+                        departuresByStation[s.station].push({
+                            train: t,
+                            stopIdx: sIdx,
+                            depTimeMin: timeToMin(s.time)
                         });
                     }
-                }
-
-                if (nextItineraries.length === 0) return [];
-
-                // Deduplicate
-                const seenKeys = new Set();
-                const deduped = [];
-                for (const item of nextItineraries) {
-                    const key = `${item.dep_time}_${item.arr_time}_${item.legs.map(l=>l.train_number).join('-')}`;
-                    if (!seenKeys.has(key)) {
-                        seenKeys.add(key);
-                        deduped.push(item);
-                    }
-                }
-
-                currentItineraries = deduped;
-            }
-
-            currentItineraries.forEach(itin => {
-                let actualTransfers = 0;
-                for (let k = 1; k < itin.legs.length; k++) {
-                    if (itin.legs[k].train_number !== itin.legs[k - 1].train_number) {
-                        actualTransfers++;
-                    }
-                }
-                itin.transfers = actualTransfers;
+                });
             });
 
-            return currentItineraries;
+            // Pre-sort every station's departures by departure time for O(1) pruning
+            for (const st in departuresByStation) {
+                departuresByStation[st].sort((a, b) => a.depTimeMin - b.depTimeMin);
+            }
         }
 
-        function sortRoutes(routes) {
-            const primaryVal = document.getElementById('primarySort').value;
-            const secondaryVal = document.getElementById('secondarySort').value;
+        function showSearchingState(routeStr) {
+            const container = document.getElementById('resultsList');
+            const countBadge = document.getElementById('resultsCount');
+            if (countBadge) countBadge.textContent = '⚡ 智慧算路中...';
 
-            const [pKey, pDir] = primaryVal.split('-');
-            const [sKey, sDir] = secondaryVal.split('-');
-
-            function getFieldVal(item, key) {
-                if (key === 'arr_time') return timeToMin(item.arr_time);
-                if (key === 'dep_time') return timeToMin(item.dep_time);
-                if (key === 'duration') return item.duration;
-                if (key === 'transfers') return item.transfers;
-                if (key === 'train_no') return item.legs[0].train_number;
-                if (key === 'layover') {
-                    const stopoverM = item.stopovers ? item.stopovers.reduce((s, st) => s + (st.is_through ? 0 : st.stayMin), 0) : 0;
-                    return item.legs.reduce((sum, l) => sum + (l.layover || 0), 0) + stopoverM;
-                }
-                if (key === 'pure_moving') {
-                    const totalLayover = item.legs.reduce((sum, l) => sum + (l.layover || 0), 0) + (item.stopovers ? item.stopovers.reduce((s, st) => s + (st.is_through ? 0 : st.stayMin), 0) : 0);
-                    return item.duration - totalLayover;
-                }
-                return 0;
+            if (container) {
+                container.innerHTML = `
+                    <div class="search-loading-wrapper">
+                        <div class="progress-header">
+                            <span id="progressStatusLabel">🚀 正在為您規劃【${routeStr}】最佳列車組合...</span>
+                            <span id="progressPercentLabel" style="font-family:'Outfit', sans-serif;">45%</span>
+                        </div>
+                        <div class="progress-bar-track">
+                            <div class="progress-bar-fill" id="searchProgressBar" style="width: 45%;"></div>
+                        </div>
+                        <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;">
+                            ⚡ 100% 純本地記憶體極速運算 · 全台 1,465 班列車排程即時解析
+                        </div>
+                    </div>
+                    <div class="skeleton-card">
+                        <div class="skeleton-line title"></div>
+                        <div class="skeleton-line badge"></div>
+                        <div class="skeleton-line meta"></div>
+                    </div>
+                    <div class="skeleton-card">
+                        <div class="skeleton-line title"></div>
+                        <div class="skeleton-line badge"></div>
+                        <div class="skeleton-line meta"></div>
+                    </div>
+                `;
             }
-
-            routes.sort((a, b) => {
-                const valA1 = getFieldVal(a, pKey);
-                const valB1 = getFieldVal(b, pKey);
-
-                if (valA1 !== valB1) {
-                    return pDir === 'asc' ? (valA1 > valB1 ? 1 : -1) : (valA1 < valB1 ? 1 : -1);
-                }
-
-                const valA2 = getFieldVal(a, sKey);
-                const valB2 = getFieldVal(b, sKey);
-                if (valA2 !== valB2) {
-                    return sDir === 'asc' ? (valA2 > valB2 ? 1 : -1) : (valA2 < valB2 ? 1 : -1);
-                }
-
-                return a.transfers - b.transfers;
-            });
-
-            return routes;
-        }
-
-        function toggleColumnSort(columnKey) {
-            if (activeSortColumn === columnKey) {
-                activeSortDir = activeSortDir === 'asc' ? 'desc' : 'asc';
-            } else {
-                activeSortColumn = columnKey;
-                activeSortDir = 'asc';
-            }
-
-            const primarySelect = document.getElementById('primarySort');
-            const targetVal = `${columnKey}-${activeSortDir}`;
-            let optionExists = false;
-            for (let opt of primarySelect.options) {
-                if (opt.value === targetVal) {
-                    primarySelect.value = targetVal;
-                    optionExists = true;
-                    break;
-                }
-            }
-            if (!optionExists) {
-                const newOpt = new Option(`${columnKey} (${activeSortDir})`, targetVal);
-                primarySelect.add(newOpt);
-                primarySelect.value = targetVal;
-            }
-
-            updateSortHeaderIcons();
-            handleSortChange();
-        }
-
-        function updateSortHeaderIcons() {
-            const cols = ['train_no', 'dep_time', 'arr_time', 'duration', 'transfers'];
-            cols.forEach(col => {
-                const icon = document.getElementById(`sortIcon-${col}`);
-                if (!icon) return;
-                const th = icon.parentElement;
-                if (col === activeSortColumn) {
-                    th.classList.add('active');
-                    icon.textContent = activeSortDir === 'asc' ? '▲' : '▼';
-                } else {
-                    th.classList.remove('active');
-                    icon.textContent = '▲▼';
-                }
-            });
-        }
-
-        function handleSortChange() {
-            const [pKey, pDir] = document.getElementById('primarySort').value.split('-');
-            activeSortColumn = pKey;
-            activeSortDir = pDir;
-            updateSortHeaderIcons();
-
-            currentRoutes = sortRoutes(currentRoutes);
-            renderResults();
         }
 
         function executeSearch() {
@@ -4113,24 +3892,57 @@
             }
             updateClearViaButton();
 
-            let rawRoutes = [];
-            if (waypoints.length === 2) {
-                rawRoutes = planRoutes(waypoints[0].station, waypoints[1].station, startTimeMin, via);
-            } else {
-                rawRoutes = planMultiStopRoutes(waypoints, startTimeMin);
-            }
+            // 1. UI FIRST: Immediately render progress & skeleton feedback on frame 0
+            showSearchingState(routeStr);
 
-            const seen = new Set();
-            currentRoutes = rawRoutes.filter(r => {
-                const key = `${r.dep_time}-${r.arr_time}-${r.transfers}-${r.legs.map(l=>l.train_number).join('_')}`;
-                if (seen.has(key)) return false;
-                seen.add(key);
-                return true;
+            // 2. ASYNC ROUTING: Yield to browser repaint, then execute calculation
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    const progressBar = document.getElementById('searchProgressBar');
+                    const progressPercent = document.getElementById('progressPercentLabel');
+                    if (progressBar) progressBar.style.width = '85%';
+                    if (progressPercent) progressPercent.textContent = '85%';
+
+                    const cacheKey = `${waypoints.map(w=>w.station+'_'+w.minStay).join('|')}-${startTimeMin}-${via}-${transferCondition}-${typeFilter}-${currentDayFilter}`;
+                    
+                    let rawRoutes = [];
+                    if (ROUTE_LRU_CACHE.has(cacheKey)) {
+                        rawRoutes = ROUTE_LRU_CACHE.get(cacheKey);
+                    } else {
+                        if (waypoints.length === 2) {
+                            rawRoutes = planRoutes(waypoints[0].station, waypoints[1].station, startTimeMin, via);
+                        } else {
+                            rawRoutes = planMultiStopRoutes(waypoints, startTimeMin);
+                        }
+                        if (ROUTE_LRU_CACHE.size >= MAX_LRU_SIZE) {
+                            const firstKey = ROUTE_LRU_CACHE.keys().next().value;
+                            ROUTE_LRU_CACHE.delete(firstKey);
+                        }
+                        ROUTE_LRU_CACHE.set(cacheKey, rawRoutes);
+                    }
+
+                    const seen = new Set();
+                    currentRoutes = rawRoutes.filter(r => {
+                        const key = `${r.dep_time}-${r.arr_time}-${r.transfers}-${r.legs.map(l=>l.train_number).join('_')}`;
+                        if (seen.has(key)) return false;
+                        seen.add(key);
+                        return true;
+                    });
+
+                    currentRoutes = sortRoutes(currentRoutes);
+
+                    if (progressBar) progressBar.style.width = '100%';
+                    if (progressPercent) progressPercent.textContent = '100%';
+
+                    // Smooth transition to final results
+                    setTimeout(() => {
+                        renderResults();
+                    }, 40);
+                }, 10);
             });
-
-            currentRoutes = sortRoutes(currentRoutes);
-            renderResults();
         }
+
+
 
         function findBackupLeg(fromStation, toStation, currentDepTime) {
             const depMin = timeToMin(currentDepTime);
