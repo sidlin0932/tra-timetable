@@ -1,6 +1,23 @@
 # 📋 更新日誌 (Changelog)
 
-本專案遵守 [Semantic Versioning (語意化版本)](https://semver.org/lang/zh-TW/) 規範，**每次 Push 一律遞增 Patch 作為 Build 版本識別**。
+本專案遵守 [Semantic Versioning (語意化版本)](https://semver.org/lang/zh-TW/) 規範，**每次 Push 一律遞增 Patch 作為 Build 版本識別**，並嚴格落實 **「Local Pass 始得 Push」** 穩定度保證制度。
+
+---
+
+## [v3.8.12] - 2026-08-25
+
+### 🚨 故障修復與事故檢討 (Critical Bug Fix & Post-Mortem)
+- **修復 JS 語法崩潰阻斷 (Unescaped Multi-line String)**：
+  - 修復 `installPwa()` 函式中 Safari/Chrome 提示字串未轉義多行換行所造成的 `SyntaxError: Invalid or unexpected token`。
+  - 此語法錯誤曾導致瀏覽器終止解析 `<script>`，使得 `DOMContentLoaded` 未能觸發、起訖站與中繼站元件未渲染、所有按鈕無點擊反應（視覺上如同靜態網頁）。
+  - 全面修正為安全跳脫字元 `\n`，恢復所有元件與點擊互動。
+
+### 🛡️ 制度建立 (Local Stable Pass Enforcement Policy)
+- **建立 Pre-Push 本機自動化門禁系統 (`verify_local_stable.py`)**：
+  - **1. AST 靜態語法解析檢驗**：使用 Node.js VM 引擎嚴格檢驗 `index.html` 行內腳本、`data.js` 及 `sw.js` 語法，防止任何未編譯或無效語法流入生產環境。
+  - **2. DOM 元件與事件綁定完整性測試**：自動巡檢 14 項核心 UI 容器 ID 及 11 項核心互動函式定義。
+  - **3. 全局版本一致性稽核**：保證 UI 徽章、PWA Service Worker 快取名稱、README 與 CHANGELOG 版本 100% 吻合。
+  - **4. 實體 Git Pre-Push Hook 阻斷**：配置 `.git/hooks/pre-push`，若本機測試未全數通過（`Local Pass`），Git 將直接拒絕 Push 動作。
 
 ---
 

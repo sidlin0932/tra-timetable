@@ -1,9 +1,10 @@
-# 🚆 2026 台鐵全路網時刻表 & 縣市導航智慧接駁系統 (v3.8.11)
+# 🚆 2026 台鐵全路網時刻表 & 縣市導航智慧接駁系統 (v3.8.12)
 
 > **2026/07/01 大改點全線全班次 · 100% 純前端離線運算 · 支援 Google Maps 多中繼站遊程規劃 · PWA 離線手機 App**
 
-[![Version](https://img.shields.io/badge/version-v3.8.11-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-v3.8.12-blue.svg)](CHANGELOG.md)
 [![PWA](https://img.shields.io/badge/PWA-100%25%20Offline-success.svg)](manifest.json)
+[![Stable Policy](https://img.shields.io/badge/Local%20Stable-Passed-brightgreen.svg)](verify_local_stable.py)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ---
@@ -18,6 +19,16 @@
 - 🎫 **TR-PASS 專屬過濾與適用性提示**：一鍵過濾可搭乘列車，自動標註 EMU3000 / 普悠瑪禁搭限制。
 - 🛡️ **緊湊轉乘警示 & 第二備案 (Plan B)**：轉乘小於 15 分鐘自動警示，並提供下一班替代列車推薦。
 - 📊 **多階自訂排序**：支援「抵達時間 最晚 + 總行駛時間 最短」等主次雙階複合排序。
+
+---
+
+## 🛡️ 品質保證與本機自動化驗證機制 (Local Stable Verification)
+
+專案嚴格落實 **「Local Pass 始能 Push」** 的穩定度制度，並透過 Git Pre-Push Hook 實體阻斷未通過驗證之程式碼提交：
+- 🔍 **語法層 (Syntax AST)**：`node vm.Script` 解析 HTML 內部腳本、`data.js` 與 `sw.js`，徹底杜絕字串未跳脫或語法錯誤。
+- 🧩 **DOM 綁定層 (DOM Integrity)**：驗證所有 UI 元件 ID 與 inline 事件函式定義無漏失。
+- 📱 **版本一致性 (Version Alignment)**：確保 UI 徽章、PWA Service Worker 快取名稱與文件完全吻合。
+- 🚦 **自動執行測試**：`python verify_local_stable.py`
 
 ---
 
