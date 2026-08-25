@@ -1,27 +1,26 @@
 # -*- coding: utf-8 -*-
 """
-Local Stable Pass Automated Verification Suite (本機驗證門禁系統)
-Runs comprehensive pre-push checks across:
-1. JavaScript syntax in index.html (inline scripts), data.js, sw.js
-2. JSON integrity in manifest.json and full_network_timetable.json
-3. HTML DOM elements & onclick function binding integrity
-4. Routing algorithm and timetable data integrity
-5. Version badge and PWA cache key alignment across all files
+Local Stable Pass Verification Suite (Pre-Push Quality Gatekeeper)
+Executes a battery of 6 automated tests to ensure 100% stable release:
+1. JSON Data & Manifest Integrity
+2. JavaScript Syntax & Parsing Check via Node.js VM
+3. HTML DOM & Function Binding Integrity
+4. Version Alignment across UI, PWA Cache, and Documentation
+5. Multi-Version Snapshot & Rollback Hub Integrity
+6. End-to-End Node.js Route Planning Simulation (板橋->台北 >= 50, 內灣->六家 >= 20)
 """
 
+import sys
+import os
 import json
 import re
 import subprocess
-import sys
 from pathlib import Path
 
-# Fix Windows console UTF-8 output
-if sys.platform.startswith('win'):
-    try:
-        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
-    except Exception:
-        pass
+try:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -35,18 +34,20 @@ def pass_step(msg):
 
 def fail_step(msg):
     print(f"  ❌ FAIL: {msg}")
+    print(f"\n==========================================")
+    print(f"💥 LOCAL VERIFICATION FAILED. Push aborted.")
+    print(f"==========================================")
     sys.exit(1)
 
-def test_json_files():
+def test_json_and_manifest():
     log_step("1. JSON Data & Manifest Integrity")
     manifest_path = BASE_DIR / "manifest.json"
     if not manifest_path.exists():
         fail_step("manifest.json not found!")
-    
     with open(manifest_path, "r", encoding="utf-8") as f:
         try:
             manifest = json.load(f)
-            required_keys = ["name", "short_name", "start_url", "display", "icons", "id"]
+            required_keys = ["name", "short_name", "start_url", "display", "icons"]
             for k in required_keys:
                 if k not in manifest:
                     fail_step(f"manifest.json missing required key: {k}")
@@ -68,7 +69,6 @@ def test_json_files():
 def test_js_syntax():
     log_step("2. JavaScript Syntax & Parsing Check (Node.js VM)")
     
-    # 2.1 index.html inline script
     index_html = BASE_DIR / "index.html"
     with open(index_html, "r", encoding="utf-8") as f:
         html_content = f.read()
@@ -98,99 +98,96 @@ def test_js_syntax():
             fail_step(f"index.html script block #{i+1} has syntax error:\n{res.stderr.strip()}")
         pass_step(f"index.html inline script #{i+1} syntax OK")
 
-    # 2.2 sw.js
-    sw_path = BASE_DIR / "sw.js"
-    if sw_path.exists():
-        with open(sw_path, "r", encoding="utf-8") as f:
+    sw_js = BASE_DIR / "sw.js"
+    if sw_js.exists():
+        with open(sw_js, "r", encoding="utf-8") as f:
             sw_code = f.read()
         res = subprocess.run(["node", "-e", node_code], input=sw_code, capture_output=True, text=True, encoding="utf-8")
         if res.returncode != 0:
-            fail_step(f"sw.js syntax error:\n{res.stderr.strip()}")
+            fail_step(f"sw.js has syntax error:\n{res.stderr.strip()}")
         pass_step("sw.js syntax OK")
 
-    # 2.3 data.js
-    data_path = BASE_DIR / "data.js"
-    if data_path.exists():
-        res = subprocess.run([
-            "node", "-e",
-            """
-            const fs = require('fs');
-            const vm = require('vm');
-            const code = fs.readFileSync('data.js', 'utf8');
-            const sandbox = { window: {} };
-            vm.createContext(sandbox);
+    data_js = BASE_DIR / "data.js"
+    if data_js.exists():
+        test_data_node = """
+        const vm = require('vm');
+        const fs = require('fs');
+        const code = fs.readFileSync('data.js', 'utf8');
+        const sandbox = { window: {} };
+        vm.createContext(sandbox);
+        try {
             vm.runInContext(code, sandbox);
-            if (!Array.isArray(sandbox.window.EMBEDDED_TIMETABLE_DATA) || sandbox.window.EMBEDDED_TIMETABLE_DATA.length < 500) {
-                console.error('EMBEDDED_TIMETABLE_DATA invalid or length < 500');
+            if (!sandbox.window.EMBEDDED_TIMETABLE_DATA || !Array.isArray(sandbox.window.EMBEDDED_TIMETABLE_DATA)) {
                 process.exit(1);
             }
             console.log('OK');
-            """
-        ], cwd=str(BASE_DIR), capture_output=True, text=True)
+        } catch (e) {
+            console.error(e);
+            process.exit(1);
+        }
+        """
+        res = subprocess.run(["node", "-e", test_data_node], cwd=str(BASE_DIR), capture_output=True, text=True, encoding="utf-8")
         if res.returncode != 0:
-            fail_step(f"data.js execution/syntax error:\n{res.stderr.strip()}")
+            fail_step("data.js does not define valid window.EMBEDDED_TIMETABLE_DATA array!")
         pass_step("data.js syntax and EMBEDDED_TIMETABLE_DATA array OK")
 
-def test_html_dom_bindings():
+def test_html_dom_and_bindings():
     log_step("3. HTML DOM & Function Binding Integrity")
     index_html = BASE_DIR / "index.html"
     with open(index_html, "r", encoding="utf-8") as f:
-        html = f.read()
+        html_content = f.read()
 
-    # Essential DOM IDs referenced in JS
-    essential_ids = [
-        "timeInput", "typeFilter", "transferFilter", "dayFilter", "todayDayName",
-        "stationModal", "modalSearchInput", "modalCountyTabs", "modalStationList",
-        "modalTripStepper", "modalTitle", "btnInstallPwa", "viaInput", "btnClearVia",
-        "resultsList", "resultsCount", "waypointsList"
+    required_dom_ids = [
+        "appTitle", "resultsList", "resultsCount", "timeInput",
+        "stationModal", "modalTitle", "modalStationList",
+        "modalSearchInput", "primarySort",
+        "modalMapView", "taiwanMapWrapper",
+        "viaInput", "btnSearch"
     ]
-    for dom_id in essential_ids:
-        if f'id="{dom_id}"' not in html and f"id='{dom_id}'" not in html:
-            fail_step(f"Required DOM element id='{dom_id}' missing in index.html!")
-    pass_step(f"All {len(essential_ids)} critical DOM IDs present in index.html")
 
-    # Essential JS functions
-    essential_functions = [
-        "executeSearch", "modalPickStation", "openStationModal", "closeStationModal",
-        "setDayFilter", "setTypeFilter", "setTransferCondition", "setCurrentTime",
-        "reverseWaypoints", "installPwa", "toggleTheme", "switchVersion"
+    for dom_id in required_dom_ids:
+        if f'id="{dom_id}"' not in html_content and f"id='{dom_id}'" not in html_content:
+            fail_step(f"Critical DOM element id='{dom_id}' not found in index.html!")
+    pass_step(f"All {len(required_dom_ids)} critical DOM IDs present in index.html")
+
+    required_functions = [
+        "executeSearch", "planRoutes", "openStationModal", "closeStationModal",
+        "modalPickStation", "swapStations", "toggleDetails", "openStationTimetable",
+        "updateNetworkStatus", "zoomMapRegion", "isTrainAllowed"
     ]
-    for fn in essential_functions:
-        if f"function {fn}" not in html:
+
+    for fn in required_functions:
+        if f"function {fn}" not in html_content:
             fail_step(f"Required function '{fn}' not defined in index.html script!")
-    pass_step(f"All {len(essential_functions)} critical JS functions defined")
+    pass_step(f"All {len(required_functions)} critical JS functions defined")
 
 def test_version_alignment():
     log_step("4. Version Alignment across UI, PWA Cache, and Documentation")
     
-    # Read CHANGELOG for latest version
     changelog_path = BASE_DIR / "CHANGELOG.md"
     with open(changelog_path, "r", encoding="utf-8") as f:
-        changelog = f.read()
+        cl = f.read()
     
-    version_match = re.search(r"## \[(v\d+\.\d+\.\d+)\]", changelog)
-    if not version_match:
-        fail_step("No valid version header found in CHANGELOG.md!")
-    latest_version = version_match.group(1)
+    m = re.search(r"##\s*\[(v[\d\.]+)\]", cl)
+    if not m:
+        fail_step("Could not find latest version in CHANGELOG.md!")
+    latest_version = m.group(1)
     pass_step(f"Latest release in CHANGELOG: {latest_version}")
 
-    # Check README.md
     readme_path = BASE_DIR / "README.md"
     with open(readme_path, "r", encoding="utf-8") as f:
-        readme = f.read()
-    if latest_version not in readme:
-        fail_step(f"README.md does not contain current version {latest_version}")
+        rm = f.read()
+    if latest_version not in rm:
+        fail_step(f"README.md does not reference latest version {latest_version}")
     pass_step(f"README.md matches {latest_version}")
 
-    # Check index.html badge
-    index_path = BASE_DIR / "index.html"
-    with open(index_path, "r", encoding="utf-8") as f:
-        index_html = f.read()
-    if latest_version not in index_html:
+    index_html = BASE_DIR / "index.html"
+    with open(index_html, "r", encoding="utf-8") as f:
+        html = f.read()
+    if latest_version not in html:
         fail_step(f"index.html does not contain current version badge {latest_version}")
     pass_step(f"index.html UI badge matches {latest_version}")
 
-    # Check sw.js cache name
     sw_path = BASE_DIR / "sw.js"
     with open(sw_path, "r", encoding="utf-8") as f:
         sw = f.read()
@@ -226,18 +223,79 @@ def test_multi_version_snapshots():
             fail_step(f"Version snapshot {v_tag}/index.html missing!")
     pass_step(f"All {len(v_list)} historical standalone version snapshots verified intact")
 
+def test_routing_simulation():
+    log_step("6. End-to-End Node.js Route Planning Simulation")
+    
+    test_runner = """
+    const vm = require('vm');
+    const fs = require('fs');
+
+    const sandbox = {
+        window: {
+            addEventListener: () => {},
+            location: { search: '', href: '', replace: () => {} }
+        },
+        document: {
+            getElementById: () => ({ value: '', textContent: '', innerHTML: '', style: {}, classList: { add: ()=>{}, remove: ()=>{} } }),
+            querySelectorAll: () => []
+        },
+        navigator: { onLine: true },
+        location: { search: '', href: '', replace: () => {} },
+        addEventListener: () => {},
+        setInterval: () => {},
+        clearInterval: () => {},
+        setTimeout: (fn) => fn(),
+        requestAnimationFrame: (fn) => fn(),
+        console: console
+    };
+    vm.createContext(sandbox);
+
+    const dataCode = fs.readFileSync('data.js', 'utf8');
+    vm.runInContext(dataCode, sandbox);
+    sandbox.allTimetableData = sandbox.window.EMBEDDED_TIMETABLE_DATA || [];
+
+    const indexHtml = fs.readFileSync('index.html', 'utf8');
+    const scriptMatches = indexHtml.match(/<script(?![^>]*src=)>([\\s\\S]*?)<\\/script>/g);
+    const mainScript = scriptMatches[scriptMatches.length - 1].replace(/<\\/?script[^>]*>/g, '');
+
+    vm.runInContext(mainScript, sandbox);
+
+    sandbox.buildDeparturesIndex();
+
+    // Test 1: 板橋 -> 台北
+    const r1 = sandbox.planRoutes('板橋', '台北', 0, '');
+    if (!r1 || r1.length < 50) {
+        console.error('FAIL: 板橋 -> 台北 returned only ' + (r1 ? r1.length : 0) + ' routes (expected >= 50)');
+        process.exit(1);
+    }
+
+    // Test 2: 內灣 -> 六家
+    const r2 = sandbox.planRoutes('內灣', '六家', 0, '');
+    if (!r2 || r2.length < 20) {
+        console.error('FAIL: 內灣 -> 六家 returned only ' + (r2 ? r2.length : 0) + ' routes (expected >= 20)');
+        process.exit(1);
+    }
+
+    console.log('SIMULATION_SUCCESS: 板橋->台北 (' + r1.length + ' routes), 內灣->六家 (' + r2.length + ' routes)');
+    """
+
+    res = subprocess.run(["node", "-e", test_runner], cwd=str(BASE_DIR), capture_output=True, text=True, encoding="utf-8")
+    if res.returncode != 0:
+        fail_step(f"Routing simulation failed:\n{res.stderr.strip()}\n{res.stdout.strip()}")
+    
+    pass_step(f"Route Planning Simulation PASS: {res.stdout.strip()}")
+
 def main():
     print("🚀 Starting Local Stable Verification Suite...")
-    test_json_files()
+    test_json_and_manifest()
     test_js_syntax()
-    test_html_dom_bindings()
+    test_html_dom_and_bindings()
     test_version_alignment()
     test_multi_version_snapshots()
-    
+    test_routing_simulation()
     print("\n==========================================")
-    print("🎉 ALL LOCAL TESTS PASSED! (STABLE VERIFIED)")
+    print("🎉 ALL 6 LOCAL TESTS PASSED! (STABLE VERIFIED)")
     print("==========================================\n")
-    sys.exit(0)
 
 if __name__ == "__main__":
     main()

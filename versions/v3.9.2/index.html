@@ -1992,6 +1992,69 @@
             color: var(--border-color);
         }
 
+
+        /* ==========================================
+           Authentic Real-Time Calculation Progress Bar
+           ========================================== */
+        .real-progress-wrapper {
+            background: var(--bg-card);
+            border: 1.5px solid var(--primary-light);
+            border-radius: var(--radius);
+            padding: 22px 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(2, 132, 199, 0.08);
+            animation: fadeIn 0.15s ease;
+        }
+        .real-progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.92rem;
+            color: var(--text-main);
+        }
+        .real-progress-status {
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .real-progress-count {
+            font-family: 'Outfit', -apple-system, sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            background: var(--bg-subtle);
+            padding: 3px 10px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+        .real-progress-track {
+            width: 100%;
+            height: 10px;
+            background: var(--bg-subtle);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+        .real-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #0284c7 0%, #38bdf8 60%, #10b981 100%);
+            border-radius: 8px;
+            transition: width 0.08s linear;
+        }
+        .real-progress-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
     </style>
 </head>
 <body>
@@ -2001,7 +2064,7 @@
             <span class="nav-logo">🚆</span>
             <div class="nav-title">
                     <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                        <h1>台鐵全路網時刻表 & 縣市導航智慧接駁系統</h1>
+                        <h1 id="appTitle">台鐵全路網時刻表 & 縣市導航智慧接駁系統</h1>
                         <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v3.9.2 (2026.07.01 最新版)</span>
                         <div id="networkStatusBadge" class="network-status-pill online" title="網路連線狀態（本系統支援 100% 純離線離網運算）">
                             <span class="status-indicator-dot"></span>
@@ -2185,7 +2248,7 @@
                 </div>
 
                 <div class="search-btn-wrapper">
-                    <button class="btn-search" onclick="executeSearch()">
+                    <button id="btnSearch" class="btn-search" onclick="executeSearch()">
                         <span>🔍</span> 查詢乘車方案
                     </button>
                 </div>
@@ -4080,6 +4143,122 @@
             return candidates[0] || null;
         }
 
+
+        function isTrainAllowed(t) {
+            if (!isTrainRunningOnSelectedDay(t.train_number)) return false;
+            if (typeFilter === 'trpass' && !t.is_trpass) return false;
+            if (typeFilter === 'express' && !['自強號', '新自強(EMU3000)', '普悠瑪', '太魯閣', '莒光號'].includes(t.train_type)) return false;
+            if (typeFilter === 'local' && !['區間車', '區間快'].includes(t.train_type)) return false;
+            return true;
+        }
+
+        function renderWaypointsUI() {
+            const listEl = document.getElementById('waypointsList');
+            if (!listEl) return;
+            const countBadge = document.getElementById('waypointsCountBadge');
+            if (countBadge) {
+                const letters = waypoints.map((_, i) => String.fromCharCode(65 + i)).join(' ➔ ');
+                countBadge.textContent = `${waypoints.length} 個站點 (${letters})`;
+            }
+
+            const viaBlock = document.getElementById('viaGroupBlock');
+            if (viaBlock) {
+                viaBlock.style.display = (waypoints.length === 2) ? 'block' : 'none';
+            }
+
+            listEl.innerHTML = waypoints.map((wp, idx) => {
+                const letter = String.fromCharCode(65 + idx);
+                const isFirst = idx === 0;
+                const isLast = idx === waypoints.length - 1;
+                const badgeClass = isFirst ? 'origin' : (isLast ? 'dest' : 'via');
+                const roleLabel = isFirst ? '起點' : (isLast ? '終點' : '中途站');
+
+                let stayHtml = '';
+                if (!isFirst) {
+                    stayHtml = `
+                        <div class="waypoint-stay-group">
+                            <span class="waypoint-stay-label">☕ 停留:</span>
+                            <select class="waypoint-stay-select" onchange="updateWaypointStay(${idx}, this.value)">
+                                <option value="0" ${wp.minStay == 0 ? 'selected' : ''}>順暢接駁 (最快/同車續搭)</option>
+                                <option value="15" ${wp.minStay == 15 ? 'selected' : ''}>至少停留 15 分鐘</option>
+                                <option value="30" ${wp.minStay == 30 ? 'selected' : ''}>至少停留 30 分鐘 (快閃/會客)</option>
+                                <option value="60" ${wp.minStay == 60 ? 'selected' : ''}>至少停留 1 小時 (用餐/遊憩)</option>
+                                <option value="120" ${wp.minStay == 120 ? 'selected' : ''}>至少停留 2 小時 (深度觀光)</option>
+                                <option value="180" ${wp.minStay == 180 ? 'selected' : ''}>至少停留 3 小時 (半日遊)</option>
+                            </select>
+                        </div>
+                    `;
+                }
+
+                return `
+                    <div class="waypoint-row">
+                        <div class="waypoint-badge ${badgeClass}">${letter}</div>
+                        <div class="waypoint-input-box" onclick="openStationModalForWaypoint(${idx})">
+                            <span class="waypoint-station-name ${wp.station ? 'selected' : ''}">
+                                ${wp.station ? wp.station : `請選擇【${roleLabel}】車站`}
+                            </span>
+                            <span class="waypoint-picker-btn">🗺️ 選站</span>
+                        </div>
+                        ${stayHtml}
+                        <div class="waypoint-actions">
+                            ${!isFirst && waypoints.length > 2 ? `<button class="btn-waypoint-action" onclick="moveWaypoint(${idx}, -1)" title="上移">↑</button>` : ''}
+                            ${!isLast && waypoints.length > 2 ? `<button class="btn-waypoint-action" onclick="moveWaypoint(${idx}, 1)" title="下移">↓</button>` : ''}
+                            ${waypoints.length > 2 ? `<button class="btn-waypoint-action remove" onclick="removeWaypoint(${idx})" title="刪除">✕</button>` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        
+        // ==========================================
+        // Direct Synchronous Execution Engine (0ms Instant)
+        // ==========================================
+        function executeSearch() {
+            const timeStr = document.getElementById('timeInput') ? (document.getElementById('timeInput').value || '00:00') : '00:00';
+            const startTimeMin = timeToMin(timeStr);
+            const via = document.getElementById('viaInput') ? document.getElementById('viaInput').value.trim() : '';
+
+            const routeStr = waypoints.map(w => w.station).join(' ➔ ');
+            const summaryEl = document.getElementById('routeSummaryText');
+            if (summaryEl) {
+                if (waypoints.length === 2 && via) {
+                    summaryEl.textContent = `${waypoints[0].station} ➔ [經由 ${via}] ➔ ${waypoints[1].station}`;
+                } else {
+                    summaryEl.textContent = routeStr;
+                }
+            }
+            updateClearViaButton();
+
+            const orig = waypoints[0].station;
+            const dest = waypoints[waypoints.length - 1].station;
+
+            if (!orig || !dest || orig === dest || allTimetableData.length === 0) {
+                currentRoutes = [];
+                renderResults();
+                return;
+            }
+
+            let rawRoutes = [];
+            if (waypoints.length === 2) {
+                rawRoutes = planRoutes(orig, dest, startTimeMin, via);
+            } else {
+                rawRoutes = planMultiStopRoutes(waypoints, startTimeMin);
+            }
+
+            const seen = new Set();
+            currentRoutes = rawRoutes.filter(r => {
+                const key = `${r.dep_time}-${r.arr_time}-${r.transfers}-${r.legs.map(l=>l.train_number).join('_')}`;
+                if (seen.has(key)) return false;
+                seen.add(key);
+                return true;
+            });
+
+            currentRoutes = sortRoutes(currentRoutes);
+            renderResults();
+        }
+
+
         function renderResults() {
             const container = document.getElementById('resultsList');
             const countBadge = document.getElementById('resultsCount');
@@ -4837,6 +5016,38 @@
         // ==========================================
         // Multi-Version URL Router & Switcher
         // ==========================================
+        // ==========================================
+        // Mobile-First Map Interaction System
+        // ==========================================
+        let selectedMapStation = '';
+        const MAP_REGIONS = {
+            'all': '40 10 440 700',
+            'north': '80 20 380 280',
+            'central': '60 240 220 280',
+            'south': '60 460 220 260',
+            'east': '210 50 250 660',
+            'branch': '90 50 360 450'
+        };
+
+        function zoomMapRegion(regionKey, btnEl) {
+            const svg = document.getElementById('taiwanRailSvg');
+            if (svg && MAP_REGIONS[regionKey]) {
+                svg.setAttribute('viewBox', MAP_REGIONS[regionKey]);
+            }
+            const tabs = document.querySelectorAll('#mapRegionTabs .region-tab-btn');
+            tabs.forEach(t => t.classList.remove('active'));
+            if (btnEl) btnEl.classList.add('active');
+        }
+
+        function openMapStationAction(stName, e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            selectedMapStation = stName;
+            modalPickStation(stName);
+        }
+
         function switchVersion(val) {
             if (val === 'latest') {
                 window.location.href = './index.html';
