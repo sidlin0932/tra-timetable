@@ -1520,7 +1520,7 @@
         
         
         /* =========================================================
-           v3.9.3 Station Modal Layout & Guaranteed Smooth Scrolling
+           v3.9.4 Station Modal Layout & Guaranteed Smooth Scrolling
            ========================================================= */
         .modal-backdrop {
             position: fixed;
@@ -2118,6 +2118,130 @@
             margin-top: 8px;
         }
 
+
+        /* ==========================================
+           Google Maps Multi-Stop Waypoint Card Styling
+           ========================================== */
+        .waypoints-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .waypoint-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 8px 14px;
+            transition: all 0.2s ease;
+        }
+        .waypoint-row:hover {
+            border-color: var(--primary);
+            box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
+        }
+        .waypoint-badge {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .waypoint-badge.origin {
+            background: linear-gradient(135deg, #10b981, #059669);
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+        }
+        .waypoint-badge.dest {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
+        }
+        .waypoint-badge.via {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+        }
+        .waypoint-input-box {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px 14px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .waypoint-input-box:hover {
+            border-color: var(--primary);
+            background: var(--bg-card);
+        }
+        .waypoint-station-name {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+        .waypoint-picker-btn {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+        .waypoint-stay-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .waypoint-stay-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+        .waypoint-stay-select {
+            padding: 5px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-subtle);
+            color: var(--text-main);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .waypoint-actions {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .btn-waypoint-action {
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-subtle);
+            color: var(--text-muted);
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+        }
+        .btn-waypoint-action:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .btn-waypoint-action.remove:hover {
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+
     </style>
 </head>
 <body>
@@ -2128,7 +2252,7 @@
             <div class="nav-title">
                     <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                         <h1 id="appTitle">台鐵全路網時刻表 & 縣市導航智慧接駁系統</h1>
-                        <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v3.9.3 (2026.07.01 最新版)</span>
+                        <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v3.9.4 (2026.07.01 最新版)</span>
                         <div id="networkStatusBadge" class="network-status-pill online" title="網路連線狀態（本系統支援 100% 純離線離網運算）">
                             <span class="status-indicator-dot"></span>
                             <span id="networkStatusText">🟢 連線中 (離線已就緒)</span>
@@ -2136,7 +2260,7 @@
                         <div style="display: inline-flex; align-items: center; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: 8px; padding: 2px 8px;">
                             <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-right: 4px;">🔖 版本切換:</span>
                             <select id="versionSelector" onchange="switchVersion(this.value)" style="border: none; background: transparent; color: var(--primary); font-size: 0.78rem; font-weight: 700; cursor: pointer; outline: none; font-family: 'Outfit', sans-serif;">
-                                <option value="latest" selected>v3.9.3 (最新穩定版)</option>
+                                <option value="latest" selected>v3.9.4 (最新穩定版)</option>
                                 <option value="v3.8.14">v3.8.14 (純離線保證版)</option>
                                 <option value="v3.8.13">v3.8.13 (多版本架構版)</option>
                                 <option value="v3.8.12">v3.8.12 (自動門禁測試版)</option>
@@ -2387,7 +2511,7 @@
         <footer class="app-footer-clean">
             <div class="footer-brand-line">
                 <span class="footer-title">🚆 2026 台鐵全路網跨區間轉乘規劃系統</span>
-                <span class="footer-ver-tag">v3.9.3</span>
+                <span class="footer-ver-tag">v3.9.4</span>
             </div>
             <div class="footer-sub-text">
                 ⚡ 100% 純前端本地記憶體極速運算 · 完整收錄 2026/07/01 官方大改點 1,465 班全路網列車
@@ -4197,6 +4321,7 @@
             return true;
         }
 
+        
         function renderWaypointsUI() {
             const listEl = document.getElementById('waypointsList');
             if (!listEl) return;
@@ -4219,7 +4344,7 @@
                 const roleLabel = isFirst ? '起點' : (isLast ? '終點' : '中途站');
 
                 let stayHtml = '';
-                if (!isFirst) {
+                if (!isFirst && !isLast) {
                     stayHtml = `
                         <div class="waypoint-stay-group">
                             <span class="waypoint-stay-label">☕ 停留:</span>
@@ -4255,10 +4380,6 @@
             }).join('');
         }
 
-        
-        // ==========================================
-        // Direct Synchronous Execution Engine (0ms Instant)
-        // ==========================================
         function executeSearch() {
             const timeStr = document.getElementById('timeInput') ? (document.getElementById('timeInput').value || '00:00') : '00:00';
             const startTimeMin = timeToMin(timeStr);
@@ -4884,7 +5005,7 @@
 
         
         // ==========================================
-        // v3.9.3 Multi-County Checkbox & Map System
+        // v3.9.4 Multi-County Checkbox & Map System
         // ==========================================
         let modalViewMode = 'list'; // 'list' | 'map'
         let selectedCounties = new Set(COUNTY_GROUPS.map(g => g.county));
