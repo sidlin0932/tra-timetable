@@ -1,5 +1,11 @@
 [
   {
+    "version": "v3.9.17",
+    "commit": "HEAD",
+    "date": "2026-08-25",
+    "desc": "Pareto 最優剪枝 ＆ 徹底根除反向折返與假轉乘"
+  },
+  {
     "version": "v3.9.16",
     "commit": "HEAD",
     "date": "2026-08-25",

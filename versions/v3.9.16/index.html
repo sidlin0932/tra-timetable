@@ -1520,7 +1520,7 @@
         
         
         /* =========================================================
-           v3.9.16 Station Modal Layout & Guaranteed Smooth Scrolling
+           v3.9.17 Station Modal Layout & Guaranteed Smooth Scrolling
            ========================================================= */
         .modal-backdrop {
             position: fixed;
@@ -2244,7 +2244,7 @@
 
 
         /* ==========================================
-           v3.9.16 Multi-Stop Waypoints & Real Progress Bar
+           v3.9.17 Multi-Stop Waypoints & Real Progress Bar
            ========================================== */
         .waypoints-container {
             display: flex;
@@ -2430,7 +2430,7 @@
 
 
         /* ==========================================
-           v3.9.16 Solid Multi-Stop Waypoint & Input Styling
+           v3.9.17 Solid Multi-Stop Waypoint & Input Styling
            ========================================== */
         .waypoint-list {
             display: flex;
@@ -2596,7 +2596,7 @@
             <div class="nav-title">
                     <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                         <h1 id="appTitle">台鐵全路網時刻表 & 縣市導航智慧接駁系統</h1>
-                        <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v3.9.16 (2026.07.01 最新版)</span>
+                        <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v3.9.17 (2026.07.01 最新版)</span>
                         <div id="networkStatusBadge" class="network-status-pill online" title="網路連線狀態（本系統支援 100% 純離線離網運算）">
                             <span class="status-indicator-dot"></span>
                             <span id="networkStatusText">🟢 連線中 (離線已就緒)</span>
@@ -2604,10 +2604,10 @@
                         <div style="display: inline-flex; align-items: center; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: 8px; padding: 2px 8px;">
                             <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-right: 4px;">🔖 版本切換:</span>
                             <select id="versionSelector" onchange="switchVersion(this.value)" style="border: none; background: transparent; color: var(--primary); font-size: 0.78rem; font-weight: 700; cursor: pointer; outline: none; font-family: 'Outfit', sans-serif;">
-                                <option value="latest" selected>🌟 v3.9.16 (全功能旗艦版)</option>
+                                <option value="latest" selected>🌟 v3.9.17 (全功能旗艦版)</option>
                                 <option value="lite">⚡ 極速極簡版 (TRA SuperLite)</option>
-                                <option value="v3.9.16">v3.9.16 (多站規劃+選站優化版)</option>
-                                <option value="v3.9.16">v3.9.16 (大站邊框加強版)</option>
+                                <option value="v3.9.17">v3.9.17 (多站規劃+選站優化版)</option>
+                                <option value="v3.9.17">v3.9.17 (大站邊框加強版)</option>
                                 <option value="v3.8.14">v3.8.14 (純離線保證版)</option>
                                 <option value="v3.8.13">v3.8.13 (多版本架構版)</option>
                                 <option value="v3.8.12">v3.8.12 (自動門禁測試版)</option>
@@ -2858,7 +2858,7 @@
         <footer class="app-footer-clean">
             <div class="footer-brand-line">
                 <span class="footer-title">🚆 2026 台鐵全路網跨區間轉乘規劃系統</span>
-                <span class="footer-ver-tag">v3.9.16</span>
+                <span class="footer-ver-tag">v3.9.17</span>
             </div>
             <div class="footer-sub-text">
                 ⚡ 100% 純前端本地記憶體極速運算 · 完整收錄 2026/07/01 官方大改點 1,465 班全路網列車
@@ -4320,6 +4320,61 @@
         }
 
         
+        
+        function pruneDominatedRoutes(routes) {
+            if (!routes || routes.length === 0) return [];
+            
+            // 1. Filter out fake transfers to a train that was directly boardable at origin
+            const directTrainNos = new Set();
+            for (let r of routes) {
+                if (r.transfers === 0 && r.legs && r.legs.length === 1) {
+                    directTrainNos.add(String(r.legs[0].trainNo || r.legs[0].train_number));
+                }
+            }
+
+            const cleanRoutes = routes.filter(r => {
+                if (r.transfers > 0 && r.legs && r.legs.length > 1) {
+                    const lastTrainNo = String(r.legs[r.legs.length - 1].trainNo || r.legs[r.legs.length - 1].train_number);
+                    if (directTrainNos.has(lastTrainNo)) {
+                        // Dominated: can directly board this train at origin!
+                        return false;
+                    }
+                }
+                return true;
+            });
+
+            // 2. Strict Pareto Dominance Pruning
+            const nonDominated = [];
+            for (let i = 0; i < cleanRoutes.length; i++) {
+                const r1 = cleanRoutes[i];
+                const dep1 = (r1.depMin !== undefined) ? r1.depMin : (typeof timeToMinutes === 'function' ? timeToMinutes(r1.departure_time || r1.depTime) : 0);
+                const arr1 = (r1.arrMin !== undefined) ? r1.arrMin : (typeof timeToMinutes === 'function' ? timeToMinutes(r1.arrival_time || r1.arrTime) : 0);
+                const trans1 = (r1.transfers !== undefined) ? r1.transfers : (r1.legs ? r1.legs.length - 1 : 0);
+
+                let dominated = false;
+                for (let j = 0; j < cleanRoutes.length; j++) {
+                    if (i === j) continue;
+                    const r2 = cleanRoutes[j];
+                    const dep2 = (r2.depMin !== undefined) ? r2.depMin : (typeof timeToMinutes === 'function' ? timeToMinutes(r2.departure_time || r2.depTime) : 0);
+                    const arr2 = (r2.arrMin !== undefined) ? r2.arrMin : (typeof timeToMinutes === 'function' ? timeToMinutes(r2.arrival_time || r2.arrTime) : 0);
+                    const trans2 = (r2.transfers !== undefined) ? r2.transfers : (r2.legs ? r2.legs.length - 1 : 0);
+
+                    // If r2 departs >= dep1 AND arrives <= arr1 AND trans2 <= trans1 with at least one strictly better
+                    if (dep2 >= dep1 && arr2 <= arr1 && trans2 <= trans1) {
+                        if (dep2 > dep1 || arr2 < arr1 || trans2 < trans1) {
+                            dominated = true;
+                            break;
+                        }
+                    }
+                }
+                if (!dominated) {
+                    nonDominated.push(r1);
+                }
+            }
+            return nonDominated;
+        }
+        window.pruneDominatedRoutes = pruneDominatedRoutes;
+
         function planRoutes(orig, dest, startTimeMin, viaStation = '') {
             if (!orig || !dest || orig === dest || allTimetableData.length === 0) {
                 return [];
@@ -5358,7 +5413,7 @@
 
         
         // ==========================================
-        // v3.9.16 Multi-County Checkbox & Map System
+        // v3.9.17 Multi-County Checkbox & Map System
         // ==========================================
         let modalViewMode = 'list'; // 'list' | 'map'
         let selectedCounties = new Set(COUNTY_GROUPS.map(g => g.county));

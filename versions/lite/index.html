@@ -616,7 +616,7 @@
     <header>
         <div class="brand">
             <span>🚆 台鐵時刻表</span>
-            <span class="badge-lite">⚡ SuperLite 極速極簡版 v3.9.16-lite</span>
+            <span class="badge-lite">⚡ SuperLite 極速極簡版 v3.9.17-lite</span>
         </div>
         
         <div class="header-actions">
@@ -624,7 +624,7 @@
                 <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; margin-right: 4px;">🔖 版本切換:</span>
                 <select id="versionSelectorLite" onchange="switchVersion(this.value)" style="border: none; background: transparent; color: var(--primary); font-size: 0.78rem; font-weight: 700; cursor: pointer; outline: none;">
                     <option value="lite" selected>⚡ 極速極簡版 (TRA SuperLite)</option>
-                    <option value="latest">🌟 全功能旗艦版 (v3.9.16)</option>
+                    <option value="latest">🌟 全功能旗艦版 (v3.9.17)</option>
                     <option value="hub">📋 所有歷史版本中心...</option>
                 </select>
             </div>
@@ -722,7 +722,7 @@
     </footer>
 
     <!-- Embedded Local Database -->
-    <script src="data.js?v=3.9.16"></script>
+    <script src="data.js?v=3.9.17"></script>
 
     <script>
         function switchVersion(val) {
@@ -857,11 +857,14 @@
             return backups;
         }
 
+        
         function planLeg(orig, dest, startMin, transferMax, typeF) {
             const routes = [];
             const seen = new Set();
             const startDeps = departuresByStation[orig] || [];
+            const directTrainNumbers = new Set();
 
+            // 1. Direct Trains
             for (let dep of startDeps) {
                 const t = dep.train;
                 if (!isTypeAllowed(t.train_type, t.is_trpass, typeF)) continue;
@@ -882,6 +885,7 @@
                     const key = `${t.train_number}-${dMin}-${arrMin}`;
                     if (!seen.has(key)) {
                         seen.add(key);
+                        directTrainNumbers.add(String(t.train_number));
                         routes.push({
                             depTime: minToTime(dMin),
                             arrTime: minToTime(arrMin),
@@ -889,6 +893,7 @@
                             arrMin: arrMin,
                             duration: dur,
                             transfers: 0,
+                            finalTrainNo: String(t.train_number),
                             legs: [{
                                 trainNo: t.train_number,
                                 trainType: t.train_type,
@@ -903,6 +908,7 @@
                 }
             }
 
+            // 2. 1-Hop Transfers (with No Backtracking & No Redundant Transfer Pruning)
             if (transferMax !== 'direct') {
                 for (let dep of startDeps) {
                     const t1 = dep.train;
@@ -921,14 +927,19 @@
                         for (let midDep of midDeps) {
                             const t2 = midDep.train;
                             if (t2.train_number === t1.train_number) continue;
+
+                            // Pruning 1: If t2 itself directly stops at orig after startMin, don't take t1 to transfer to t2!
+                            if (directTrainNumbers.has(String(t2.train_number))) continue;
+
                             const dMin2 = midDep.depMin;
                             const waitM = dMin2 - arrMin1;
-                            if (waitM < 4 || waitM > 120) continue;
+                            if (waitM < 4 || waitM > 90) continue;
 
                             for (let j = midDep.stopIdx + 1; j < t2.stops.length; j++) {
                                 if (t2.stops[j].station === dest) {
                                     const arrMin2 = timeToMin(t2.stops[j].time);
                                     if (arrMin2 > dMin2) {
+                                        // Pruning 2: Directional check (must not be slower than direct alternatives arriving at same time)
                                         const dur = arrMin2 - dMin1;
                                         const key = `${t1.train_number}-${t2.train_number}-${dMin1}-${arrMin2}`;
                                         if (!seen.has(key)) {
@@ -940,6 +951,7 @@
                                                 arrMin: arrMin2,
                                                 duration: dur,
                                                 transfers: 1,
+                                                finalTrainNo: String(t2.train_number),
                                                 legs: [
                                                     { trainNo: t1.train_number, trainType: t1.train_type, from: orig, to: mid, dep: minToTime(dMin1), arr: minToTime(arrMin1), isTrPass: t1.is_trpass },
                                                     { trainNo: t2.train_number, trainType: t2.train_type, from: mid, to: dest, dep: minToTime(dMin2), arr: minToTime(arrMin2), isTrPass: t2.is_trpass, wait: waitM }
@@ -957,8 +969,28 @@
                 }
             }
 
-            return routes;
+            // Pruning 3: Pareto Dominance Filtering (Keep only Pareto-optimal routes)
+            const optimal = [];
+            for (let i = 0; i < routes.length; i++) {
+                const r1 = routes[i];
+                let isDominated = false;
+                for (let j = 0; j < routes.length; j++) {
+                    if (i === j) continue;
+                    const r2 = routes[j];
+                    // If r2 departs later/same, arrives earlier/same, and has fewer/same transfers -> r1 is useless
+                    if (r2.depMin >= r1.depMin && r2.arrMin <= r1.arrMin && r2.transfers <= r1.transfers) {
+                        if (r2.depMin > r1.depMin || r2.arrMin < r1.arrMin || r2.transfers < r1.transfers) {
+                            isDominated = true;
+                            break;
+                        }
+                    }
+                }
+                if (!isDominated) optimal.push(r1);
+            }
+
+            return optimal;
         }
+
 
         function planMultiStop(wps, startMin, transferMax, typeF) {
             if (wps.length === 2) {
