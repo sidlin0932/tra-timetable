@@ -62,6 +62,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            flex-wrap: wrap;
         }
         .btn-switch-flagship {
             font-size: 0.78rem;
@@ -238,6 +239,35 @@
             border-color: var(--primary);
         }
 
+        /* Time Period Buttons */
+        .period-buttons-row {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .period-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+        .btn-period {
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: #fff;
+            font-size: 0.76rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+        .btn-period:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
         /* Major Station Border Outline */
         .modal-station-chip.major-station {
             border: 1.5px solid #0284c7 !important;
@@ -254,12 +284,12 @@
         /* Filter Controls */
         .controls-grid {
             display: grid;
-            grid-template-columns: auto auto 1fr 1fr;
+            grid-template-columns: auto auto 1fr 1fr 1fr;
             gap: 8px;
             align-items: center;
             margin-bottom: 12px;
         }
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
             .controls-grid { grid-template-columns: 1fr 1fr; }
         }
         .control-select, .time-input {
@@ -268,7 +298,7 @@
             border-radius: 6px;
             border: 1px solid var(--border);
             background: var(--bg);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
             color: var(--text-main);
             outline: none;
@@ -397,6 +427,24 @@
             padding: 4px 8px;
             background: var(--bg);
             border-radius: 6px;
+        }
+
+        .btn-load-more {
+            width: 100%;
+            padding: 12px;
+            background: #fff;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            color: var(--primary);
+            font-size: 0.92rem;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.15s;
+        }
+        .btn-load-more:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
         }
 
         .autocomplete {
@@ -568,7 +616,7 @@
     <header>
         <div class="brand">
             <span>🚆 台鐵時刻表</span>
-            <span class="badge-lite">⚡ SuperLite 極速極簡版 v3.9.15-lite</span>
+            <span class="badge-lite">⚡ SuperLite 極速極簡版 v3.9.16-lite</span>
         </div>
         
         <div class="header-actions">
@@ -576,14 +624,13 @@
                 <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; margin-right: 4px;">🔖 版本切換:</span>
                 <select id="versionSelectorLite" onchange="switchVersion(this.value)" style="border: none; background: transparent; color: var(--primary); font-size: 0.78rem; font-weight: 700; cursor: pointer; outline: none;">
                     <option value="lite" selected>⚡ 極速極簡版 (TRA SuperLite)</option>
-                    <option value="latest">🌟 全功能旗艦版 (v3.9.15)</option>
+                    <option value="latest">🌟 全功能旗艦版 (v3.9.16)</option>
                     <option value="hub">📋 所有歷史版本中心...</option>
                 </select>
             </div>
             <span style="font-size:0.75rem; color:#059669; font-weight:700;" id="perfCounter">⚡ 0.2ms</span>
             <a href="index.html" class="btn-switch-flagship">🌟 切換回全功能旗艦版</a>
         </div>
-
     </header>
 
     <div class="card">
@@ -610,9 +657,21 @@
             <button class="chip" onclick="setFirstDest('台北', '內灣')">台北➔內灣</button>
         </div>
 
+        <!-- Time Period Quick Selector -->
+        <div class="period-buttons-row">
+            <span class="period-label">時段快選：</span>
+            <button class="btn-period" onclick="setTimeVal('now')">🕒 現在</button>
+            <button class="btn-period" onclick="setTimeVal('05:00')">🌅 清晨 05:00</button>
+            <button class="btn-period" onclick="setTimeVal('09:00')">☀️ 上午 09:00</button>
+            <button class="btn-period" onclick="setTimeVal('13:00')">🌤️ 下午 13:00</button>
+            <button class="btn-period" onclick="setTimeVal('17:00')">🌙 傍晚 17:00</button>
+            <button class="btn-period" onclick="setTimeVal('20:00')">🌃 夜間 20:00</button>
+            <button class="btn-period" onclick="setTimeVal('00:00')">📅 全日 00:00起</button>
+        </div>
+
         <div class="controls-grid">
             <input type="time" id="timeInput" class="time-input" value="00:00">
-            <button class="btn-now" onclick="setNow()">🕒 現在</button>
+            <button class="btn-now" onclick="setTimeVal('now')">🕒 現在</button>
             <select id="transferFilter" class="control-select" onchange="runSearch()">
                 <option value="all">全部方案 (直達+轉乘)</option>
                 <option value="direct">僅看直達車</option>
@@ -623,6 +682,12 @@
                 <option value="express">對號特快 (自強/普悠瑪/EMU3000)</option>
                 <option value="local">非對號 (區間/區間快)</option>
                 <option value="trpass">🎫 TPASS/TR-PASS 適用</option>
+            </select>
+            <select id="sortFilter" class="control-select" onchange="runSearch()">
+                <option value="arrAsc">🏁 最早抵達排序</option>
+                <option value="depAsc">🚩 最早出發排序</option>
+                <option value="durAsc">⏱️ 車程耗時最短</option>
+                <option value="transAsc">🔄 轉乘次數最少</option>
             </select>
         </div>
 
@@ -635,6 +700,7 @@
     </div>
 
     <div class="result-list" id="resultsList"></div>
+    <button id="btnLoadMore" class="btn-load-more" style="display:none;" onclick="loadMoreResults()">🔽 載入後續班次 (+50 筆)</button>
 
     <!-- Ultra-Fast Station Selection Modal -->
     <div class="modal-overlay" id="stationModal" onclick="closeModal(event)">
@@ -656,9 +722,22 @@
     </footer>
 
     <!-- Embedded Local Database -->
-    <script src="data.js?v=3.9.15"></script>
+    <script src="data.js?v=3.9.16"></script>
 
     <script>
+        function switchVersion(val) {
+            if (val === 'lite') {
+                window.location.href = 'lite.html';
+            } else if (val === 'hub') {
+                window.location.href = 'versions/index.html';
+            } else if (val === 'latest') {
+                window.location.href = 'index.html';
+            } else if (val && val.startsWith('v')) {
+                window.location.href = 'versions/' + val + '/index.html';
+            }
+        }
+        window.switchVersion = switchVersion;
+
         const MAJOR_STATIONS = new Set([
             '基隆', '七堵', '八堵', '南港', '松山', '台北', '萬華', '板橋', '樹林',
             '桃園', '中壢', '新竹', '竹南', '苗栗', '豐原', '台中', '彰化', '員林',
@@ -696,6 +775,8 @@
             { station: '台北', minStay: 0 },
             { station: '新竹', minStay: 0 }
         ];
+
+        let visibleCount = 50;
 
         function timeToMin(t) {
             if (!t) return 0;
@@ -876,7 +957,6 @@
                 }
             }
 
-            routes.sort((a, b) => a.arrMin !== b.arrMin ? a.arrMin - b.arrMin : a.duration - b.duration);
             return routes;
         }
 
@@ -885,7 +965,7 @@
                 return planLeg(wps[0].station, wps[1].station, startMin, transferMax, typeF);
             }
 
-            let candidateChains = planLeg(wps[0].station, wps[1].station, startMin, transferMax, typeF).slice(0, 8);
+            let candidateChains = planLeg(wps[0].station, wps[1].station, startMin, transferMax, typeF).slice(0, 12);
 
             for (let seg = 1; seg < wps.length - 1; seg++) {
                 const segOrig = wps[seg].station;
@@ -917,7 +997,6 @@
                 if (candidateChains.length === 0) break;
             }
 
-            candidateChains.sort((a, b) => a.arrMin - b.arrMin);
             return candidateChains;
         }
 
@@ -1013,6 +1092,7 @@
             const timeStr = document.getElementById('timeInput').value || '00:00';
             const transferF = document.getElementById('transferFilter').value;
             const typeF = document.getElementById('typeFilter').value;
+            const sortMode = document.getElementById('sortFilter').value || 'arrAsc';
 
             const summaryStr = waypoints.map(w => w.station).join(' ➔ ');
             document.getElementById('routeSummary').textContent = summaryStr;
@@ -1021,27 +1101,53 @@
             if (hasEmpty) {
                 document.getElementById('resultsList').innerHTML = '<div class="card" style="text-align:center; color:var(--text-muted);">請設定完整的起訖與停靠車站</div>';
                 document.getElementById('resultsCount').textContent = '0 個方案';
+                document.getElementById('btnLoadMore').style.display = 'none';
                 return;
             }
 
             const t0 = performance.now();
             currentRoutes = planMultiStop(waypoints, timeToMin(timeStr), transferF, typeF);
+
+            // Sorting logic
+            if (sortMode === 'arrAsc') {
+                currentRoutes.sort((a, b) => a.arrMin - b.arrMin || a.duration - b.duration);
+            } else if (sortMode === 'depAsc') {
+                currentRoutes.sort((a, b) => a.depMin - b.depMin || a.arrMin - b.arrMin);
+            } else if (sortMode === 'durAsc') {
+                currentRoutes.sort((a, b) => a.duration - b.duration || a.arrMin - b.arrMin);
+            } else if (sortMode === 'transAsc') {
+                currentRoutes.sort((a, b) => a.transfers - b.transfers || a.arrMin - b.arrMin);
+            }
+
             const t1 = performance.now();
 
+            visibleCount = 50;
             document.getElementById('perfCounter').textContent = `⚡ ${(t1 - t0).toFixed(2)}ms`;
-            document.getElementById('resultsCount').textContent = `${currentRoutes.length} 個方案`;
+            document.getElementById('resultsCount').textContent = `全日共 ${currentRoutes.length} 個班次方案`;
 
+            renderResults();
+        }
+
+        function loadMoreResults() {
+            visibleCount += 50;
             renderResults();
         }
 
         function renderResults() {
             const list = document.getElementById('resultsList');
+            const btnMore = document.getElementById('btnLoadMore');
+
             if (currentRoutes.length === 0) {
                 list.innerHTML = '<div class="card" style="text-align:center; padding:24px; color:var(--text-muted);">🔍 查無符合條件的車次，請調整出發時間或停留設定。</div>';
+                btnMore.style.display = 'none';
                 return;
             }
 
-            list.innerHTML = currentRoutes.slice(0, 50).map((r, idx) => {
+            const displayed = currentRoutes.slice(0, visibleCount);
+            btnMore.style.display = (visibleCount < currentRoutes.length) ? 'block' : 'none';
+            btnMore.textContent = `🔽 載入後續班次 (已顯示 ${displayed.length} / ${currentRoutes.length} 班)`;
+
+            list.innerHTML = displayed.map((r, idx) => {
                 const isDirect = r.transfers === 0;
                 const badges = r.legs.map(l => getTrainBadge(l.trainType, l.trainNo)).join(' ➔ ');
                 const transferTag = isDirect 
@@ -1105,11 +1211,15 @@
             runSearch();
         }
 
-        function setNow() {
-            const d = new Date();
-            const h = String(d.getHours()).padStart(2, '0');
-            const m = String(d.getMinutes()).padStart(2, '0');
-            document.getElementById('timeInput').value = `${h}:${m}`;
+        function setTimeVal(val) {
+            if (val === 'now') {
+                const d = new Date();
+                const h = String(d.getHours()).padStart(2, '0');
+                const m = String(d.getMinutes()).padStart(2, '0');
+                document.getElementById('timeInput').value = `${h}:${m}`;
+            } else {
+                document.getElementById('timeInput').value = val;
+            }
             runSearch();
         }
 
@@ -1234,24 +1344,10 @@
             }
         }
 
-        
-        function switchVersion(val) {
-            if (val === 'lite') {
-                window.location.href = 'lite.html';
-            } else if (val === 'hub') {
-                window.location.href = 'versions/index.html';
-            } else if (val === 'latest') {
-                window.location.href = 'index.html';
-            } else if (val && val.startsWith('v')) {
-                window.location.href = 'versions/' + val + '/index.html';
-            }
-        }
-        window.switchVersion = switchVersion;
-
         window.addEventListener('DOMContentLoaded', () => {
             buildIndex();
             renderWaypointsUI();
-            runSearch();
+            setTimeVal('now');
         });
     </script>
 </body>

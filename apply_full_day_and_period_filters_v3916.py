@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+# -*- coding: utf-8 -*-
+"""
+Release v3.9.16:
+1. Fix "only morning trains" issue:
+   - Auto-initializes time to current local time (現在時間).
+   - Adds time period quick buttons: 🕒 現在 | 🌅 清晨 (05:00) | ☀️ 上午 (09:00) | 🌤️ 下午 (13:00) | 🌙 傍晚 (17:00) | 🌃 夜間 (20:00) | 📅 全日全部.
+   - Adds "🔽 載入後續班次 (+50 班)" button so users can load afternoon, evening, and night trains endlessly.
+2. Adds multi-criteria sorting dropdown (最早抵達 / 最早出發 / 耗時最短 / 轉乘最少).
+3. Synchronizes across all files and snapshots.
+"""
+
+import re
+import shutil
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+LITE_HTML = BASE_DIR / "lite.html"
+INDEX_HTML = BASE_DIR / "index.html"
+SW_JS = BASE_DIR / "sw.js"
+CHANGELOG = BASE_DIR / "CHANGELOG.md"
+README = BASE_DIR / "README.md"
+BUILD_SCRIPT = BASE_DIR / "build_multi_version_system.py"
+VERSIONS_DIR = BASE_DIR / "versions"
+
+PRISTINE_LITE_HTML = """<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
@@ -1352,3 +1376,71 @@
     </script>
 </body>
 </html>
+"""
+
+with open(LITE_HTML, "w", encoding="utf-8") as f:
+    f.write(PRISTINE_LITE_HTML)
+
+# Update index.html version
+with open(INDEX_HTML, "r", encoding="utf-8") as f:
+    html = f.read()
+html = re.sub(r'v3\.9\.\d+', 'v3.9.16', html)
+html = html.replace('data.js?v=3.9.15', 'data.js?v=3.9.16')
+with open(INDEX_HTML, "w", encoding="utf-8") as f:
+    f.write(html)
+
+# Update sw.js
+with open(SW_JS, "r", encoding="utf-8") as f:
+    sw = f.read()
+sw = re.sub(r'v3\.9\.\d+', 'v3.9.16', sw)
+sw = re.sub(r'tra-timetable-pwa-v\d+', 'tra-timetable-pwa-v3916', sw)
+sw = re.sub(r'tra-runtime-v\d+', 'tra-runtime-v3916', sw)
+with open(SW_JS, "w", encoding="utf-8") as f:
+    f.write(sw)
+
+# Update CHANGELOG.md
+with open(CHANGELOG, "r", encoding="utf-8") as f:
+    cl = f.read()
+
+V3916_CHANGELOG = """## [v3.9.16] - 2026-08-25
+
+### ☀️ 全日時刻暢查 ＆ 時段快選 ＆ 多維度排序全面上線
+- **1. 解決只查到早上的問題（預設當前時間 ＆ 全日無縫切換）**：
+  - 進入頁面自動預設為 **「現在時間」**，立即顯示當前可搭乘方案。
+  - 新增時段快選：`🕒 現在`、`🌅 清晨 05:00`、`☀️ 上午 09:00`、`🌤️ 下午 13:00`、`🌙 傍晚 17:00`、`🌃 夜間 20:00`、`📅 全日 00:00起`。
+  - 底部提供 **`🔽 載入後續班次`**，隨意滾動瀏覽下午與夜間班次！
+- **2. 四大多維度自訂排序**：
+  - 支援「🏁 最早抵達」、「🚩 最早出發」、「⏱️ 車程耗時最短」、「🔄 轉乘次數最少」即時排序。
+
+---
+
+"""
+
+if "## [v3.9.16]" not in cl:
+    cl = cl.replace("# 更新日誌 (Changelog)\n\n---\n\n", "# 更新日誌 (Changelog)\n\n---\n\n" + V3916_CHANGELOG)
+    with open(CHANGELOG, "w", encoding="utf-8") as f:
+        f.write(cl)
+
+# Update README.md
+with open(README, "r", encoding="utf-8") as f:
+    rm = f.read()
+rm = re.sub(r'v3\.9\.\d+', 'v3.9.16', rm)
+with open(README, "w", encoding="utf-8") as f:
+    f.write(rm)
+
+# Update build_multi_version_system.py
+with open(BUILD_SCRIPT, "r", encoding="utf-8") as f:
+    bld = f.read()
+if '{"version": "v3.9.16"' not in bld:
+    bld = bld.replace('HISTORICAL_COMMITS = [', 'HISTORICAL_COMMITS = [\n    {"version": "v3.9.16", "commit": "HEAD",    "date": "2026-08-25", "desc": "全日時刻暢查 ＆ 6大時段快選 ＆ 多維度排序系統"},')
+    with open(BUILD_SCRIPT, "w", encoding="utf-8") as f:
+        f.write(bld)
+
+# Snapshot versions/lite/
+LITE_SNAP_DIR = VERSIONS_DIR / "lite"
+LITE_SNAP_DIR.mkdir(parents=True, exist_ok=True)
+shutil.copy2(LITE_HTML, LITE_SNAP_DIR / "index.html")
+shutil.copy2(BASE_DIR / "data.js", LITE_SNAP_DIR / "data.js")
+shutil.copy2(BASE_DIR / "manifest.json", LITE_SNAP_DIR / "manifest.json")
+
+print("v3.9.16 applied successfully!")
