@@ -568,12 +568,22 @@
     <header>
         <div class="brand">
             <span>🚆 台鐵時刻表</span>
-            <span class="badge-lite">⚡ SuperLite 極速極簡版 v3.9.14-lite</span>
+            <span class="badge-lite">⚡ SuperLite 極速極簡版 v3.9.15-lite</span>
         </div>
+        
         <div class="header-actions">
+            <div style="display: inline-flex; align-items: center; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 2px 8px;">
+                <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; margin-right: 4px;">🔖 版本切換:</span>
+                <select id="versionSelectorLite" onchange="switchVersion(this.value)" style="border: none; background: transparent; color: var(--primary); font-size: 0.78rem; font-weight: 700; cursor: pointer; outline: none;">
+                    <option value="lite" selected>⚡ 極速極簡版 (TRA SuperLite)</option>
+                    <option value="latest">🌟 全功能旗艦版 (v3.9.15)</option>
+                    <option value="hub">📋 所有歷史版本中心...</option>
+                </select>
+            </div>
             <span style="font-size:0.75rem; color:#059669; font-weight:700;" id="perfCounter">⚡ 0.2ms</span>
             <a href="index.html" class="btn-switch-flagship">🌟 切換回全功能旗艦版</a>
         </div>
+
     </header>
 
     <div class="card">
@@ -646,7 +656,7 @@
     </footer>
 
     <!-- Embedded Local Database -->
-    <script src="data.js?v=3.9.14"></script>
+    <script src="data.js?v=3.9.15"></script>
 
     <script>
         const MAJOR_STATIONS = new Set([
@@ -1223,6 +1233,20 @@
                 setTimeout(() => openPicker(currentModalTargetIdx + 1), 80);
             }
         }
+
+        
+        function switchVersion(val) {
+            if (val === 'lite') {
+                window.location.href = 'lite.html';
+            } else if (val === 'hub') {
+                window.location.href = 'versions/index.html';
+            } else if (val === 'latest') {
+                window.location.href = 'index.html';
+            } else if (val && val.startsWith('v')) {
+                window.location.href = 'versions/' + val + '/index.html';
+            }
+        }
+        window.switchVersion = switchVersion;
 
         window.addEventListener('DOMContentLoaded', () => {
             buildIndex();

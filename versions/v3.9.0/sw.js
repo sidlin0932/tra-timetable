@@ -1,11 +1,12 @@
-// Service Worker for 2026 台鐵時刻表 PWA (v3.9.8)
-const CACHE_NAME = 'tra-timetable-pwa-v398';
-const RUNTIME_CACHE = 'tra-runtime-v398';
+// Service Worker for 2026 台鐵時刻表 PWA (v3.9.9)
+const CACHE_NAME = 'tra-timetable-pwa-v399';
+const RUNTIME_CACHE = 'tra-runtime-v399';
 
 // Core Application Shell & Timetable Data Assets
 const CORE_ASSETS = [
   './',
   './index.html',
+  './lite.html',
   './data.js',
   './full_network_timetable.json',
   './manifest.json',
@@ -73,7 +74,8 @@ self.addEventListener('fetch', (event) => {
         }
 
         const cachedDoc = await caches.match(req, { ignoreSearch: true })
-          || await caches.match('./index.html', { ignoreSearch: true })
+          || await caches.match('./index.html',
+  './lite.html', { ignoreSearch: true })
           || await caches.match('./', { ignoreSearch: true });
 
         if (cachedDoc) return cachedDoc;

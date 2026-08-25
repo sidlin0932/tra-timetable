@@ -1,5 +1,11 @@
 [
   {
+    "version": "v3.9.15",
+    "commit": "HEAD",
+    "date": "2026-08-25",
+    "desc": "頂部版本下拉選單直接納入【⚡ 極速極簡版 SuperLite】與即時切換"
+  },
+  {
     "version": "v3.9.14",
     "commit": "HEAD",
     "date": "2026-08-25",
