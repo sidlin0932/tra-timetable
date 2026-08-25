@@ -1,5 +1,11 @@
 [
   {
+    "version": "v3.9.8",
+    "commit": "HEAD",
+    "date": "2026-08-25",
+    "desc": "補齊 openStationModalForWaypoint 函式 ＆ 選站點擊 100% 恢復"
+  },
+  {
     "version": "v3.9.7",
     "commit": "HEAD",
     "date": "2026-08-25",
