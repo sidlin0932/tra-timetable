@@ -1,0 +1,56 @@
+[
+  {
+    "version": "v3.8.13",
+    "commit": "HEAD",
+    "date": "2026-08-25",
+    "desc": "多版本隨時回退與切換架構 (支援導航列下拉選單、URL ?v= 參數與獨立快照封裝)"
+  },
+  {
+    "version": "v3.8.12",
+    "commit": "be674ef",
+    "date": "2026-08-25",
+    "desc": "修復 JS 語法崩潰阻斷 & 建立 Local Stable 本機門禁自動化測試"
+  },
+  {
+    "version": "v3.8.11",
+    "commit": "e7e4637",
+    "date": "2026-08-25",
+    "desc": "PWA 離線手機 App 化成功技術總結與 Manifest 語法優化"
+  },
+  {
+    "version": "v3.8.10",
+    "commit": "46f4464",
+    "date": "2026-08-25",
+    "desc": "W3C 標準 PWA App ID 與 Scope 升級"
+  },
+  {
+    "version": "v3.8.9",
+    "commit": "e3e3f72",
+    "date": "2026-08-25",
+    "desc": "圖示與 Favicon 全面升級 (阻絕 GitHub 黑底預設圖示)"
+  },
+  {
+    "version": "v3.8.8",
+    "commit": "6f2984b",
+    "date": "2026-08-25",
+    "desc": "Android WebAPK 專屬優化與 start_url 相對路徑規範"
+  },
+  {
+    "version": "v3.8.7",
+    "commit": "53f35df",
+    "date": "2026-08-25",
+    "desc": "每次 Push 必跳 Patch（Patch-as-Build）快取即時失效政策"
+  },
+  {
+    "version": "v3.8.6",
+    "commit": "c9c067e",
+    "date": "2026-08-25",
+    "desc": "車站與列車全日時刻表升級「到站時間」與「開車時間」雙時序欄位"
+  },
+  {
+    "version": "v3.8.5",
+    "commit": "0e47998",
+    "date": "2026-08-24",
+    "desc": "全路網多中繼站智慧轉乘與極速記憶化引擎 (1,402 班車全收錄)"
+  }
+]

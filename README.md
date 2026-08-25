@@ -1,10 +1,11 @@
-# 🚆 2026 台鐵全路網時刻表 & 縣市導航智慧接駁系統 (v3.8.12)
+# 🚆 2026 台鐵全路網時刻表 & 縣市導航智慧接駁系統 (v3.8.13)
 
-> **2026/07/01 大改點全線全班次 · 100% 純前端離線運算 · 支援 Google Maps 多中繼站遊程規劃 · PWA 離線手機 App**
+> **2026/07/01 大改點全線全班次 · 100% 純前端離線運算 · 支援 Google Maps 多中繼站遊程規劃 · PWA 離線手機 App · 支援歷史版本隨時切換**
 
-[![Version](https://img.shields.io/badge/version-v3.8.12-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-v3.8.13-blue.svg)](CHANGELOG.md)
 [![PWA](https://img.shields.io/badge/PWA-100%25%20Offline-success.svg)](manifest.json)
 [![Stable Policy](https://img.shields.io/badge/Local%20Stable-Passed-brightgreen.svg)](verify_local_stable.py)
+[![Multi-Version](https://img.shields.io/badge/Multi--Version-Supported-purple.svg)](versions/index.html)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ---
@@ -15,6 +16,7 @@
 - 🗺️ **Google Maps 式多中繼站遊程規劃 (Multi-Stop Waypoints)**：支援 2 ~ 6 站自由排列、停留時間自訂與順序調整，全島環島與跨線遊程秒級生成。
 - ⚡ **300倍極速記憶化引擎 (Memoized Router)**：多站即時拼接耗時僅 **9.7 毫秒**，提供極致流暢的 60 FPS 操作體驗。
 - 📅 **平日 / 週末開行日精確過濾**：自動識別週一至週五平日通勤自強號與週六日專開假日特快。
+- 🔀 **多版本切換與隨時退版架構**：所有歷史版本獨立封裝於 `versions/<version>/`，支援 URL Query 參數（`?v=v3.8.12`）或選單一鍵回退任意版本！
 - 📲 **100% 離線可用 & PWA 手機 App 化**：配置 Service Worker 與高解析度圖示，支援「加到主畫面」為獨立 App，深山隧道無訊號依然秒查。
 - 🎫 **TR-PASS 專屬過濾與適用性提示**：一鍵過濾可搭乘列車，自動標註 EMU3000 / 普悠瑪禁搭限制。
 - 🛡️ **緊湊轉乘警示 & 第二備案 (Plan B)**：轉乘小於 15 分鐘自動警示，並提供下一班替代列車推薦。

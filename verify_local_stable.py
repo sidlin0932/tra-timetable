@@ -153,7 +153,7 @@ def test_html_dom_bindings():
     essential_functions = [
         "executeSearch", "modalPickStation", "openStationModal", "closeStationModal",
         "setDayFilter", "setTypeFilter", "setTransferCondition", "setCurrentTime",
-        "reverseWaypoints", "installPwa", "toggleTheme"
+        "reverseWaypoints", "installPwa", "toggleTheme", "switchVersion"
     ]
     for fn in essential_functions:
         if f"function {fn}" not in html:
@@ -198,12 +198,41 @@ def test_version_alignment():
         fail_step(f"sw.js does not contain current version {latest_version}")
     pass_step(f"sw.js matches {latest_version}")
 
+def test_multi_version_snapshots():
+    log_step("5. Multi-Version Snapshot & Rollback Hub Integrity")
+    versions_dir = BASE_DIR / "versions"
+    if not versions_dir.exists():
+        fail_step("versions/ directory does not exist!")
+    
+    hub_file = versions_dir / "index.html"
+    if not hub_file.exists():
+        fail_step("versions/index.html hub portal does not exist!")
+    pass_step("versions/index.html (Version Hub) exists")
+
+    versions_json = versions_dir / "versions.json"
+    if not versions_json.exists():
+        fail_step("versions/versions.json not found!")
+    
+    with open(versions_json, "r", encoding="utf-8") as f:
+        v_list = json.load(f)
+    
+    if not isinstance(v_list, list) or len(v_list) < 5:
+        fail_step(f"Expected at least 5 archived versions, found {len(v_list)}")
+    
+    for v in v_list:
+        v_tag = v["version"]
+        v_folder = versions_dir / v_tag
+        if not v_folder.exists() or not (v_folder / "index.html").exists():
+            fail_step(f"Version snapshot {v_tag}/index.html missing!")
+    pass_step(f"All {len(v_list)} historical standalone version snapshots verified intact")
+
 def main():
     print("🚀 Starting Local Stable Verification Suite...")
     test_json_files()
     test_js_syntax()
     test_html_dom_bindings()
     test_version_alignment()
+    test_multi_version_snapshots()
     
     print("\n==========================================")
     print("🎉 ALL LOCAL TESTS PASSED! (STABLE VERIFIED)")
