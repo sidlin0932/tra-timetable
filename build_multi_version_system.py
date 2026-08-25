@@ -25,6 +25,7 @@ if sys.platform.startswith('win'):
 
 # List of key historical release commits mapped to version tags
 HISTORICAL_COMMITS = [
+    {"version": "v3.9.9", "commit": "HEAD",    "date": "2026-08-25", "desc": "發布獨立【極速極簡版 SuperLite】與雙版本一鍵切換"},
     {"version": "v3.9.8", "commit": "HEAD",    "date": "2026-08-25", "desc": "補齊 openStationModalForWaypoint 函式 ＆ 選站點擊 100% 恢復"},
     {"version": "v3.9.7", "commit": "HEAD",    "date": "2026-08-25", "desc": "完美修復按鈕點選失效 ＆ 全面接軌選站與輸入系統"},
     {"version": "v3.9.6", "commit": "HEAD",    "date": "2026-08-25", "desc": "即時快取更新 (Network-First) ＆ DOM 虛擬渲染 (解決卡頓)"},

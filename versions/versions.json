@@ -1,5 +1,11 @@
 [
   {
+    "version": "v3.9.9",
+    "commit": "HEAD",
+    "date": "2026-08-25",
+    "desc": "發布獨立【極速極簡版 SuperLite】與雙版本一鍵切換"
+  },
+  {
     "version": "v3.9.8",
     "commit": "HEAD",
     "date": "2026-08-25",
