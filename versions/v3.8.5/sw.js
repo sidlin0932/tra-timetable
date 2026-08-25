@@ -1,39 +1,46 @@
-// Service Worker for 2026 台鐵時刻表 PWA (v3.8.13)
-const CACHE_NAME = 'tra-timetable-pwa-v3813';
-const LOCAL_ASSETS = [
+// Service Worker for 2026 台鐵時刻表 PWA (v3.8.14)
+const CACHE_NAME = 'tra-timetable-pwa-v3814';
+const RUNTIME_CACHE = 'tra-runtime-v3814';
+
+// Core Application Shell & Timetable Data Assets
+const CORE_ASSETS = [
   './',
   './index.html',
   './data.js',
+  './full_network_timetable.json',
   './manifest.json',
   './icon-192.png',
   './icon-512.png'
 ];
 
-// Install: Cache all core application shell and timetable data assets safely
+// 1. Install: Pre-cache all critical assets immediately & skip waiting
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
-      console.log('[ServiceWorker] Pre-caching local offline assets');
-      // Cache local files safely one by one to avoid total failure
-      for (const url of LOCAL_ASSETS) {
+      console.log('[ServiceWorker] Caching core offline assets for', CACHE_NAME);
+      for (const url of CORE_ASSETS) {
         try {
-          await cache.add(url);
+          const res = await fetch(url, { cache: 'reload' });
+          if (res && res.ok) {
+            await cache.put(url, res);
+          }
         } catch (err) {
-          console.warn('[ServiceWorker] Failed to cache:', url, err);
+          console.warn('[ServiceWorker] Pre-cache warning for:', url, err);
         }
       }
-    }).then(() => self.skipWaiting())
+    })
   );
 });
 
-// Activate: Clean up older cache versions immediately
+// 2. Activate: Clean up old caches immediately and claim control of all clients
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keyList) => {
+    caches.keys().then((keys) => {
       return Promise.all(
-        keyList.map((key) => {
-          if (key !== CACHE_NAME) {
-            console.log('[ServiceWorker] Removing old cache', key);
+        keys.map((key) => {
+          if (key !== CACHE_NAME && key !== RUNTIME_CACHE) {
+            console.log('[ServiceWorker] Deleting old cache version:', key);
             return caches.delete(key);
           }
         })
@@ -42,42 +49,117 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch: Stale-while-revalidate / Cache-First strategy for ultra-fast offline experience
+// 3. Fetch Strategy: Cache-First with ignoreSearch & Navigation Fallback (100% Offline Guaranteed)
 self.addEventListener('fetch', (event) => {
-  // Only handle GET requests
-  if (event.request.method !== 'GET') return;
+  const req = event.request;
+  if (req.method !== 'GET') return;
 
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        // Return cached immediately, fetch update in background if online
-        fetch(event.request).then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(event.request, networkResponse.clone());
-            });
+  const url = new URL(req.url);
+
+  // Strategy A: Page Navigation (HTML documents)
+  if (req.mode === 'navigate' || req.destination === 'document') {
+    event.respondWith(
+      (async () => {
+        try {
+          // Try network first with a short timeout to get latest version if online
+          const networkResponse = await fetch(req);
+          if (networkResponse && networkResponse.ok) {
+            const cache = await caches.open(CACHE_NAME);
+            cache.put(req, networkResponse.clone());
+            return networkResponse;
           }
-        }).catch(() => {
-          // Offline mode - ignore network fetch errors
-        });
-        return cachedResponse;
-      }
+        } catch (err) {
+          // Offline mode - network failed
+        }
 
-      // If not in cache, fetch from network and cache
-      return fetch(event.request).then((networkResponse) => {
-        if (!networkResponse || networkResponse.status !== 200) {
-          return networkResponse;
+        // Return cached page immediately (ignore query parameters)
+        const cachedDoc = await caches.match(req, { ignoreSearch: true })
+          || await caches.match('./index.html', { ignoreSearch: true })
+          || await caches.match('./', { ignoreSearch: true })
+          || await caches.match('index.html', { ignoreSearch: true });
+
+        if (cachedDoc) {
+          return cachedDoc;
         }
-        const responseToCache = networkResponse.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseToCache);
+
+        // Fallback generic response if somehow not found
+        return new Response('<h1>2026 台鐵時刻表 (離線模式)</h1><p>請重新整理載入快取頁面。</p>', {
+          headers: { 'Content-Type': 'text/html; charset=utf-8' }
         });
-        return networkResponse;
-      }).catch(() => {
-        // If offline and request is for page navigation, return index.html
-        if (event.request.mode === 'navigate' || event.request.destination === 'document') {
-          return caches.match('./index.html') || caches.match('./');
+      })()
+    );
+    return;
+  }
+
+  // Strategy B: Local Static Assets (data.js, manifest, icons, json)
+  if (url.origin === self.location.origin) {
+    event.respondWith(
+      (async () => {
+        // Match cache with ignoreSearch: true so data.js?v=... matches data.js!
+        const cachedResponse = await caches.match(req, { ignoreSearch: true });
+        if (cachedResponse) {
+          // Revalidate in background if online
+          fetch(req).then(async (netRes) => {
+            if (netRes && netRes.ok) {
+              const cache = await caches.open(CACHE_NAME);
+              cache.put(req, netRes);
+            }
+          }).catch(() => {/* Ignore offline background fetch */});
+          return cachedResponse;
         }
+
+        // Not in cache, try fetching from network
+        try {
+          const netRes = await fetch(req);
+          if (netRes && netRes.ok) {
+            const cache = await caches.open(CACHE_NAME);
+            cache.put(req, netRes.clone());
+          }
+          return netRes;
+        } catch (err) {
+          // Offline fallback for same-origin resources
+          const fallback = await caches.match(url.pathname, { ignoreSearch: true });
+          if (fallback) return fallback;
+          throw err;
+        }
+      })()
+    );
+    return;
+  }
+
+  // Strategy C: External Resources (Google Fonts, CDNs)
+  if (url.origin.includes('fonts.googleapis.com') || url.origin.includes('fonts.gstatic.com')) {
+    event.respondWith(
+      (async () => {
+        const cachedFont = await caches.match(req);
+        if (cachedFont) return cachedFont;
+
+        try {
+          const fontRes = await fetch(req);
+          if (fontRes && fontRes.ok) {
+            const cache = await caches.open(RUNTIME_CACHE);
+            cache.put(req, fontRes.clone());
+          }
+          return fontRes;
+        } catch (err) {
+          // When offline, fonts will gracefully fallback to system sans-serif
+          return cachedFont || new Response('', { status: 200, statusText: 'Offline Font Fallback' });
+        }
+      })()
+    );
+    return;
+  }
+
+  // Strategy D: Default stale-while-revalidate for any other GET requests
+  event.respondWith(
+    caches.match(req, { ignoreSearch: true }).then((cached) => {
+      if (cached) return cached;
+      return fetch(req).then((res) => {
+        if (res && res.ok) {
+          const cacheCopy = res.clone();
+          caches.open(RUNTIME_CACHE).then((cache) => cache.put(req, cacheCopy));
+        }
+        return res;
       });
     })
   );

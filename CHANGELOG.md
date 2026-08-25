@@ -4,6 +4,20 @@
 
 ---
 
+## [v3.8.14] - 2026-08-25
+
+### 📶 100% 純離線保證與「You are offline」恐龍頁徹底絕跡架構 (Zero-Fail Offline Guarantee)
+- **1. 解決查詢字串快取未命中問題 (`ignoreSearch: true`)**：
+  - 先前 `data.js?v=...` 帶有快取失效版本參數時，原生 `caches.match()` 預設採嚴格網址比對導致離線攔截失效。現全面啟用 `{ ignoreSearch: true }`，離線時自動映射基礎檔案。
+- **2. 導航攔截保底機制 (Navigation Fallback)**：
+  - 當使用者斷網重新整理或於深山無訊號時，Service Worker 攔截 `mode === 'navigate'` 請求並保證立即回傳快取的 `index.html`，徹底杜絕 Chrome 預設「You are offline (恐龍)」錯誤頁。
+- **3. 全局核心資源預載 (Pre-Cache Core Assets)**：
+  - 將 `full_network_timetable.json`、`data.js`、`manifest.json` 與高解析度圖示全面納入 `install` 期快取，並呼叫 `self.skipWaiting()` 與 `clients.claim()` 達成安裝即受控。
+- **4. 外部字體斷網優雅降級 (Font Resilience Runtime Cache)**：
+  - 為 Google Fonts 建立獨立運行時快取，斷網時無縫降級為系統內建字體（Noto Sans / PingFang / Microsoft JhengHei），避免網路超時阻塞。
+
+---
+
 ## [v3.8.13] - 2026-08-25
 
 ### 🔀 多版本隨時回退與切換架構 (Multi-Version Snapshot & URL Routing)

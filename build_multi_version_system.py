@@ -25,7 +25,8 @@ if sys.platform.startswith('win'):
 
 # List of key historical release commits mapped to version tags
 HISTORICAL_COMMITS = [
-    {"version": "v3.8.13", "commit": "HEAD", "date": "2026-08-25", "desc": "多版本隨時回退與切換架構 (支援導航列下拉選單、URL ?v= 參數與獨立快照封裝)"},
+    {"version": "v3.8.14", "commit": "HEAD", "date": "2026-08-25", "desc": "100% 純離線保證架構 (啟用 ignoreSearch、導航保底攔截與字體優雅降級)"},
+    {"version": "v3.8.13", "commit": "48a67d7", "date": "2026-08-25", "desc": "多版本隨時回退與切換架構 (支援導航列下拉選單、URL ?v= 參數與獨立快照封裝)"},
     {"version": "v3.8.12", "commit": "be674ef", "date": "2026-08-25", "desc": "修復 JS 語法崩潰阻斷 & 建立 Local Stable 本機門禁自動化測試"},
     {"version": "v3.8.11", "commit": "e7e4637", "date": "2026-08-25", "desc": "PWA 離線手機 App 化成功技術總結與 Manifest 語法優化"},
     {"version": "v3.8.10", "commit": "46f4464", "date": "2026-08-25", "desc": "W3C 標準 PWA App ID 與 Scope 升級"},
