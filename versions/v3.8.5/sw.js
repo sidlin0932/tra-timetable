@@ -1,6 +1,6 @@
-// Service Worker for 2026 台鐵時刻表 PWA (v3.9.2)
-const CACHE_NAME = 'tra-timetable-pwa-v392';
-const RUNTIME_CACHE = 'tra-runtime-v392';
+// Service Worker for 2026 台鐵時刻表 PWA (v3.9.3)
+const CACHE_NAME = 'tra-timetable-pwa-v393';
+const RUNTIME_CACHE = 'tra-runtime-v393';
 
 // Core Application Shell & Timetable Data Assets
 const CORE_ASSETS = [

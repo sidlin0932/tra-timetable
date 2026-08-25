@@ -25,8 +25,11 @@ if sys.platform.startswith('win'):
 
 # List of key historical release commits mapped to version tags
 HISTORICAL_COMMITS = [
-    {"version": "v3.9.2",  "commit": "HEAD", "date": "2026-08-25", "desc": "手機優先極速地圖、48px超大觸控熱區 & 分區即時聚焦切換"},
-    {"version": "v3.8.15", "commit": "04b2084", "date": "2026-08-25", "desc": "0ms 極速首屏靜態預渲染 & 縣市快捷錨點精準校正 (修復新竹/苗栗偏移)"},
+    {"version": "v3.9.3", "commit": "HEAD",    "date": "2026-08-25", "desc": "真實 X / Y 列車算路進度條 ＆ 枝葉剪枝極速路由引擎 (微秒直出)"},
+    {"version": "v3.9.2", "commit": "321dfd6", "date": "2026-08-25", "desc": "手機優先 48px 觸控熱區、全島地圖 6 大分區縮放與頁尾現代化重構"},
+    {"version": "v3.9.1", "commit": "37db8cb", "date": "2026-08-25", "desc": "內灣/六家線西行班次全量補齊 (69方案) & Modal 滾動條鎖死徹底修復"},
+    {"version": "v3.9.0", "commit": "HEAD~5",  "date": "2026-08-25", "desc": "台灣鐵路全島互動式路線圖與點選連動選站系統"},
+    {"version": "v3.8.15", "commit": "04b2084", "date": "2026-08-25", "desc": "深色主題車站時刻表字體對比度優化 (WCAG AAA 規範)"},
     {"version": "v3.8.14", "commit": "c10e6a8", "date": "2026-08-25", "desc": "100% 純離線保證架構 (啟用 ignoreSearch、導航保底攔截與字體優雅降級)"},
     {"version": "v3.8.13", "commit": "48a67d7", "date": "2026-08-25", "desc": "多版本隨時回退與切換架構 (支援導航列下拉選單、URL ?v= 參數與獨立快照封裝)"},
     {"version": "v3.8.12", "commit": "be674ef", "date": "2026-08-25", "desc": "修復 JS 語法崩潰阻斷 & 建立 Local Stable 本機門禁自動化測試"},
