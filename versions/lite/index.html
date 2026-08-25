@@ -616,7 +616,7 @@
     <header>
         <div class="brand">
             <span>🚆 台鐵時刻表</span>
-            <span class="badge-lite">⚡ SuperLite 極速極簡版 v3.9.18-lite</span>
+            <span class="badge-lite">⚡ SuperLite 極速極簡版 v3.9.19-lite</span>
         </div>
         
         <div class="header-actions">
@@ -624,7 +624,7 @@
                 <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; margin-right: 4px;">🔖 版本切換:</span>
                 <select id="versionSelectorLite" onchange="switchVersion(this.value)" style="border: none; background: transparent; color: var(--primary); font-size: 0.78rem; font-weight: 700; cursor: pointer; outline: none;">
                     <option value="lite" selected>⚡ 極速極簡版 (TRA SuperLite)</option>
-                    <option value="latest">🌟 全功能旗艦版 (v3.9.18)</option>
+                    <option value="latest">🌟 全功能旗艦版 (v3.9.19)</option>
                     <option value="hub">📋 所有歷史版本中心...</option>
                 </select>
             </div>
@@ -742,7 +742,7 @@
     </footer>
 
     <!-- Embedded Local Database -->
-    <script src="data.js?v=3.9.18"></script>
+    <script src="data.js?v=3.9.19"></script>
 
     <script>
         function switchVersion(val) {
@@ -851,7 +851,7 @@
         let departuresByStation = {};
 
         let waypoints = [
-            { station: '台北', minStay: 0 },
+            { station: '板橋', minStay: 0 },
             { station: '新竹', minStay: 0 }
         ];
 
@@ -1459,7 +1459,7 @@
             buildIndex();
             buildTrainIndex();
             renderWaypointsUI();
-            setTimeVal('now');
+            setTimeVal('00:00');
         });
     </script>
 </body>
