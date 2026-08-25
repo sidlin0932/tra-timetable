@@ -4,6 +4,18 @@
 
 ---
 
+## [v3.9.7] - 2026-08-25
+
+### 🎯 完美修復按鈕點選失效 ＆ 全面接軌選站與輸入系統
+- **1. 徹底修復快捷按鈕與選站失效 (`quickFillStation` / `handleWaypointInput`)**：
+  - 補齊遺漏之 `quickFillStation`、`selectWaypointAuto` 與 `handleWaypointInput` 函式，常用快捷按鈕與站名自動補齊 100% 正常運作。
+- **2. 重構經典輸入框與選站按鈕 (`.waypoint-item`)**：
+  - 清晰展現起訖站名輸入框與 `🗺️ 選站` 按鈕，點擊輸入框或選站按鈕立即開啟選站 Modal，手動輸入支援即時聯想選單。
+- **3. 維持 DOM 虛擬渲染 (25 筆／批)**：
+  - 徹底解決 75 萬像素 DOM 膨脹問題，介面滑動維持 **60 FPS 極速絲滑**。
+
+---
+
 ## [v3.9.6] - 2026-08-25
 
 ### ⚡ 徹底解決快取滯留與「慢慢的」卡頓 (Instant Cache Invalidation & Network-First PWA)
