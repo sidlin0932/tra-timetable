@@ -4507,48 +4507,6 @@
             }
         }
 
-        function sortRoutes(routes) {
-            if (!routes || !Array.isArray(routes)) return [];
-            const [pKey, pDir] = (document.getElementById('primarySort') ? document.getElementById('primarySort').value : 'dep_time-asc').split('-');
-            const [sKey, sDir] = (document.getElementById('secondarySort') ? document.getElementById('secondarySort').value : 'duration-asc').split('-');
-
-            const compare = (a, b, key, dir) => {
-                let vA, vB;
-                if (key === 'dep_time') {
-                    vA = timeToMin(a.dep_time);
-                    vB = timeToMin(b.dep_time);
-                } else if (key === 'arr_time') {
-                    vA = timeToMin(a.arr_time);
-                    vB = timeToMin(b.arr_time);
-                } else if (key === 'duration') {
-                    vA = a.duration;
-                    vB = b.duration;
-                } else if (key === 'transfers') {
-                    vA = a.transfers;
-                    vB = b.transfers;
-                } else if (key === 'moving_time') {
-                    vA = a.legs.reduce((sum, l) => sum + (timeToMin(l.arr) - timeToMin(l.dep)), 0);
-                    vB = b.legs.reduce((sum, l) => sum + (timeToMin(l.arr) - timeToMin(l.dep)), 0);
-                } else if (key === 'wait_time') {
-                    vA = a.legs.reduce((sum, l) => sum + (l.layover || 0), 0);
-                    vB = b.legs.reduce((sum, l) => sum + (l.layover || 0), 0);
-                } else {
-                    vA = timeToMin(a.arr_time);
-                    vB = timeToMin(b.arr_time);
-                }
-
-                if (vA < vB) return dir === 'asc' ? -1 : 1;
-                if (vA > vB) return dir === 'asc' ? 1 : -1;
-                return 0;
-            };
-
-            return [...routes].sort((a, b) => {
-                const primaryComp = compare(a, b, pKey, pDir);
-                if (primaryComp !== 0) return primaryComp;
-                return compare(a, b, sKey, sDir);
-            });
-        }
-
         
         
                         function pruneDominatedRoutes(routes) {
