@@ -1,0 +1,1642 @@
+import os
+
+html_code = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 台鐵時刻表與全路網跨區間轉乘規劃系統</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --primary-light: #e0f2fe;
+            --secondary: #0f766e;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-subtle: #f1f5f9;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #cbd5e1;
+            --border-focus: #38bdf8;
+            --badge-express: #ef4444;
+            --badge-express-bg: #fee2e2;
+            --badge-3000: #475569;
+            --badge-3000-bg: #f1f5f9;
+            --badge-local: #059669;
+            --badge-local-bg: #d1fae5;
+            --badge-fastlocal: #2563eb;
+            --badge-fastlocal-bg: #dbeafe;
+            --badge-chu: #d97706;
+            --badge-chu-bg: #fef3c7;
+            --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --card-shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.08);
+            --radius: 12px;
+        }
+
+        [data-theme="dark"] {
+            --bg-page: #0b1120;
+            --bg-card: #1e293b;
+            --bg-subtle: #0f172a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --border-focus: #38bdf8;
+            --primary-light: #1e3a8a;
+            --badge-express-bg: rgba(239, 68, 68, 0.2);
+            --badge-3000-bg: rgba(71, 85, 105, 0.4);
+            --badge-local-bg: rgba(5, 150, 105, 0.2);
+            --badge-fastlocal-bg: rgba(37, 99, 235, 0.2);
+            --badge-chu-bg: rgba(217, 119, 6, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.5;
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+
+        .navbar {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .nav-logo { font-size: 1.7rem; }
+        .nav-title h1 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        .nav-title p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .theme-toggle {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover { border-color: var(--primary); }
+
+        .container {
+            max-width: 1280px;
+            margin: 20px auto;
+            padding: 0 16px;
+        }
+
+        .query-panel {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .query-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            align-items: flex-end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .form-label {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .station-input-box {
+            position: relative;
+            flex: 1;
+        }
+
+        .station-input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-subtle);
+            color: var(--text-main);
+            font-size: 1rem;
+            font-weight: 600;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .station-input:focus {
+            border-color: var(--primary);
+            background: var(--bg-card);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+        }
+
+        .btn-swap {
+            background: var(--primary-light);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: transform 0.3s, background 0.2s;
+            flex-shrink: 0;
+        }
+        .btn-swap:hover {
+            transform: rotate(180deg);
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-station-picker {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: var(--primary);
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .btn-station-picker:hover {
+            background: rgba(2, 132, 199, 0.1);
+        }
+
+        .autocomplete-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-top: 4px;
+            max-height: 240px;
+            overflow-y: auto;
+            z-index: 50;
+            box-shadow: var(--card-shadow-hover);
+            display: none;
+        }
+        .autocomplete-item {
+            padding: 10px 14px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+        }
+        .autocomplete-item:last-child { border-bottom: none; }
+        .autocomplete-item:hover, .autocomplete-item.active {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .autocomplete-line-tag {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: var(--bg-subtle);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px dashed var(--border-color);
+            align-items: center;
+        }
+
+        .segmented-control {
+            display: inline-flex;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 3px;
+            gap: 2px;
+            flex-wrap: wrap;
+        }
+        .segment-btn {
+            border: none;
+            background: transparent;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .segment-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .time-select-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .time-input {
+            padding: 8px 12px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-subtle);
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 600;
+            outline: none;
+        }
+
+        .btn-search {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+            transition: all 0.2s;
+            margin-left: auto;
+        }
+        .btn-search:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(2, 132, 199, 0.4);
+        }
+
+        .sort-bar {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 14px 20px;
+            margin-bottom: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+        .sort-summary {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sort-count-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+
+        .multi-sort-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .sort-pill-select {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .sort-select {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            outline: none;
+        }
+
+        .results-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .table-header-bar {
+            display: grid;
+            grid-template-columns: 2fr 1.2fr 1.2fr 1.2fr 1.5fr 1fr;
+            padding: 12px 20px;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            align-items: center;
+            user-select: none;
+        }
+        @media (max-width: 900px) {
+            .table-header-bar { display: none; }
+        }
+
+        .sortable-th {
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s;
+        }
+        .sortable-th:hover {
+            color: var(--primary);
+        }
+        .sort-icon {
+            font-size: 0.75rem;
+            opacity: 0.5;
+        }
+        .sortable-th.active {
+            color: var(--primary);
+        }
+        .sortable-th.active .sort-icon {
+            opacity: 1;
+        }
+
+        .trip-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            box-shadow: var(--card-shadow);
+            transition: all 0.2s;
+            overflow: hidden;
+        }
+        .trip-card:hover {
+            border-color: var(--border-focus);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .trip-header-row {
+            display: grid;
+            grid-template-columns: 2fr 1.2fr 1.2fr 1.2fr 1.5fr 1fr;
+            padding: 16px 20px;
+            align-items: center;
+            cursor: pointer;
+            gap: 8px;
+        }
+        @media (max-width: 900px) {
+            .trip-header-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+        }
+
+        .train-types-badges {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .train-badge {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .badge-express { background: var(--badge-express-bg); color: var(--badge-express); border: 1px solid rgba(239, 68, 68, 0.25); }
+        .badge-3000 { background: var(--badge-3000-bg); color: var(--badge-3000); border: 1px solid rgba(71, 85, 105, 0.25); }
+        .badge-local { background: var(--badge-local-bg); color: var(--badge-local); border: 1px solid rgba(5, 150, 105, 0.25); }
+        .badge-fastlocal { background: var(--badge-fastlocal-bg); color: var(--badge-fastlocal); border: 1px solid rgba(37, 99, 235, 0.25); }
+        .badge-chu { background: var(--badge-chu-bg); color: var(--badge-chu); border: 1px solid rgba(217, 119, 6, 0.25); }
+        .badge-trpass {
+            background: #ecfdf5;
+            color: #047857;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #a7f3d0;
+            font-weight: 600;
+        }
+        .badge-not-trpass {
+            background: #fef2f2;
+            color: #b91c1c;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #fecaca;
+            font-weight: 600;
+        }
+
+        .time-display {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+        .time-st-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .duration-display {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .transfers-badge-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .transfer-tag {
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .transfer-direct { color: #059669; }
+        .transfer-hop { color: #d97706; }
+
+        .btn-toggle-details {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            justify-content: flex-end;
+        }
+
+        .itinerary-details {
+            display: none;
+            padding: 16px 24px 24px;
+            border-top: 1px dashed var(--border-color);
+            background: var(--bg-subtle);
+        }
+        .itinerary-details.open { display: block; }
+
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            margin-top: 12px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            bottom: 10px;
+            width: 3px;
+            background: var(--border-color);
+        }
+
+        .timeline-step {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .timeline-step:last-child { margin-bottom: 0; }
+
+        .timeline-dot {
+            position: absolute;
+            left: -28px;
+            top: 4px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 3px solid var(--primary);
+            z-index: 2;
+        }
+        .timeline-dot.transfer { border-color: #f59e0b; }
+
+        .leg-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 14px 18px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .leg-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .leg-route {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+        .layover-alert {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            color: #b45309;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        [data-theme="dark"] .layover-alert {
+            background: rgba(245, 158, 11, 0.15);
+            border-color: rgba(245, 158, 11, 0.3);
+            color: #fbbf24;
+        }
+
+        .all-stops-list {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .stop-chip {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            font-size: 0.78rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            color: var(--text-main);
+        }
+
+        .modal-backdrop {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-backdrop.open { display: flex; }
+
+        .modal-dialog {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            max-width: 920px;
+            width: 100%;
+            max-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.2);
+            overflow: hidden;
+        }
+
+        .modal-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .btn-modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .modal-tabs-nav {
+            display: flex;
+            overflow-x: auto;
+            gap: 6px;
+            padding: 10px 20px;
+            background: var(--bg-subtle);
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+        .modal-tab-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 5px 12px;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-decoration: none;
+        }
+        .modal-tab-pill:hover, .modal-tab-pill.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .modal-search-box {
+            padding: 10px 24px 4px;
+        }
+        .modal-filter-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-subtle);
+            color: var(--text-main);
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .modal-filter-input:focus { border-color: var(--primary); }
+
+        .modal-body {
+            padding: 16px 24px 24px;
+            overflow-y: auto;
+        }
+
+        .county-section {
+            margin-bottom: 24px;
+            scroll-margin-top: 10px;
+        }
+        .county-section-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 4px;
+        }
+        .station-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(82px, 1fr));
+            gap: 8px;
+        }
+        .station-btn {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 6px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.15s;
+        }
+        .station-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+
+        .empty-state {
+            background: var(--bg-card);
+            border: 1px dashed var(--border-color);
+            border-radius: var(--radius);
+            padding: 48px 24px;
+            text-align: center;
+            color: var(--text-muted);
+        }
+        .empty-state h3 {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 640px) {
+            .query-panel { padding: 16px; }
+            .btn-search { width: 100%; justify-content: center; }
+            .station-select-wrapper { flex-direction: column; }
+            .btn-swap { transform: rotate(90deg); margin: 4px auto; }
+            .btn-swap:hover { transform: rotate(270deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-brand">
+            <span class="nav-logo">🚆</span>
+            <div class="nav-title">
+                <h1>台鐵全路網時刻表 & 縣市導航智慧接駁系統</h1>
+                <p>2026/07/01 大改點全線全班次 · 全台 17 縣市依區域快速選站 · 支援無限次轉乘</p>
+            </div>
+        </div>
+        <div class="nav-actions">
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌓 深淺模式</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="query-panel">
+            <div class="query-grid">
+                <div class="form-group">
+                    <label class="form-label" for="originInput">🚩 出發站 (起點)</label>
+                    <div class="station-input-box">
+                        <input type="text" id="originInput" class="station-input" value="台北" placeholder="輸入站名 (如: 台北、新竹、花蓮)..." autocomplete="off">
+                        <button class="btn-station-picker" onclick="openStationModal('origin')">🗺️ 依縣市選站</button>
+                        <div class="autocomplete-list" id="originAutoList"></div>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                    <button class="btn-swap" onclick="swapStations()" title="對調出發與抵達站">⇄</button>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="destInput">🏁 抵達站 (終點)</label>
+                    <div class="station-input-box">
+                        <input type="text" id="destInput" class="station-input" value="內灣" placeholder="輸入站名 (如: 內灣、車埕、台東)..." autocomplete="off">
+                        <button class="btn-station-picker" onclick="openStationModal('dest')">🗺️ 依縣市選站</button>
+                        <div class="autocomplete-list" id="destAutoList"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="timeInput">🕒 出發時間</label>
+                    <div class="time-select-group">
+                        <input type="time" id="timeInput" class="time-input" value="05:00">
+                        <button class="segment-btn active" style="background: var(--bg-subtle); color: var(--text-main); border: 1px solid var(--border-color);" onclick="setCurrentTime()">現在時間</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-row">
+                <div class="form-group">
+                    <span class="form-label">🔀 轉乘條件</span>
+                    <div class="segmented-control" id="transferFilter">
+                        <button class="segment-btn active" onclick="setTransferCondition('all', this)">無限次轉乘 (推薦，全日完整接駁)</button>
+                        <button class="segment-btn" onclick="setTransferCondition('max2', this)">最多轉乘 2 次</button>
+                        <button class="segment-btn" onclick="setTransferCondition('max1', this)">最多轉乘 1 次</button>
+                        <button class="segment-btn" onclick="setTransferCondition('direct', this)">限直達車</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="form-label">🚆 車種偏好</span>
+                    <div class="segmented-control" id="typeFilter">
+                        <button class="segment-btn active" onclick="setTypeFilter('all', this)">全部車種</button>
+                        <button class="segment-btn" onclick="setTypeFilter('trpass', this)">✅ TR-PASS 適用</button>
+                        <button class="segment-btn" onclick="setTypeFilter('express', this)">對號特快 (自強/普悠瑪)</button>
+                        <button class="segment-btn" onclick="setTypeFilter('local', this)">非對號 (區間/區間快)</button>
+                    </div>
+                </div>
+
+                <button class="btn-search" onclick="executeSearch()">
+                    <span>🔍</span> 查詢乘車方案
+                </button>
+            </div>
+        </section>
+
+        <section class="sort-bar" id="sortBar">
+            <div class="sort-summary">
+                <span>📋 查詢結果：</span>
+                <span class="sort-count-badge" id="resultsCount">0 個方案</span>
+                <span id="routeSummaryText" style="color: var(--primary); font-weight: 700;">台北 ➔ 內灣</span>
+            </div>
+
+            <div class="multi-sort-controls">
+                <div class="sort-pill-select">
+                    <span>👑 主排序：</span>
+                    <select class="sort-select" id="primarySort" onchange="handleSortChange()">
+                        <option value="arr_time-asc">抵達時間 最早 (早➔晚)</option>
+                        <option value="arr_time-desc">抵達時間 最晚 (晚➔早)</option>
+                        <option value="dep_time-asc">出發時間 最早 (早➔晚)</option>
+                        <option value="dep_time-desc">出發時間 最晚 (晚➔早)</option>
+                        <option value="duration-asc">行駛時間 最短 (快➔慢)</option>
+                        <option value="duration-desc">行駛時間 最長 (慢➔快)</option>
+                        <option value="transfers-asc">轉乘次數 最少 (少➔多)</option>
+                    </select>
+                </div>
+
+                <div class="sort-pill-select">
+                    <span>🥈 次排序：</span>
+                    <select class="sort-select" id="secondarySort" onchange="handleSortChange()">
+                        <option value="duration-asc">行駛時間 最短</option>
+                        <option value="transfers-asc">轉乘次數 最少</option>
+                        <option value="dep_time-asc">出發時間 最早</option>
+                        <option value="arr_time-asc">抵達時間 最早</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <div class="table-header-bar">
+            <div class="sortable-th" onclick="toggleColumnSort('train_no')">
+                <span>車種車次 (始發站 ➔ 終點站)</span>
+                <span class="sort-icon" id="sortIcon-train_no">▲▼</span>
+            </div>
+            <div class="sortable-th" onclick="toggleColumnSort('dep_time')">
+                <span>出發時間</span>
+                <span class="sort-icon" id="sortIcon-dep_time">▲▼</span>
+            </div>
+            <div class="sortable-th active" onclick="toggleColumnSort('arr_time')">
+                <span>抵達時間</span>
+                <span class="sort-icon" id="sortIcon-arr_time">▲</span>
+            </div>
+            <div class="sortable-th" onclick="toggleColumnSort('duration')">
+                <span>行駛時間</span>
+                <span class="sort-icon" id="sortIcon-duration">▲▼</span>
+            </div>
+            <div class="sortable-th" onclick="toggleColumnSort('transfers')">
+                <span>轉乘資訊 / 轉乘站</span>
+                <span class="sort-icon" id="sortIcon-transfers">▲▼</span>
+            </div>
+            <div style="text-align: right;">詳細行程</div>
+        </div>
+
+        <div class="results-container" id="resultsList"></div>
+    </div>
+
+    <!-- County-classified Station Modal -->
+    <div class="modal-backdrop" id="stationModal" onclick="closeStationModal(event)">
+        <div class="modal-dialog" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 id="modalTitle">🗺️ 選擇車站（依縣市分類）</h3>
+                <button class="btn-modal-close" onclick="closeStationModal()">&times;</button>
+            </div>
+            
+            <div class="modal-search-box">
+                <input type="text" id="modalSearchInput" class="modal-filter-input" placeholder="🔍 快速搜尋站名 (如: 台北、內灣、花蓮、車埕)..." oninput="filterModalStations()">
+            </div>
+
+            <div class="modal-tabs-nav" id="modalCountyTabs"></div>
+
+            <div class="modal-body" id="modalStationList"></div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script>
+        let allTimetableData = window.EMBEDDED_TIMETABLE_DATA || [];
+        let departuresByStation = {};
+        let currentRoutes = [];
+        let currentModalTarget = 'origin';
+        let transferCondition = 'all'; // 'all' | 'max2' | 'max1' | 'direct'
+        let typeFilter = 'all';
+        let activeSortColumn = 'arr_time';
+        let activeSortDir = 'asc';
+        let debounceTimer = null;
+
+        // Grouped by Taiwan County / City (全台 17 縣市精確劃分)
+        const COUNTY_GROUPS = [
+            {
+                county: '基隆市',
+                stations: ['基隆', '三坑', '八堵', '七堵', '百福', '暖暖', '海科館', '八斗子']
+            },
+            {
+                county: '台北市',
+                stations: ['南港', '松山', '台北', '萬華']
+            },
+            {
+                county: '新北市',
+                stations: ['五堵', '汐止', '汐科', '浮洲', '樹林', '南樹林', '山佳', '鶯歌', '四腳亭', '瑞芳', '猴硐', '三貂嶺', '牡丹', '雙溪', '貢寮', '福隆', '大華', '十分', '望古', '嶺腳', '平溪', '菁桐']
+            },
+            {
+                county: '桃園市',
+                stations: ['桃園', '內壢', '中壢', '埔心', '楊梅', '富岡', '新富']
+            },
+            {
+                county: '新竹縣市',
+                stations: ['北湖', '湖口', '新豐', '竹北', '北新竹', '新竹', '三姓橋', '香山', '千甲', '新莊', '竹中', '六家', '上員', '榮華', '竹東', '橫山', '九讚頭', '合興', '富貴', '內灣']
+            },
+            {
+                county: '苗栗縣',
+                stations: ['崎頂', '竹南', '談文', '造橋', '大山', '後龍', '豐富', '苗栗', '龍港', '南勢', '白沙屯', '銅鑼', '新埔', '通霄', '三義', '苑裡']
+            },
+            {
+                county: '台中市',
+                stations: ['日南', '大甲', '泰安', '后里', '台中港', '清水', '豐原', '栗林', '潭子', '頭家厝', '松竹', '太原', '精武', '台中', '五權', '大慶', '沙鹿', '龍井', '大肚', '追分', '烏日', '新烏日', '成功']
+            },
+            {
+                county: '彰化縣',
+                stations: ['彰化', '花壇', '大村', '員林', '永靖', '社頭', '田中', '二水', '源泉']
+            },
+            {
+                county: '南投縣',
+                stations: ['濁水', '龍泉', '集集', '水里', '車埕']
+            },
+            {
+                county: '雲林縣',
+                stations: ['林內', '石榴', '斗六', '斗南', '石龜']
+            },
+            {
+                county: '嘉義縣市',
+                stations: ['大林', '民雄', '嘉北', '嘉義', '水上', '南靖']
+            },
+            {
+                county: '台南市',
+                stations: ['後壁', '新營', '柳營', '林鳳營', '隆田', '拔林', '善化', '南科', '新市', '永康', '大橋', '台南', '保安', '仁德', '中洲', '長榮大學', '沙崙']
+            },
+            {
+                county: '高雄市',
+                stations: ['大湖', '路竹', '岡山', '橋頭', '楠梓', '新左營', '左營', '內惟', '美術館', '鼓山', '三塊厝', '高雄', '民族', '科工館', '正義', '鳳山', '後庄', '九曲堂']
+            },
+            {
+                county: '屏東縣',
+                stations: ['六塊厝', '屏東', '歸來', '麟洛', '西勢', '竹田', '潮州', '崁頂', '南州', '鎮安', '林邊', '佳冬', '東海', '枋寮', '加祿', '內獅', '枋山']
+            },
+            {
+                county: '宜蘭縣',
+                stations: ['石城', '大里', '大溪', '龜山', '外澳', '頭城', '頂埔', '礁溪', '四城', '宜蘭', '二結', '中里', '羅東', '冬山', '新馬', '蘇澳新', '蘇澳', '永樂', '東澳', '南澳', '武塔', '漢本']
+            },
+            {
+                county: '花蓮縣',
+                stations: ['和平', '和仁', '崇德', '新城(太魯閣)', '景美', '北埔', '花蓮', '吉安', '志學', '平和', '壽豐', '豐田', '林榮新光', '南平', '鳳林', '萬榮', '光復', '大富', '富源', '瑞穗', '三民', '玉里', '東里', '東竹', '富里']
+            },
+            {
+                county: '台東縣',
+                stations: ['池上', '海端', '關山', '月美', '瑞和', '瑞源', '鹿野', '山里', '台東', '康樂', '知本', '太麻里', '金崙', '瀧溪', '大武']
+            }
+        ];
+
+        const ALL_STATIONS = Array.from(new Set(COUNTY_GROUPS.flatMap(g => g.stations)));
+
+        const KEY_HUBS = new Set([
+            '新竹', '北新竹', '竹中', '樹林', '板橋', '台北', '松山', '南港',
+            '七堵', '八堵', '瑞芳', '宜蘭', '羅東', '花蓮', '二水', '彰化',
+            '台中', '嘉義', '台南', '中洲', '新左營', '高雄', '屏東', '潮州', '枋寮', '台東'
+        ]);
+
+        function timeToMin(tStr) {
+            if (!tStr || !tStr.includes(':')) return -1;
+            const [h, m] = tStr.split(':').map(Number);
+            return h * 60 + m;
+        }
+
+        function minToDuration(mins) {
+            const h = Math.floor(mins / 60);
+            const m = mins % 60;
+            if (h === 0) return `${m} 分鐘`;
+            return `${h} 小時 ${m > 0 ? m + ' 分' : ''}`;
+        }
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            await loadTimetableData();
+            buildDeparturesIndex();
+            setupAutocomplete();
+            renderStationModal();
+            bindLiveInputs();
+            executeSearch();
+        });
+
+        async function loadTimetableData() {
+            if (window.EMBEDDED_TIMETABLE_DATA && window.EMBEDDED_TIMETABLE_DATA.length > 0) {
+                allTimetableData = window.EMBEDDED_TIMETABLE_DATA;
+                return;
+            }
+            try {
+                const res = await fetch('full_network_timetable.json');
+                if (res.ok) {
+                    allTimetableData = await res.json();
+                }
+            } catch (err) {
+                console.error('Failed to load JSON timetable:', err);
+            }
+        }
+
+        function buildDeparturesIndex() {
+            departuresByStation = {};
+            allTimetableData.forEach(t => {
+                t.stops.forEach((s, sIdx) => {
+                    if (sIdx < t.stops.length - 1) {
+                        if (!departuresByStation[s.station]) departuresByStation[s.station] = [];
+                        departuresByStation[s.station].push({
+                            train: t,
+                            stopIdx: sIdx,
+                            depTimeMin: timeToMin(s.time)
+                        });
+                    }
+                });
+            });
+
+            for (let st in departuresByStation) {
+                departuresByStation[st].sort((a, b) => a.depTimeMin - b.depTimeMin);
+            }
+        }
+
+        function bindLiveInputs() {
+            const orig = document.getElementById('originInput');
+            const dest = document.getElementById('destInput');
+            const time = document.getElementById('timeInput');
+
+            const triggerLiveSearch = () => {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    executeSearch();
+                }, 200);
+            };
+
+            orig.addEventListener('input', triggerLiveSearch);
+            orig.addEventListener('change', triggerLiveSearch);
+            dest.addEventListener('input', triggerLiveSearch);
+            dest.addEventListener('change', triggerLiveSearch);
+            time.addEventListener('input', triggerLiveSearch);
+            time.addEventListener('change', triggerLiveSearch);
+        }
+
+        function isTrainAllowed(t) {
+            if (typeFilter === 'trpass' && !t.is_trpass) return false;
+            if (typeFilter === 'express' && !['自強號', '新自強(EMU3000)', '普悠瑪', '太魯閣', '莒光號'].includes(t.train_type)) return false;
+            if (typeFilter === 'local' && !['區間車', '區間快'].includes(t.train_type)) return false;
+            return true;
+        }
+
+        function planRoutes(orig, dest, startTimeMin) {
+            if (!orig || !dest || orig === dest || allTimetableData.length === 0) {
+                return [];
+            }
+
+            let maxAllowedTransfers = 4;
+            if (transferCondition === 'direct') maxAllowedTransfers = 0;
+            else if (transferCondition === 'max1') maxAllowedTransfers = 1;
+            else if (transferCondition === 'max2') maxAllowedTransfers = 2;
+            else if (transferCondition === 'all') maxAllowedTransfers = 4;
+
+            const origDeps = departuresByStation[orig] || [];
+            const allResults = [];
+
+            origDeps.forEach(firstDep => {
+                if (firstDep.depTimeMin < startTimeMin) return;
+                if (!isTrainAllowed(firstDep.train)) return;
+
+                const train1 = firstDep.train;
+                let queue = [];
+
+                for (let j = firstDep.stopIdx + 1; j < train1.stops.length; j++) {
+                    const nextSt = train1.stops[j].station;
+                    const arrMin = timeToMin(train1.stops[j].time);
+                    if (arrMin <= firstDep.depTimeMin) continue;
+
+                    const leg1 = {
+                        train_number: train1.train_number,
+                        train_type: train1.train_type,
+                        train_model: train1.train_model,
+                        is_trpass: train1.is_trpass,
+                        origin: train1.origin,
+                        dest: train1.dest,
+                        from: orig,
+                        to: nextSt,
+                        dep: train1.stops[firstDep.stopIdx].time,
+                        arr: train1.stops[j].time,
+                        layover: 0,
+                        all_stops: train1.stops.slice(firstDep.stopIdx, j + 1)
+                    };
+
+                    if (nextSt === dest) {
+                        allResults.push({
+                            transfers: 0,
+                            dep_time: leg1.dep,
+                            arr_time: leg1.arr,
+                            duration: arrMin - firstDep.depTimeMin,
+                            is_trpass: leg1.is_trpass,
+                            train_types: [leg1.train_type],
+                            transfer_stations: [],
+                            legs: [leg1]
+                        });
+                    } else if (maxAllowedTransfers > 0 && (KEY_HUBS.has(nextSt) || j === train1.stops.length - 1)) {
+                        queue.push({
+                            currentStation: nextSt,
+                            currentTimeMin: arrMin,
+                            legs: [leg1],
+                            visited: new Set([orig, nextSt])
+                        });
+                    }
+                }
+
+                const bestAtStationForThisDep = {};
+
+                for (let hop = 1; hop <= maxAllowedTransfers; hop++) {
+                    const nextQueue = [];
+                    for (const state of queue) {
+                        const deps = departuresByStation[state.currentStation] || [];
+                        const minDep = state.currentTimeMin + 3;
+
+                        for (const d of deps) {
+                            if (d.depTimeMin < minDep) continue;
+                            if (d.depTimeMin > minDep + 90) continue;
+                            if (!isTrainAllowed(d.train)) continue;
+                            if (d.train.train_number === state.legs[state.legs.length - 1].train_number) continue;
+
+                            const train = d.train;
+                            for (let j = d.stopIdx + 1; j < train.stops.length; j++) {
+                                const nextSt = train.stops[j].station;
+                                const arrMin = timeToMin(train.stops[j].time);
+                                if (arrMin <= d.depTimeMin) continue;
+                                if (state.visited.has(nextSt)) continue;
+
+                                if (nextSt !== dest && !KEY_HUBS.has(nextSt) && j !== train.stops.length - 1) continue;
+
+                                const newLeg = {
+                                    train_number: train.train_number,
+                                    train_type: train.train_type,
+                                    train_model: train.train_model,
+                                    is_trpass: train.is_trpass,
+                                    origin: train.origin,
+                                    dest: train.dest,
+                                    from: state.currentStation,
+                                    to: nextSt,
+                                    dep: train.stops[d.stopIdx].time,
+                                    arr: train.stops[j].time,
+                                    layover: d.depTimeMin - state.currentTimeMin,
+                                    all_stops: train.stops.slice(d.stopIdx, j + 1)
+                                };
+
+                                const newLegs = [...state.legs, newLeg];
+
+                                if (nextSt === dest) {
+                                    allResults.push({
+                                        transfers: newLegs.length - 1,
+                                        dep_time: newLegs[0].dep,
+                                        arr_time: newLeg.arr,
+                                        duration: arrMin - timeToMin(newLegs[0].dep),
+                                        is_trpass: newLegs.every(l => l.is_trpass),
+                                        train_types: newLegs.map(l => l.train_type),
+                                        transfer_stations: newLegs.slice(0, -1).map(l => l.to),
+                                        legs: newLegs
+                                    });
+                                } else if (hop < maxAllowedTransfers) {
+                                    if (!bestAtStationForThisDep[nextSt] || arrMin < bestAtStationForThisDep[nextSt]) {
+                                        bestAtStationForThisDep[nextSt] = arrMin;
+                                        const nextVis = new Set(state.visited);
+                                        nextVis.add(nextSt);
+                                        nextQueue.push({
+                                            currentStation: nextSt,
+                                            currentTimeMin: arrMin,
+                                            legs: newLegs,
+                                            visited: nextVis
+                                        });
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    queue = nextQueue;
+                    if (queue.length === 0) break;
+                }
+            });
+
+            return allResults;
+        }
+
+        function sortRoutes(routes) {
+            const primaryVal = document.getElementById('primarySort').value;
+            const secondaryVal = document.getElementById('secondarySort').value;
+
+            const [pKey, pDir] = primaryVal.split('-');
+            const [sKey, sDir] = secondaryVal.split('-');
+
+            function getFieldVal(item, key) {
+                if (key === 'arr_time') return timeToMin(item.arr_time);
+                if (key === 'dep_time') return timeToMin(item.dep_time);
+                if (key === 'duration') return item.duration;
+                if (key === 'transfers') return item.transfers;
+                if (key === 'train_no') return item.legs[0].train_number;
+                return 0;
+            }
+
+            routes.sort((a, b) => {
+                const valA1 = getFieldVal(a, pKey);
+                const valB1 = getFieldVal(b, pKey);
+
+                if (valA1 !== valB1) {
+                    return pDir === 'asc' ? (valA1 > valB1 ? 1 : -1) : (valA1 < valB1 ? 1 : -1);
+                }
+
+                const valA2 = getFieldVal(a, sKey);
+                const valB2 = getFieldVal(b, sKey);
+                if (valA2 !== valB2) {
+                    return sDir === 'asc' ? (valA2 > valB2 ? 1 : -1) : (valA2 < valB2 ? 1 : -1);
+                }
+
+                return a.transfers - b.transfers;
+            });
+
+            return routes;
+        }
+
+        function toggleColumnSort(columnKey) {
+            if (activeSortColumn === columnKey) {
+                activeSortDir = activeSortDir === 'asc' ? 'desc' : 'asc';
+            } else {
+                activeSortColumn = columnKey;
+                activeSortDir = 'asc';
+            }
+
+            const primarySelect = document.getElementById('primarySort');
+            const targetVal = `${columnKey}-${activeSortDir}`;
+            let optionExists = false;
+            for (let opt of primarySelect.options) {
+                if (opt.value === targetVal) {
+                    primarySelect.value = targetVal;
+                    optionExists = true;
+                    break;
+                }
+            }
+            if (!optionExists) {
+                const newOpt = new Option(`${columnKey} (${activeSortDir})`, targetVal);
+                primarySelect.add(newOpt);
+                primarySelect.value = targetVal;
+            }
+
+            updateSortHeaderIcons();
+            handleSortChange();
+        }
+
+        function updateSortHeaderIcons() {
+            const cols = ['train_no', 'dep_time', 'arr_time', 'duration', 'transfers'];
+            cols.forEach(col => {
+                const icon = document.getElementById(`sortIcon-${col}`);
+                if (!icon) return;
+                const th = icon.parentElement;
+                if (col === activeSortColumn) {
+                    th.classList.add('active');
+                    icon.textContent = activeSortDir === 'asc' ? '▲' : '▼';
+                } else {
+                    th.classList.remove('active');
+                    icon.textContent = '▲▼';
+                }
+            });
+        }
+
+        function handleSortChange() {
+            const [pKey, pDir] = document.getElementById('primarySort').value.split('-');
+            activeSortColumn = pKey;
+            activeSortDir = pDir;
+            updateSortHeaderIcons();
+
+            currentRoutes = sortRoutes(currentRoutes);
+            renderResults();
+        }
+
+        function executeSearch() {
+            const orig = document.getElementById('originInput').value.trim();
+            const dest = document.getElementById('destInput').value.trim();
+            const timeStr = document.getElementById('timeInput').value || '00:00';
+            const startTimeMin = timeToMin(timeStr);
+
+            document.getElementById('routeSummaryText').textContent = `${orig} ➔ ${dest}`;
+
+            let rawRoutes = planRoutes(orig, dest, startTimeMin);
+
+            const seen = new Set();
+            currentRoutes = rawRoutes.filter(r => {
+                const key = `${r.dep_time}-${r.arr_time}-${r.transfers}-${r.legs.map(l=>l.train_number).join('_')}`;
+                if (seen.has(key)) return false;
+                seen.add(key);
+                return true;
+            });
+
+            currentRoutes = sortRoutes(currentRoutes);
+            renderResults();
+        }
+
+        function renderResults() {
+            const container = document.getElementById('resultsList');
+            const countBadge = document.getElementById('resultsCount');
+            countBadge.textContent = `${currentRoutes.length} 個方案`;
+
+            if (currentRoutes.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <h3>🔍 查無符合條件的列車乘車方案</h3>
+                        <p>建議調整出發時間、選擇「無限次轉乘」或確認起訖站點是否正確。</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = currentRoutes.map((route, rIdx) => {
+                const isDirect = route.transfers === 0;
+                const transferTagHtml = isDirect 
+                    ? `<span class="transfer-tag transfer-direct">🟢 直達無須換車</span>`
+                    : `<span class="transfer-tag transfer-hop">🟠 轉乘 ${route.transfers} 次 (${route.transfer_stations.join('、')})</span>`;
+
+                const trPassBadge = route.is_trpass
+                    ? `<span class="badge-trpass">✅ TR-PASS 適用</span>`
+                    : `<span class="badge-not-trpass">⚠️ 部分列車禁用TR-PASS</span>`;
+
+                const legsBadges = route.legs.map(l => getTrainTypeBadge(l.train_type, l.train_number)).join(' ');
+
+                const itineraryHtml = route.legs.map((leg, legIdx) => {
+                    const layoverAlert = leg.layover 
+                        ? `<div class="layover-alert">⏳ 在 <strong>${leg.from}</strong> 站轉乘，停留等候 <strong>${leg.layover} 分鐘</strong></div>`
+                        : '';
+
+                    const stopsChips = leg.all_stops.map(s => 
+                        `<span class="stop-chip">${s.station} (${s.time})</span>`
+                    ).join('');
+
+                    return `
+                        <div class="timeline-step">
+                            <div class="timeline-dot ${legIdx > 0 ? 'transfer' : ''}"></div>
+                            ${layoverAlert}
+                            <div class="leg-card">
+                                <div class="leg-header">
+                                    <div class="leg-route">
+                                        第 ${legIdx + 1} 段：${leg.from} (${leg.dep}) ➔ ${leg.to} (${leg.arr})
+                                    </div>
+                                    <div>
+                                        ${getTrainTypeBadge(leg.train_type, leg.train_number)}
+                                        <span style="font-size:0.8rem; color:var(--text-muted); margin-left:6px;">(${leg.origin} 開往 ${leg.dest})</span>
+                                    </div>
+                                </div>
+                                <div style="font-size:0.82rem; color:var(--text-muted); margin-top:6px;">
+                                    沿途停靠 (${leg.all_stops.length} 站)：
+                                </div>
+                                <div class="all-stops-list">
+                                    ${stopsChips}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                return `
+                    <div class="trip-card">
+                        <div class="trip-header-row" onclick="toggleDetails(${rIdx})">
+                            <div class="train-types-badges">
+                                ${legsBadges}
+                                ${trPassBadge}
+                            </div>
+                            <div>
+                                <div class="time-display">${route.dep_time}</div>
+                                <div class="time-st-label">${route.legs[0].from} 出發</div>
+                            </div>
+                            <div>
+                                <div class="time-display">${route.arr_time}</div>
+                                <div class="time-st-label">${route.legs[route.legs.length-1].to} 抵達</div>
+                            </div>
+                            <div>
+                                <div class="duration-display">${minToDuration(route.duration)}</div>
+                            </div>
+                            <div class="transfers-badge-group">
+                                ${transferTagHtml}
+                            </div>
+                            <div class="btn-toggle-details">
+                                <span id="toggleText-${rIdx}">展開行程</span> ▾
+                            </div>
+                        </div>
+                        <div class="itinerary-details" id="details-${rIdx}">
+                            <h4 style="font-size:0.95rem; font-weight:700; color:var(--text-main); margin-bottom:8px;">🗺️ 詳細乘車與轉乘動線</h4>
+                            <div class="timeline">
+                                ${itineraryHtml}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function getTrainTypeBadge(type, number) {
+            let badgeClass = 'badge-local';
+            if (type.includes('新自強') || type.includes('3000')) badgeClass = 'badge-3000';
+            else if (type.includes('自強') || type.includes('普悠瑪') || type.includes('太魯閣')) badgeClass = 'badge-express';
+            else if (type.includes('莒光')) badgeClass = 'badge-chu';
+            else if (type.includes('快')) badgeClass = 'badge-fastlocal';
+
+            return `<span class="train-badge ${badgeClass}">${type} ${number}</span>`;
+        }
+
+        function toggleDetails(idx) {
+            const panel = document.getElementById(`details-${idx}`);
+            const text = document.getElementById(`toggleText-${idx}`);
+            if (panel.classList.contains('open')) {
+                panel.classList.remove('open');
+                text.textContent = '展開行程';
+            } else {
+                panel.classList.add('open');
+                text.textContent = '收合行程';
+            }
+        }
+
+        function swapStations() {
+            const origInput = document.getElementById('originInput');
+            const destInput = document.getElementById('destInput');
+            const temp = origInput.value;
+            origInput.value = destInput.value;
+            destInput.value = temp;
+            executeSearch();
+        }
+
+        function setCurrentTime() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('timeInput').value = `${h}:${m}`;
+            executeSearch();
+        }
+
+        function setTransferCondition(val, btn) {
+            transferCondition = val;
+            const btns = document.querySelectorAll('#transferFilter .segment-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            executeSearch();
+        }
+
+        function setTypeFilter(val, btn) {
+            typeFilter = val;
+            const btns = document.querySelectorAll('#typeFilter .segment-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            executeSearch();
+        }
+
+        function setupAutocomplete() {
+            ['origin', 'dest'].forEach(type => {
+                const input = document.getElementById(`${type}Input`);
+                const list = document.getElementById(`${type}AutoList`);
+
+                input.addEventListener('input', () => {
+                    const query = input.value.trim().toLowerCase();
+                    if (!query) {
+                        list.style.display = 'none';
+                        return;
+                    }
+
+                    const matches = ALL_STATIONS.filter(st => st.toLowerCase().includes(query)).slice(0, 8);
+                    if (matches.length > 0) {
+                        list.innerHTML = matches.map(st => `
+                            <div class="autocomplete-item" onclick="selectStation('${type}', '${st}')">
+                                <span>${st}</span>
+                                <span class="autocomplete-line-tag">台鐵車站</span>
+                            </div>
+                        `).join('');
+                        list.style.display = 'block';
+                    } else {
+                        list.style.display = 'none';
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!input.contains(e.target) && !list.contains(e.target)) {
+                        list.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        function selectStation(type, st) {
+            document.getElementById(`${type}Input`).value = st;
+            document.getElementById(`${type}AutoList`).style.display = 'none';
+            executeSearch();
+        }
+
+        function openStationModal(type) {
+            currentModalTarget = type;
+            document.getElementById('modalTitle').textContent = `🗺️ 選擇${type === 'origin' ? '出發' : '抵達'}車站（依縣市分類）`;
+            document.getElementById('modalSearchInput').value = '';
+            filterModalStations();
+            document.getElementById('stationModal').classList.add('open');
+        }
+
+        function closeStationModal(e) {
+            if (!e || e.target.id === 'stationModal' || e.target.classList.contains('btn-modal-close')) {
+                document.getElementById('stationModal').classList.remove('open');
+            }
+        }
+
+        function renderStationModal() {
+            const tabsContainer = document.getElementById('modalCountyTabs');
+            const body = document.getElementById('modalStationList');
+
+            tabsContainer.innerHTML = COUNTY_GROUPS.map((group, idx) => `
+                <a href="#county-${idx}" class="modal-tab-pill" onclick="scrollToCounty('county-${idx}', event)">${group.county}</a>
+            `).join('');
+
+            body.innerHTML = COUNTY_GROUPS.map((group, idx) => `
+                <div class="county-section" id="county-${idx}">
+                    <div class="county-section-title">📍 ${group.county} (${group.stations.length} 站)</div>
+                    <div class="station-grid">
+                        ${group.stations.map(st => `
+                            <button class="station-btn" onclick="modalPickStation('${st}')">${st}</button>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function scrollToCounty(id, e) {
+            if (e) e.preventDefault();
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function filterModalStations() {
+            const query = (document.getElementById('modalSearchInput').value || '').trim().toLowerCase();
+            const sections = document.querySelectorAll('.county-section');
+
+            sections.forEach(sec => {
+                const btns = sec.querySelectorAll('.station-btn');
+                let hasMatch = false;
+                btns.forEach(btn => {
+                    const st = btn.textContent.toLowerCase();
+                    if (!query || st.includes(query)) {
+                        btn.style.display = 'block';
+                        hasMatch = true;
+                    } else {
+                        btn.style.display = 'none';
+                    }
+                });
+                sec.style.display = hasMatch ? 'block' : 'none';
+            });
+        }
+
+        function modalPickStation(st) {
+            document.getElementById(`${currentModalTarget}Input`).value = st;
+            document.getElementById('stationModal').classList.remove('open');
+            executeSearch();
+        }
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const target = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', target);
+        }
+    </script>
+</body>
+</html>
+"""
+
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(html_code)
+
+print("Updated index.html with County/City categorized station picker!")

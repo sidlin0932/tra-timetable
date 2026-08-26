@@ -1,0 +1,193 @@
+{
+    "trains": [
+        {
+            "departure": "05:32",
+            "arrival": "08:03",
+            "train_type": "區間快",
+            "train_number": "2005",
+            "note": "直達"
+        },
+        {
+            "departure": "05:54",
+            "arrival": "09:42",
+            "train_type": "區間車",
+            "train_number": "2133",
+            "note": "直達"
+        },
+        {
+            "departure": "06:37",
+            "arrival": "08:58",
+            "train_type": "自強",
+            "train_number": "103",
+            "note": "直達"
+        },
+        {
+            "departure": "07:09",
+            "arrival": "09:27",
+            "train_type": "自強",
+            "train_number": "105",
+            "note": "直達"
+        },
+        {
+            "departure": "07:54",
+            "arrival": "11:38",
+            "train_type": "區間車",
+            "train_number": "2153",
+            "note": "直達"
+        },
+        {
+            "departure": "08:23",
+            "arrival": "10:31",
+            "train_type": "自強",
+            "train_number": "109",
+            "note": "直達"
+        },
+        {
+            "departure": "08:37",
+            "arrival": "11:05",
+            "train_type": "自強",
+            "train_number": "113",
+            "note": "直達"
+        },
+        {
+            "departure": "09:10",
+            "arrival": "11:21",
+            "train_type": "自強",
+            "train_number": "115",
+            "note": "直達"
+        },
+        {
+            "departure": "09:53",
+            "arrival": "13:34",
+            "train_type": "區間車",
+            "train_number": "2173",
+            "note": "直達"
+        },
+        {
+            "departure": "10:50",
+            "arrival": "13:21",
+            "train_type": "自強",
+            "train_number": "119",
+            "note": "直達"
+        },
+        {
+            "departure": "11:25",
+            "arrival": "13:42",
+            "train_type": "自強",
+            "train_number": "173",
+            "note": "直達"
+        },
+        {
+            "departure": "11:54",
+            "arrival": "15:31",
+            "train_type": "區間車",
+            "train_number": "2193",
+            "note": "直達"
+        },
+        {
+            "departure": "12:09",
+            "arrival": "14:23",
+            "train_type": "自強",
+            "train_number": "123",
+            "note": "直達"
+        },
+        {
+            "departure": "13:46",
+            "arrival": "17:35",
+            "train_type": "區間車",
+            "train_number": "2213",
+            "note": "直達"
+        },
+        {
+            "departure": "14:10",
+            "arrival": "16:16",
+            "train_type": "自強",
+            "train_number": "129",
+            "note": "直達"
+        },
+        {
+            "departure": "15:10",
+            "arrival": "17:20",
+            "train_type": "自強",
+            "train_number": "135",
+            "note": "直達"
+        },
+        {
+            "departure": "15:49",
+            "arrival": "19:38",
+            "train_type": "區間車",
+            "train_number": "2233",
+            "note": "直達"
+        },
+        {
+            "departure": "16:10",
+            "arrival": "18:20",
+            "train_type": "自強",
+            "train_number": "175",
+            "note": "直達"
+        },
+        {
+            "departure": "17:38",
+            "arrival": "19:47",
+            "train_type": "自強",
+            "train_number": "141",
+            "note": "直達"
+        },
+        {
+            "departure": "17:48",
+            "arrival": "20:23",
+            "train_type": "自強",
+            "train_number": "277",
+            "note": "直達"
+        },
+        {
+            "departure": "18:00",
+            "arrival": "21:35",
+            "train_type": "區間車",
+            "train_number": "2253",
+            "note": "直達"
+        },
+        {
+            "departure": "19:09",
+            "arrival": "21:18",
+            "train_type": "自強",
+            "train_number": "149",
+            "note": "直達"
+        },
+        {
+            "departure": "19:31",
+            "arrival": "22:39",
+            "train_type": "區間車",
+            "train_number": "653",
+            "note": "直達"
+        },
+        {
+            "departure": "19:40",
+            "arrival": "21:46",
+            "train_type": "自強",
+            "train_number": "281",
+            "note": "直達"
+        },
+        {
+            "departure": "20:13",
+            "arrival": "23:46",
+            "train_type": "區間車",
+            "train_number": "2273",
+            "note": "直達"
+        },
+        {
+            "departure": "20:17",
+            "arrival": "23:46",
+            "train_type": "區間車",
+            "train_number": "2275",
+            "note": "直達"
+        },
+        {
+            "departure": "21:42",
+            "arrival": "23:51",
+            "train_type": "自強",
+            "train_number": "155",
+            "note": "直達"
+        }
+    ]
+}

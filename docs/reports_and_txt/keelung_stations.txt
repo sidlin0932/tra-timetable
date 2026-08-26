@@ -1,0 +1,57 @@
+Row 13: 基  隆
+Row 14: 八  堵
+Row 15: 七  堵
+Row 16: 汐  止
+Row 17: 南  港
+Row 18: 松  山
+Row 19: 臺  北
+Row 20: 萬  華
+Row 21: 板  橋
+Row 22: 樹  林
+Row 23: 鶯  歌
+Row 24: 桃  園
+Row 25: 中  壢
+Row 26: 楊  梅
+Row 27: 湖  口
+Row 28: 新  豐
+Row 29: 竹  北
+Row 30: 新  竹
+Row 31: 竹  南
+Row 32: 後 龍
+Row 33: 白沙屯
+Row 34: 通 霄
+Row 35: 苑 裡
+Row 36: 大 甲
+Row 37: 清 水
+Row 38: 沙 鹿
+Row 39: 大 肚
+Row 40: 彰  化
+Row 41: 員  林
+Row 42: 社  頭
+Row 43: 田  中
+Row 44: 二  水
+Row 45: 林  內
+Row 46: 斗  六
+Row 47: 斗  南
+Row 48: 大  林
+Row 49: 民  雄
+Row 50: 嘉  義
+Row 51: 新  營
+Row 52: 隆  田
+Row 53: 善  化
+Row 54: 新  市
+Row 55: 永  康
+Row 56: 臺  南
+Row 57: 大  湖
+Row 58: 路  竹
+Row 59: 岡  山
+Row 60: 楠  梓
+Row 61: 新左營
+Row 62: 高雄
+Row 63: Kaohsiung
+Row 64: 鳳  山
+Row 65: 九曲堂
+Row 66: 屏  東
+Row 67: 西  勢
+Row 68: 潮  州
+Row 69: 註：

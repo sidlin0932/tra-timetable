@@ -1,21 +1,25 @@
-.system_generated/
-.tempmediaStorage/
-.user_uploaded/
+# System & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# Python
 __pycache__/
-*.ods
-*.pdf
-*.log
-*.aux
-*.out
-*.png
-!icon-*.png
-*.txt
-calc_route.py
-test_*.py
-write_clean.py
-update_app.py
-verify_timetable.py
-research_headers.py
-generate_*.py
-export_*.py
-extract_trains.py
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Antigravity / Agent Scratch & Temp
+.system_generated/
+.user_uploaded/
+.tempmediaStorage/
+scratch/
+browser/
+*.metadata.json
