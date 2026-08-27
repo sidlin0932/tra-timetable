@@ -4,35 +4,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "沙鹿",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "08:17"
-      },
-      {
-        "station": "高雄",
-        "time": "08:29"
-      },
-      {
-        "station": "鳳山",
-        "time": "08:36"
-      },
-      {
-        "station": "九曲堂",
-        "time": "08:44"
-      },
-      {
-        "station": "屏東",
-        "time": "08:53"
-      },
-      {
-        "station": "潮州",
-        "time": "09:06"
-      },
       {
         "station": "沙鹿",
         "time": "05:30"
@@ -86,8 +62,32 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "08:05"
       },
       {
+        "station": "新左營",
+        "time": "08:17"
+      },
+      {
+        "station": "高雄",
+        "time": "08:26"
+      },
+      {
         "station": "Kaohsiung",
         "time": "08:29"
+      },
+      {
+        "station": "鳳山",
+        "time": "08:36"
+      },
+      {
+        "station": "九曲堂",
+        "time": "08:44"
+      },
+      {
+        "station": "屏東",
+        "time": "08:53"
+      },
+      {
+        "station": "潮州",
+        "time": "09:06"
       }
     ]
   },
@@ -180,35 +180,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "汐止",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "11:25"
-      },
-      {
-        "station": "高雄",
-        "time": "11:37"
-      },
-      {
-        "station": "鳳山",
-        "time": "11:44"
-      },
-      {
-        "station": "九曲堂",
-        "time": "11:53"
-      },
-      {
-        "station": "屏東",
-        "time": "12:02"
-      },
-      {
-        "station": "潮州",
-        "time": "12:15"
-      },
       {
         "station": "汐止",
         "time": "06:05"
@@ -290,8 +266,32 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "10:58"
       },
       {
+        "station": "新左營",
+        "time": "11:25"
+      },
+      {
+        "station": "高雄",
+        "time": "11:34"
+      },
+      {
         "station": "Kaohsiung",
         "time": "11:37"
+      },
+      {
+        "station": "鳳山",
+        "time": "11:44"
+      },
+      {
+        "station": "九曲堂",
+        "time": "11:53"
+      },
+      {
+        "station": "屏東",
+        "time": "12:02"
+      },
+      {
+        "station": "潮州",
+        "time": "12:15"
       }
     ]
   },
@@ -300,35 +300,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "基隆",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "12:04"
-      },
-      {
-        "station": "高雄",
-        "time": "12:15"
-      },
-      {
-        "station": "鳳山",
-        "time": "12:22"
-      },
-      {
-        "station": "九曲堂",
-        "time": "12:30"
-      },
-      {
-        "station": "屏東",
-        "time": "12:38"
-      },
-      {
-        "station": "潮州",
-        "time": "12:51"
-      },
       {
         "station": "基隆",
         "time": "06:12"
@@ -430,8 +406,32 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "11:51"
       },
       {
+        "station": "新左營",
+        "time": "12:04"
+      },
+      {
+        "station": "高雄",
+        "time": "12:13"
+      },
+      {
         "station": "Kaohsiung",
         "time": "12:15"
+      },
+      {
+        "station": "鳳山",
+        "time": "12:22"
+      },
+      {
+        "station": "九曲堂",
+        "time": "12:30"
+      },
+      {
+        "station": "屏東",
+        "time": "12:38"
+      },
+      {
+        "station": "潮州",
+        "time": "12:51"
       }
     ]
   },
@@ -440,23 +440,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "普悠瑪",
     "train_model": "普悠瑪",
     "is_trpass": false,
-    "origin": "高雄",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "南港",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "高雄",
-        "time": "11:05"
-      },
-      {
-        "station": "屏東",
-        "time": "11:21"
-      },
-      {
-        "station": "潮州",
-        "time": "11:32"
-      },
       {
         "station": "南港",
         "time": "06:59"
@@ -494,8 +482,20 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "10:33"
       },
       {
+        "station": "高雄",
+        "time": "11:01"
+      },
+      {
         "station": "Kaohsiung",
         "time": "11:05"
+      },
+      {
+        "station": "屏東",
+        "time": "11:21"
+      },
+      {
+        "station": "潮州",
+        "time": "11:32"
       }
     ]
   },
@@ -506,7 +506,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": false,
     "origin": "潮州",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -628,31 +628,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "基隆",
+    "dest": "屏東",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "12:56"
-      },
-      {
-        "station": "高雄",
-        "time": "13:07"
-      },
-      {
-        "station": "鳳山",
-        "time": "13:14"
-      },
-      {
-        "station": "九曲堂",
-        "time": "13:22"
-      },
-      {
-        "station": "屏東",
-        "time": "13:30"
-      },
       {
         "station": "基隆",
         "time": "07:34"
@@ -730,8 +710,28 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "12:30"
       },
       {
+        "station": "新左營",
+        "time": "12:56"
+      },
+      {
+        "station": "高雄",
+        "time": "13:05"
+      },
+      {
         "station": "Kaohsiung",
         "time": "13:07"
+      },
+      {
+        "station": "鳳山",
+        "time": "13:14"
+      },
+      {
+        "station": "九曲堂",
+        "time": "13:22"
+      },
+      {
+        "station": "屏東",
+        "time": "13:30"
       }
     ]
   },
@@ -742,7 +742,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": false,
     "origin": "潮州",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -812,27 +812,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "高雄",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "高雄",
-        "time": "12:06"
-      },
-      {
-        "station": "屏東",
-        "time": "12:21"
-      },
-      {
-        "station": "潮州",
-        "time": "12:33"
-      },
-      {
-        "station": "枋寮",
-        "time": "12:52"
-      },
       {
         "station": "七堵",
         "time": "07:23"
@@ -874,8 +858,20 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "11:34"
       },
       {
+        "station": "高雄",
+        "time": "12:04"
+      },
+      {
         "station": "Kaohsiung",
         "time": "12:06"
+      },
+      {
+        "station": "屏東",
+        "time": "12:21"
+      },
+      {
+        "station": "潮州",
+        "time": "12:33"
       }
     ]
   },
@@ -886,7 +882,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": true,
     "origin": "潮州",
     "dest": "基隆",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -1090,7 +1086,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": true,
     "origin": "潮州",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -1204,31 +1200,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "基隆",
+    "dest": "屏東",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "13:58"
-      },
-      {
-        "station": "高雄",
-        "time": "14:10"
-      },
-      {
-        "station": "鳳山",
-        "time": "14:16"
-      },
-      {
-        "station": "九曲堂",
-        "time": "14:24"
-      },
-      {
-        "station": "屏東",
-        "time": "14:32"
-      },
       {
         "station": "基隆",
         "time": "08:09"
@@ -1330,8 +1306,28 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "13:27"
       },
       {
+        "station": "新左營",
+        "time": "13:58"
+      },
+      {
+        "station": "高雄",
+        "time": "14:08"
+      },
+      {
         "station": "Kaohsiung",
         "time": "14:10"
+      },
+      {
+        "station": "鳳山",
+        "time": "14:16"
+      },
+      {
+        "station": "九曲堂",
+        "time": "14:24"
+      },
+      {
+        "station": "屏東",
+        "time": "14:32"
       }
     ]
   },
@@ -1342,7 +1338,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": false,
     "origin": "潮州",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -1456,35 +1452,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "基隆",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "14:48"
-      },
-      {
-        "station": "高雄",
-        "time": "14:58"
-      },
-      {
-        "station": "鳳山",
-        "time": "15:04"
-      },
-      {
-        "station": "九曲堂",
-        "time": "15:11"
-      },
-      {
-        "station": "屏東",
-        "time": "15:18"
-      },
-      {
-        "station": "潮州",
-        "time": "15:29"
-      },
       {
         "station": "基隆",
         "time": "09:27"
@@ -1578,8 +1550,32 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "14:37"
       },
       {
+        "station": "新左營",
+        "time": "14:48"
+      },
+      {
+        "station": "高雄",
+        "time": "14:56"
+      },
+      {
         "station": "Kaohsiung",
         "time": "14:58"
+      },
+      {
+        "station": "鳳山",
+        "time": "15:04"
+      },
+      {
+        "station": "九曲堂",
+        "time": "15:11"
+      },
+      {
+        "station": "屏東",
+        "time": "15:18"
+      },
+      {
+        "station": "潮州",
+        "time": "15:29"
       }
     ]
   },
@@ -1590,7 +1586,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": true,
     "origin": "屏東",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -1782,7 +1778,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": false,
     "origin": "潮州",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -1904,31 +1900,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "15:28"
-      },
-      {
-        "station": "高雄",
-        "time": "15:38"
-      },
-      {
-        "station": "鳳山",
-        "time": "15:44"
-      },
-      {
-        "station": "屏東",
-        "time": "15:57"
-      },
-      {
-        "station": "潮州",
-        "time": "16:08"
-      },
       {
         "station": "七堵",
         "time": "10:23"
@@ -2010,8 +1986,28 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "15:03"
       },
       {
+        "station": "新左營",
+        "time": "15:28"
+      },
+      {
+        "station": "高雄",
+        "time": "15:36"
+      },
+      {
         "station": "Kaohsiung",
         "time": "15:38"
+      },
+      {
+        "station": "鳳山",
+        "time": "15:44"
+      },
+      {
+        "station": "屏東",
+        "time": "15:57"
+      },
+      {
+        "station": "潮州",
+        "time": "16:08"
       }
     ]
   },
@@ -2022,7 +2018,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": true,
     "origin": "潮州",
     "dest": "基隆",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -2148,31 +2144,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "屏東",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "16:48"
-      },
-      {
-        "station": "高雄",
-        "time": "16:59"
-      },
-      {
-        "station": "鳳山",
-        "time": "17:06"
-      },
-      {
-        "station": "九曲堂",
-        "time": "17:15"
-      },
-      {
-        "station": "屏東",
-        "time": "17:23"
-      },
       {
         "station": "七堵",
         "time": "11:27"
@@ -2250,8 +2226,28 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "16:22"
       },
       {
+        "station": "新左營",
+        "time": "16:48"
+      },
+      {
+        "station": "高雄",
+        "time": "16:57"
+      },
+      {
         "station": "Kaohsiung",
         "time": "16:59"
+      },
+      {
+        "station": "鳳山",
+        "time": "17:06"
+      },
+      {
+        "station": "九曲堂",
+        "time": "17:15"
+      },
+      {
+        "station": "屏東",
+        "time": "17:23"
       }
     ]
   },
@@ -2262,7 +2258,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": false,
     "origin": "潮州",
     "dest": "松山",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -2320,35 +2316,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "17:26"
-      },
-      {
-        "station": "高雄",
-        "time": "17:36"
-      },
-      {
-        "station": "鳳山",
-        "time": "17:43"
-      },
-      {
-        "station": "九曲堂",
-        "time": "17:51"
-      },
-      {
-        "station": "屏東",
-        "time": "17:59"
-      },
-      {
-        "station": "潮州",
-        "time": "18:10"
-      },
       {
         "station": "七堵",
         "time": "12:25"
@@ -2434,8 +2406,32 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "17:01"
       },
       {
+        "station": "新左營",
+        "time": "17:26"
+      },
+      {
+        "station": "高雄",
+        "time": "17:34"
+      },
+      {
         "station": "Kaohsiung",
         "time": "17:36"
+      },
+      {
+        "station": "鳳山",
+        "time": "17:43"
+      },
+      {
+        "station": "九曲堂",
+        "time": "17:51"
+      },
+      {
+        "station": "屏東",
+        "time": "17:59"
+      },
+      {
+        "station": "潮州",
+        "time": "18:10"
       }
     ]
   },
@@ -2570,7 +2566,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": true,
     "origin": "潮州",
     "dest": "基隆",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -2692,31 +2688,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "基隆",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "18:45"
-      },
-      {
-        "station": "高雄",
-        "time": "19:04"
-      },
-      {
-        "station": "鳳山",
-        "time": "19:12"
-      },
-      {
-        "station": "屏東",
-        "time": "19:25"
-      },
-      {
-        "station": "潮州",
-        "time": "19:39"
-      },
       {
         "station": "基隆",
         "time": "13:14"
@@ -2798,8 +2774,28 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "18:32"
       },
       {
+        "station": "新左營",
+        "time": "18:45"
+      },
+      {
+        "station": "高雄",
+        "time": "18:55"
+      },
+      {
         "station": "Kaohsiung",
         "time": "19:04"
+      },
+      {
+        "station": "鳳山",
+        "time": "19:12"
+      },
+      {
+        "station": "屏東",
+        "time": "19:25"
+      },
+      {
+        "station": "潮州",
+        "time": "19:39"
       }
     ]
   },
@@ -2896,23 +2892,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "高雄",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "高雄",
-        "time": "14:05"
-      },
-      {
-        "station": "屏東",
-        "time": "14:23"
-      },
-      {
-        "station": "潮州",
-        "time": "14:34"
-      },
       {
         "station": "七堵",
         "time": "09:25"
@@ -2954,8 +2938,20 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "13:33"
       },
       {
+        "station": "高雄",
+        "time": "14:03"
+      },
+      {
         "station": "Kaohsiung",
         "time": "14:05"
+      },
+      {
+        "station": "屏東",
+        "time": "14:23"
+      },
+      {
+        "station": "潮州",
+        "time": "14:34"
       }
     ]
   },
@@ -2964,15 +2960,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "枋寮",
+    "origin": "潮州",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "枋寮",
-        "time": "13:23"
-      },
       {
         "station": "潮州",
         "time": "13:45"
@@ -3036,31 +3028,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "19:24"
-      },
-      {
-        "station": "高雄",
-        "time": "19:34"
-      },
-      {
-        "station": "鳳山",
-        "time": "19:40"
-      },
-      {
-        "station": "屏東",
-        "time": "19:53"
-      },
-      {
-        "station": "潮州",
-        "time": "20:04"
-      },
       {
         "station": "七堵",
         "time": "14:07"
@@ -3154,8 +3126,28 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "18:58"
       },
       {
+        "station": "新左營",
+        "time": "19:24"
+      },
+      {
+        "station": "高雄",
+        "time": "19:32"
+      },
+      {
         "station": "Kaohsiung",
         "time": "19:34"
+      },
+      {
+        "station": "鳳山",
+        "time": "19:40"
+      },
+      {
+        "station": "屏東",
+        "time": "19:53"
+      },
+      {
+        "station": "潮州",
+        "time": "20:04"
       }
     ]
   },
@@ -3166,7 +3158,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": true,
     "origin": "屏東",
     "dest": "基隆",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -3296,31 +3288,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "屏東",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "19:52"
-      },
-      {
-        "station": "高雄",
-        "time": "20:03"
-      },
-      {
-        "station": "鳳山",
-        "time": "20:10"
-      },
-      {
-        "station": "九曲堂",
-        "time": "20:18"
-      },
-      {
-        "station": "屏東",
-        "time": "20:26"
-      },
       {
         "station": "七堵",
         "time": "14:29"
@@ -3398,8 +3370,28 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "19:25"
       },
       {
+        "station": "新左營",
+        "time": "19:52"
+      },
+      {
+        "station": "高雄",
+        "time": "20:01"
+      },
+      {
         "station": "Kaohsiung",
         "time": "20:03"
+      },
+      {
+        "station": "鳳山",
+        "time": "20:10"
+      },
+      {
+        "station": "九曲堂",
+        "time": "20:18"
+      },
+      {
+        "station": "屏東",
+        "time": "20:26"
       }
     ]
   },
@@ -3410,7 +3402,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": false,
     "origin": "潮州",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -3476,23 +3468,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "高雄",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "高雄",
-        "time": "16:24"
-      },
-      {
-        "station": "屏東",
-        "time": "16:40"
-      },
-      {
-        "station": "潮州",
-        "time": "16:51"
-      },
       {
         "station": "七堵",
         "time": "11:42"
@@ -3538,8 +3518,20 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "15:52"
       },
       {
+        "station": "高雄",
+        "time": "16:22"
+      },
+      {
         "station": "Kaohsiung",
         "time": "16:24"
+      },
+      {
+        "station": "屏東",
+        "time": "16:40"
+      },
+      {
+        "station": "潮州",
+        "time": "16:51"
       }
     ]
   },
@@ -3550,7 +3542,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": true,
     "origin": "屏東",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -3656,35 +3648,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "21:23"
-      },
-      {
-        "station": "高雄",
-        "time": "21:34"
-      },
-      {
-        "station": "鳳山",
-        "time": "21:40"
-      },
-      {
-        "station": "九曲堂",
-        "time": "21:47"
-      },
-      {
-        "station": "屏東",
-        "time": "21:55"
-      },
-      {
-        "station": "潮州",
-        "time": "22:06"
-      },
       {
         "station": "七堵",
         "time": "16:25"
@@ -3762,8 +3730,32 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "20:58"
       },
       {
+        "station": "新左營",
+        "time": "21:23"
+      },
+      {
+        "station": "高雄",
+        "time": "21:31"
+      },
+      {
         "station": "Kaohsiung",
         "time": "21:34"
+      },
+      {
+        "station": "鳳山",
+        "time": "21:40"
+      },
+      {
+        "station": "九曲堂",
+        "time": "21:47"
+      },
+      {
+        "station": "屏東",
+        "time": "21:55"
+      },
+      {
+        "station": "潮州",
+        "time": "22:06"
       }
     ]
   },
@@ -3772,35 +3764,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "22:22"
-      },
-      {
-        "station": "高雄",
-        "time": "22:33"
-      },
-      {
-        "station": "鳳山",
-        "time": "22:40"
-      },
-      {
-        "station": "九曲堂",
-        "time": "22:48"
-      },
-      {
-        "station": "屏東",
-        "time": "22:56"
-      },
-      {
-        "station": "潮州",
-        "time": "23:09"
-      },
       {
         "station": "七堵",
         "time": "16:57"
@@ -3874,8 +3842,32 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "21:54"
       },
       {
+        "station": "新左營",
+        "time": "22:22"
+      },
+      {
+        "station": "高雄",
+        "time": "22:31"
+      },
+      {
         "station": "Kaohsiung",
         "time": "22:33"
+      },
+      {
+        "station": "鳳山",
+        "time": "22:40"
+      },
+      {
+        "station": "九曲堂",
+        "time": "22:48"
+      },
+      {
+        "station": "屏東",
+        "time": "22:56"
+      },
+      {
+        "station": "潮州",
+        "time": "23:09"
       }
     ]
   },
@@ -3886,7 +3878,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": true,
     "origin": "潮州",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -4004,27 +3996,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "高雄",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "高雄",
-        "time": "22:08"
-      },
-      {
-        "station": "鳳山",
-        "time": "22:15"
-      },
-      {
-        "station": "屏東",
-        "time": "22:28"
-      },
-      {
-        "station": "潮州",
-        "time": "22:39"
-      },
       {
         "station": "七堵",
         "time": "17:21"
@@ -4074,8 +4050,24 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "21:36"
       },
       {
+        "station": "高雄",
+        "time": "22:06"
+      },
+      {
         "station": "Kaohsiung",
         "time": "22:08"
+      },
+      {
+        "station": "鳳山",
+        "time": "22:15"
+      },
+      {
+        "station": "屏東",
+        "time": "22:28"
+      },
+      {
+        "station": "潮州",
+        "time": "22:39"
       }
     ]
   },
@@ -4086,7 +4078,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": false,
     "origin": "潮州",
     "dest": "基隆",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -4216,35 +4208,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "22:57"
-      },
-      {
-        "station": "高雄",
-        "time": "23:07"
-      },
-      {
-        "station": "鳳山",
-        "time": "23:13"
-      },
-      {
-        "station": "九曲堂",
-        "time": "23:20"
-      },
-      {
-        "station": "屏東",
-        "time": "23:28"
-      },
-      {
-        "station": "潮州",
-        "time": "23:39"
-      },
       {
         "station": "七堵",
         "time": "17:36"
@@ -4334,8 +4302,32 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "22:46"
       },
       {
+        "station": "新左營",
+        "time": "22:57"
+      },
+      {
+        "station": "高雄",
+        "time": "23:05"
+      },
+      {
         "station": "Kaohsiung",
         "time": "23:07"
+      },
+      {
+        "station": "鳳山",
+        "time": "23:13"
+      },
+      {
+        "station": "九曲堂",
+        "time": "23:20"
+      },
+      {
+        "station": "屏東",
+        "time": "23:28"
+      },
+      {
+        "station": "潮州",
+        "time": "23:39"
       }
     ]
   },
@@ -4346,7 +4338,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": false,
     "origin": "潮州",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -4512,31 +4504,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "基隆",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "23:48"
-      },
-      {
-        "station": "高雄",
-        "time": "23:59"
-      },
-      {
-        "station": "鳳山",
-        "time": "00:05"
-      },
-      {
-        "station": "屏東",
-        "time": "00:18"
-      },
-      {
-        "station": "潮州",
-        "time": "00:31"
-      },
       {
         "station": "基隆",
         "time": "18:13"
@@ -4626,8 +4598,28 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "23:22"
       },
       {
+        "station": "新左營",
+        "time": "23:48"
+      },
+      {
+        "station": "高雄",
+        "time": "23:57"
+      },
+      {
         "station": "Kaohsiung",
         "time": "23:59"
+      },
+      {
+        "station": "鳳山",
+        "time": "00:05"
+      },
+      {
+        "station": "屏東",
+        "time": "00:18"
+      },
+      {
+        "station": "潮州",
+        "time": "00:31"
       }
     ]
   },
@@ -4638,7 +4630,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": true,
     "origin": "屏東",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -4758,7 +4750,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": true,
     "origin": "潮州",
     "dest": "汐止",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -4874,7 +4866,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": false,
     "origin": "潮州",
     "dest": "南港",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -5002,7 +4994,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": true,
     "origin": "屏東",
     "dest": "嘉義",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -5200,27 +5192,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "南港",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "10:20"
-      },
-      {
-        "station": "高雄",
-        "time": "10:30"
-      },
-      {
-        "station": "屏東",
-        "time": "10:45"
-      },
-      {
-        "station": "潮州",
-        "time": "10:57"
-      },
       {
         "station": "南港",
         "time": "05:45"
@@ -5290,8 +5266,24 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "09:54"
       },
       {
+        "station": "新左營",
+        "time": "10:20"
+      },
+      {
+        "station": "高雄",
+        "time": "10:28"
+      },
+      {
         "station": "Kaohsiung",
         "time": "10:30"
+      },
+      {
+        "station": "屏東",
+        "time": "10:45"
+      },
+      {
+        "station": "潮州",
+        "time": "10:57"
       }
     ]
   },
@@ -5300,15 +5292,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "枋寮",
+    "origin": "潮州",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "枋寮",
-        "time": "07:05"
-      },
       {
         "station": "潮州",
         "time": "07:24"
@@ -5376,23 +5364,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "枋寮",
+    "origin": "潮州",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "枋寮",
-        "time": "08:52"
-      },
-      {
-        "station": "林邊",
-        "time": "09:01"
-      },
-      {
-        "station": "南州",
-        "time": "09:08"
-      },
       {
         "station": "潮州",
         "time": "09:16"
@@ -5472,23 +5448,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "高雄",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "高雄",
-        "time": "17:56"
-      },
-      {
-        "station": "屏東",
-        "time": "18:11"
-      },
-      {
-        "station": "潮州",
-        "time": "18:22"
-      },
       {
         "station": "七堵",
         "time": "13:23"
@@ -5530,8 +5494,20 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "17:24"
       },
       {
+        "station": "高雄",
+        "time": "17:54"
+      },
+      {
         "station": "Kaohsiung",
         "time": "17:56"
+      },
+      {
+        "station": "屏東",
+        "time": "18:11"
+      },
+      {
+        "station": "潮州",
+        "time": "18:22"
       }
     ]
   },
@@ -5540,43 +5516,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "20:02"
-      },
-      {
-        "station": "高雄",
-        "time": "20:13"
-      },
-      {
-        "station": "鳳山",
-        "time": "20:19"
-      },
-      {
-        "station": "屏東",
-        "time": "20:31"
-      },
-      {
-        "station": "潮州",
-        "time": "20:43"
-      },
-      {
-        "station": "南州",
-        "time": "20:51"
-      },
-      {
-        "station": "林邊",
-        "time": "21:03"
-      },
-      {
-        "station": "枋寮",
-        "time": "21:14"
-      },
       {
         "station": "七堵",
         "time": "15:25"
@@ -5630,8 +5574,28 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "19:36"
       },
       {
+        "station": "新左營",
+        "time": "20:02"
+      },
+      {
+        "station": "高雄",
+        "time": "20:10"
+      },
+      {
         "station": "Kaohsiung",
         "time": "20:13"
+      },
+      {
+        "station": "鳳山",
+        "time": "20:19"
+      },
+      {
+        "station": "屏東",
+        "time": "20:31"
+      },
+      {
+        "station": "潮州",
+        "time": "20:43"
       }
     ]
   },
@@ -5642,7 +5606,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": false,
     "origin": "潮州",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -5898,7 +5862,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": false,
     "origin": "潮州",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -6092,35 +6056,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "20:51"
-      },
-      {
-        "station": "高雄",
-        "time": "21:03"
-      },
-      {
-        "station": "鳳山",
-        "time": "21:10"
-      },
-      {
-        "station": "九曲堂",
-        "time": "21:19"
-      },
-      {
-        "station": "屏東",
-        "time": "21:28"
-      },
-      {
-        "station": "潮州",
-        "time": "21:41"
-      },
       {
         "station": "七堵",
         "time": "15:29"
@@ -6198,8 +6138,32 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "20:39"
       },
       {
+        "station": "新左營",
+        "time": "20:51"
+      },
+      {
+        "station": "高雄",
+        "time": "21:00"
+      },
+      {
         "station": "Kaohsiung",
         "time": "21:03"
+      },
+      {
+        "station": "鳳山",
+        "time": "21:10"
+      },
+      {
+        "station": "九曲堂",
+        "time": "21:19"
+      },
+      {
+        "station": "屏東",
+        "time": "21:28"
+      },
+      {
+        "station": "潮州",
+        "time": "21:41"
       }
     ]
   },
@@ -6208,93 +6172,17 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "潮州",
+    "origin": "板橋",
     "dest": "瑞芳",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "潮州",
-        "time": "12:16"
-      },
-      {
-        "station": "屏東",
-        "time": "12:29"
-      },
-      {
-        "station": "鳳山",
-        "time": "12:41"
-      },
-      {
-        "station": "高雄",
-        "time": "12:49"
-      },
-      {
-        "station": "新左營",
-        "time": "12:58"
-      },
-      {
-        "station": "台南",
-        "time": "13:25"
-      },
-      {
-        "station": "新營",
-        "time": "13:50"
-      },
-      {
-        "station": "嘉義",
-        "time": "14:08"
-      },
-      {
-        "station": "斗六",
-        "time": "14:30"
-      },
-      {
-        "station": "員林",
-        "time": "14:55"
-      },
-      {
-        "station": "彰化",
-        "time": "15:11"
-      },
-      {
-        "station": "沙鹿",
-        "time": "15:27"
-      },
-      {
-        "station": "大甲",
-        "time": "15:39"
-      },
-      {
-        "station": "後龍",
-        "time": "16:05"
-      },
-      {
-        "station": "竹南",
-        "time": "16:17"
-      },
-      {
-        "station": "新竹",
-        "time": "16:33"
-      },
-      {
-        "station": "中壢",
-        "time": "17:07"
-      },
-      {
-        "station": "桃園",
-        "time": "17:19"
-      },
       {
         "station": "板橋",
         "time": "17:42"
       },
       {
         "station": "台北",
-        "time": "17:51"
-      },
-      {
-        "station": "Taipei",
         "time": "17:54"
       },
       {
@@ -6464,31 +6352,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "七堵",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "21:46"
-      },
-      {
-        "station": "高雄",
-        "time": "21:56"
-      },
-      {
-        "station": "鳳山",
-        "time": "22:02"
-      },
-      {
-        "station": "屏東",
-        "time": "22:14"
-      },
-      {
-        "station": "潮州",
-        "time": "22:25"
-      },
       {
         "station": "七堵",
         "time": "16:04"
@@ -6614,8 +6482,28 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "21:35"
       },
       {
+        "station": "新左營",
+        "time": "21:46"
+      },
+      {
+        "station": "高雄",
+        "time": "21:54"
+      },
+      {
         "station": "Kaohsiung",
         "time": "21:56"
+      },
+      {
+        "station": "鳳山",
+        "time": "22:02"
+      },
+      {
+        "station": "屏東",
+        "time": "22:14"
+      },
+      {
+        "station": "潮州",
+        "time": "22:25"
       }
     ]
   },
@@ -6626,7 +6514,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": false,
     "origin": "潮州",
     "dest": "七堵",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -6836,27 +6724,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "沙鹿",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "09:49"
-      },
-      {
-        "station": "高雄",
-        "time": "09:59"
-      },
-      {
-        "station": "屏東",
-        "time": "10:14"
-      },
-      {
-        "station": "潮州",
-        "time": "10:25"
-      },
       {
         "station": "沙鹿",
         "time": "07:39"
@@ -6874,8 +6746,24 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "09:23"
       },
       {
+        "station": "新左營",
+        "time": "09:49"
+      },
+      {
+        "station": "高雄",
+        "time": "09:57"
+      },
+      {
         "station": "Kaohsiung",
         "time": "09:59"
+      },
+      {
+        "station": "屏東",
+        "time": "10:14"
+      },
+      {
+        "station": "潮州",
+        "time": "10:25"
       }
     ]
   },
@@ -7006,7 +6894,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": false,
     "origin": "潮州",
     "dest": "沙鹿",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -7070,7 +6958,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "is_trpass": true,
     "origin": "潮州",
     "dest": "新營",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
       {
@@ -7120,35 +7008,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "新營",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "09:00"
-      },
-      {
-        "station": "高雄",
-        "time": "09:11"
-      },
-      {
-        "station": "鳳山",
-        "time": "09:18"
-      },
-      {
-        "station": "九曲堂",
-        "time": "09:26"
-      },
-      {
-        "station": "屏東",
-        "time": "09:33"
-      },
-      {
-        "station": "潮州",
-        "time": "09:46"
-      },
       {
         "station": "新營",
         "time": "07:58"
@@ -7166,8 +7030,32 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "08:48"
       },
       {
+        "station": "新左營",
+        "time": "09:00"
+      },
+      {
+        "station": "高雄",
+        "time": "09:09"
+      },
+      {
         "station": "Kaohsiung",
         "time": "09:11"
+      },
+      {
+        "station": "鳳山",
+        "time": "09:18"
+      },
+      {
+        "station": "九曲堂",
+        "time": "09:26"
+      },
+      {
+        "station": "屏東",
+        "time": "09:33"
+      },
+      {
+        "station": "潮州",
+        "time": "09:46"
       }
     ]
   },
@@ -8736,83 +8624,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "嘉義",
+    "origin": "樹林",
     "dest": "花蓮",
-    "line": "西部幹線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "嘉義",
-        "time": "05:52"
-      },
-      {
-        "station": "大林",
-        "time": "06:04"
-      },
-      {
-        "station": "斗南",
-        "time": "06:11"
-      },
-      {
-        "station": "斗六",
-        "time": "06:19"
-      },
-      {
-        "station": "二水",
-        "time": "06:33"
-      },
-      {
-        "station": "田中",
-        "time": "06:39"
-      },
-      {
-        "station": "員林",
-        "time": "06:49"
-      },
-      {
-        "station": "彰化",
-        "time": "07:05"
-      },
-      {
-        "station": "大肚",
-        "time": "07:15"
-      },
-      {
-        "station": "沙鹿",
-        "time": "07:24"
-      },
-      {
-        "station": "清水",
-        "time": "07:32"
-      },
-      {
-        "station": "大甲",
-        "time": "07:38"
-      },
-      {
-        "station": "苑裡",
-        "time": "07:45"
-      },
-      {
-        "station": "後龍",
-        "time": "08:07"
-      },
-      {
-        "station": "竹南",
-        "time": "08:19"
-      },
-      {
-        "station": "新竹",
-        "time": "08:36"
-      },
-      {
-        "station": "中壢",
-        "time": "09:09"
-      },
-      {
-        "station": "桃園",
-        "time": "09:21"
-      },
       {
         "station": "樹林",
         "time": "09:38"
@@ -8823,10 +8639,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       },
       {
         "station": "台北",
-        "time": "09:56"
-      },
-      {
-        "station": "Taipei",
         "time": "09:59"
       },
       {
@@ -8872,55 +8684,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "普悠瑪",
     "train_model": "普悠瑪",
     "is_trpass": false,
-    "origin": "七堵",
-    "dest": "Taipei",
-    "line": "西部幹線",
+    "origin": "Hualien",
+    "dest": "板橋",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "七堵",
-        "time": "12:21"
-      },
-      {
-        "station": "松山",
-        "time": "12:35"
-      },
-      {
-        "station": "台北",
-        "time": "12:45"
-      },
-      {
-        "station": "板橋",
-        "time": "12:53"
-      },
-      {
-        "station": "桃園",
-        "time": "13:10"
-      },
-      {
-        "station": "中壢",
-        "time": "13:19"
-      },
-      {
-        "station": "新竹",
-        "time": "13:43"
-      },
-      {
-        "station": "後龍",
-        "time": "14:05"
-      },
-      {
-        "station": "大甲",
-        "time": "14:27"
-      },
-      {
-        "station": "沙鹿",
-        "time": "14:38"
-      },
-      {
-        "station": "彰化",
-        "time": "14:50"
-      },
       {
         "station": "Hualien",
         "time": "10:19"
@@ -8938,8 +8706,24 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "11:33"
       },
       {
+        "station": "七堵",
+        "time": "12:21"
+      },
+      {
+        "station": "松山",
+        "time": "12:35"
+      },
+      {
+        "station": "台北",
+        "time": "12:42"
+      },
+      {
         "station": "Taipei",
         "time": "12:45"
+      },
+      {
+        "station": "板橋",
+        "time": "12:53"
       }
     ]
   },
@@ -8948,43 +8732,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "後龍",
+    "origin": "樹林",
     "dest": "花蓮",
-    "line": "西部幹線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "後龍",
-        "time": "05:24"
-      },
-      {
-        "station": "竹南",
-        "time": "05:36"
-      },
-      {
-        "station": "新竹",
-        "time": "05:52"
-      },
-      {
-        "station": "竹北",
-        "time": "05:59"
-      },
-      {
-        "station": "湖口",
-        "time": "06:10"
-      },
-      {
-        "station": "楊梅",
-        "time": "06:21"
-      },
-      {
-        "station": "中壢",
-        "time": "06:32"
-      },
-      {
-        "station": "桃園",
-        "time": "06:43"
-      },
       {
         "station": "樹林",
         "time": "07:00"
@@ -8999,10 +8751,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       },
       {
         "station": "台北",
-        "time": "07:20"
-      },
-      {
-        "station": "Taipei",
         "time": "07:24"
       },
       {
@@ -9068,39 +8816,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "普悠瑪",
     "train_model": "普悠瑪",
     "is_trpass": false,
-    "origin": "七堵",
-    "dest": "Taipei",
-    "line": "西部幹線",
+    "origin": "Hualien",
+    "dest": "板橋",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "七堵",
-        "time": "16:19"
-      },
-      {
-        "station": "松山",
-        "time": "16:35"
-      },
-      {
-        "station": "台北",
-        "time": "16:45"
-      },
-      {
-        "station": "板橋",
-        "time": "16:53"
-      },
-      {
-        "station": "大甲",
-        "time": "18:15"
-      },
-      {
-        "station": "沙鹿",
-        "time": "18:26"
-      },
-      {
-        "station": "彰化",
-        "time": "18:39"
-      },
       {
         "station": "Hualien",
         "time": "14:18"
@@ -9114,8 +8834,24 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "15:25"
       },
       {
+        "station": "七堵",
+        "time": "16:19"
+      },
+      {
+        "station": "松山",
+        "time": "16:35"
+      },
+      {
+        "station": "台北",
+        "time": "16:42"
+      },
+      {
         "station": "Taipei",
         "time": "16:45"
+      },
+      {
+        "station": "板橋",
+        "time": "16:53"
       }
     ]
   },
@@ -9124,111 +8860,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "七堵",
-    "dest": "Taipei",
-    "line": "西部幹線",
+    "origin": "Hualien",
+    "dest": "樹林",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "七堵",
-        "time": "17:09"
-      },
-      {
-        "station": "汐止",
-        "time": "17:18"
-      },
-      {
-        "station": "松山",
-        "time": "17:28"
-      },
-      {
-        "station": "台北",
-        "time": "17:38"
-      },
-      {
-        "station": "板橋",
-        "time": "17:48"
-      },
-      {
-        "station": "樹林",
-        "time": "17:55"
-      },
-      {
-        "station": "桃園",
-        "time": "18:12"
-      },
-      {
-        "station": "中壢",
-        "time": "18:23"
-      },
-      {
-        "station": "楊梅",
-        "time": "18:35"
-      },
-      {
-        "station": "湖口",
-        "time": "18:51"
-      },
-      {
-        "station": "竹北",
-        "time": "19:02"
-      },
-      {
-        "station": "新竹",
-        "time": "19:10"
-      },
-      {
-        "station": "竹南",
-        "time": "19:26"
-      },
-      {
-        "station": "後龍",
-        "time": "19:38"
-      },
-      {
-        "station": "苑裡",
-        "time": "20:00"
-      },
-      {
-        "station": "大甲",
-        "time": "20:08"
-      },
-      {
-        "station": "清水",
-        "time": "20:14"
-      },
-      {
-        "station": "沙鹿",
-        "time": "20:23"
-      },
-      {
-        "station": "大肚",
-        "time": "20:32"
-      },
-      {
-        "station": "彰化",
-        "time": "20:43"
-      },
-      {
-        "station": "員林",
-        "time": "20:59"
-      },
-      {
-        "station": "田中",
-        "time": "21:09"
-      },
-      {
-        "station": "二水",
-        "time": "21:22"
-      },
-      {
-        "station": "斗六",
-        "time": "21:36"
-      },
-      {
-        "station": "斗南",
-        "time": "21:43"
-      },
       {
         "station": "Hualien",
         "time": "14:22"
@@ -9270,8 +8906,32 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "16:55"
       },
       {
+        "station": "七堵",
+        "time": "17:09"
+      },
+      {
+        "station": "汐止",
+        "time": "17:18"
+      },
+      {
+        "station": "松山",
+        "time": "17:28"
+      },
+      {
+        "station": "台北",
+        "time": "17:35"
+      },
+      {
         "station": "Taipei",
         "time": "17:38"
+      },
+      {
+        "station": "板橋",
+        "time": "17:48"
+      },
+      {
+        "station": "樹林",
+        "time": "17:55"
       }
     ]
   },
@@ -9280,69 +8940,17 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "彰化",
+    "origin": "板橋",
     "dest": "花蓮",
-    "line": "西部幹線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "彰化",
-        "time": "06:48"
-      },
-      {
-        "station": "沙鹿",
-        "time": "07:05"
-      },
-      {
-        "station": "清水",
-        "time": "07:10"
-      },
-      {
-        "station": "大甲",
-        "time": "07:20"
-      },
-      {
-        "station": "苑裡",
-        "time": "07:30"
-      },
-      {
-        "station": "通霄",
-        "time": "07:36"
-      },
-      {
-        "station": "後龍",
-        "time": "07:51"
-      },
-      {
-        "station": "竹南",
-        "time": "08:04"
-      },
-      {
-        "station": "新竹",
-        "time": "08:19"
-      },
-      {
-        "station": "中壢",
-        "time": "08:46"
-      },
-      {
-        "station": "桃園",
-        "time": "08:55"
-      },
-      {
-        "station": "鶯歌",
-        "time": "09:04"
-      },
       {
         "station": "板橋",
         "time": "09:19"
       },
       {
         "station": "台北",
-        "time": "09:27"
-      },
-      {
-        "station": "Taipei",
         "time": "09:30"
       },
       {
@@ -9376,53 +8984,17 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "斗六",
+    "origin": "板橋",
     "dest": "花蓮",
-    "line": "西部幹線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "斗六",
-        "time": "06:51"
-      },
-      {
-        "station": "田中",
-        "time": "07:07"
-      },
-      {
-        "station": "員林",
-        "time": "07:16"
-      },
-      {
-        "station": "彰化",
-        "time": "07:31"
-      },
-      {
-        "station": "沙鹿",
-        "time": "07:46"
-      },
-      {
-        "station": "大甲",
-        "time": "07:56"
-      },
-      {
-        "station": "後龍",
-        "time": "08:19"
-      },
-      {
-        "station": "新竹",
-        "time": "08:43"
-      },
       {
         "station": "板橋",
         "time": "09:34"
       },
       {
         "station": "台北",
-        "time": "09:42"
-      },
-      {
-        "station": "Taipei",
         "time": "09:45"
       },
       {
@@ -9452,99 +9024,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "自強號",
     "train_model": "PP自強號/柴聯自強",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "Taipei",
-    "line": "屏東線",
+    "origin": "Hualien",
+    "dest": "板橋",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "00:12"
-      },
-      {
-        "station": "高雄",
-        "time": "00:23"
-      },
-      {
-        "station": "鳳山",
-        "time": "00:30"
-      },
-      {
-        "station": "屏東",
-        "time": "00:43"
-      },
-      {
-        "station": "七堵",
-        "time": "19:01"
-      },
-      {
-        "station": "松山",
-        "time": "19:18"
-      },
-      {
-        "station": "台北",
-        "time": "19:30"
-      },
-      {
-        "station": "板橋",
-        "time": "19:40"
-      },
-      {
-        "station": "桃園",
-        "time": "20:02"
-      },
-      {
-        "station": "中壢",
-        "time": "20:12"
-      },
-      {
-        "station": "新竹",
-        "time": "20:43"
-      },
-      {
-        "station": "後龍",
-        "time": "21:08"
-      },
-      {
-        "station": "大甲",
-        "time": "21:34"
-      },
-      {
-        "station": "沙鹿",
-        "time": "21:46"
-      },
-      {
-        "station": "彰化",
-        "time": "22:02"
-      },
-      {
-        "station": "員林",
-        "time": "22:17"
-      },
-      {
-        "station": "田中",
-        "time": "22:26"
-      },
-      {
-        "station": "斗六",
-        "time": "22:43"
-      },
-      {
-        "station": "嘉義",
-        "time": "23:04"
-      },
-      {
-        "station": "新營",
-        "time": "23:20"
-      },
-      {
-        "station": "台南",
-        "time": "23:46"
-      },
-      {
-        "station": "Kaohsiung",
-        "time": "00:23"
-      },
       {
         "station": "Hualien",
         "time": "16:23"
@@ -9582,8 +9066,24 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "18:47"
       },
       {
+        "station": "七堵",
+        "time": "19:01"
+      },
+      {
+        "station": "松山",
+        "time": "19:18"
+      },
+      {
+        "station": "台北",
+        "time": "19:25"
+      },
+      {
         "station": "Taipei",
         "time": "19:30"
+      },
+      {
+        "station": "板橋",
+        "time": "19:40"
       }
     ]
   },
@@ -9592,33 +9092,17 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "普悠瑪",
     "train_model": "普悠瑪",
     "is_trpass": false,
-    "origin": "彰化",
+    "origin": "板橋",
     "dest": "花蓮",
-    "line": "西部幹線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "彰化",
-        "time": "15:42"
-      },
-      {
-        "station": "沙鹿",
-        "time": "15:56"
-      },
-      {
-        "station": "大甲",
-        "time": "16:06"
-      },
       {
         "station": "板橋",
         "time": "17:29"
       },
       {
         "station": "台北",
-        "time": "17:37"
-      },
-      {
-        "station": "Taipei",
         "time": "17:40"
       },
       {
@@ -9648,59 +9132,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "七堵",
-    "dest": "Taipei",
-    "line": "西部幹線",
+    "origin": "壽豐",
+    "dest": "板橋",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "七堵",
-        "time": "19:52"
-      },
-      {
-        "station": "松山",
-        "time": "20:08"
-      },
-      {
-        "station": "台北",
-        "time": "20:20"
-      },
-      {
-        "station": "板橋",
-        "time": "20:28"
-      },
-      {
-        "station": "新竹",
-        "time": "21:19"
-      },
-      {
-        "station": "後龍",
-        "time": "21:43"
-      },
-      {
-        "station": "大甲",
-        "time": "22:06"
-      },
-      {
-        "station": "沙鹿",
-        "time": "22:17"
-      },
-      {
-        "station": "彰化",
-        "time": "22:32"
-      },
-      {
-        "station": "員林",
-        "time": "22:47"
-      },
-      {
-        "station": "田中",
-        "time": "22:56"
-      },
-      {
-        "station": "斗六",
-        "time": "23:11"
-      },
       {
         "station": "壽豐",
         "time": "17:17"
@@ -9734,8 +9170,24 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "18:59"
       },
       {
+        "station": "七堵",
+        "time": "19:52"
+      },
+      {
+        "station": "松山",
+        "time": "20:08"
+      },
+      {
+        "station": "台北",
+        "time": "20:15"
+      },
+      {
         "station": "Taipei",
         "time": "20:20"
+      },
+      {
+        "station": "板橋",
+        "time": "20:28"
       }
     ]
   },
@@ -9744,75 +9196,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "七堵",
-    "dest": "Taipei",
-    "line": "西部幹線",
+    "origin": "Hualien",
+    "dest": "板橋",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "七堵",
-        "time": "20:20"
-      },
-      {
-        "station": "松山",
-        "time": "20:36"
-      },
-      {
-        "station": "台北",
-        "time": "20:46"
-      },
-      {
-        "station": "板橋",
-        "time": "20:54"
-      },
-      {
-        "station": "鶯歌",
-        "time": "21:07"
-      },
-      {
-        "station": "桃園",
-        "time": "21:17"
-      },
-      {
-        "station": "中壢",
-        "time": "21:27"
-      },
-      {
-        "station": "新竹",
-        "time": "21:55"
-      },
-      {
-        "station": "竹南",
-        "time": "22:11"
-      },
-      {
-        "station": "後龍",
-        "time": "22:23"
-      },
-      {
-        "station": "通霄",
-        "time": "22:38"
-      },
-      {
-        "station": "苑裡",
-        "time": "22:44"
-      },
-      {
-        "station": "大甲",
-        "time": "22:55"
-      },
-      {
-        "station": "清水",
-        "time": "23:04"
-      },
-      {
-        "station": "沙鹿",
-        "time": "23:09"
-      },
-      {
-        "station": "彰化",
-        "time": "23:26"
-      },
       {
         "station": "Hualien",
         "time": "18:15"
@@ -9826,8 +9214,24 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "19:22"
       },
       {
+        "station": "七堵",
+        "time": "20:20"
+      },
+      {
+        "station": "松山",
+        "time": "20:36"
+      },
+      {
+        "station": "台北",
+        "time": "20:43"
+      },
+      {
         "station": "Taipei",
         "time": "20:46"
+      },
+      {
+        "station": "板橋",
+        "time": "20:54"
       }
     ]
   },
@@ -9836,49 +9240,17 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "普悠瑪",
     "train_model": "普悠瑪",
     "is_trpass": false,
-    "origin": "彰化",
+    "origin": "板橋",
     "dest": "花蓮",
-    "line": "西部幹線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "彰化",
-        "time": "19:10"
-      },
-      {
-        "station": "沙鹿",
-        "time": "19:24"
-      },
-      {
-        "station": "大甲",
-        "time": "19:34"
-      },
-      {
-        "station": "後龍",
-        "time": "19:56"
-      },
-      {
-        "station": "新竹",
-        "time": "20:18"
-      },
-      {
-        "station": "中壢",
-        "time": "20:41"
-      },
-      {
-        "station": "桃園",
-        "time": "20:50"
-      },
       {
         "station": "板橋",
         "time": "21:09"
       },
       {
         "station": "台北",
-        "time": "21:17"
-      },
-      {
-        "station": "Taipei",
         "time": "21:20"
       },
       {
@@ -9908,47 +9280,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
+    "origin": "台東",
     "dest": "花蓮",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "07:00"
-      },
-      {
-        "station": "高雄",
-        "time": "07:10"
-      },
-      {
-        "station": "鳳山",
-        "time": "07:16"
-      },
-      {
-        "station": "屏東",
-        "time": "07:28"
-      },
-      {
-        "station": "潮州",
-        "time": "07:42"
-      },
-      {
-        "station": "枋寮",
-        "time": "08:02"
-      },
-      {
-        "station": "台南",
-        "time": "06:30"
-      },
-      {
-        "station": "岡山",
-        "time": "06:49"
-      },
-      {
-        "station": "Kaohsiung",
-        "time": "07:10"
-      },
       {
         "station": "台東",
         "time": "09:22"
@@ -10052,43 +9388,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "枋寮",
+    "origin": "Hualien",
     "dest": "Taitung",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "枋寮",
-        "time": "09:57"
-      },
-      {
-        "station": "林邊",
-        "time": "10:07"
-      },
-      {
-        "station": "南州",
-        "time": "10:15"
-      },
-      {
-        "station": "潮州",
-        "time": "10:23"
-      },
-      {
-        "station": "屏東",
-        "time": "10:34"
-      },
-      {
-        "station": "鳳山",
-        "time": "10:45"
-      },
-      {
-        "station": "高雄",
-        "time": "10:52"
-      },
-      {
-        "station": "新左營",
-        "time": "11:00"
-      },
       {
         "station": "Hualien",
         "time": "06:21"
@@ -10224,43 +9528,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
+    "origin": "台東",
     "dest": "花蓮",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "18:50"
-      },
-      {
-        "station": "高雄",
-        "time": "19:01"
-      },
-      {
-        "station": "鳳山",
-        "time": "19:07"
-      },
-      {
-        "station": "屏東",
-        "time": "19:19"
-      },
-      {
-        "station": "潮州",
-        "time": "19:30"
-      },
-      {
-        "station": "南州",
-        "time": "19:38"
-      },
-      {
-        "station": "林邊",
-        "time": "19:46"
-      },
-      {
-        "station": "枋寮",
-        "time": "19:56"
-      },
       {
         "station": "台東",
         "time": "21:16"
@@ -10320,35 +9592,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "屏東",
+    "origin": "Hualien",
     "dest": "Taitung",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "屏東",
-        "time": "19:30"
-      },
-      {
-        "station": "鳳山",
-        "time": "19:41"
-      },
-      {
-        "station": "高雄",
-        "time": "19:50"
-      },
-      {
-        "station": "新左營",
-        "time": "20:00"
-      },
-      {
-        "station": "岡山",
-        "time": "20:11"
-      },
-      {
-        "station": "台南",
-        "time": "20:29"
-      },
       {
         "station": "Hualien",
         "time": "16:01"
@@ -10424,35 +9672,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "沙鹿",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "09:17"
-      },
-      {
-        "station": "高雄",
-        "time": "09:27"
-      },
-      {
-        "station": "鳳山",
-        "time": "09:33"
-      },
-      {
-        "station": "屏東",
-        "time": "09:45"
-      },
-      {
-        "station": "潮州",
-        "time": "09:57"
-      },
-      {
-        "station": "枋寮",
-        "time": "10:17"
-      },
       {
         "station": "沙鹿",
         "time": "06:57"
@@ -10490,8 +9714,28 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "09:06"
       },
       {
+        "station": "新左營",
+        "time": "09:17"
+      },
+      {
+        "station": "高雄",
+        "time": "09:25"
+      },
+      {
         "station": "Kaohsiung",
         "time": "09:27"
+      },
+      {
+        "station": "鳳山",
+        "time": "09:33"
+      },
+      {
+        "station": "屏東",
+        "time": "09:45"
+      },
+      {
+        "station": "潮州",
+        "time": "09:57"
       }
     ]
   },
@@ -10500,15 +9744,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "枋寮",
+    "origin": "潮州",
     "dest": "沙鹿",
-    "line": "屏東線",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "枋寮",
-        "time": "18:43"
-      },
       {
         "station": "潮州",
         "time": "19:05"
@@ -11020,43 +10260,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "枋寮",
+    "origin": "樹林",
     "dest": "Taitung",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "枋寮",
-        "time": "13:55"
-      },
-      {
-        "station": "林邊",
-        "time": "14:04"
-      },
-      {
-        "station": "南州",
-        "time": "14:12"
-      },
-      {
-        "station": "潮州",
-        "time": "14:21"
-      },
-      {
-        "station": "屏東",
-        "time": "14:33"
-      },
-      {
-        "station": "鳳山",
-        "time": "14:45"
-      },
-      {
-        "station": "高雄",
-        "time": "14:53"
-      },
-      {
-        "station": "新左營",
-        "time": "15:01"
-      },
       {
         "station": "樹林",
         "time": "07:34"
@@ -11156,39 +10364,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
+    "origin": "台東",
     "dest": "樹林",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "05:23"
-      },
-      {
-        "station": "高雄",
-        "time": "05:34"
-      },
-      {
-        "station": "鳳山",
-        "time": "05:40"
-      },
-      {
-        "station": "九曲堂",
-        "time": "05:47"
-      },
-      {
-        "station": "屏東",
-        "time": "05:54"
-      },
-      {
-        "station": "潮州",
-        "time": "06:05"
-      },
-      {
-        "station": "枋寮",
-        "time": "06:24"
-      },
       {
         "station": "台東",
         "time": "07:43"
@@ -11276,27 +10456,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
+    "origin": "台東",
     "dest": "樹林",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "07:37"
-      },
-      {
-        "station": "高雄",
-        "time": "07:48"
-      },
-      {
-        "station": "鳳山",
-        "time": "07:54"
-      },
-      {
-        "station": "屏東",
-        "time": "08:06"
-      },
       {
         "station": "台東",
         "time": "09:41"
@@ -11828,27 +10992,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "潮州",
+    "origin": "樹林",
     "dest": "Taitung",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "潮州",
-        "time": "16:33"
-      },
-      {
-        "station": "屏東",
-        "time": "16:45"
-      },
-      {
-        "station": "高雄",
-        "time": "17:02"
-      },
-      {
-        "station": "新左營",
-        "time": "17:10"
-      },
       {
         "station": "樹林",
         "time": "10:09"
@@ -11948,35 +11096,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
+    "origin": "台東",
     "dest": "樹林",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "10:46"
-      },
-      {
-        "station": "高雄",
-        "time": "10:57"
-      },
-      {
-        "station": "鳳山",
-        "time": "11:03"
-      },
-      {
-        "station": "屏東",
-        "time": "11:16"
-      },
-      {
-        "station": "潮州",
-        "time": "11:29"
-      },
-      {
-        "station": "枋寮",
-        "time": "11:51"
-      },
       {
         "station": "台東",
         "time": "13:20"
@@ -12268,43 +11392,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "枋寮",
+    "origin": "樹林",
     "dest": "Taitung",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "枋寮",
-        "time": "19:55"
-      },
-      {
-        "station": "林邊",
-        "time": "20:05"
-      },
-      {
-        "station": "南州",
-        "time": "20:13"
-      },
-      {
-        "station": "潮州",
-        "time": "20:20"
-      },
-      {
-        "station": "屏東",
-        "time": "20:32"
-      },
-      {
-        "station": "鳳山",
-        "time": "20:43"
-      },
-      {
-        "station": "高雄",
-        "time": "20:51"
-      },
-      {
-        "station": "新左營",
-        "time": "20:59"
-      },
       {
         "station": "樹林",
         "time": "13:34"
@@ -12412,35 +11504,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
+    "origin": "台東",
     "dest": "樹林",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "12:42"
-      },
-      {
-        "station": "高雄",
-        "time": "12:53"
-      },
-      {
-        "station": "鳳山",
-        "time": "12:59"
-      },
-      {
-        "station": "屏東",
-        "time": "13:11"
-      },
-      {
-        "station": "潮州",
-        "time": "13:23"
-      },
-      {
-        "station": "枋寮",
-        "time": "13:42"
-      },
       {
         "station": "台東",
         "time": "15:10"
@@ -12532,43 +11600,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "枋寮",
+    "origin": "樹林",
     "dest": "Taitung",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "枋寮",
-        "time": "20:54"
-      },
-      {
-        "station": "林邊",
-        "time": "21:04"
-      },
-      {
-        "station": "南州",
-        "time": "21:11"
-      },
-      {
-        "station": "潮州",
-        "time": "21:19"
-      },
-      {
-        "station": "屏東",
-        "time": "21:31"
-      },
-      {
-        "station": "鳳山",
-        "time": "21:42"
-      },
-      {
-        "station": "高雄",
-        "time": "21:49"
-      },
-      {
-        "station": "新左營",
-        "time": "21:57"
-      },
       {
         "station": "樹林",
         "time": "14:38"
@@ -12648,35 +11684,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "枋寮",
+    "origin": "樹林",
     "dest": "Taitung",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "枋寮",
-        "time": "22:07"
-      },
-      {
-        "station": "潮州",
-        "time": "22:27"
-      },
-      {
-        "station": "屏東",
-        "time": "22:38"
-      },
-      {
-        "station": "鳳山",
-        "time": "22:49"
-      },
-      {
-        "station": "高雄",
-        "time": "22:56"
-      },
-      {
-        "station": "新左營",
-        "time": "23:04"
-      },
       {
         "station": "樹林",
         "time": "15:41"
@@ -12984,47 +11996,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
+    "origin": "台東",
     "dest": "樹林",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "14:38"
-      },
-      {
-        "station": "高雄",
-        "time": "14:52"
-      },
-      {
-        "station": "鳳山",
-        "time": "14:58"
-      },
-      {
-        "station": "九曲堂",
-        "time": "15:05"
-      },
-      {
-        "station": "屏東",
-        "time": "15:13"
-      },
-      {
-        "station": "潮州",
-        "time": "15:27"
-      },
-      {
-        "station": "南州",
-        "time": "15:35"
-      },
-      {
-        "station": "林邊",
-        "time": "15:42"
-      },
-      {
-        "station": "枋寮",
-        "time": "15:52"
-      },
       {
         "station": "台東",
         "time": "17:46"
@@ -13168,35 +12144,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "普悠瑪",
     "train_model": "普悠瑪",
     "is_trpass": false,
-    "origin": "新左營",
+    "origin": "台東",
     "dest": "樹林",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "15:12"
-      },
-      {
-        "station": "高雄",
-        "time": "15:25"
-      },
-      {
-        "station": "鳳山",
-        "time": "15:31"
-      },
-      {
-        "station": "屏東",
-        "time": "15:44"
-      },
-      {
-        "station": "潮州",
-        "time": "15:55"
-      },
-      {
-        "station": "枋寮",
-        "time": "16:17"
-      },
       {
         "station": "台東",
         "time": "17:54"
@@ -13244,43 +12196,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "新左營",
+    "origin": "台東",
     "dest": "樹林",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "15:54"
-      },
-      {
-        "station": "高雄",
-        "time": "16:05"
-      },
-      {
-        "station": "鳳山",
-        "time": "16:12"
-      },
-      {
-        "station": "屏東",
-        "time": "16:24"
-      },
-      {
-        "station": "潮州",
-        "time": "16:35"
-      },
-      {
-        "station": "南州",
-        "time": "16:43"
-      },
-      {
-        "station": "林邊",
-        "time": "16:51"
-      },
-      {
-        "station": "枋寮",
-        "time": "17:04"
-      },
       {
         "station": "台東",
         "time": "18:35"
@@ -13552,35 +12472,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "普悠瑪",
     "train_model": "普悠瑪",
     "is_trpass": false,
-    "origin": "枋寮",
+    "origin": "樹林",
     "dest": "Taitung",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "枋寮",
-        "time": "06:47"
-      },
-      {
-        "station": "潮州",
-        "time": "07:12"
-      },
-      {
-        "station": "屏東",
-        "time": "07:25"
-      },
-      {
-        "station": "鳳山",
-        "time": "07:36"
-      },
-      {
-        "station": "高雄",
-        "time": "07:44"
-      },
-      {
-        "station": "新左營",
-        "time": "07:52"
-      },
       {
         "station": "樹林",
         "time": "23:57"
@@ -13688,47 +12584,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "員林",
+    "origin": "樹林",
     "dest": "台東",
-    "line": "西部幹線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "員林",
-        "time": "06:00"
-      },
-      {
-        "station": "彰化",
-        "time": "06:16"
-      },
-      {
-        "station": "沙鹿",
-        "time": "06:31"
-      },
-      {
-        "station": "大甲",
-        "time": "06:41"
-      },
-      {
-        "station": "後龍",
-        "time": "07:05"
-      },
-      {
-        "station": "竹南",
-        "time": "07:16"
-      },
-      {
-        "station": "新竹",
-        "time": "07:31"
-      },
-      {
-        "station": "中壢",
-        "time": "07:58"
-      },
-      {
-        "station": "桃園",
-        "time": "08:08"
-      },
       {
         "station": "樹林",
         "time": "08:24"
@@ -13739,10 +12599,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       },
       {
         "station": "台北",
-        "time": "08:39"
-      },
-      {
-        "station": "Taipei",
         "time": "08:43"
       },
       {
@@ -13820,67 +12676,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "新自強(EMU3000)",
     "train_model": "EMU3000",
     "is_trpass": false,
-    "origin": "七堵",
-    "dest": "Taipei",
-    "line": "西部幹線",
+    "origin": "台東",
+    "dest": "樹林",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "七堵",
-        "time": "18:11"
-      },
-      {
-        "station": "松山",
-        "time": "18:31"
-      },
-      {
-        "station": "台北",
-        "time": "18:41"
-      },
-      {
-        "station": "板橋",
-        "time": "18:50"
-      },
-      {
-        "station": "樹林",
-        "time": "18:58"
-      },
-      {
-        "station": "桃園",
-        "time": "19:14"
-      },
-      {
-        "station": "中壢",
-        "time": "19:24"
-      },
-      {
-        "station": "新竹",
-        "time": "19:53"
-      },
-      {
-        "station": "竹南",
-        "time": "20:09"
-      },
-      {
-        "station": "後龍",
-        "time": "20:20"
-      },
-      {
-        "station": "大甲",
-        "time": "20:44"
-      },
-      {
-        "station": "沙鹿",
-        "time": "20:55"
-      },
-      {
-        "station": "彰化",
-        "time": "21:10"
-      },
-      {
-        "station": "員林",
-        "time": "21:24"
-      },
       {
         "station": "台東",
         "time": "13:56"
@@ -13946,8 +12746,28 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "17:13"
       },
       {
+        "station": "七堵",
+        "time": "18:11"
+      },
+      {
+        "station": "松山",
+        "time": "18:31"
+      },
+      {
+        "station": "台北",
+        "time": "18:38"
+      },
+      {
         "station": "Taipei",
         "time": "18:41"
+      },
+      {
+        "station": "板橋",
+        "time": "18:50"
+      },
+      {
+        "station": "樹林",
+        "time": "18:58"
       }
     ]
   },
@@ -13956,31 +12776,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "莒光號",
     "train_model": "莒光號",
     "is_trpass": true,
-    "origin": "新左營",
-    "dest": "Kaohsiung",
-    "line": "屏東線",
+    "origin": "彰化",
+    "dest": "潮州",
+    "line": "西部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "新左營",
-        "time": "08:47"
-      },
-      {
-        "station": "高雄",
-        "time": "08:58"
-      },
-      {
-        "station": "鳳山",
-        "time": "09:06"
-      },
-      {
-        "station": "屏東",
-        "time": "09:21"
-      },
-      {
-        "station": "潮州",
-        "time": "09:35"
-      },
       {
         "station": "彰化",
         "time": "05:22"
@@ -14054,8 +12854,28 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "08:38"
       },
       {
+        "station": "新左營",
+        "time": "08:47"
+      },
+      {
+        "station": "高雄",
+        "time": "08:56"
+      },
+      {
         "station": "Kaohsiung",
         "time": "08:58"
+      },
+      {
+        "station": "鳳山",
+        "time": "09:06"
+      },
+      {
+        "station": "屏東",
+        "time": "09:21"
+      },
+      {
+        "station": "潮州",
+        "time": "09:35"
       }
     ]
   },
@@ -14104,147 +12924,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "莒光號",
     "train_model": "莒光號",
     "is_trpass": true,
-    "origin": "潮州",
+    "origin": "樹林",
     "dest": "花蓮",
-    "line": "屏東線",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "潮州",
-        "time": "12:57"
-      },
-      {
-        "station": "屏東",
-        "time": "13:12"
-      },
-      {
-        "station": "鳳山",
-        "time": "13:27"
-      },
-      {
-        "station": "高雄",
-        "time": "13:35"
-      },
-      {
-        "station": "新左營",
-        "time": "13:46"
-      },
-      {
-        "station": "楠梓",
-        "time": "13:54"
-      },
-      {
-        "station": "岡山",
-        "time": "14:04"
-      },
-      {
-        "station": "台南",
-        "time": "14:27"
-      },
-      {
-        "station": "永康",
-        "time": "14:34"
-      },
-      {
-        "station": "善化",
-        "time": "14:46"
-      },
-      {
-        "station": "新營",
-        "time": "15:08"
-      },
-      {
-        "station": "嘉義",
-        "time": "15:30"
-      },
-      {
-        "station": "民雄",
-        "time": "15:40"
-      },
-      {
-        "station": "大林",
-        "time": "15:50"
-      },
-      {
-        "station": "斗南",
-        "time": "16:01"
-      },
-      {
-        "station": "斗六",
-        "time": "16:23"
-      },
-      {
-        "station": "林內",
-        "time": "16:33"
-      },
-      {
-        "station": "二水",
-        "time": "16:43"
-      },
-      {
-        "station": "田中",
-        "time": "16:51"
-      },
-      {
-        "station": "員林",
-        "time": "17:04"
-      },
-      {
-        "station": "彰化",
-        "time": "17:23"
-      },
-      {
-        "station": "沙鹿",
-        "time": "17:44"
-      },
-      {
-        "station": "清水",
-        "time": "17:50"
-      },
-      {
-        "station": "大甲",
-        "time": "18:03"
-      },
-      {
-        "station": "苑裡",
-        "time": "18:15"
-      },
-      {
-        "station": "通霄",
-        "time": "18:24"
-      },
-      {
-        "station": "後龍",
-        "time": "18:46"
-      },
-      {
-        "station": "竹南",
-        "time": "19:04"
-      },
-      {
-        "station": "新竹",
-        "time": "19:22"
-      },
-      {
-        "station": "竹北",
-        "time": "19:29"
-      },
-      {
-        "station": "湖口",
-        "time": "19:41"
-      },
-      {
-        "station": "楊梅",
-        "time": "19:53"
-      },
-      {
-        "station": "中壢",
-        "time": "20:06"
-      },
-      {
-        "station": "桃園",
-        "time": "20:18"
-      },
       {
         "station": "樹林",
         "time": "20:38"
@@ -14259,10 +12943,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       },
       {
         "station": "台北",
-        "time": "21:02"
-      },
-      {
-        "station": "Taipei",
         "time": "21:05"
       },
       {
@@ -14424,95 +13104,11 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_type": "莒光號",
     "train_model": "莒光號",
     "is_trpass": true,
-    "origin": "七堵",
-    "dest": "Taipei",
-    "line": "西部幹線",
+    "origin": "台東",
+    "dest": "樹林",
+    "line": "東部幹線",
     "route_dir": "",
     "stops": [
-      {
-        "station": "七堵",
-        "time": "18:43"
-      },
-      {
-        "station": "汐止",
-        "time": "18:53"
-      },
-      {
-        "station": "松山",
-        "time": "19:06"
-      },
-      {
-        "station": "台北",
-        "time": "19:16"
-      },
-      {
-        "station": "萬華",
-        "time": "19:24"
-      },
-      {
-        "station": "板橋",
-        "time": "19:31"
-      },
-      {
-        "station": "樹林",
-        "time": "19:39"
-      },
-      {
-        "station": "桃園",
-        "time": "20:06"
-      },
-      {
-        "station": "中壢",
-        "time": "20:18"
-      },
-      {
-        "station": "楊梅",
-        "time": "20:28"
-      },
-      {
-        "station": "湖口",
-        "time": "20:40"
-      },
-      {
-        "station": "竹北",
-        "time": "20:52"
-      },
-      {
-        "station": "新竹",
-        "time": "21:03"
-      },
-      {
-        "station": "竹南",
-        "time": "21:23"
-      },
-      {
-        "station": "後龍",
-        "time": "21:39"
-      },
-      {
-        "station": "通霄",
-        "time": "21:59"
-      },
-      {
-        "station": "苑裡",
-        "time": "22:07"
-      },
-      {
-        "station": "大甲",
-        "time": "22:20"
-      },
-      {
-        "station": "清水",
-        "time": "22:33"
-      },
-      {
-        "station": "沙鹿",
-        "time": "22:39"
-      },
-      {
-        "station": "彰化",
-        "time": "22:59"
-      },
       {
         "station": "台東",
         "time": "11:23"
@@ -14650,8 +13246,36 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "18:23"
       },
       {
+        "station": "七堵",
+        "time": "18:43"
+      },
+      {
+        "station": "汐止",
+        "time": "18:53"
+      },
+      {
+        "station": "松山",
+        "time": "19:06"
+      },
+      {
+        "station": "台北",
+        "time": "19:13"
+      },
+      {
         "station": "Taipei",
         "time": "19:16"
+      },
+      {
+        "station": "萬華",
+        "time": "19:24"
+      },
+      {
+        "station": "板橋",
+        "time": "19:31"
+      },
+      {
+        "station": "樹林",
+        "time": "19:39"
       }
     ]
   },
@@ -14797,9 +13421,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "鳳山",
+    "dest": "八堵",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -14864,130 +13488,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "八堵",
         "time": "13:44"
-      },
-      {
-        "station": "彰化",
-        "time": "10:15"
-      },
-      {
-        "station": "大慶",
-        "time": "10:34"
-      },
-      {
-        "station": "五權",
-        "time": "10:39"
-      },
-      {
-        "station": "精武",
-        "time": "10:49"
-      },
-      {
-        "station": "松竹",
-        "time": "11:00"
-      },
-      {
-        "station": "頭家厝",
-        "time": "11:09"
-      },
-      {
-        "station": "栗林",
-        "time": "11:18"
-      },
-      {
-        "station": "后里",
-        "time": "11:28"
-      },
-      {
-        "station": "銅鑼",
-        "time": "11:41"
-      },
-      {
-        "station": "造橋",
-        "time": "11:56"
-      },
-      {
-        "station": "嘉義",
-        "time": "08:55"
-      },
-      {
-        "station": "民雄",
-        "time": "09:03"
-      },
-      {
-        "station": "斗南",
-        "time": "09:13"
-      },
-      {
-        "station": "斗六",
-        "time": "09:26"
-      },
-      {
-        "station": "林內",
-        "time": "09:35"
-      },
-      {
-        "station": "二水",
-        "time": "09:43"
-      },
-      {
-        "station": "田中",
-        "time": "09:49"
-      },
-      {
-        "station": "員林",
-        "time": "10:00"
-      },
-      {
-        "station": "高雄",
-        "time": "07:22"
-      },
-      {
-        "station": "新左營",
-        "time": "07:32"
-      },
-      {
-        "station": "楠梓",
-        "time": "07:37"
-      },
-      {
-        "station": "岡山",
-        "time": "07:46"
-      },
-      {
-        "station": "台南",
-        "time": "08:06"
-      },
-      {
-        "station": "永康",
-        "time": "08:12"
-      },
-      {
-        "station": "善化",
-        "time": "08:22"
-      },
-      {
-        "station": "隆田",
-        "time": "08:28"
-      },
-      {
-        "station": "新營",
-        "time": "08:38"
-      },
-      {
-        "station": "潮州",
-        "time": "06:45"
-      },
-      {
-        "station": "屏東",
-        "time": "07:00"
-      },
-      {
-        "station": "九曲堂",
-        "time": "07:06"
-      },
-      {
-        "station": "鳳山",
-        "time": "07:15"
       }
     ]
   },
@@ -15249,9 +13749,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "鳳山",
+    "dest": "八堵",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -15324,138 +13824,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "八堵",
         "time": "22:04"
-      },
-      {
-        "station": "彰化",
-        "time": "18:17"
-      },
-      {
-        "station": "新烏日",
-        "time": "18:29"
-      },
-      {
-        "station": "大慶",
-        "time": "18:38"
-      },
-      {
-        "station": "五權",
-        "time": "18:44"
-      },
-      {
-        "station": "精武",
-        "time": "18:57"
-      },
-      {
-        "station": "松竹",
-        "time": "19:08"
-      },
-      {
-        "station": "頭家厝",
-        "time": "19:16"
-      },
-      {
-        "station": "栗林",
-        "time": "19:24"
-      },
-      {
-        "station": "后里",
-        "time": "19:34"
-      },
-      {
-        "station": "銅鑼",
-        "time": "19:48"
-      },
-      {
-        "station": "造橋",
-        "time": "20:03"
-      },
-      {
-        "station": "嘉義",
-        "time": "16:44"
-      },
-      {
-        "station": "民雄",
-        "time": "16:52"
-      },
-      {
-        "station": "大林",
-        "time": "17:03"
-      },
-      {
-        "station": "斗南",
-        "time": "17:11"
-      },
-      {
-        "station": "斗六",
-        "time": "17:24"
-      },
-      {
-        "station": "二水",
-        "time": "17:39"
-      },
-      {
-        "station": "田中",
-        "time": "17:46"
-      },
-      {
-        "station": "社頭",
-        "time": "17:52"
-      },
-      {
-        "station": "員林",
-        "time": "18:00"
-      },
-      {
-        "station": "高雄",
-        "time": "15:09"
-      },
-      {
-        "station": "新左營",
-        "time": "15:18"
-      },
-      {
-        "station": "楠梓",
-        "time": "15:23"
-      },
-      {
-        "station": "岡山",
-        "time": "15:31"
-      },
-      {
-        "station": "台南",
-        "time": "15:50"
-      },
-      {
-        "station": "永康",
-        "time": "15:58"
-      },
-      {
-        "station": "善化",
-        "time": "16:09"
-      },
-      {
-        "station": "隆田",
-        "time": "16:15"
-      },
-      {
-        "station": "新營",
-        "time": "16:26"
-      },
-      {
-        "station": "潮州",
-        "time": "14:31"
-      },
-      {
-        "station": "屏東",
-        "time": "14:45"
-      },
-      {
-        "station": "九曲堂",
-        "time": "14:52"
-      },
-      {
-        "station": "鳳山",
-        "time": "14:59"
       }
     ]
   },
@@ -15563,7 +13931,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "湖口",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "湖口",
@@ -15691,7 +14059,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "七堵",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "七堵",
@@ -16127,7 +14495,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -16931,7 +15299,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "七堵",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "七堵",
@@ -17081,9 +15449,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -17208,34 +15576,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "08:22"
-      },
-      {
-        "station": "苗栗",
-        "time": "05:15"
-      },
-      {
-        "station": "豐富",
-        "time": "05:20"
-      },
-      {
-        "station": "造橋",
-        "time": "05:25"
-      },
-      {
-        "station": "竹南",
-        "time": "05:31"
-      },
-      {
-        "station": "崎頂",
-        "time": "05:35"
-      },
-      {
-        "station": "香山",
-        "time": "05:46"
-      },
-      {
-        "station": "三姓橋",
-        "time": "05:50"
       }
     ]
   },
@@ -18005,7 +16345,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "瑞芳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -18024,102 +16364,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "瑞芳",
         "time": "09:52"
-      },
-      {
-        "station": "北湖",
-        "time": "07:32"
-      },
-      {
-        "station": "新富",
-        "time": "07:35"
-      },
-      {
-        "station": "富岡",
-        "time": "07:37"
-      },
-      {
-        "station": "楊梅",
-        "time": "07:44"
-      },
-      {
-        "station": "埔心",
-        "time": "07:54"
-      },
-      {
-        "station": "中壢",
-        "time": "08:04"
-      },
-      {
-        "station": "內壢",
-        "time": "08:08"
-      },
-      {
-        "station": "桃園",
-        "time": "08:16"
-      },
-      {
-        "station": "鶯歌",
-        "time": "08:21"
-      },
-      {
-        "station": "山佳",
-        "time": "08:27"
-      },
-      {
-        "station": "南樹林",
-        "time": "08:32"
-      },
-      {
-        "station": "樹林",
-        "time": "08:35"
-      },
-      {
-        "station": "浮洲",
-        "time": "08:39"
-      },
-      {
-        "station": "板橋",
-        "time": "08:43"
-      },
-      {
-        "station": "萬華",
-        "time": "08:47"
-      },
-      {
-        "station": "台北",
-        "time": "08:52"
-      },
-      {
-        "station": "松山",
-        "time": "08:59"
-      },
-      {
-        "station": "南港",
-        "time": "09:06"
-      },
-      {
-        "station": "汐科",
-        "time": "09:10"
-      },
-      {
-        "station": "汐止",
-        "time": "09:16"
-      },
-      {
-        "station": "五堵",
-        "time": "09:19"
-      },
-      {
-        "station": "百福",
-        "time": "09:21"
-      },
-      {
-        "station": "七堵",
-        "time": "09:25"
-      },
-      {
-        "station": "三坑",
-        "time": "09:40"
       }
     ]
   },
@@ -18131,7 +16375,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -18293,9 +16537,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -18420,46 +16664,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "10:07"
-      },
-      {
-        "station": "三義",
-        "time": "06:28"
-      },
-      {
-        "station": "銅鑼",
-        "time": "06:35"
-      },
-      {
-        "station": "南勢",
-        "time": "06:39"
-      },
-      {
-        "station": "苗栗",
-        "time": "06:45"
-      },
-      {
-        "station": "豐富",
-        "time": "06:49"
-      },
-      {
-        "station": "造橋",
-        "time": "06:54"
-      },
-      {
-        "station": "竹南",
-        "time": "07:01"
-      },
-      {
-        "station": "崎頂",
-        "time": "07:05"
-      },
-      {
-        "station": "香山",
-        "time": "07:11"
-      },
-      {
-        "station": "三姓橋",
-        "time": "07:14"
       }
     ]
   },
@@ -19027,7 +17231,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -19189,9 +17393,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -19316,34 +17520,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "10:39"
-      },
-      {
-        "station": "苗栗",
-        "time": "07:24"
-      },
-      {
-        "station": "豐富",
-        "time": "07:29"
-      },
-      {
-        "station": "造橋",
-        "time": "07:34"
-      },
-      {
-        "station": "竹南",
-        "time": "07:40"
-      },
-      {
-        "station": "崎頂",
-        "time": "07:44"
-      },
-      {
-        "station": "香山",
-        "time": "07:50"
-      },
-      {
-        "station": "三姓橋",
-        "time": "07:53"
       }
     ]
   },
@@ -19489,9 +17665,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -19616,22 +17792,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "11:07"
-      },
-      {
-        "station": "竹南",
-        "time": "08:08"
-      },
-      {
-        "station": "崎頂",
-        "time": "08:13"
-      },
-      {
-        "station": "香山",
-        "time": "08:19"
-      },
-      {
-        "station": "三姓橋",
-        "time": "08:22"
       }
     ]
   },
@@ -19641,7 +17801,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "瑞芳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -19660,102 +17820,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "瑞芳",
         "time": "10:58"
-      },
-      {
-        "station": "北湖",
-        "time": "08:39"
-      },
-      {
-        "station": "新富",
-        "time": "08:42"
-      },
-      {
-        "station": "富岡",
-        "time": "08:44"
-      },
-      {
-        "station": "楊梅",
-        "time": "08:51"
-      },
-      {
-        "station": "埔心",
-        "time": "09:05"
-      },
-      {
-        "station": "中壢",
-        "time": "09:16"
-      },
-      {
-        "station": "內壢",
-        "time": "09:20"
-      },
-      {
-        "station": "桃園",
-        "time": "09:28"
-      },
-      {
-        "station": "鶯歌",
-        "time": "09:33"
-      },
-      {
-        "station": "山佳",
-        "time": "09:39"
-      },
-      {
-        "station": "南樹林",
-        "time": "09:43"
-      },
-      {
-        "station": "樹林",
-        "time": "09:46"
-      },
-      {
-        "station": "浮洲",
-        "time": "09:50"
-      },
-      {
-        "station": "板橋",
-        "time": "09:54"
-      },
-      {
-        "station": "萬華",
-        "time": "09:58"
-      },
-      {
-        "station": "台北",
-        "time": "10:03"
-      },
-      {
-        "station": "松山",
-        "time": "10:10"
-      },
-      {
-        "station": "南港",
-        "time": "10:17"
-      },
-      {
-        "station": "汐科",
-        "time": "10:20"
-      },
-      {
-        "station": "汐止",
-        "time": "10:26"
-      },
-      {
-        "station": "五堵",
-        "time": "10:29"
-      },
-      {
-        "station": "百福",
-        "time": "10:31"
-      },
-      {
-        "station": "七堵",
-        "time": "10:35"
-      },
-      {
-        "station": "三坑",
-        "time": "10:45"
       }
     ]
   },
@@ -19767,7 +17831,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -19929,9 +17993,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三姓橋",
+    "dest": "瑞芳",
     "line": "宜蘭線",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "八堵",
@@ -19948,150 +18012,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "瑞芳",
         "time": "11:20"
-      },
-      {
-        "station": "新竹",
-        "time": "08:52"
-      },
-      {
-        "station": "北新竹",
-        "time": "08:55"
-      },
-      {
-        "station": "竹北",
-        "time": "09:00"
-      },
-      {
-        "station": "新豐",
-        "time": "09:05"
-      },
-      {
-        "station": "湖口",
-        "time": "09:11"
-      },
-      {
-        "station": "北湖",
-        "time": "09:14"
-      },
-      {
-        "station": "新富",
-        "time": "09:17"
-      },
-      {
-        "station": "富岡",
-        "time": "09:19"
-      },
-      {
-        "station": "楊梅",
-        "time": "09:26"
-      },
-      {
-        "station": "埔心",
-        "time": "09:30"
-      },
-      {
-        "station": "中壢",
-        "time": "09:40"
-      },
-      {
-        "station": "內壢",
-        "time": "09:44"
-      },
-      {
-        "station": "桃園",
-        "time": "09:52"
-      },
-      {
-        "station": "鶯歌",
-        "time": "09:57"
-      },
-      {
-        "station": "山佳",
-        "time": "10:03"
-      },
-      {
-        "station": "南樹林",
-        "time": "10:07"
-      },
-      {
-        "station": "樹林",
-        "time": "10:10"
-      },
-      {
-        "station": "浮洲",
-        "time": "10:14"
-      },
-      {
-        "station": "板橋",
-        "time": "10:18"
-      },
-      {
-        "station": "萬華",
-        "time": "10:22"
-      },
-      {
-        "station": "台北",
-        "time": "10:27"
-      },
-      {
-        "station": "松山",
-        "time": "10:34"
-      },
-      {
-        "station": "南港",
-        "time": "10:41"
-      },
-      {
-        "station": "汐科",
-        "time": "10:44"
-      },
-      {
-        "station": "汐止",
-        "time": "10:50"
-      },
-      {
-        "station": "五堵",
-        "time": "10:53"
-      },
-      {
-        "station": "百福",
-        "time": "10:55"
-      },
-      {
-        "station": "七堵",
-        "time": "10:59"
-      },
-      {
-        "station": "三坑",
-        "time": "11:08"
-      },
-      {
-        "station": "苗栗",
-        "time": "08:10"
-      },
-      {
-        "station": "豐富",
-        "time": "08:15"
-      },
-      {
-        "station": "造橋",
-        "time": "08:20"
-      },
-      {
-        "station": "竹南",
-        "time": "08:31"
-      },
-      {
-        "station": "崎頂",
-        "time": "08:35"
-      },
-      {
-        "station": "香山",
-        "time": "08:41"
-      },
-      {
-        "station": "三姓橋",
-        "time": "08:44"
       }
     ]
   },
@@ -20639,7 +18559,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -20801,9 +18721,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -20928,34 +18848,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "12:19"
-      },
-      {
-        "station": "苗栗",
-        "time": "09:09"
-      },
-      {
-        "station": "豐富",
-        "time": "09:14"
-      },
-      {
-        "station": "造橋",
-        "time": "09:19"
-      },
-      {
-        "station": "竹南",
-        "time": "09:25"
-      },
-      {
-        "station": "崎頂",
-        "time": "09:29"
-      },
-      {
-        "station": "香山",
-        "time": "09:35"
-      },
-      {
-        "station": "三姓橋",
-        "time": "09:38"
       }
     ]
   },
@@ -21419,7 +19311,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -21581,9 +19473,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -21708,34 +19600,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "13:24"
-      },
-      {
-        "station": "苗栗",
-        "time": "10:14"
-      },
-      {
-        "station": "豐富",
-        "time": "10:19"
-      },
-      {
-        "station": "造橋",
-        "time": "10:24"
-      },
-      {
-        "station": "竹南",
-        "time": "10:30"
-      },
-      {
-        "station": "崎頂",
-        "time": "10:34"
-      },
-      {
-        "station": "香山",
-        "time": "10:55"
-      },
-      {
-        "station": "三姓橋",
-        "time": "10:59"
       }
     ]
   },
@@ -22259,7 +20123,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -22421,9 +20285,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -22548,34 +20412,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "14:21"
-      },
-      {
-        "station": "苗栗",
-        "time": "11:13"
-      },
-      {
-        "station": "豐富",
-        "time": "11:18"
-      },
-      {
-        "station": "造橋",
-        "time": "11:23"
-      },
-      {
-        "station": "竹南",
-        "time": "11:29"
-      },
-      {
-        "station": "崎頂",
-        "time": "11:33"
-      },
-      {
-        "station": "香山",
-        "time": "11:50"
-      },
-      {
-        "station": "三姓橋",
-        "time": "11:54"
       }
     ]
   },
@@ -22857,7 +20693,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "瑞芳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -22876,102 +20712,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "瑞芳",
         "time": "15:03"
-      },
-      {
-        "station": "北湖",
-        "time": "12:32"
-      },
-      {
-        "station": "新富",
-        "time": "12:35"
-      },
-      {
-        "station": "富岡",
-        "time": "12:37"
-      },
-      {
-        "station": "楊梅",
-        "time": "12:43"
-      },
-      {
-        "station": "埔心",
-        "time": "12:47"
-      },
-      {
-        "station": "中壢",
-        "time": "12:56"
-      },
-      {
-        "station": "內壢",
-        "time": "13:00"
-      },
-      {
-        "station": "桃園",
-        "time": "13:07"
-      },
-      {
-        "station": "鶯歌",
-        "time": "13:12"
-      },
-      {
-        "station": "山佳",
-        "time": "13:18"
-      },
-      {
-        "station": "南樹林",
-        "time": "13:29"
-      },
-      {
-        "station": "樹林",
-        "time": "13:32"
-      },
-      {
-        "station": "浮洲",
-        "time": "13:41"
-      },
-      {
-        "station": "板橋",
-        "time": "13:46"
-      },
-      {
-        "station": "萬華",
-        "time": "13:50"
-      },
-      {
-        "station": "台北",
-        "time": "13:55"
-      },
-      {
-        "station": "松山",
-        "time": "14:02"
-      },
-      {
-        "station": "南港",
-        "time": "14:09"
-      },
-      {
-        "station": "汐科",
-        "time": "14:12"
-      },
-      {
-        "station": "汐止",
-        "time": "14:18"
-      },
-      {
-        "station": "五堵",
-        "time": "14:30"
-      },
-      {
-        "station": "百福",
-        "time": "14:32"
-      },
-      {
-        "station": "七堵",
-        "time": "14:36"
-      },
-      {
-        "station": "三坑",
-        "time": "14:51"
       }
     ]
   },
@@ -22983,7 +20723,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -23145,9 +20885,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -23272,34 +21012,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "15:21"
-      },
-      {
-        "station": "苗栗",
-        "time": "12:11"
-      },
-      {
-        "station": "豐富",
-        "time": "12:16"
-      },
-      {
-        "station": "造橋",
-        "time": "12:21"
-      },
-      {
-        "station": "竹南",
-        "time": "12:29"
-      },
-      {
-        "station": "崎頂",
-        "time": "12:33"
-      },
-      {
-        "station": "香山",
-        "time": "12:44"
-      },
-      {
-        "station": "三姓橋",
-        "time": "12:48"
       }
     ]
   },
@@ -23703,7 +21415,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -23865,9 +21577,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -23992,34 +21704,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "16:20"
-      },
-      {
-        "station": "苗栗",
-        "time": "13:13"
-      },
-      {
-        "station": "豐富",
-        "time": "13:18"
-      },
-      {
-        "station": "造橋",
-        "time": "13:23"
-      },
-      {
-        "station": "竹南",
-        "time": "13:29"
-      },
-      {
-        "station": "崎頂",
-        "time": "13:33"
-      },
-      {
-        "station": "香山",
-        "time": "13:45"
-      },
-      {
-        "station": "三姓橋",
-        "time": "13:49"
       }
     ]
   },
@@ -24423,7 +22107,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -24585,9 +22269,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -24712,34 +22396,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "17:23"
-      },
-      {
-        "station": "苗栗",
-        "time": "14:18"
-      },
-      {
-        "station": "豐富",
-        "time": "14:23"
-      },
-      {
-        "station": "造橋",
-        "time": "14:28"
-      },
-      {
-        "station": "竹南",
-        "time": "14:34"
-      },
-      {
-        "station": "崎頂",
-        "time": "14:38"
-      },
-      {
-        "station": "香山",
-        "time": "14:44"
-      },
-      {
-        "station": "三姓橋",
-        "time": "14:47"
       }
     ]
   },
@@ -25215,7 +22871,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -25377,9 +23033,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -25504,34 +23160,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "18:17"
-      },
-      {
-        "station": "苗栗",
-        "time": "15:06"
-      },
-      {
-        "station": "豐富",
-        "time": "15:11"
-      },
-      {
-        "station": "造橋",
-        "time": "15:16"
-      },
-      {
-        "station": "竹南",
-        "time": "15:22"
-      },
-      {
-        "station": "崎頂",
-        "time": "15:26"
-      },
-      {
-        "station": "香山",
-        "time": "15:37"
-      },
-      {
-        "station": "三姓橋",
-        "time": "15:41"
       }
     ]
   },
@@ -26079,7 +23707,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -26241,9 +23869,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -26368,34 +23996,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "19:24"
-      },
-      {
-        "station": "苗栗",
-        "time": "16:10"
-      },
-      {
-        "station": "豐富",
-        "time": "16:15"
-      },
-      {
-        "station": "造橋",
-        "time": "16:20"
-      },
-      {
-        "station": "竹南",
-        "time": "16:26"
-      },
-      {
-        "station": "崎頂",
-        "time": "16:30"
-      },
-      {
-        "station": "香山",
-        "time": "16:41"
-      },
-      {
-        "station": "三姓橋",
-        "time": "16:46"
       }
     ]
   },
@@ -26907,7 +24507,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -27069,9 +24669,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -27196,34 +24796,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "20:41"
-      },
-      {
-        "station": "苗栗",
-        "time": "17:17"
-      },
-      {
-        "station": "豐富",
-        "time": "17:22"
-      },
-      {
-        "station": "造橋",
-        "time": "17:27"
-      },
-      {
-        "station": "竹南",
-        "time": "17:33"
-      },
-      {
-        "station": "崎頂",
-        "time": "17:37"
-      },
-      {
-        "station": "香山",
-        "time": "17:43"
-      },
-      {
-        "station": "三姓橋",
-        "time": "17:46"
       }
     ]
   },
@@ -27235,7 +24807,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "竹南",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -27639,7 +25211,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "三義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -27813,9 +25385,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -27940,34 +25512,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "21:07"
-      },
-      {
-        "station": "苗栗",
-        "time": "18:08"
-      },
-      {
-        "station": "豐富",
-        "time": "18:13"
-      },
-      {
-        "station": "造橋",
-        "time": "18:18"
-      },
-      {
-        "station": "竹南",
-        "time": "18:24"
-      },
-      {
-        "station": "崎頂",
-        "time": "18:28"
-      },
-      {
-        "station": "香山",
-        "time": "18:34"
-      },
-      {
-        "station": "三姓橋",
-        "time": "18:37"
       }
     ]
   },
@@ -28355,7 +25899,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "湖口",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "湖口",
@@ -28415,7 +25959,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "苗栗",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -28577,9 +26121,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -28704,34 +26248,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "22:18"
-      },
-      {
-        "station": "苗栗",
-        "time": "19:00"
-      },
-      {
-        "station": "豐富",
-        "time": "19:05"
-      },
-      {
-        "station": "造橋",
-        "time": "19:10"
-      },
-      {
-        "station": "竹南",
-        "time": "19:16"
-      },
-      {
-        "station": "崎頂",
-        "time": "19:20"
-      },
-      {
-        "station": "香山",
-        "time": "19:26"
-      },
-      {
-        "station": "三姓橋",
-        "time": "19:29"
       }
     ]
   },
@@ -29333,9 +26849,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -29460,34 +26976,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "23:23"
-      },
-      {
-        "station": "苗栗",
-        "time": "20:17"
-      },
-      {
-        "station": "豐富",
-        "time": "20:22"
-      },
-      {
-        "station": "造橋",
-        "time": "20:27"
-      },
-      {
-        "station": "竹南",
-        "time": "20:33"
-      },
-      {
-        "station": "崎頂",
-        "time": "20:37"
-      },
-      {
-        "station": "香山",
-        "time": "20:43"
-      },
-      {
-        "station": "三姓橋",
-        "time": "20:46"
       }
     ]
   },
@@ -29497,7 +26985,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "瑞芳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -29516,86 +27004,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "瑞芳",
         "time": "23:50"
-      },
-      {
-        "station": "埔心",
-        "time": "21:56"
-      },
-      {
-        "station": "中壢",
-        "time": "22:11"
-      },
-      {
-        "station": "內壢",
-        "time": "22:16"
-      },
-      {
-        "station": "桃園",
-        "time": "22:23"
-      },
-      {
-        "station": "鶯歌",
-        "time": "22:28"
-      },
-      {
-        "station": "山佳",
-        "time": "22:34"
-      },
-      {
-        "station": "南樹林",
-        "time": "22:38"
-      },
-      {
-        "station": "樹林",
-        "time": "22:41"
-      },
-      {
-        "station": "浮洲",
-        "time": "22:45"
-      },
-      {
-        "station": "板橋",
-        "time": "22:49"
-      },
-      {
-        "station": "萬華",
-        "time": "22:53"
-      },
-      {
-        "station": "台北",
-        "time": "22:58"
-      },
-      {
-        "station": "松山",
-        "time": "23:04"
-      },
-      {
-        "station": "南港",
-        "time": "23:11"
-      },
-      {
-        "station": "汐科",
-        "time": "23:14"
-      },
-      {
-        "station": "汐止",
-        "time": "23:20"
-      },
-      {
-        "station": "五堵",
-        "time": "23:23"
-      },
-      {
-        "station": "百福",
-        "time": "23:25"
-      },
-      {
-        "station": "七堵",
-        "time": "23:29"
-      },
-      {
-        "station": "三坑",
-        "time": "23:38"
       }
     ]
   },
@@ -30057,9 +27465,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "新竹",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -30212,6 +27620,10 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "三姓橋",
         "time": "21:57"
+      },
+      {
+        "station": "新竹",
+        "time": "22:03"
       }
     ]
   },
@@ -30321,9 +27733,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "桃園",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -30376,34 +27788,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "桃園",
         "time": "23:49"
-      },
-      {
-        "station": "苗栗",
-        "time": "22:11"
-      },
-      {
-        "station": "豐富",
-        "time": "22:16"
-      },
-      {
-        "station": "造橋",
-        "time": "22:21"
-      },
-      {
-        "station": "竹南",
-        "time": "22:27"
-      },
-      {
-        "station": "崎頂",
-        "time": "22:32"
-      },
-      {
-        "station": "香山",
-        "time": "22:43"
-      },
-      {
-        "station": "三姓橋",
-        "time": "22:47"
       }
     ]
   },
@@ -35737,7 +33121,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "員林",
+    "dest": "台中",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -35756,46 +33140,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "台中",
         "time": "08:13"
-      },
-      {
-        "station": "嘉義",
-        "time": "06:33"
-      },
-      {
-        "station": "民雄",
-        "time": "06:42"
-      },
-      {
-        "station": "大林",
-        "time": "06:48"
-      },
-      {
-        "station": "斗南",
-        "time": "06:56"
-      },
-      {
-        "station": "斗六",
-        "time": "07:04"
-      },
-      {
-        "station": "林內",
-        "time": "07:12"
-      },
-      {
-        "station": "二水",
-        "time": "07:19"
-      },
-      {
-        "station": "田中",
-        "time": "07:25"
-      },
-      {
-        "station": "社頭",
-        "time": "07:30"
-      },
-      {
-        "station": "員林",
-        "time": "07:38"
       }
     ]
   },
@@ -35807,7 +33151,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "七堵",
     "dest": "彰化",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "七堵",
@@ -35931,7 +33275,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "二水",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -36085,9 +33429,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "造橋",
+    "dest": "三坑",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -36168,46 +33512,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "三坑",
         "time": "09:43"
-      },
-      {
-        "station": "彰化",
-        "time": "05:58"
-      },
-      {
-        "station": "大慶",
-        "time": "06:17"
-      },
-      {
-        "station": "五權",
-        "time": "06:21"
-      },
-      {
-        "station": "精武",
-        "time": "06:32"
-      },
-      {
-        "station": "松竹",
-        "time": "06:42"
-      },
-      {
-        "station": "頭家厝",
-        "time": "06:49"
-      },
-      {
-        "station": "栗林",
-        "time": "06:57"
-      },
-      {
-        "station": "后里",
-        "time": "07:08"
-      },
-      {
-        "station": "銅鑼",
-        "time": "07:21"
-      },
-      {
-        "station": "造橋",
-        "time": "07:36"
       }
     ]
   },
@@ -36219,7 +33523,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "七堵",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "七堵",
@@ -36365,7 +33669,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "員林",
+    "dest": "台中",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -36380,18 +33684,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "台中",
         "time": "12:21"
-      },
-      {
-        "station": "二水",
-        "time": "11:32"
-      },
-      {
-        "station": "田中",
-        "time": "11:39"
-      },
-      {
-        "station": "員林",
-        "time": "11:49"
       }
     ]
   },
@@ -36723,7 +34015,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "七堵",
     "dest": "五權",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "七堵",
@@ -36847,7 +34139,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "七堵",
     "dest": "台中",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "七堵",
@@ -36973,9 +34265,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "員林",
+    "dest": "八堵",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -37048,74 +34340,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "八堵",
         "time": "21:15"
-      },
-      {
-        "station": "彰化",
-        "time": "17:34"
-      },
-      {
-        "station": "新烏日",
-        "time": "17:42"
-      },
-      {
-        "station": "大慶",
-        "time": "17:47"
-      },
-      {
-        "station": "台中",
-        "time": "17:53"
-      },
-      {
-        "station": "太原",
-        "time": "17:58"
-      },
-      {
-        "station": "松竹",
-        "time": "18:00"
-      },
-      {
-        "station": "潭子",
-        "time": "18:05"
-      },
-      {
-        "station": "豐原",
-        "time": "18:10"
-      },
-      {
-        "station": "后里",
-        "time": "18:21"
-      },
-      {
-        "station": "三義",
-        "time": "18:31"
-      },
-      {
-        "station": "銅鑼",
-        "time": "18:37"
-      },
-      {
-        "station": "苗栗",
-        "time": "18:45"
-      },
-      {
-        "station": "竹南",
-        "time": "18:56"
-      },
-      {
-        "station": "二水",
-        "time": "17:00"
-      },
-      {
-        "station": "田中",
-        "time": "17:07"
-      },
-      {
-        "station": "社頭",
-        "time": "17:11"
-      },
-      {
-        "station": "員林",
-        "time": "17:18"
       }
     ]
   },
@@ -37125,9 +34349,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "造橋",
+    "dest": "八堵",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -37200,46 +34424,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "八堵",
         "time": "23:46"
-      },
-      {
-        "station": "彰化",
-        "time": "20:12"
-      },
-      {
-        "station": "大慶",
-        "time": "20:35"
-      },
-      {
-        "station": "五權",
-        "time": "20:40"
-      },
-      {
-        "station": "精武",
-        "time": "20:49"
-      },
-      {
-        "station": "松竹",
-        "time": "20:59"
-      },
-      {
-        "station": "頭家厝",
-        "time": "21:05"
-      },
-      {
-        "station": "栗林",
-        "time": "21:12"
-      },
-      {
-        "station": "后里",
-        "time": "21:21"
-      },
-      {
-        "station": "銅鑼",
-        "time": "21:37"
-      },
-      {
-        "station": "造橋",
-        "time": "21:52"
       }
     ]
   },
@@ -37249,7 +34433,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "員林",
+    "dest": "豐原",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -37284,30 +34468,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "豐原",
         "time": "21:31"
-      },
-      {
-        "station": "斗六",
-        "time": "19:41"
-      },
-      {
-        "station": "林內",
-        "time": "19:50"
-      },
-      {
-        "station": "二水",
-        "time": "19:57"
-      },
-      {
-        "station": "田中",
-        "time": "20:03"
-      },
-      {
-        "station": "社頭",
-        "time": "20:08"
-      },
-      {
-        "station": "員林",
-        "time": "20:15"
       }
     ]
   },
@@ -37567,7 +34727,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "湖口",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "湖口",
@@ -37765,9 +34925,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "三姓橋",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -37892,110 +35052,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "09:31"
-      },
-      {
-        "station": "彰化",
-        "time": "05:00"
-      },
-      {
-        "station": "成功",
-        "time": "05:07"
-      },
-      {
-        "station": "新烏日",
-        "time": "05:11"
-      },
-      {
-        "station": "烏日",
-        "time": "05:13"
-      },
-      {
-        "station": "大慶",
-        "time": "05:16"
-      },
-      {
-        "station": "五權",
-        "time": "05:19"
-      },
-      {
-        "station": "台中",
-        "time": "05:23"
-      },
-      {
-        "station": "精武",
-        "time": "05:26"
-      },
-      {
-        "station": "太原",
-        "time": "05:29"
-      },
-      {
-        "station": "松竹",
-        "time": "05:32"
-      },
-      {
-        "station": "頭家厝",
-        "time": "05:34"
-      },
-      {
-        "station": "潭子",
-        "time": "05:38"
-      },
-      {
-        "station": "栗林",
-        "time": "05:41"
-      },
-      {
-        "station": "豐原",
-        "time": "05:45"
-      },
-      {
-        "station": "后里",
-        "time": "05:51"
-      },
-      {
-        "station": "泰安",
-        "time": "05:54"
-      },
-      {
-        "station": "三義",
-        "time": "06:01"
-      },
-      {
-        "station": "銅鑼",
-        "time": "06:08"
-      },
-      {
-        "station": "南勢",
-        "time": "06:12"
-      },
-      {
-        "station": "苗栗",
-        "time": "06:18"
-      },
-      {
-        "station": "豐富",
-        "time": "06:22"
-      },
-      {
-        "station": "造橋",
-        "time": "06:27"
-      },
-      {
-        "station": "竹南",
-        "time": "06:33"
-      },
-      {
-        "station": "崎頂",
-        "time": "06:37"
-      },
-      {
-        "station": "香山",
-        "time": "06:43"
-      },
-      {
-        "station": "三姓橋",
-        "time": "06:46"
       }
     ]
   },
@@ -38113,9 +35169,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "北湖",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -38140,138 +35196,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "北湖",
         "time": "08:15"
-      },
-      {
-        "station": "彰化",
-        "time": "05:51"
-      },
-      {
-        "station": "成功",
-        "time": "05:57"
-      },
-      {
-        "station": "新烏日",
-        "time": "06:01"
-      },
-      {
-        "station": "烏日",
-        "time": "06:03"
-      },
-      {
-        "station": "大慶",
-        "time": "06:07"
-      },
-      {
-        "station": "五權",
-        "time": "06:10"
-      },
-      {
-        "station": "台中",
-        "time": "06:14"
-      },
-      {
-        "station": "精武",
-        "time": "06:17"
-      },
-      {
-        "station": "太原",
-        "time": "06:20"
-      },
-      {
-        "station": "松竹",
-        "time": "06:23"
-      },
-      {
-        "station": "頭家厝",
-        "time": "06:25"
-      },
-      {
-        "station": "潭子",
-        "time": "06:29"
-      },
-      {
-        "station": "栗林",
-        "time": "06:32"
-      },
-      {
-        "station": "豐原",
-        "time": "06:36"
-      },
-      {
-        "station": "后里",
-        "time": "06:47"
-      },
-      {
-        "station": "泰安",
-        "time": "06:51"
-      },
-      {
-        "station": "三義",
-        "time": "06:58"
-      },
-      {
-        "station": "銅鑼",
-        "time": "07:05"
-      },
-      {
-        "station": "南勢",
-        "time": "07:09"
-      },
-      {
-        "station": "苗栗",
-        "time": "07:15"
-      },
-      {
-        "station": "豐富",
-        "time": "07:19"
-      },
-      {
-        "station": "造橋",
-        "time": "07:24"
-      },
-      {
-        "station": "竹南",
-        "time": "07:31"
-      },
-      {
-        "station": "崎頂",
-        "time": "07:35"
-      },
-      {
-        "station": "香山",
-        "time": "07:41"
-      },
-      {
-        "station": "三姓橋",
-        "time": "07:44"
-      },
-      {
-        "station": "二水",
-        "time": "05:12"
-      },
-      {
-        "station": "田中",
-        "time": "05:19"
-      },
-      {
-        "station": "社頭",
-        "time": "05:23"
-      },
-      {
-        "station": "永靖",
-        "time": "05:27"
-      },
-      {
-        "station": "員林",
-        "time": "05:32"
-      },
-      {
-        "station": "大村",
-        "time": "05:36"
-      },
-      {
-        "station": "花壇",
-        "time": "05:41"
       }
     ]
   },
@@ -38355,7 +35279,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "湖口",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "湖口",
@@ -38553,9 +35477,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "北湖",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -38580,174 +35504,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "北湖",
         "time": "08:45"
-      },
-      {
-        "station": "彰化",
-        "time": "06:24"
-      },
-      {
-        "station": "成功",
-        "time": "06:30"
-      },
-      {
-        "station": "新烏日",
-        "time": "06:34"
-      },
-      {
-        "station": "烏日",
-        "time": "06:36"
-      },
-      {
-        "station": "大慶",
-        "time": "06:40"
-      },
-      {
-        "station": "五權",
-        "time": "06:43"
-      },
-      {
-        "station": "台中",
-        "time": "06:48"
-      },
-      {
-        "station": "精武",
-        "time": "06:51"
-      },
-      {
-        "station": "太原",
-        "time": "06:54"
-      },
-      {
-        "station": "松竹",
-        "time": "06:57"
-      },
-      {
-        "station": "頭家厝",
-        "time": "06:59"
-      },
-      {
-        "station": "潭子",
-        "time": "07:03"
-      },
-      {
-        "station": "栗林",
-        "time": "07:06"
-      },
-      {
-        "station": "豐原",
-        "time": "07:10"
-      },
-      {
-        "station": "后里",
-        "time": "07:16"
-      },
-      {
-        "station": "泰安",
-        "time": "07:19"
-      },
-      {
-        "station": "三義",
-        "time": "07:27"
-      },
-      {
-        "station": "銅鑼",
-        "time": "07:33"
-      },
-      {
-        "station": "南勢",
-        "time": "07:37"
-      },
-      {
-        "station": "苗栗",
-        "time": "07:43"
-      },
-      {
-        "station": "豐富",
-        "time": "07:47"
-      },
-      {
-        "station": "造橋",
-        "time": "07:52"
-      },
-      {
-        "station": "竹南",
-        "time": "07:58"
-      },
-      {
-        "station": "崎頂",
-        "time": "08:02"
-      },
-      {
-        "station": "香山",
-        "time": "08:13"
-      },
-      {
-        "station": "三姓橋",
-        "time": "08:17"
-      },
-      {
-        "station": "嘉義",
-        "time": "04:53"
-      },
-      {
-        "station": "嘉北",
-        "time": "04:57"
-      },
-      {
-        "station": "民雄",
-        "time": "05:03"
-      },
-      {
-        "station": "大林",
-        "time": "05:08"
-      },
-      {
-        "station": "石龜",
-        "time": "05:12"
-      },
-      {
-        "station": "斗南",
-        "time": "05:17"
-      },
-      {
-        "station": "斗六",
-        "time": "05:24"
-      },
-      {
-        "station": "石榴",
-        "time": "05:28"
-      },
-      {
-        "station": "林內",
-        "time": "05:33"
-      },
-      {
-        "station": "二水",
-        "time": "05:40"
-      },
-      {
-        "station": "田中",
-        "time": "05:46"
-      },
-      {
-        "station": "社頭",
-        "time": "05:50"
-      },
-      {
-        "station": "永靖",
-        "time": "05:54"
-      },
-      {
-        "station": "員林",
-        "time": "06:04"
-      },
-      {
-        "station": "大村",
-        "time": "06:08"
-      },
-      {
-        "station": "花壇",
-        "time": "06:13"
       }
     ]
   },
@@ -38757,7 +35513,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "花壇",
+    "dest": "銅鑼",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -38832,70 +35588,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "銅鑼",
         "time": "07:51"
-      },
-      {
-        "station": "嘉義",
-        "time": "05:16"
-      },
-      {
-        "station": "嘉北",
-        "time": "05:20"
-      },
-      {
-        "station": "民雄",
-        "time": "05:26"
-      },
-      {
-        "station": "大林",
-        "time": "05:32"
-      },
-      {
-        "station": "石龜",
-        "time": "05:36"
-      },
-      {
-        "station": "斗南",
-        "time": "05:41"
-      },
-      {
-        "station": "斗六",
-        "time": "05:48"
-      },
-      {
-        "station": "石榴",
-        "time": "05:52"
-      },
-      {
-        "station": "林內",
-        "time": "05:57"
-      },
-      {
-        "station": "二水",
-        "time": "06:04"
-      },
-      {
-        "station": "田中",
-        "time": "06:10"
-      },
-      {
-        "station": "社頭",
-        "time": "06:14"
-      },
-      {
-        "station": "永靖",
-        "time": "06:18"
-      },
-      {
-        "station": "員林",
-        "time": "06:23"
-      },
-      {
-        "station": "大村",
-        "time": "06:27"
-      },
-      {
-        "station": "花壇",
-        "time": "06:32"
       }
     ]
   },
@@ -38975,7 +35667,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -39277,9 +35969,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -39404,174 +36096,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "11:40"
-      },
-      {
-        "station": "彰化",
-        "time": "06:59"
-      },
-      {
-        "station": "成功",
-        "time": "07:05"
-      },
-      {
-        "station": "新烏日",
-        "time": "07:18"
-      },
-      {
-        "station": "烏日",
-        "time": "07:20"
-      },
-      {
-        "station": "大慶",
-        "time": "07:24"
-      },
-      {
-        "station": "五權",
-        "time": "07:27"
-      },
-      {
-        "station": "台中",
-        "time": "07:33"
-      },
-      {
-        "station": "精武",
-        "time": "07:36"
-      },
-      {
-        "station": "太原",
-        "time": "07:39"
-      },
-      {
-        "station": "松竹",
-        "time": "07:42"
-      },
-      {
-        "station": "頭家厝",
-        "time": "07:44"
-      },
-      {
-        "station": "潭子",
-        "time": "07:53"
-      },
-      {
-        "station": "栗林",
-        "time": "07:57"
-      },
-      {
-        "station": "豐原",
-        "time": "08:01"
-      },
-      {
-        "station": "后里",
-        "time": "08:07"
-      },
-      {
-        "station": "泰安",
-        "time": "08:10"
-      },
-      {
-        "station": "三義",
-        "time": "08:17"
-      },
-      {
-        "station": "銅鑼",
-        "time": "08:24"
-      },
-      {
-        "station": "南勢",
-        "time": "08:28"
-      },
-      {
-        "station": "苗栗",
-        "time": "08:34"
-      },
-      {
-        "station": "豐富",
-        "time": "08:38"
-      },
-      {
-        "station": "造橋",
-        "time": "08:43"
-      },
-      {
-        "station": "竹南",
-        "time": "08:49"
-      },
-      {
-        "station": "崎頂",
-        "time": "08:53"
-      },
-      {
-        "station": "香山",
-        "time": "08:59"
-      },
-      {
-        "station": "三姓橋",
-        "time": "09:02"
-      },
-      {
-        "station": "嘉義",
-        "time": "05:34"
-      },
-      {
-        "station": "嘉北",
-        "time": "05:38"
-      },
-      {
-        "station": "民雄",
-        "time": "05:44"
-      },
-      {
-        "station": "大林",
-        "time": "05:49"
-      },
-      {
-        "station": "石龜",
-        "time": "05:54"
-      },
-      {
-        "station": "斗南",
-        "time": "05:58"
-      },
-      {
-        "station": "斗六",
-        "time": "06:05"
-      },
-      {
-        "station": "石榴",
-        "time": "06:09"
-      },
-      {
-        "station": "林內",
-        "time": "06:14"
-      },
-      {
-        "station": "二水",
-        "time": "06:21"
-      },
-      {
-        "station": "田中",
-        "time": "06:27"
-      },
-      {
-        "station": "社頭",
-        "time": "06:31"
-      },
-      {
-        "station": "永靖",
-        "time": "06:35"
-      },
-      {
-        "station": "員林",
-        "time": "06:40"
-      },
-      {
-        "station": "大村",
-        "time": "06:44"
-      },
-      {
-        "station": "花壇",
-        "time": "06:49"
       }
     ]
   },
@@ -39581,7 +36105,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "水上",
+    "dest": "三義",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -39652,86 +36176,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "三義",
         "time": "08:40"
-      },
-      {
-        "station": "嘉義",
-        "time": "05:58"
-      },
-      {
-        "station": "嘉北",
-        "time": "06:02"
-      },
-      {
-        "station": "民雄",
-        "time": "06:08"
-      },
-      {
-        "station": "大林",
-        "time": "06:14"
-      },
-      {
-        "station": "石龜",
-        "time": "06:18"
-      },
-      {
-        "station": "斗南",
-        "time": "06:23"
-      },
-      {
-        "station": "斗六",
-        "time": "06:30"
-      },
-      {
-        "station": "石榴",
-        "time": "06:34"
-      },
-      {
-        "station": "林內",
-        "time": "06:39"
-      },
-      {
-        "station": "二水",
-        "time": "06:47"
-      },
-      {
-        "station": "田中",
-        "time": "06:53"
-      },
-      {
-        "station": "社頭",
-        "time": "06:57"
-      },
-      {
-        "station": "永靖",
-        "time": "07:01"
-      },
-      {
-        "station": "員林",
-        "time": "07:06"
-      },
-      {
-        "station": "大村",
-        "time": "07:10"
-      },
-      {
-        "station": "花壇",
-        "time": "07:15"
-      },
-      {
-        "station": "新營",
-        "time": "05:27"
-      },
-      {
-        "station": "後壁",
-        "time": "05:33"
-      },
-      {
-        "station": "南靖",
-        "time": "05:39"
-      },
-      {
-        "station": "水上",
-        "time": "05:42"
       }
     ]
   },
@@ -39743,7 +36187,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "湖口",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "湖口",
@@ -39941,9 +36385,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "北湖",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -39968,174 +36412,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "北湖",
         "time": "10:39"
-      },
-      {
-        "station": "彰化",
-        "time": "08:12"
-      },
-      {
-        "station": "成功",
-        "time": "08:18"
-      },
-      {
-        "station": "新烏日",
-        "time": "08:28"
-      },
-      {
-        "station": "烏日",
-        "time": "08:30"
-      },
-      {
-        "station": "大慶",
-        "time": "08:34"
-      },
-      {
-        "station": "五權",
-        "time": "08:37"
-      },
-      {
-        "station": "台中",
-        "time": "08:42"
-      },
-      {
-        "station": "精武",
-        "time": "08:45"
-      },
-      {
-        "station": "太原",
-        "time": "08:48"
-      },
-      {
-        "station": "松竹",
-        "time": "08:51"
-      },
-      {
-        "station": "頭家厝",
-        "time": "08:53"
-      },
-      {
-        "station": "潭子",
-        "time": "08:57"
-      },
-      {
-        "station": "栗林",
-        "time": "09:00"
-      },
-      {
-        "station": "豐原",
-        "time": "09:04"
-      },
-      {
-        "station": "后里",
-        "time": "09:09"
-      },
-      {
-        "station": "泰安",
-        "time": "09:12"
-      },
-      {
-        "station": "三義",
-        "time": "09:27"
-      },
-      {
-        "station": "銅鑼",
-        "time": "09:34"
-      },
-      {
-        "station": "南勢",
-        "time": "09:38"
-      },
-      {
-        "station": "苗栗",
-        "time": "09:44"
-      },
-      {
-        "station": "豐富",
-        "time": "09:48"
-      },
-      {
-        "station": "造橋",
-        "time": "09:53"
-      },
-      {
-        "station": "竹南",
-        "time": "09:59"
-      },
-      {
-        "station": "崎頂",
-        "time": "10:03"
-      },
-      {
-        "station": "香山",
-        "time": "10:09"
-      },
-      {
-        "station": "三姓橋",
-        "time": "10:12"
-      },
-      {
-        "station": "嘉義",
-        "time": "06:44"
-      },
-      {
-        "station": "嘉北",
-        "time": "06:48"
-      },
-      {
-        "station": "民雄",
-        "time": "06:54"
-      },
-      {
-        "station": "大林",
-        "time": "07:00"
-      },
-      {
-        "station": "石龜",
-        "time": "07:04"
-      },
-      {
-        "station": "斗南",
-        "time": "07:09"
-      },
-      {
-        "station": "斗六",
-        "time": "07:17"
-      },
-      {
-        "station": "石榴",
-        "time": "07:21"
-      },
-      {
-        "station": "林內",
-        "time": "07:26"
-      },
-      {
-        "station": "二水",
-        "time": "07:33"
-      },
-      {
-        "station": "田中",
-        "time": "07:40"
-      },
-      {
-        "station": "社頭",
-        "time": "07:44"
-      },
-      {
-        "station": "永靖",
-        "time": "07:48"
-      },
-      {
-        "station": "員林",
-        "time": "07:53"
-      },
-      {
-        "station": "大村",
-        "time": "07:57"
-      },
-      {
-        "station": "花壇",
-        "time": "08:02"
       }
     ]
   },
@@ -40187,7 +36463,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -40489,9 +36765,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -40616,174 +36892,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "13:37"
-      },
-      {
-        "station": "彰化",
-        "time": "09:20"
-      },
-      {
-        "station": "成功",
-        "time": "09:26"
-      },
-      {
-        "station": "新烏日",
-        "time": "09:30"
-      },
-      {
-        "station": "烏日",
-        "time": "09:32"
-      },
-      {
-        "station": "大慶",
-        "time": "09:36"
-      },
-      {
-        "station": "五權",
-        "time": "09:39"
-      },
-      {
-        "station": "台中",
-        "time": "09:43"
-      },
-      {
-        "station": "精武",
-        "time": "09:46"
-      },
-      {
-        "station": "太原",
-        "time": "09:49"
-      },
-      {
-        "station": "松竹",
-        "time": "09:52"
-      },
-      {
-        "station": "頭家厝",
-        "time": "09:54"
-      },
-      {
-        "station": "潭子",
-        "time": "09:58"
-      },
-      {
-        "station": "栗林",
-        "time": "10:01"
-      },
-      {
-        "station": "豐原",
-        "time": "10:05"
-      },
-      {
-        "station": "后里",
-        "time": "10:11"
-      },
-      {
-        "station": "泰安",
-        "time": "10:14"
-      },
-      {
-        "station": "三義",
-        "time": "10:21"
-      },
-      {
-        "station": "銅鑼",
-        "time": "10:34"
-      },
-      {
-        "station": "南勢",
-        "time": "10:39"
-      },
-      {
-        "station": "苗栗",
-        "time": "10:45"
-      },
-      {
-        "station": "豐富",
-        "time": "10:49"
-      },
-      {
-        "station": "造橋",
-        "time": "10:54"
-      },
-      {
-        "station": "竹南",
-        "time": "11:00"
-      },
-      {
-        "station": "崎頂",
-        "time": "11:04"
-      },
-      {
-        "station": "香山",
-        "time": "11:10"
-      },
-      {
-        "station": "三姓橋",
-        "time": "11:13"
-      },
-      {
-        "station": "嘉義",
-        "time": "07:40"
-      },
-      {
-        "station": "嘉北",
-        "time": "07:44"
-      },
-      {
-        "station": "民雄",
-        "time": "07:50"
-      },
-      {
-        "station": "大林",
-        "time": "07:56"
-      },
-      {
-        "station": "石龜",
-        "time": "08:00"
-      },
-      {
-        "station": "斗南",
-        "time": "08:05"
-      },
-      {
-        "station": "斗六",
-        "time": "08:18"
-      },
-      {
-        "station": "石榴",
-        "time": "08:23"
-      },
-      {
-        "station": "林內",
-        "time": "08:28"
-      },
-      {
-        "station": "二水",
-        "time": "08:34"
-      },
-      {
-        "station": "田中",
-        "time": "08:40"
-      },
-      {
-        "station": "社頭",
-        "time": "08:45"
-      },
-      {
-        "station": "永靖",
-        "time": "08:49"
-      },
-      {
-        "station": "員林",
-        "time": "09:00"
-      },
-      {
-        "station": "大村",
-        "time": "09:05"
-      },
-      {
-        "station": "花壇",
-        "time": "09:10"
       }
     ]
   },
@@ -40863,7 +36971,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "湖口",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "湖口",
@@ -41131,7 +37239,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -41433,9 +37541,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "花壇",
+    "dest": "瑞芳",
     "line": "宜蘭線",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "八堵",
@@ -41452,290 +37560,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "瑞芳",
         "time": "15:56"
-      },
-      {
-        "station": "新竹",
-        "time": "13:24"
-      },
-      {
-        "station": "北新竹",
-        "time": "13:27"
-      },
-      {
-        "station": "竹北",
-        "time": "13:31"
-      },
-      {
-        "station": "新豐",
-        "time": "13:36"
-      },
-      {
-        "station": "湖口",
-        "time": "13:42"
-      },
-      {
-        "station": "北湖",
-        "time": "13:45"
-      },
-      {
-        "station": "新富",
-        "time": "13:48"
-      },
-      {
-        "station": "富岡",
-        "time": "13:50"
-      },
-      {
-        "station": "楊梅",
-        "time": "13:57"
-      },
-      {
-        "station": "埔心",
-        "time": "14:01"
-      },
-      {
-        "station": "中壢",
-        "time": "14:10"
-      },
-      {
-        "station": "內壢",
-        "time": "14:14"
-      },
-      {
-        "station": "桃園",
-        "time": "14:22"
-      },
-      {
-        "station": "鶯歌",
-        "time": "14:27"
-      },
-      {
-        "station": "山佳",
-        "time": "14:33"
-      },
-      {
-        "station": "南樹林",
-        "time": "14:43"
-      },
-      {
-        "station": "樹林",
-        "time": "14:46"
-      },
-      {
-        "station": "浮洲",
-        "time": "14:50"
-      },
-      {
-        "station": "板橋",
-        "time": "14:54"
-      },
-      {
-        "station": "萬華",
-        "time": "14:58"
-      },
-      {
-        "station": "台北",
-        "time": "15:03"
-      },
-      {
-        "station": "松山",
-        "time": "15:10"
-      },
-      {
-        "station": "南港",
-        "time": "15:17"
-      },
-      {
-        "station": "汐科",
-        "time": "15:20"
-      },
-      {
-        "station": "汐止",
-        "time": "15:26"
-      },
-      {
-        "station": "五堵",
-        "time": "15:29"
-      },
-      {
-        "station": "百福",
-        "time": "15:31"
-      },
-      {
-        "station": "七堵",
-        "time": "15:35"
-      },
-      {
-        "station": "三坑",
-        "time": "15:44"
-      },
-      {
-        "station": "彰化",
-        "time": "11:21"
-      },
-      {
-        "station": "成功",
-        "time": "11:27"
-      },
-      {
-        "station": "新烏日",
-        "time": "11:31"
-      },
-      {
-        "station": "烏日",
-        "time": "11:33"
-      },
-      {
-        "station": "大慶",
-        "time": "11:37"
-      },
-      {
-        "station": "五權",
-        "time": "11:40"
-      },
-      {
-        "station": "台中",
-        "time": "11:44"
-      },
-      {
-        "station": "精武",
-        "time": "11:47"
-      },
-      {
-        "station": "太原",
-        "time": "11:55"
-      },
-      {
-        "station": "松竹",
-        "time": "11:58"
-      },
-      {
-        "station": "頭家厝",
-        "time": "12:00"
-      },
-      {
-        "station": "潭子",
-        "time": "12:04"
-      },
-      {
-        "station": "栗林",
-        "time": "12:07"
-      },
-      {
-        "station": "豐原",
-        "time": "12:11"
-      },
-      {
-        "station": "后里",
-        "time": "12:16"
-      },
-      {
-        "station": "泰安",
-        "time": "12:19"
-      },
-      {
-        "station": "三義",
-        "time": "12:33"
-      },
-      {
-        "station": "銅鑼",
-        "time": "12:40"
-      },
-      {
-        "station": "南勢",
-        "time": "12:44"
-      },
-      {
-        "station": "苗栗",
-        "time": "12:50"
-      },
-      {
-        "station": "豐富",
-        "time": "12:54"
-      },
-      {
-        "station": "造橋",
-        "time": "12:59"
-      },
-      {
-        "station": "竹南",
-        "time": "13:04"
-      },
-      {
-        "station": "崎頂",
-        "time": "13:09"
-      },
-      {
-        "station": "香山",
-        "time": "13:14"
-      },
-      {
-        "station": "三姓橋",
-        "time": "13:18"
-      },
-      {
-        "station": "嘉義",
-        "time": "09:49"
-      },
-      {
-        "station": "嘉北",
-        "time": "09:53"
-      },
-      {
-        "station": "民雄",
-        "time": "09:59"
-      },
-      {
-        "station": "大林",
-        "time": "10:05"
-      },
-      {
-        "station": "石龜",
-        "time": "10:09"
-      },
-      {
-        "station": "斗南",
-        "time": "10:14"
-      },
-      {
-        "station": "斗六",
-        "time": "10:21"
-      },
-      {
-        "station": "石榴",
-        "time": "10:25"
-      },
-      {
-        "station": "林內",
-        "time": "10:30"
-      },
-      {
-        "station": "二水",
-        "time": "10:37"
-      },
-      {
-        "station": "田中",
-        "time": "10:43"
-      },
-      {
-        "station": "社頭",
-        "time": "10:52"
-      },
-      {
-        "station": "永靖",
-        "time": "10:57"
-      },
-      {
-        "station": "員林",
-        "time": "11:02"
-      },
-      {
-        "station": "大村",
-        "time": "11:06"
-      },
-      {
-        "station": "花壇",
-        "time": "11:11"
       }
     ]
   },
@@ -41747,7 +37571,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "湖口",
     "dest": "斗南",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "湖口",
@@ -41925,9 +37749,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "北湖",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -41952,174 +37776,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "北湖",
         "time": "14:45"
-      },
-      {
-        "station": "彰化",
-        "time": "12:17"
-      },
-      {
-        "station": "成功",
-        "time": "12:23"
-      },
-      {
-        "station": "新烏日",
-        "time": "12:27"
-      },
-      {
-        "station": "烏日",
-        "time": "12:29"
-      },
-      {
-        "station": "大慶",
-        "time": "12:33"
-      },
-      {
-        "station": "五權",
-        "time": "12:36"
-      },
-      {
-        "station": "台中",
-        "time": "12:41"
-      },
-      {
-        "station": "精武",
-        "time": "12:44"
-      },
-      {
-        "station": "太原",
-        "time": "12:52"
-      },
-      {
-        "station": "松竹",
-        "time": "12:55"
-      },
-      {
-        "station": "頭家厝",
-        "time": "12:57"
-      },
-      {
-        "station": "潭子",
-        "time": "13:01"
-      },
-      {
-        "station": "栗林",
-        "time": "13:04"
-      },
-      {
-        "station": "豐原",
-        "time": "13:08"
-      },
-      {
-        "station": "后里",
-        "time": "13:14"
-      },
-      {
-        "station": "泰安",
-        "time": "13:17"
-      },
-      {
-        "station": "三義",
-        "time": "13:24"
-      },
-      {
-        "station": "銅鑼",
-        "time": "13:31"
-      },
-      {
-        "station": "南勢",
-        "time": "13:35"
-      },
-      {
-        "station": "苗栗",
-        "time": "13:41"
-      },
-      {
-        "station": "豐富",
-        "time": "13:45"
-      },
-      {
-        "station": "造橋",
-        "time": "13:50"
-      },
-      {
-        "station": "竹南",
-        "time": "14:02"
-      },
-      {
-        "station": "崎頂",
-        "time": "14:06"
-      },
-      {
-        "station": "香山",
-        "time": "14:12"
-      },
-      {
-        "station": "三姓橋",
-        "time": "14:15"
-      },
-      {
-        "station": "嘉義",
-        "time": "10:45"
-      },
-      {
-        "station": "嘉北",
-        "time": "10:49"
-      },
-      {
-        "station": "民雄",
-        "time": "10:55"
-      },
-      {
-        "station": "大林",
-        "time": "11:01"
-      },
-      {
-        "station": "石龜",
-        "time": "11:05"
-      },
-      {
-        "station": "斗南",
-        "time": "11:09"
-      },
-      {
-        "station": "斗六",
-        "time": "11:22"
-      },
-      {
-        "station": "石榴",
-        "time": "11:27"
-      },
-      {
-        "station": "林內",
-        "time": "11:32"
-      },
-      {
-        "station": "二水",
-        "time": "11:39"
-      },
-      {
-        "station": "田中",
-        "time": "11:45"
-      },
-      {
-        "station": "社頭",
-        "time": "11:49"
-      },
-      {
-        "station": "永靖",
-        "time": "11:53"
-      },
-      {
-        "station": "員林",
-        "time": "11:58"
-      },
-      {
-        "station": "大村",
-        "time": "12:02"
-      },
-      {
-        "station": "花壇",
-        "time": "12:07"
       }
     ]
   },
@@ -42267,7 +37923,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -42569,9 +38225,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -42696,174 +38352,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "17:42"
-      },
-      {
-        "station": "彰化",
-        "time": "13:10"
-      },
-      {
-        "station": "成功",
-        "time": "13:16"
-      },
-      {
-        "station": "新烏日",
-        "time": "13:20"
-      },
-      {
-        "station": "烏日",
-        "time": "13:22"
-      },
-      {
-        "station": "大慶",
-        "time": "13:26"
-      },
-      {
-        "station": "五權",
-        "time": "13:29"
-      },
-      {
-        "station": "台中",
-        "time": "13:33"
-      },
-      {
-        "station": "精武",
-        "time": "13:36"
-      },
-      {
-        "station": "太原",
-        "time": "13:39"
-      },
-      {
-        "station": "松竹",
-        "time": "13:41"
-      },
-      {
-        "station": "頭家厝",
-        "time": "13:44"
-      },
-      {
-        "station": "潭子",
-        "time": "13:51"
-      },
-      {
-        "station": "栗林",
-        "time": "13:55"
-      },
-      {
-        "station": "豐原",
-        "time": "13:59"
-      },
-      {
-        "station": "后里",
-        "time": "14:05"
-      },
-      {
-        "station": "泰安",
-        "time": "14:08"
-      },
-      {
-        "station": "三義",
-        "time": "14:16"
-      },
-      {
-        "station": "銅鑼",
-        "time": "14:22"
-      },
-      {
-        "station": "南勢",
-        "time": "14:26"
-      },
-      {
-        "station": "苗栗",
-        "time": "14:32"
-      },
-      {
-        "station": "豐富",
-        "time": "14:36"
-      },
-      {
-        "station": "造橋",
-        "time": "14:41"
-      },
-      {
-        "station": "竹南",
-        "time": "14:47"
-      },
-      {
-        "station": "崎頂",
-        "time": "14:51"
-      },
-      {
-        "station": "香山",
-        "time": "14:57"
-      },
-      {
-        "station": "三姓橋",
-        "time": "15:00"
-      },
-      {
-        "station": "嘉義",
-        "time": "11:38"
-      },
-      {
-        "station": "嘉北",
-        "time": "11:42"
-      },
-      {
-        "station": "民雄",
-        "time": "11:49"
-      },
-      {
-        "station": "大林",
-        "time": "12:00"
-      },
-      {
-        "station": "石龜",
-        "time": "12:05"
-      },
-      {
-        "station": "斗南",
-        "time": "12:10"
-      },
-      {
-        "station": "斗六",
-        "time": "12:17"
-      },
-      {
-        "station": "石榴",
-        "time": "12:21"
-      },
-      {
-        "station": "林內",
-        "time": "12:26"
-      },
-      {
-        "station": "二水",
-        "time": "12:32"
-      },
-      {
-        "station": "田中",
-        "time": "12:38"
-      },
-      {
-        "station": "社頭",
-        "time": "12:42"
-      },
-      {
-        "station": "永靖",
-        "time": "12:46"
-      },
-      {
-        "station": "員林",
-        "time": "12:51"
-      },
-      {
-        "station": "大村",
-        "time": "12:55"
-      },
-      {
-        "station": "花壇",
-        "time": "13:00"
       }
     ]
   },
@@ -42875,7 +38363,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "湖口",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "湖口",
@@ -43073,9 +38561,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "北湖",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -43100,174 +38588,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "北湖",
         "time": "16:41"
-      },
-      {
-        "station": "彰化",
-        "time": "14:13"
-      },
-      {
-        "station": "成功",
-        "time": "14:20"
-      },
-      {
-        "station": "新烏日",
-        "time": "14:29"
-      },
-      {
-        "station": "烏日",
-        "time": "14:31"
-      },
-      {
-        "station": "大慶",
-        "time": "14:35"
-      },
-      {
-        "station": "五權",
-        "time": "14:38"
-      },
-      {
-        "station": "台中",
-        "time": "14:43"
-      },
-      {
-        "station": "精武",
-        "time": "14:46"
-      },
-      {
-        "station": "太原",
-        "time": "14:54"
-      },
-      {
-        "station": "松竹",
-        "time": "14:57"
-      },
-      {
-        "station": "頭家厝",
-        "time": "14:59"
-      },
-      {
-        "station": "潭子",
-        "time": "15:03"
-      },
-      {
-        "station": "栗林",
-        "time": "15:06"
-      },
-      {
-        "station": "豐原",
-        "time": "15:10"
-      },
-      {
-        "station": "后里",
-        "time": "15:16"
-      },
-      {
-        "station": "泰安",
-        "time": "15:19"
-      },
-      {
-        "station": "三義",
-        "time": "15:26"
-      },
-      {
-        "station": "銅鑼",
-        "time": "15:33"
-      },
-      {
-        "station": "南勢",
-        "time": "15:37"
-      },
-      {
-        "station": "苗栗",
-        "time": "15:43"
-      },
-      {
-        "station": "豐富",
-        "time": "15:47"
-      },
-      {
-        "station": "造橋",
-        "time": "15:52"
-      },
-      {
-        "station": "竹南",
-        "time": "15:57"
-      },
-      {
-        "station": "崎頂",
-        "time": "16:01"
-      },
-      {
-        "station": "香山",
-        "time": "16:07"
-      },
-      {
-        "station": "三姓橋",
-        "time": "16:10"
-      },
-      {
-        "station": "嘉義",
-        "time": "12:39"
-      },
-      {
-        "station": "嘉北",
-        "time": "12:43"
-      },
-      {
-        "station": "民雄",
-        "time": "12:49"
-      },
-      {
-        "station": "大林",
-        "time": "12:55"
-      },
-      {
-        "station": "石龜",
-        "time": "12:59"
-      },
-      {
-        "station": "斗南",
-        "time": "13:04"
-      },
-      {
-        "station": "斗六",
-        "time": "13:11"
-      },
-      {
-        "station": "石榴",
-        "time": "13:15"
-      },
-      {
-        "station": "林內",
-        "time": "13:20"
-      },
-      {
-        "station": "二水",
-        "time": "13:27"
-      },
-      {
-        "station": "田中",
-        "time": "13:33"
-      },
-      {
-        "station": "社頭",
-        "time": "13:37"
-      },
-      {
-        "station": "永靖",
-        "time": "13:41"
-      },
-      {
-        "station": "員林",
-        "time": "13:47"
-      },
-      {
-        "station": "大村",
-        "time": "13:51"
-      },
-      {
-        "station": "花壇",
-        "time": "14:02"
       }
     ]
   },
@@ -43279,7 +38599,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -43581,9 +38901,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -43708,174 +39028,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "19:49"
-      },
-      {
-        "station": "彰化",
-        "time": "15:06"
-      },
-      {
-        "station": "成功",
-        "time": "15:12"
-      },
-      {
-        "station": "新烏日",
-        "time": "15:20"
-      },
-      {
-        "station": "烏日",
-        "time": "15:23"
-      },
-      {
-        "station": "大慶",
-        "time": "15:26"
-      },
-      {
-        "station": "五權",
-        "time": "15:29"
-      },
-      {
-        "station": "台中",
-        "time": "15:34"
-      },
-      {
-        "station": "精武",
-        "time": "15:37"
-      },
-      {
-        "station": "太原",
-        "time": "15:40"
-      },
-      {
-        "station": "松竹",
-        "time": "15:43"
-      },
-      {
-        "station": "頭家厝",
-        "time": "15:45"
-      },
-      {
-        "station": "潭子",
-        "time": "15:49"
-      },
-      {
-        "station": "栗林",
-        "time": "15:52"
-      },
-      {
-        "station": "豐原",
-        "time": "15:56"
-      },
-      {
-        "station": "后里",
-        "time": "16:02"
-      },
-      {
-        "station": "泰安",
-        "time": "16:05"
-      },
-      {
-        "station": "三義",
-        "time": "16:19"
-      },
-      {
-        "station": "銅鑼",
-        "time": "16:26"
-      },
-      {
-        "station": "南勢",
-        "time": "16:30"
-      },
-      {
-        "station": "苗栗",
-        "time": "16:36"
-      },
-      {
-        "station": "豐富",
-        "time": "16:40"
-      },
-      {
-        "station": "造橋",
-        "time": "16:45"
-      },
-      {
-        "station": "竹南",
-        "time": "16:56"
-      },
-      {
-        "station": "崎頂",
-        "time": "17:00"
-      },
-      {
-        "station": "香山",
-        "time": "17:12"
-      },
-      {
-        "station": "三姓橋",
-        "time": "17:16"
-      },
-      {
-        "station": "嘉義",
-        "time": "13:39"
-      },
-      {
-        "station": "嘉北",
-        "time": "13:43"
-      },
-      {
-        "station": "民雄",
-        "time": "13:49"
-      },
-      {
-        "station": "大林",
-        "time": "13:54"
-      },
-      {
-        "station": "石龜",
-        "time": "13:58"
-      },
-      {
-        "station": "斗南",
-        "time": "14:03"
-      },
-      {
-        "station": "斗六",
-        "time": "14:10"
-      },
-      {
-        "station": "石榴",
-        "time": "14:14"
-      },
-      {
-        "station": "林內",
-        "time": "14:19"
-      },
-      {
-        "station": "二水",
-        "time": "14:26"
-      },
-      {
-        "station": "田中",
-        "time": "14:32"
-      },
-      {
-        "station": "社頭",
-        "time": "14:36"
-      },
-      {
-        "station": "永靖",
-        "time": "14:40"
-      },
-      {
-        "station": "員林",
-        "time": "14:46"
-      },
-      {
-        "station": "大村",
-        "time": "14:50"
-      },
-      {
-        "station": "花壇",
-        "time": "14:55"
       }
     ]
   },
@@ -43887,7 +39039,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "湖口",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "湖口",
@@ -44085,9 +39237,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "北湖",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -44112,174 +39264,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "北湖",
         "time": "18:49"
-      },
-      {
-        "station": "彰化",
-        "time": "16:02"
-      },
-      {
-        "station": "成功",
-        "time": "16:08"
-      },
-      {
-        "station": "新烏日",
-        "time": "16:20"
-      },
-      {
-        "station": "烏日",
-        "time": "16:22"
-      },
-      {
-        "station": "大慶",
-        "time": "16:26"
-      },
-      {
-        "station": "五權",
-        "time": "16:29"
-      },
-      {
-        "station": "台中",
-        "time": "16:34"
-      },
-      {
-        "station": "精武",
-        "time": "16:37"
-      },
-      {
-        "station": "太原",
-        "time": "16:40"
-      },
-      {
-        "station": "松竹",
-        "time": "16:43"
-      },
-      {
-        "station": "頭家厝",
-        "time": "16:45"
-      },
-      {
-        "station": "潭子",
-        "time": "16:49"
-      },
-      {
-        "station": "栗林",
-        "time": "16:52"
-      },
-      {
-        "station": "豐原",
-        "time": "16:56"
-      },
-      {
-        "station": "后里",
-        "time": "17:02"
-      },
-      {
-        "station": "泰安",
-        "time": "17:05"
-      },
-      {
-        "station": "三義",
-        "time": "17:12"
-      },
-      {
-        "station": "銅鑼",
-        "time": "17:19"
-      },
-      {
-        "station": "南勢",
-        "time": "17:23"
-      },
-      {
-        "station": "苗栗",
-        "time": "17:37"
-      },
-      {
-        "station": "豐富",
-        "time": "17:41"
-      },
-      {
-        "station": "造橋",
-        "time": "17:46"
-      },
-      {
-        "station": "竹南",
-        "time": "17:58"
-      },
-      {
-        "station": "崎頂",
-        "time": "18:02"
-      },
-      {
-        "station": "香山",
-        "time": "18:08"
-      },
-      {
-        "station": "三姓橋",
-        "time": "18:11"
-      },
-      {
-        "station": "嘉義",
-        "time": "14:27"
-      },
-      {
-        "station": "嘉北",
-        "time": "14:31"
-      },
-      {
-        "station": "民雄",
-        "time": "14:37"
-      },
-      {
-        "station": "大林",
-        "time": "14:43"
-      },
-      {
-        "station": "石龜",
-        "time": "14:47"
-      },
-      {
-        "station": "斗南",
-        "time": "14:52"
-      },
-      {
-        "station": "斗六",
-        "time": "14:59"
-      },
-      {
-        "station": "石榴",
-        "time": "15:03"
-      },
-      {
-        "station": "林內",
-        "time": "15:08"
-      },
-      {
-        "station": "二水",
-        "time": "15:15"
-      },
-      {
-        "station": "田中",
-        "time": "15:26"
-      },
-      {
-        "station": "社頭",
-        "time": "15:31"
-      },
-      {
-        "station": "永靖",
-        "time": "15:35"
-      },
-      {
-        "station": "員林",
-        "time": "15:41"
-      },
-      {
-        "station": "大村",
-        "time": "15:45"
-      },
-      {
-        "station": "花壇",
-        "time": "15:50"
       }
     ]
   },
@@ -44331,7 +39315,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -44633,9 +39617,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -44760,174 +39744,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "22:03"
-      },
-      {
-        "station": "彰化",
-        "time": "16:53"
-      },
-      {
-        "station": "成功",
-        "time": "17:07"
-      },
-      {
-        "station": "新烏日",
-        "time": "17:15"
-      },
-      {
-        "station": "烏日",
-        "time": "17:18"
-      },
-      {
-        "station": "大慶",
-        "time": "17:21"
-      },
-      {
-        "station": "五權",
-        "time": "17:24"
-      },
-      {
-        "station": "台中",
-        "time": "17:29"
-      },
-      {
-        "station": "精武",
-        "time": "17:32"
-      },
-      {
-        "station": "太原",
-        "time": "17:35"
-      },
-      {
-        "station": "松竹",
-        "time": "17:38"
-      },
-      {
-        "station": "頭家厝",
-        "time": "17:40"
-      },
-      {
-        "station": "潭子",
-        "time": "17:44"
-      },
-      {
-        "station": "栗林",
-        "time": "17:47"
-      },
-      {
-        "station": "豐原",
-        "time": "17:52"
-      },
-      {
-        "station": "后里",
-        "time": "17:58"
-      },
-      {
-        "station": "泰安",
-        "time": "18:01"
-      },
-      {
-        "station": "三義",
-        "time": "18:08"
-      },
-      {
-        "station": "銅鑼",
-        "time": "18:15"
-      },
-      {
-        "station": "南勢",
-        "time": "18:19"
-      },
-      {
-        "station": "苗栗",
-        "time": "18:27"
-      },
-      {
-        "station": "豐富",
-        "time": "18:31"
-      },
-      {
-        "station": "造橋",
-        "time": "18:36"
-      },
-      {
-        "station": "竹南",
-        "time": "18:48"
-      },
-      {
-        "station": "崎頂",
-        "time": "18:52"
-      },
-      {
-        "station": "香山",
-        "time": "19:14"
-      },
-      {
-        "station": "三姓橋",
-        "time": "19:20"
-      },
-      {
-        "station": "嘉義",
-        "time": "15:24"
-      },
-      {
-        "station": "嘉北",
-        "time": "15:28"
-      },
-      {
-        "station": "民雄",
-        "time": "15:34"
-      },
-      {
-        "station": "大林",
-        "time": "15:40"
-      },
-      {
-        "station": "石龜",
-        "time": "15:44"
-      },
-      {
-        "station": "斗南",
-        "time": "15:49"
-      },
-      {
-        "station": "斗六",
-        "time": "15:57"
-      },
-      {
-        "station": "石榴",
-        "time": "16:01"
-      },
-      {
-        "station": "林內",
-        "time": "16:06"
-      },
-      {
-        "station": "二水",
-        "time": "16:13"
-      },
-      {
-        "station": "田中",
-        "time": "16:20"
-      },
-      {
-        "station": "社頭",
-        "time": "16:24"
-      },
-      {
-        "station": "永靖",
-        "time": "16:28"
-      },
-      {
-        "station": "員林",
-        "time": "16:33"
-      },
-      {
-        "station": "大村",
-        "time": "16:37"
-      },
-      {
-        "station": "花壇",
-        "time": "16:42"
       }
     ]
   },
@@ -44979,7 +39795,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "湖口",
     "dest": "新烏日",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "湖口",
@@ -45107,7 +39923,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "湖口",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "湖口",
@@ -45305,9 +40121,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "北湖",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -45332,174 +40148,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "北湖",
         "time": "20:57"
-      },
-      {
-        "station": "彰化",
-        "time": "18:11"
-      },
-      {
-        "station": "成功",
-        "time": "18:17"
-      },
-      {
-        "station": "新烏日",
-        "time": "18:21"
-      },
-      {
-        "station": "烏日",
-        "time": "18:23"
-      },
-      {
-        "station": "大慶",
-        "time": "18:27"
-      },
-      {
-        "station": "五權",
-        "time": "18:30"
-      },
-      {
-        "station": "台中",
-        "time": "18:36"
-      },
-      {
-        "station": "精武",
-        "time": "18:39"
-      },
-      {
-        "station": "太原",
-        "time": "18:42"
-      },
-      {
-        "station": "松竹",
-        "time": "18:45"
-      },
-      {
-        "station": "頭家厝",
-        "time": "18:47"
-      },
-      {
-        "station": "潭子",
-        "time": "18:51"
-      },
-      {
-        "station": "栗林",
-        "time": "18:54"
-      },
-      {
-        "station": "豐原",
-        "time": "19:07"
-      },
-      {
-        "station": "后里",
-        "time": "19:15"
-      },
-      {
-        "station": "泰安",
-        "time": "19:18"
-      },
-      {
-        "station": "三義",
-        "time": "19:25"
-      },
-      {
-        "station": "銅鑼",
-        "time": "19:32"
-      },
-      {
-        "station": "南勢",
-        "time": "19:36"
-      },
-      {
-        "station": "苗栗",
-        "time": "19:42"
-      },
-      {
-        "station": "豐富",
-        "time": "19:46"
-      },
-      {
-        "station": "造橋",
-        "time": "19:51"
-      },
-      {
-        "station": "竹南",
-        "time": "19:57"
-      },
-      {
-        "station": "崎頂",
-        "time": "20:01"
-      },
-      {
-        "station": "香山",
-        "time": "20:13"
-      },
-      {
-        "station": "三姓橋",
-        "time": "20:17"
-      },
-      {
-        "station": "嘉義",
-        "time": "16:29"
-      },
-      {
-        "station": "嘉北",
-        "time": "16:33"
-      },
-      {
-        "station": "民雄",
-        "time": "16:39"
-      },
-      {
-        "station": "大林",
-        "time": "16:45"
-      },
-      {
-        "station": "石龜",
-        "time": "16:49"
-      },
-      {
-        "station": "斗南",
-        "time": "16:54"
-      },
-      {
-        "station": "斗六",
-        "time": "17:02"
-      },
-      {
-        "station": "石榴",
-        "time": "17:07"
-      },
-      {
-        "station": "林內",
-        "time": "17:12"
-      },
-      {
-        "station": "二水",
-        "time": "17:19"
-      },
-      {
-        "station": "田中",
-        "time": "17:36"
-      },
-      {
-        "station": "社頭",
-        "time": "17:41"
-      },
-      {
-        "station": "永靖",
-        "time": "17:45"
-      },
-      {
-        "station": "員林",
-        "time": "17:51"
-      },
-      {
-        "station": "大村",
-        "time": "17:55"
-      },
-      {
-        "station": "花壇",
-        "time": "18:00"
       }
     ]
   },
@@ -45551,7 +40199,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -45853,9 +40501,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "基隆",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -45980,174 +40628,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "基隆",
         "time": "23:49"
-      },
-      {
-        "station": "彰化",
-        "time": "19:21"
-      },
-      {
-        "station": "成功",
-        "time": "19:27"
-      },
-      {
-        "station": "新烏日",
-        "time": "19:37"
-      },
-      {
-        "station": "烏日",
-        "time": "19:39"
-      },
-      {
-        "station": "大慶",
-        "time": "19:43"
-      },
-      {
-        "station": "五權",
-        "time": "19:46"
-      },
-      {
-        "station": "台中",
-        "time": "19:51"
-      },
-      {
-        "station": "精武",
-        "time": "19:54"
-      },
-      {
-        "station": "太原",
-        "time": "19:57"
-      },
-      {
-        "station": "松竹",
-        "time": "19:59"
-      },
-      {
-        "station": "頭家厝",
-        "time": "20:02"
-      },
-      {
-        "station": "潭子",
-        "time": "20:05"
-      },
-      {
-        "station": "栗林",
-        "time": "20:08"
-      },
-      {
-        "station": "豐原",
-        "time": "20:12"
-      },
-      {
-        "station": "后里",
-        "time": "20:18"
-      },
-      {
-        "station": "泰安",
-        "time": "20:21"
-      },
-      {
-        "station": "三義",
-        "time": "20:28"
-      },
-      {
-        "station": "銅鑼",
-        "time": "20:35"
-      },
-      {
-        "station": "南勢",
-        "time": "20:39"
-      },
-      {
-        "station": "苗栗",
-        "time": "20:45"
-      },
-      {
-        "station": "豐富",
-        "time": "20:49"
-      },
-      {
-        "station": "造橋",
-        "time": "20:54"
-      },
-      {
-        "station": "竹南",
-        "time": "21:06"
-      },
-      {
-        "station": "崎頂",
-        "time": "21:10"
-      },
-      {
-        "station": "香山",
-        "time": "21:16"
-      },
-      {
-        "station": "三姓橋",
-        "time": "21:19"
-      },
-      {
-        "station": "嘉義",
-        "time": "17:48"
-      },
-      {
-        "station": "嘉北",
-        "time": "17:52"
-      },
-      {
-        "station": "民雄",
-        "time": "17:58"
-      },
-      {
-        "station": "大林",
-        "time": "18:09"
-      },
-      {
-        "station": "石龜",
-        "time": "18:14"
-      },
-      {
-        "station": "斗南",
-        "time": "18:19"
-      },
-      {
-        "station": "斗六",
-        "time": "18:26"
-      },
-      {
-        "station": "石榴",
-        "time": "18:30"
-      },
-      {
-        "station": "林內",
-        "time": "18:35"
-      },
-      {
-        "station": "二水",
-        "time": "18:42"
-      },
-      {
-        "station": "田中",
-        "time": "18:48"
-      },
-      {
-        "station": "社頭",
-        "time": "18:52"
-      },
-      {
-        "station": "永靖",
-        "time": "18:56"
-      },
-      {
-        "station": "員林",
-        "time": "19:01"
-      },
-      {
-        "station": "大村",
-        "time": "19:05"
-      },
-      {
-        "station": "花壇",
-        "time": "19:10"
       }
     ]
   },
@@ -46295,7 +40775,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "湖口",
     "dest": "嘉義",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "湖口",
@@ -46493,9 +40973,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "北湖",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -46520,174 +41000,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "北湖",
         "time": "22:46"
-      },
-      {
-        "station": "彰化",
-        "time": "20:18"
-      },
-      {
-        "station": "成功",
-        "time": "20:24"
-      },
-      {
-        "station": "新烏日",
-        "time": "20:28"
-      },
-      {
-        "station": "烏日",
-        "time": "20:30"
-      },
-      {
-        "station": "大慶",
-        "time": "20:34"
-      },
-      {
-        "station": "五權",
-        "time": "20:37"
-      },
-      {
-        "station": "台中",
-        "time": "20:41"
-      },
-      {
-        "station": "精武",
-        "time": "20:44"
-      },
-      {
-        "station": "太原",
-        "time": "20:47"
-      },
-      {
-        "station": "松竹",
-        "time": "20:50"
-      },
-      {
-        "station": "頭家厝",
-        "time": "20:52"
-      },
-      {
-        "station": "潭子",
-        "time": "20:56"
-      },
-      {
-        "station": "栗林",
-        "time": "20:59"
-      },
-      {
-        "station": "豐原",
-        "time": "21:09"
-      },
-      {
-        "station": "后里",
-        "time": "21:23"
-      },
-      {
-        "station": "泰安",
-        "time": "21:27"
-      },
-      {
-        "station": "三義",
-        "time": "21:34"
-      },
-      {
-        "station": "銅鑼",
-        "time": "21:41"
-      },
-      {
-        "station": "南勢",
-        "time": "21:45"
-      },
-      {
-        "station": "苗栗",
-        "time": "21:51"
-      },
-      {
-        "station": "豐富",
-        "time": "21:55"
-      },
-      {
-        "station": "造橋",
-        "time": "22:00"
-      },
-      {
-        "station": "竹南",
-        "time": "22:06"
-      },
-      {
-        "station": "崎頂",
-        "time": "22:10"
-      },
-      {
-        "station": "香山",
-        "time": "22:16"
-      },
-      {
-        "station": "三姓橋",
-        "time": "22:19"
-      },
-      {
-        "station": "嘉義",
-        "time": "18:44"
-      },
-      {
-        "station": "嘉北",
-        "time": "18:48"
-      },
-      {
-        "station": "民雄",
-        "time": "18:54"
-      },
-      {
-        "station": "大林",
-        "time": "19:00"
-      },
-      {
-        "station": "石龜",
-        "time": "19:04"
-      },
-      {
-        "station": "斗南",
-        "time": "19:09"
-      },
-      {
-        "station": "斗六",
-        "time": "19:16"
-      },
-      {
-        "station": "石榴",
-        "time": "19:20"
-      },
-      {
-        "station": "林內",
-        "time": "19:25"
-      },
-      {
-        "station": "二水",
-        "time": "19:32"
-      },
-      {
-        "station": "田中",
-        "time": "19:45"
-      },
-      {
-        "station": "社頭",
-        "time": "19:50"
-      },
-      {
-        "station": "永靖",
-        "time": "19:54"
-      },
-      {
-        "station": "員林",
-        "time": "19:59"
-      },
-      {
-        "station": "大村",
-        "time": "20:03"
-      },
-      {
-        "station": "花壇",
-        "time": "20:08"
       }
     ]
   },
@@ -46987,7 +41299,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "彰化",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -47225,9 +41537,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "花壇",
+    "dest": "北湖",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -47252,174 +41564,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "北湖",
         "time": "23:42"
-      },
-      {
-        "station": "彰化",
-        "time": "21:22"
-      },
-      {
-        "station": "成功",
-        "time": "21:29"
-      },
-      {
-        "station": "新烏日",
-        "time": "21:38"
-      },
-      {
-        "station": "烏日",
-        "time": "21:41"
-      },
-      {
-        "station": "大慶",
-        "time": "21:44"
-      },
-      {
-        "station": "五權",
-        "time": "21:47"
-      },
-      {
-        "station": "台中",
-        "time": "21:51"
-      },
-      {
-        "station": "精武",
-        "time": "21:54"
-      },
-      {
-        "station": "太原",
-        "time": "21:57"
-      },
-      {
-        "station": "松竹",
-        "time": "22:00"
-      },
-      {
-        "station": "頭家厝",
-        "time": "22:02"
-      },
-      {
-        "station": "潭子",
-        "time": "22:06"
-      },
-      {
-        "station": "栗林",
-        "time": "22:09"
-      },
-      {
-        "station": "豐原",
-        "time": "22:13"
-      },
-      {
-        "station": "后里",
-        "time": "22:18"
-      },
-      {
-        "station": "泰安",
-        "time": "22:21"
-      },
-      {
-        "station": "三義",
-        "time": "22:29"
-      },
-      {
-        "station": "銅鑼",
-        "time": "22:35"
-      },
-      {
-        "station": "南勢",
-        "time": "22:39"
-      },
-      {
-        "station": "苗栗",
-        "time": "22:45"
-      },
-      {
-        "station": "豐富",
-        "time": "22:49"
-      },
-      {
-        "station": "造橋",
-        "time": "22:54"
-      },
-      {
-        "station": "竹南",
-        "time": "23:01"
-      },
-      {
-        "station": "崎頂",
-        "time": "23:05"
-      },
-      {
-        "station": "香山",
-        "time": "23:11"
-      },
-      {
-        "station": "三姓橋",
-        "time": "23:14"
-      },
-      {
-        "station": "嘉義",
-        "time": "19:56"
-      },
-      {
-        "station": "嘉北",
-        "time": "20:00"
-      },
-      {
-        "station": "民雄",
-        "time": "20:06"
-      },
-      {
-        "station": "大林",
-        "time": "20:12"
-      },
-      {
-        "station": "石龜",
-        "time": "20:16"
-      },
-      {
-        "station": "斗南",
-        "time": "20:21"
-      },
-      {
-        "station": "斗六",
-        "time": "20:28"
-      },
-      {
-        "station": "石榴",
-        "time": "20:32"
-      },
-      {
-        "station": "林內",
-        "time": "20:37"
-      },
-      {
-        "station": "二水",
-        "time": "20:44"
-      },
-      {
-        "station": "田中",
-        "time": "20:50"
-      },
-      {
-        "station": "社頭",
-        "time": "20:54"
-      },
-      {
-        "station": "永靖",
-        "time": "20:58"
-      },
-      {
-        "station": "員林",
-        "time": "21:03"
-      },
-      {
-        "station": "大村",
-        "time": "21:07"
-      },
-      {
-        "station": "花壇",
-        "time": "21:12"
       }
     ]
   },
@@ -47431,7 +41575,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "基隆",
     "dest": "彰化",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "基隆",
@@ -47965,9 +42109,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "造橋",
+    "dest": "北湖",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -47992,94 +42136,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "北湖",
         "time": "07:30"
-      },
-      {
-        "station": "彰化",
-        "time": "05:04"
-      },
-      {
-        "station": "成功",
-        "time": "05:12"
-      },
-      {
-        "station": "新烏日",
-        "time": "05:17"
-      },
-      {
-        "station": "烏日",
-        "time": "05:23"
-      },
-      {
-        "station": "大慶",
-        "time": "05:28"
-      },
-      {
-        "station": "五權",
-        "time": "05:32"
-      },
-      {
-        "station": "台中",
-        "time": "05:37"
-      },
-      {
-        "station": "精武",
-        "time": "05:44"
-      },
-      {
-        "station": "太原",
-        "time": "05:49"
-      },
-      {
-        "station": "松竹",
-        "time": "05:58"
-      },
-      {
-        "station": "頭家厝",
-        "time": "06:07"
-      },
-      {
-        "station": "潭子",
-        "time": "06:12"
-      },
-      {
-        "station": "栗林",
-        "time": "06:16"
-      },
-      {
-        "station": "豐原",
-        "time": "06:23"
-      },
-      {
-        "station": "后里",
-        "time": "06:29"
-      },
-      {
-        "station": "泰安",
-        "time": "06:33"
-      },
-      {
-        "station": "三義",
-        "time": "06:39"
-      },
-      {
-        "station": "銅鑼",
-        "time": "06:49"
-      },
-      {
-        "station": "南勢",
-        "time": "06:53"
-      },
-      {
-        "station": "苗栗",
-        "time": "06:59"
-      },
-      {
-        "station": "豐富",
-        "time": "07:02"
-      },
-      {
-        "station": "造橋",
-        "time": "07:08"
       }
     ]
   },
@@ -48591,7 +42647,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "新豐",
     "dest": "五權",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新豐",
@@ -48701,7 +42757,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "花壇",
+    "dest": "造橋",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -48792,30 +42848,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "造橋",
         "time": "10:14"
-      },
-      {
-        "station": "田中",
-        "time": "07:32"
-      },
-      {
-        "station": "社頭",
-        "time": "07:37"
-      },
-      {
-        "station": "永靖",
-        "time": "07:41"
-      },
-      {
-        "station": "員林",
-        "time": "07:46"
-      },
-      {
-        "station": "大村",
-        "time": "07:50"
-      },
-      {
-        "station": "花壇",
-        "time": "07:55"
       }
     ]
   },
@@ -48925,9 +42957,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "造橋",
+    "dest": "北湖",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -48952,94 +42984,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "北湖",
         "time": "11:51"
-      },
-      {
-        "station": "彰化",
-        "time": "09:26"
-      },
-      {
-        "station": "成功",
-        "time": "09:34"
-      },
-      {
-        "station": "新烏日",
-        "time": "09:39"
-      },
-      {
-        "station": "烏日",
-        "time": "09:47"
-      },
-      {
-        "station": "大慶",
-        "time": "09:53"
-      },
-      {
-        "station": "五權",
-        "time": "09:56"
-      },
-      {
-        "station": "台中",
-        "time": "10:02"
-      },
-      {
-        "station": "精武",
-        "time": "10:08"
-      },
-      {
-        "station": "太原",
-        "time": "10:13"
-      },
-      {
-        "station": "松竹",
-        "time": "10:20"
-      },
-      {
-        "station": "頭家厝",
-        "time": "10:29"
-      },
-      {
-        "station": "潭子",
-        "time": "10:34"
-      },
-      {
-        "station": "栗林",
-        "time": "10:38"
-      },
-      {
-        "station": "豐原",
-        "time": "10:45"
-      },
-      {
-        "station": "后里",
-        "time": "10:52"
-      },
-      {
-        "station": "泰安",
-        "time": "10:57"
-      },
-      {
-        "station": "三義",
-        "time": "11:03"
-      },
-      {
-        "station": "銅鑼",
-        "time": "11:09"
-      },
-      {
-        "station": "南勢",
-        "time": "11:13"
-      },
-      {
-        "station": "苗栗",
-        "time": "11:19"
-      },
-      {
-        "station": "豐富",
-        "time": "11:22"
-      },
-      {
-        "station": "造橋",
-        "time": "11:29"
       }
     ]
   },
@@ -49755,7 +43699,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "湖口",
     "dest": "五權",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "湖口",
@@ -49869,9 +43813,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "造橋",
+    "dest": "北湖",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -49896,94 +43840,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "北湖",
         "time": "16:27"
-      },
-      {
-        "station": "彰化",
-        "time": "13:32"
-      },
-      {
-        "station": "成功",
-        "time": "13:43"
-      },
-      {
-        "station": "新烏日",
-        "time": "13:48"
-      },
-      {
-        "station": "烏日",
-        "time": "13:56"
-      },
-      {
-        "station": "大慶",
-        "time": "14:11"
-      },
-      {
-        "station": "五權",
-        "time": "14:16"
-      },
-      {
-        "station": "台中",
-        "time": "14:21"
-      },
-      {
-        "station": "精武",
-        "time": "14:28"
-      },
-      {
-        "station": "太原",
-        "time": "14:33"
-      },
-      {
-        "station": "松竹",
-        "time": "14:40"
-      },
-      {
-        "station": "頭家厝",
-        "time": "14:47"
-      },
-      {
-        "station": "潭子",
-        "time": "14:52"
-      },
-      {
-        "station": "栗林",
-        "time": "14:58"
-      },
-      {
-        "station": "豐原",
-        "time": "15:05"
-      },
-      {
-        "station": "后里",
-        "time": "15:10"
-      },
-      {
-        "station": "泰安",
-        "time": "15:20"
-      },
-      {
-        "station": "三義",
-        "time": "15:27"
-      },
-      {
-        "station": "銅鑼",
-        "time": "15:33"
-      },
-      {
-        "station": "南勢",
-        "time": "15:37"
-      },
-      {
-        "station": "苗栗",
-        "time": "15:49"
-      },
-      {
-        "station": "豐富",
-        "time": "15:53"
-      },
-      {
-        "station": "造橋",
-        "time": "16:03"
       }
     ]
   },
@@ -50163,7 +44019,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "北新竹",
     "dest": "五權",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "北新竹",
@@ -50265,9 +44121,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "造橋",
+    "dest": "竹北",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -50280,94 +44136,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "竹北",
         "time": "17:38"
-      },
-      {
-        "station": "彰化",
-        "time": "15:18"
-      },
-      {
-        "station": "成功",
-        "time": "15:26"
-      },
-      {
-        "station": "新烏日",
-        "time": "15:31"
-      },
-      {
-        "station": "烏日",
-        "time": "15:36"
-      },
-      {
-        "station": "大慶",
-        "time": "15:43"
-      },
-      {
-        "station": "五權",
-        "time": "15:48"
-      },
-      {
-        "station": "台中",
-        "time": "15:53"
-      },
-      {
-        "station": "精武",
-        "time": "16:00"
-      },
-      {
-        "station": "太原",
-        "time": "16:05"
-      },
-      {
-        "station": "松竹",
-        "time": "16:16"
-      },
-      {
-        "station": "頭家厝",
-        "time": "16:28"
-      },
-      {
-        "station": "潭子",
-        "time": "16:33"
-      },
-      {
-        "station": "栗林",
-        "time": "16:37"
-      },
-      {
-        "station": "豐原",
-        "time": "16:44"
-      },
-      {
-        "station": "后里",
-        "time": "16:50"
-      },
-      {
-        "station": "泰安",
-        "time": "16:54"
-      },
-      {
-        "station": "三義",
-        "time": "17:00"
-      },
-      {
-        "station": "銅鑼",
-        "time": "17:09"
-      },
-      {
-        "station": "南勢",
-        "time": "17:13"
-      },
-      {
-        "station": "苗栗",
-        "time": "17:19"
-      },
-      {
-        "station": "豐富",
-        "time": "17:22"
-      },
-      {
-        "station": "造橋",
-        "time": "17:30"
       }
     ]
   },
@@ -50379,7 +44147,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "湖口",
     "dest": "五權",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "湖口",
@@ -50595,7 +44363,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "北新竹",
     "dest": "五權",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "北新竹",
@@ -51197,9 +44965,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "造橋",
+    "dest": "竹北",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -51212,94 +44980,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "竹北",
         "time": "21:07"
-      },
-      {
-        "station": "彰化",
-        "time": "18:55"
-      },
-      {
-        "station": "成功",
-        "time": "19:03"
-      },
-      {
-        "station": "新烏日",
-        "time": "19:14"
-      },
-      {
-        "station": "烏日",
-        "time": "19:20"
-      },
-      {
-        "station": "大慶",
-        "time": "19:27"
-      },
-      {
-        "station": "五權",
-        "time": "19:31"
-      },
-      {
-        "station": "台中",
-        "time": "19:36"
-      },
-      {
-        "station": "精武",
-        "time": "19:43"
-      },
-      {
-        "station": "太原",
-        "time": "19:48"
-      },
-      {
-        "station": "松竹",
-        "time": "19:55"
-      },
-      {
-        "station": "頭家厝",
-        "time": "20:02"
-      },
-      {
-        "station": "潭子",
-        "time": "20:07"
-      },
-      {
-        "station": "栗林",
-        "time": "20:11"
-      },
-      {
-        "station": "豐原",
-        "time": "20:18"
-      },
-      {
-        "station": "后里",
-        "time": "20:23"
-      },
-      {
-        "station": "泰安",
-        "time": "20:27"
-      },
-      {
-        "station": "三義",
-        "time": "20:33"
-      },
-      {
-        "station": "銅鑼",
-        "time": "20:39"
-      },
-      {
-        "station": "南勢",
-        "time": "20:43"
-      },
-      {
-        "station": "苗栗",
-        "time": "20:49"
-      },
-      {
-        "station": "豐富",
-        "time": "20:52"
-      },
-      {
-        "station": "造橋",
-        "time": "20:59"
       }
     ]
   },
@@ -51511,7 +45191,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "origin": "北新竹",
     "dest": "松竹",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "北新竹",
@@ -51741,7 +45421,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "水里",
-    "dest": "彰化",
+    "dest": "二水",
     "line": "集集線",
     "route_dir": "",
     "stops": [
@@ -51768,18 +45448,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "二水",
         "time": "06:37"
-      },
-      {
-        "station": "田中",
-        "time": "06:45"
-      },
-      {
-        "station": "員林",
-        "time": "06:57"
-      },
-      {
-        "station": "彰化",
-        "time": "07:12"
       }
     ]
   },
@@ -51789,7 +45457,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "二水",
-    "dest": "田中",
+    "dest": "車埕",
     "line": "集集線",
     "route_dir": "",
     "stops": [
@@ -51820,18 +45488,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "車埕",
         "time": "06:46"
-      },
-      {
-        "station": "彰化",
-        "time": "05:16"
-      },
-      {
-        "station": "員林",
-        "time": "05:32"
-      },
-      {
-        "station": "田中",
-        "time": "05:43"
       }
     ]
   },
@@ -51961,7 +45617,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "二水",
-    "dest": "田中",
+    "dest": "車埕",
     "line": "集集線",
     "route_dir": "",
     "stops": [
@@ -51992,18 +45648,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "車埕",
         "time": "10:08"
-      },
-      {
-        "station": "彰化",
-        "time": "08:38"
-      },
-      {
-        "station": "員林",
-        "time": "08:54"
-      },
-      {
-        "station": "田中",
-        "time": "09:05"
       }
     ]
   },
@@ -52653,7 +46297,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "車埕",
-    "dest": "彰化",
+    "dest": "二水",
     "line": "集集線",
     "route_dir": "",
     "stops": [
@@ -52684,18 +46328,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "二水",
         "time": "22:12"
-      },
-      {
-        "station": "田中",
-        "time": "22:19"
-      },
-      {
-        "station": "員林",
-        "time": "22:30"
-      },
-      {
-        "station": "彰化",
-        "time": "22:45"
       }
     ]
   },
@@ -52737,7 +46369,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -52748,38 +46380,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "06:41"
-      },
-      {
-        "station": "鳳山",
-        "time": "06:48"
-      },
-      {
-        "station": "九曲堂",
-        "time": "06:56"
-      },
-      {
-        "station": "屏東",
-        "time": "07:05"
-      },
-      {
-        "station": "西勢",
-        "time": "07:13"
-      },
-      {
-        "station": "潮州",
-        "time": "07:23"
-      },
-      {
-        "station": "南州",
-        "time": "07:34"
-      },
-      {
-        "station": "林邊",
-        "time": "07:42"
-      },
-      {
-        "station": "枋寮",
-        "time": "07:56"
       }
     ]
   },
@@ -52789,7 +46389,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "台中",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -52860,38 +46460,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "09:05"
-      },
-      {
-        "station": "鳳山",
-        "time": "09:12"
-      },
-      {
-        "station": "九曲堂",
-        "time": "09:19"
-      },
-      {
-        "station": "屏東",
-        "time": "09:26"
-      },
-      {
-        "station": "潮州",
-        "time": "09:40"
-      },
-      {
-        "station": "南州",
-        "time": "09:48"
-      },
-      {
-        "station": "林邊",
-        "time": "09:55"
-      },
-      {
-        "station": "佳冬",
-        "time": "10:02"
-      },
-      {
-        "station": "枋寮",
-        "time": "10:11"
       }
     ]
   },
@@ -52929,7 +46497,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "鳳山",
+    "dest": "豐原",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -52964,102 +46532,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "豐原",
         "time": "16:10"
-      },
-      {
-        "station": "嘉義",
-        "time": "13:51"
-      },
-      {
-        "station": "民雄",
-        "time": "14:01"
-      },
-      {
-        "station": "大林",
-        "time": "14:07"
-      },
-      {
-        "station": "斗南",
-        "time": "14:15"
-      },
-      {
-        "station": "斗六",
-        "time": "14:34"
-      },
-      {
-        "station": "二水",
-        "time": "14:49"
-      },
-      {
-        "station": "田中",
-        "time": "14:56"
-      },
-      {
-        "station": "員林",
-        "time": "15:07"
-      },
-      {
-        "station": "高雄",
-        "time": "11:39"
-      },
-      {
-        "station": "新左營",
-        "time": "11:47"
-      },
-      {
-        "station": "楠梓",
-        "time": "11:52"
-      },
-      {
-        "station": "岡山",
-        "time": "12:06"
-      },
-      {
-        "station": "路竹",
-        "time": "12:14"
-      },
-      {
-        "station": "大湖",
-        "time": "12:25"
-      },
-      {
-        "station": "台南",
-        "time": "12:41"
-      },
-      {
-        "station": "永康",
-        "time": "12:49"
-      },
-      {
-        "station": "新市",
-        "time": "12:55"
-      },
-      {
-        "station": "善化",
-        "time": "13:11"
-      },
-      {
-        "station": "隆田",
-        "time": "13:18"
-      },
-      {
-        "station": "新營",
-        "time": "13:29"
-      },
-      {
-        "station": "潮州",
-        "time": "11:03"
-      },
-      {
-        "station": "屏東",
-        "time": "11:17"
-      },
-      {
-        "station": "九曲堂",
-        "time": "11:24"
-      },
-      {
-        "station": "鳳山",
-        "time": "11:32"
       }
     ]
   },
@@ -53069,7 +46541,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "鳳山",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -53080,38 +46552,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "14:10"
-      },
-      {
-        "station": "枋寮",
-        "time": "12:59"
-      },
-      {
-        "station": "林邊",
-        "time": "13:08"
-      },
-      {
-        "station": "南州",
-        "time": "13:15"
-      },
-      {
-        "station": "潮州",
-        "time": "13:22"
-      },
-      {
-        "station": "西勢",
-        "time": "13:28"
-      },
-      {
-        "station": "屏東",
-        "time": "13:36"
-      },
-      {
-        "station": "九曲堂",
-        "time": "13:42"
-      },
-      {
-        "station": "鳳山",
-        "time": "13:51"
       }
     ]
   },
@@ -53121,7 +46561,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -53132,42 +46572,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "17:23"
-      },
-      {
-        "station": "科工館",
-        "time": "17:26"
-      },
-      {
-        "station": "鳳山",
-        "time": "17:31"
-      },
-      {
-        "station": "九曲堂",
-        "time": "17:38"
-      },
-      {
-        "station": "屏東",
-        "time": "17:45"
-      },
-      {
-        "station": "潮州",
-        "time": "17:58"
-      },
-      {
-        "station": "南州",
-        "time": "18:06"
-      },
-      {
-        "station": "林邊",
-        "time": "18:17"
-      },
-      {
-        "station": "佳冬",
-        "time": "18:21"
-      },
-      {
-        "station": "枋寮",
-        "time": "18:30"
       }
     ]
   },
@@ -53177,7 +46581,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "斗六",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -53248,54 +46652,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "18:11"
-      },
-      {
-        "station": "科工館",
-        "time": "18:14"
-      },
-      {
-        "station": "鳳山",
-        "time": "18:19"
-      },
-      {
-        "station": "九曲堂",
-        "time": "18:26"
-      },
-      {
-        "station": "屏東",
-        "time": "18:33"
-      },
-      {
-        "station": "潮州",
-        "time": "18:45"
-      },
-      {
-        "station": "崁頂",
-        "time": "18:50"
-      },
-      {
-        "station": "南州",
-        "time": "18:57"
-      },
-      {
-        "station": "鎮安",
-        "time": "19:02"
-      },
-      {
-        "station": "林邊",
-        "time": "19:14"
-      },
-      {
-        "station": "佳冬",
-        "time": "19:20"
-      },
-      {
-        "station": "東海",
-        "time": "19:24"
-      },
-      {
-        "station": "枋寮",
-        "time": "19:29"
       }
     ]
   },
@@ -53305,7 +46661,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "鳳山",
+    "dest": "彰化",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -53340,86 +46696,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "彰化",
         "time": "19:55"
-      },
-      {
-        "station": "高雄",
-        "time": "16:52"
-      },
-      {
-        "station": "新左營",
-        "time": "17:01"
-      },
-      {
-        "station": "楠梓",
-        "time": "17:06"
-      },
-      {
-        "station": "岡山",
-        "time": "17:13"
-      },
-      {
-        "station": "路竹",
-        "time": "17:19"
-      },
-      {
-        "station": "大湖",
-        "time": "17:23"
-      },
-      {
-        "station": "台南",
-        "time": "17:36"
-      },
-      {
-        "station": "永康",
-        "time": "17:43"
-      },
-      {
-        "station": "新市",
-        "time": "17:55"
-      },
-      {
-        "station": "善化",
-        "time": "18:02"
-      },
-      {
-        "station": "隆田",
-        "time": "18:08"
-      },
-      {
-        "station": "新營",
-        "time": "18:18"
-      },
-      {
-        "station": "枋寮",
-        "time": "15:51"
-      },
-      {
-        "station": "佳冬",
-        "time": "15:58"
-      },
-      {
-        "station": "林邊",
-        "time": "16:03"
-      },
-      {
-        "station": "南州",
-        "time": "16:10"
-      },
-      {
-        "station": "潮州",
-        "time": "16:17"
-      },
-      {
-        "station": "屏東",
-        "time": "16:30"
-      },
-      {
-        "station": "九曲堂",
-        "time": "16:36"
-      },
-      {
-        "station": "鳳山",
-        "time": "16:44"
       }
     ]
   },
@@ -53429,7 +46705,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "豐原",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -53544,22 +46820,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "19:11"
-      },
-      {
-        "station": "鳳山",
-        "time": "19:18"
-      },
-      {
-        "station": "九曲堂",
-        "time": "19:26"
-      },
-      {
-        "station": "屏東",
-        "time": "19:33"
-      },
-      {
-        "station": "潮州",
-        "time": "19:46"
       }
     ]
   },
@@ -53569,7 +46829,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "台南",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -53608,38 +46868,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "19:45"
-      },
-      {
-        "station": "民族",
-        "time": "19:47"
-      },
-      {
-        "station": "科工館",
-        "time": "19:50"
-      },
-      {
-        "station": "正義",
-        "time": "19:53"
-      },
-      {
-        "station": "鳳山",
-        "time": "19:56"
-      },
-      {
-        "station": "九曲堂",
-        "time": "20:03"
-      },
-      {
-        "station": "屏東",
-        "time": "20:10"
-      },
-      {
-        "station": "西勢",
-        "time": "20:17"
-      },
-      {
-        "station": "潮州",
-        "time": "20:25"
       }
     ]
   },
@@ -53649,7 +46877,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "科工館",
+    "dest": "台南",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -53668,46 +46896,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "台南",
         "time": "18:36"
-      },
-      {
-        "station": "枋寮",
-        "time": "16:44"
-      },
-      {
-        "station": "佳冬",
-        "time": "16:55"
-      },
-      {
-        "station": "林邊",
-        "time": "17:02"
-      },
-      {
-        "station": "南州",
-        "time": "17:16"
-      },
-      {
-        "station": "潮州",
-        "time": "17:25"
-      },
-      {
-        "station": "西勢",
-        "time": "17:31"
-      },
-      {
-        "station": "屏東",
-        "time": "17:38"
-      },
-      {
-        "station": "九曲堂",
-        "time": "17:44"
-      },
-      {
-        "station": "鳳山",
-        "time": "17:51"
-      },
-      {
-        "station": "科工館",
-        "time": "17:55"
       }
     ]
   },
@@ -53717,7 +46905,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "豐原",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -53836,26 +47024,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "20:31"
-      },
-      {
-        "station": "鳳山",
-        "time": "20:37"
-      },
-      {
-        "station": "九曲堂",
-        "time": "20:44"
-      },
-      {
-        "station": "屏東",
-        "time": "20:51"
-      },
-      {
-        "station": "西勢",
-        "time": "20:57"
-      },
-      {
-        "station": "潮州",
-        "time": "21:05"
       }
     ]
   },
@@ -53865,7 +47033,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "鳳山",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -53876,42 +47044,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "20:16"
-      },
-      {
-        "station": "枋寮",
-        "time": "18:58"
-      },
-      {
-        "station": "佳冬",
-        "time": "19:09"
-      },
-      {
-        "station": "林邊",
-        "time": "19:16"
-      },
-      {
-        "station": "南州",
-        "time": "19:23"
-      },
-      {
-        "station": "潮州",
-        "time": "19:31"
-      },
-      {
-        "station": "西勢",
-        "time": "19:37"
-      },
-      {
-        "station": "屏東",
-        "time": "19:44"
-      },
-      {
-        "station": "九曲堂",
-        "time": "19:51"
-      },
-      {
-        "station": "鳳山",
-        "time": "19:59"
       }
     ]
   },
@@ -53921,7 +47053,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -53932,58 +47064,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "06:59"
-      },
-      {
-        "station": "科工館",
-        "time": "07:03"
-      },
-      {
-        "station": "鳳山",
-        "time": "07:07"
-      },
-      {
-        "station": "九曲堂",
-        "time": "07:15"
-      },
-      {
-        "station": "屏東",
-        "time": "07:22"
-      },
-      {
-        "station": "西勢",
-        "time": "07:36"
-      },
-      {
-        "station": "潮州",
-        "time": "07:47"
-      },
-      {
-        "station": "崁頂",
-        "time": "07:52"
-      },
-      {
-        "station": "南州",
-        "time": "08:00"
-      },
-      {
-        "station": "鎮安",
-        "time": "08:05"
-      },
-      {
-        "station": "林邊",
-        "time": "08:10"
-      },
-      {
-        "station": "佳冬",
-        "time": "08:15"
-      },
-      {
-        "station": "東海",
-        "time": "08:19"
-      },
-      {
-        "station": "枋寮",
-        "time": "08:24"
       }
     ]
   },
@@ -53993,7 +47073,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "鳳山",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -54004,54 +47084,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "06:26"
-      },
-      {
-        "station": "枋寮",
-        "time": "05:13"
-      },
-      {
-        "station": "東海",
-        "time": "05:18"
-      },
-      {
-        "station": "佳冬",
-        "time": "05:21"
-      },
-      {
-        "station": "林邊",
-        "time": "05:27"
-      },
-      {
-        "station": "鎮安",
-        "time": "05:31"
-      },
-      {
-        "station": "南州",
-        "time": "05:36"
-      },
-      {
-        "station": "崁頂",
-        "time": "05:39"
-      },
-      {
-        "station": "潮州",
-        "time": "05:45"
-      },
-      {
-        "station": "西勢",
-        "time": "05:52"
-      },
-      {
-        "station": "屏東",
-        "time": "05:59"
-      },
-      {
-        "station": "九曲堂",
-        "time": "06:05"
-      },
-      {
-        "station": "鳳山",
-        "time": "06:12"
       }
     ]
   },
@@ -54061,7 +47093,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -54072,58 +47104,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "07:53"
-      },
-      {
-        "station": "科工館",
-        "time": "07:56"
-      },
-      {
-        "station": "鳳山",
-        "time": "08:01"
-      },
-      {
-        "station": "九曲堂",
-        "time": "08:08"
-      },
-      {
-        "station": "屏東",
-        "time": "08:15"
-      },
-      {
-        "station": "西勢",
-        "time": "08:21"
-      },
-      {
-        "station": "潮州",
-        "time": "08:30"
-      },
-      {
-        "station": "崁頂",
-        "time": "08:35"
-      },
-      {
-        "station": "南州",
-        "time": "08:39"
-      },
-      {
-        "station": "鎮安",
-        "time": "08:44"
-      },
-      {
-        "station": "林邊",
-        "time": "08:49"
-      },
-      {
-        "station": "佳冬",
-        "time": "08:57"
-      },
-      {
-        "station": "東海",
-        "time": "09:02"
-      },
-      {
-        "station": "枋寮",
-        "time": "09:07"
       }
     ]
   },
@@ -54133,7 +47113,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "科工館",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -54144,58 +47124,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "07:47"
-      },
-      {
-        "station": "枋寮",
-        "time": "06:25"
-      },
-      {
-        "station": "東海",
-        "time": "06:30"
-      },
-      {
-        "station": "佳冬",
-        "time": "06:33"
-      },
-      {
-        "station": "林邊",
-        "time": "06:40"
-      },
-      {
-        "station": "鎮安",
-        "time": "06:44"
-      },
-      {
-        "station": "南州",
-        "time": "06:50"
-      },
-      {
-        "station": "崁頂",
-        "time": "06:53"
-      },
-      {
-        "station": "潮州",
-        "time": "06:59"
-      },
-      {
-        "station": "西勢",
-        "time": "07:06"
-      },
-      {
-        "station": "屏東",
-        "time": "07:13"
-      },
-      {
-        "station": "九曲堂",
-        "time": "07:19"
-      },
-      {
-        "station": "鳳山",
-        "time": "07:27"
-      },
-      {
-        "station": "科工館",
-        "time": "07:31"
       }
     ]
   },
@@ -54205,7 +47133,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -54216,54 +47144,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "10:32"
-      },
-      {
-        "station": "鳳山",
-        "time": "10:40"
-      },
-      {
-        "station": "九曲堂",
-        "time": "10:47"
-      },
-      {
-        "station": "屏東",
-        "time": "10:56"
-      },
-      {
-        "station": "西勢",
-        "time": "11:04"
-      },
-      {
-        "station": "潮州",
-        "time": "11:13"
-      },
-      {
-        "station": "崁頂",
-        "time": "11:18"
-      },
-      {
-        "station": "南州",
-        "time": "11:22"
-      },
-      {
-        "station": "鎮安",
-        "time": "11:27"
-      },
-      {
-        "station": "林邊",
-        "time": "11:31"
-      },
-      {
-        "station": "佳冬",
-        "time": "11:35"
-      },
-      {
-        "station": "東海",
-        "time": "11:39"
-      },
-      {
-        "station": "枋寮",
-        "time": "11:44"
       }
     ]
   },
@@ -54273,7 +47153,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "科工館",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -54284,58 +47164,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "08:56"
-      },
-      {
-        "station": "枋寮",
-        "time": "07:34"
-      },
-      {
-        "station": "東海",
-        "time": "07:39"
-      },
-      {
-        "station": "佳冬",
-        "time": "07:45"
-      },
-      {
-        "station": "林邊",
-        "time": "07:52"
-      },
-      {
-        "station": "鎮安",
-        "time": "07:56"
-      },
-      {
-        "station": "南州",
-        "time": "08:01"
-      },
-      {
-        "station": "崁頂",
-        "time": "08:04"
-      },
-      {
-        "station": "潮州",
-        "time": "08:10"
-      },
-      {
-        "station": "西勢",
-        "time": "08:17"
-      },
-      {
-        "station": "屏東",
-        "time": "08:24"
-      },
-      {
-        "station": "九曲堂",
-        "time": "08:30"
-      },
-      {
-        "station": "鳳山",
-        "time": "08:37"
-      },
-      {
-        "station": "科工館",
-        "time": "08:41"
       }
     ]
   },
@@ -54345,7 +47173,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -54376,66 +47204,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "11:45"
-      },
-      {
-        "station": "民族",
-        "time": "11:47"
-      },
-      {
-        "station": "科工館",
-        "time": "11:50"
-      },
-      {
-        "station": "正義",
-        "time": "11:53"
-      },
-      {
-        "station": "鳳山",
-        "time": "11:56"
-      },
-      {
-        "station": "九曲堂",
-        "time": "12:03"
-      },
-      {
-        "station": "屏東",
-        "time": "12:10"
-      },
-      {
-        "station": "西勢",
-        "time": "12:17"
-      },
-      {
-        "station": "潮州",
-        "time": "12:27"
-      },
-      {
-        "station": "崁頂",
-        "time": "12:32"
-      },
-      {
-        "station": "南州",
-        "time": "12:42"
-      },
-      {
-        "station": "鎮安",
-        "time": "12:47"
-      },
-      {
-        "station": "林邊",
-        "time": "12:54"
-      },
-      {
-        "station": "佳冬",
-        "time": "13:04"
-      },
-      {
-        "station": "東海",
-        "time": "13:09"
-      },
-      {
-        "station": "枋寮",
-        "time": "13:14"
       }
     ]
   },
@@ -54445,7 +47213,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "鳳山",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -54456,54 +47224,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "10:02"
-      },
-      {
-        "station": "枋寮",
-        "time": "08:36"
-      },
-      {
-        "station": "東海",
-        "time": "08:41"
-      },
-      {
-        "station": "佳冬",
-        "time": "08:44"
-      },
-      {
-        "station": "林邊",
-        "time": "08:50"
-      },
-      {
-        "station": "鎮安",
-        "time": "08:54"
-      },
-      {
-        "station": "南州",
-        "time": "09:00"
-      },
-      {
-        "station": "崁頂",
-        "time": "09:03"
-      },
-      {
-        "station": "潮州",
-        "time": "09:10"
-      },
-      {
-        "station": "西勢",
-        "time": "09:24"
-      },
-      {
-        "station": "屏東",
-        "time": "09:32"
-      },
-      {
-        "station": "九曲堂",
-        "time": "09:38"
-      },
-      {
-        "station": "鳳山",
-        "time": "09:46"
       }
     ]
   },
@@ -54513,7 +47233,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -54524,54 +47244,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "13:28"
-      },
-      {
-        "station": "鳳山",
-        "time": "13:34"
-      },
-      {
-        "station": "九曲堂",
-        "time": "13:41"
-      },
-      {
-        "station": "屏東",
-        "time": "13:48"
-      },
-      {
-        "station": "西勢",
-        "time": "13:54"
-      },
-      {
-        "station": "潮州",
-        "time": "14:03"
-      },
-      {
-        "station": "崁頂",
-        "time": "14:08"
-      },
-      {
-        "station": "南州",
-        "time": "14:12"
-      },
-      {
-        "station": "鎮安",
-        "time": "14:18"
-      },
-      {
-        "station": "林邊",
-        "time": "14:23"
-      },
-      {
-        "station": "佳冬",
-        "time": "14:27"
-      },
-      {
-        "station": "東海",
-        "time": "14:31"
-      },
-      {
-        "station": "枋寮",
-        "time": "14:36"
       }
     ]
   },
@@ -54581,7 +47253,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "鳳山",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -54592,58 +47264,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "11:09"
-      },
-      {
-        "station": "枋寮",
-        "time": "09:42"
-      },
-      {
-        "station": "東海",
-        "time": "09:47"
-      },
-      {
-        "station": "佳冬",
-        "time": "09:50"
-      },
-      {
-        "station": "林邊",
-        "time": "09:57"
-      },
-      {
-        "station": "鎮安",
-        "time": "10:01"
-      },
-      {
-        "station": "南州",
-        "time": "10:09"
-      },
-      {
-        "station": "崁頂",
-        "time": "10:12"
-      },
-      {
-        "station": "潮州",
-        "time": "10:18"
-      },
-      {
-        "station": "西勢",
-        "time": "10:30"
-      },
-      {
-        "station": "屏東",
-        "time": "10:38"
-      },
-      {
-        "station": "九曲堂",
-        "time": "10:44"
-      },
-      {
-        "station": "後庄",
-        "time": "10:48"
-      },
-      {
-        "station": "鳳山",
-        "time": "10:53"
       }
     ]
   },
@@ -54653,7 +47273,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -54664,54 +47284,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "14:24"
-      },
-      {
-        "station": "鳳山",
-        "time": "14:31"
-      },
-      {
-        "station": "九曲堂",
-        "time": "14:39"
-      },
-      {
-        "station": "屏東",
-        "time": "14:49"
-      },
-      {
-        "station": "西勢",
-        "time": "14:57"
-      },
-      {
-        "station": "潮州",
-        "time": "15:10"
-      },
-      {
-        "station": "崁頂",
-        "time": "15:15"
-      },
-      {
-        "station": "南州",
-        "time": "15:19"
-      },
-      {
-        "station": "鎮安",
-        "time": "15:24"
-      },
-      {
-        "station": "林邊",
-        "time": "15:30"
-      },
-      {
-        "station": "佳冬",
-        "time": "15:34"
-      },
-      {
-        "station": "東海",
-        "time": "15:38"
-      },
-      {
-        "station": "枋寮",
-        "time": "15:43"
       }
     ]
   },
@@ -54721,7 +47293,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -54752,66 +47324,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "15:14"
-      },
-      {
-        "station": "民族",
-        "time": "15:16"
-      },
-      {
-        "station": "科工館",
-        "time": "15:19"
-      },
-      {
-        "station": "正義",
-        "time": "15:22"
-      },
-      {
-        "station": "鳳山",
-        "time": "15:25"
-      },
-      {
-        "station": "九曲堂",
-        "time": "15:32"
-      },
-      {
-        "station": "屏東",
-        "time": "15:39"
-      },
-      {
-        "station": "西勢",
-        "time": "15:50"
-      },
-      {
-        "station": "潮州",
-        "time": "16:00"
-      },
-      {
-        "station": "崁頂",
-        "time": "16:05"
-      },
-      {
-        "station": "南州",
-        "time": "16:09"
-      },
-      {
-        "station": "鎮安",
-        "time": "16:15"
-      },
-      {
-        "station": "林邊",
-        "time": "16:23"
-      },
-      {
-        "station": "佳冬",
-        "time": "16:30"
-      },
-      {
-        "station": "東海",
-        "time": "16:34"
-      },
-      {
-        "station": "枋寮",
-        "time": "16:39"
       }
     ]
   },
@@ -54821,7 +47333,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "鳳山",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -54832,54 +47344,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "13:38"
-      },
-      {
-        "station": "枋寮",
-        "time": "12:12"
-      },
-      {
-        "station": "東海",
-        "time": "12:17"
-      },
-      {
-        "station": "佳冬",
-        "time": "12:23"
-      },
-      {
-        "station": "林邊",
-        "time": "12:30"
-      },
-      {
-        "station": "鎮安",
-        "time": "12:34"
-      },
-      {
-        "station": "南州",
-        "time": "12:41"
-      },
-      {
-        "station": "崁頂",
-        "time": "12:45"
-      },
-      {
-        "station": "潮州",
-        "time": "12:52"
-      },
-      {
-        "station": "西勢",
-        "time": "12:59"
-      },
-      {
-        "station": "屏東",
-        "time": "13:06"
-      },
-      {
-        "station": "九曲堂",
-        "time": "13:13"
-      },
-      {
-        "station": "鳳山",
-        "time": "13:21"
       }
     ]
   },
@@ -54889,7 +47353,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -54900,58 +47364,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "16:26"
-      },
-      {
-        "station": "科工館",
-        "time": "16:31"
-      },
-      {
-        "station": "鳳山",
-        "time": "16:35"
-      },
-      {
-        "station": "九曲堂",
-        "time": "16:42"
-      },
-      {
-        "station": "屏東",
-        "time": "16:49"
-      },
-      {
-        "station": "西勢",
-        "time": "16:55"
-      },
-      {
-        "station": "潮州",
-        "time": "17:04"
-      },
-      {
-        "station": "崁頂",
-        "time": "17:09"
-      },
-      {
-        "station": "南州",
-        "time": "17:15"
-      },
-      {
-        "station": "鎮安",
-        "time": "17:20"
-      },
-      {
-        "station": "林邊",
-        "time": "17:28"
-      },
-      {
-        "station": "佳冬",
-        "time": "17:35"
-      },
-      {
-        "station": "東海",
-        "time": "17:39"
-      },
-      {
-        "station": "枋寮",
-        "time": "17:44"
       }
     ]
   },
@@ -54961,7 +47373,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -54992,66 +47404,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "15:32"
-      },
-      {
-        "station": "枋寮",
-        "time": "13:59"
-      },
-      {
-        "station": "東海",
-        "time": "14:04"
-      },
-      {
-        "station": "佳冬",
-        "time": "14:08"
-      },
-      {
-        "station": "林邊",
-        "time": "14:15"
-      },
-      {
-        "station": "鎮安",
-        "time": "14:19"
-      },
-      {
-        "station": "南州",
-        "time": "14:25"
-      },
-      {
-        "station": "崁頂",
-        "time": "14:28"
-      },
-      {
-        "station": "潮州",
-        "time": "14:35"
-      },
-      {
-        "station": "西勢",
-        "time": "14:42"
-      },
-      {
-        "station": "屏東",
-        "time": "14:50"
-      },
-      {
-        "station": "九曲堂",
-        "time": "14:56"
-      },
-      {
-        "station": "鳳山",
-        "time": "15:04"
-      },
-      {
-        "station": "正義",
-        "time": "15:06"
-      },
-      {
-        "station": "科工館",
-        "time": "15:10"
-      },
-      {
-        "station": "民族",
-        "time": "15:12"
       }
     ]
   },
@@ -55061,7 +47413,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -55092,66 +47444,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "17:51"
-      },
-      {
-        "station": "枋寮",
-        "time": "16:21"
-      },
-      {
-        "station": "東海",
-        "time": "16:26"
-      },
-      {
-        "station": "佳冬",
-        "time": "16:29"
-      },
-      {
-        "station": "林邊",
-        "time": "16:35"
-      },
-      {
-        "station": "鎮安",
-        "time": "16:39"
-      },
-      {
-        "station": "南州",
-        "time": "16:45"
-      },
-      {
-        "station": "崁頂",
-        "time": "16:48"
-      },
-      {
-        "station": "潮州",
-        "time": "16:54"
-      },
-      {
-        "station": "西勢",
-        "time": "17:01"
-      },
-      {
-        "station": "屏東",
-        "time": "17:08"
-      },
-      {
-        "station": "九曲堂",
-        "time": "17:14"
-      },
-      {
-        "station": "鳳山",
-        "time": "17:22"
-      },
-      {
-        "station": "正義",
-        "time": "17:24"
-      },
-      {
-        "station": "科工館",
-        "time": "17:28"
-      },
-      {
-        "station": "民族",
-        "time": "17:30"
       }
     ]
   },
@@ -55161,7 +47453,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -55172,54 +47464,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "20:47"
-      },
-      {
-        "station": "鳳山",
-        "time": "20:53"
-      },
-      {
-        "station": "九曲堂",
-        "time": "21:00"
-      },
-      {
-        "station": "屏東",
-        "time": "21:08"
-      },
-      {
-        "station": "西勢",
-        "time": "21:15"
-      },
-      {
-        "station": "潮州",
-        "time": "21:25"
-      },
-      {
-        "station": "崁頂",
-        "time": "21:30"
-      },
-      {
-        "station": "南州",
-        "time": "21:34"
-      },
-      {
-        "station": "鎮安",
-        "time": "21:40"
-      },
-      {
-        "station": "林邊",
-        "time": "21:44"
-      },
-      {
-        "station": "佳冬",
-        "time": "21:48"
-      },
-      {
-        "station": "東海",
-        "time": "21:52"
-      },
-      {
-        "station": "枋寮",
-        "time": "21:57"
       }
     ]
   },
@@ -55229,7 +47473,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -55260,66 +47504,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "19:34"
-      },
-      {
-        "station": "枋寮",
-        "time": "18:00"
-      },
-      {
-        "station": "東海",
-        "time": "18:05"
-      },
-      {
-        "station": "佳冬",
-        "time": "18:08"
-      },
-      {
-        "station": "林邊",
-        "time": "18:14"
-      },
-      {
-        "station": "鎮安",
-        "time": "18:18"
-      },
-      {
-        "station": "南州",
-        "time": "18:29"
-      },
-      {
-        "station": "崁頂",
-        "time": "18:32"
-      },
-      {
-        "station": "潮州",
-        "time": "18:38"
-      },
-      {
-        "station": "西勢",
-        "time": "18:45"
-      },
-      {
-        "station": "屏東",
-        "time": "18:52"
-      },
-      {
-        "station": "九曲堂",
-        "time": "18:58"
-      },
-      {
-        "station": "鳳山",
-        "time": "19:06"
-      },
-      {
-        "station": "正義",
-        "time": "19:08"
-      },
-      {
-        "station": "科工館",
-        "time": "19:12"
-      },
-      {
-        "station": "民族",
-        "time": "19:14"
       }
     ]
   },
@@ -55329,7 +47513,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -55340,54 +47524,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "22:26"
-      },
-      {
-        "station": "鳳山",
-        "time": "22:33"
-      },
-      {
-        "station": "九曲堂",
-        "time": "22:40"
-      },
-      {
-        "station": "屏東",
-        "time": "22:49"
-      },
-      {
-        "station": "西勢",
-        "time": "22:56"
-      },
-      {
-        "station": "潮州",
-        "time": "23:05"
-      },
-      {
-        "station": "崁頂",
-        "time": "23:10"
-      },
-      {
-        "station": "南州",
-        "time": "23:14"
-      },
-      {
-        "station": "鎮安",
-        "time": "23:19"
-      },
-      {
-        "station": "林邊",
-        "time": "23:24"
-      },
-      {
-        "station": "佳冬",
-        "time": "23:28"
-      },
-      {
-        "station": "東海",
-        "time": "23:32"
-      },
-      {
-        "station": "枋寮",
-        "time": "23:37"
       }
     ]
   },
@@ -55397,7 +47533,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "台南",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -55464,58 +47600,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "06:22"
-      },
-      {
-        "station": "民族",
-        "time": "06:24"
-      },
-      {
-        "station": "科工館",
-        "time": "06:27"
-      },
-      {
-        "station": "正義",
-        "time": "06:30"
-      },
-      {
-        "station": "鳳山",
-        "time": "06:33"
-      },
-      {
-        "station": "後庄",
-        "time": "06:37"
-      },
-      {
-        "station": "九曲堂",
-        "time": "06:41"
-      },
-      {
-        "station": "六塊厝",
-        "time": "06:46"
-      },
-      {
-        "station": "屏東",
-        "time": "06:50"
-      },
-      {
-        "station": "歸來",
-        "time": "06:53"
-      },
-      {
-        "station": "麟洛",
-        "time": "06:56"
-      },
-      {
-        "station": "西勢",
-        "time": "07:00"
-      },
-      {
-        "station": "竹田",
-        "time": "07:04"
-      },
-      {
-        "station": "潮州",
-        "time": "07:09"
       }
     ]
   },
@@ -55597,7 +47681,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新營",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -55704,58 +47788,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "06:46"
-      },
-      {
-        "station": "民族",
-        "time": "06:48"
-      },
-      {
-        "station": "科工館",
-        "time": "06:50"
-      },
-      {
-        "station": "正義",
-        "time": "06:53"
-      },
-      {
-        "station": "鳳山",
-        "time": "06:56"
-      },
-      {
-        "station": "後庄",
-        "time": "07:00"
-      },
-      {
-        "station": "九曲堂",
-        "time": "07:05"
-      },
-      {
-        "station": "六塊厝",
-        "time": "07:09"
-      },
-      {
-        "station": "屏東",
-        "time": "07:14"
-      },
-      {
-        "station": "歸來",
-        "time": "07:17"
-      },
-      {
-        "station": "麟洛",
-        "time": "07:20"
-      },
-      {
-        "station": "西勢",
-        "time": "07:24"
-      },
-      {
-        "station": "竹田",
-        "time": "07:28"
-      },
-      {
-        "station": "潮州",
-        "time": "07:33"
       }
     ]
   },
@@ -55765,7 +47797,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "水上",
+    "dest": "后里",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -55828,186 +47860,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "后里",
         "time": "09:40"
-      },
-      {
-        "station": "嘉義",
-        "time": "07:09"
-      },
-      {
-        "station": "嘉北",
-        "time": "07:13"
-      },
-      {
-        "station": "民雄",
-        "time": "07:24"
-      },
-      {
-        "station": "大林",
-        "time": "07:30"
-      },
-      {
-        "station": "石龜",
-        "time": "07:35"
-      },
-      {
-        "station": "斗南",
-        "time": "07:39"
-      },
-      {
-        "station": "斗六",
-        "time": "07:47"
-      },
-      {
-        "station": "石榴",
-        "time": "07:51"
-      },
-      {
-        "station": "林內",
-        "time": "07:56"
-      },
-      {
-        "station": "二水",
-        "time": "08:03"
-      },
-      {
-        "station": "田中",
-        "time": "08:09"
-      },
-      {
-        "station": "社頭",
-        "time": "08:13"
-      },
-      {
-        "station": "永靖",
-        "time": "08:17"
-      },
-      {
-        "station": "員林",
-        "time": "08:22"
-      },
-      {
-        "station": "大村",
-        "time": "08:26"
-      },
-      {
-        "station": "花壇",
-        "time": "08:31"
-      },
-      {
-        "station": "高雄",
-        "time": "05:03"
-      },
-      {
-        "station": "三塊厝",
-        "time": "05:06"
-      },
-      {
-        "station": "鼓山",
-        "time": "05:09"
-      },
-      {
-        "station": "美術館",
-        "time": "05:12"
-      },
-      {
-        "station": "內惟",
-        "time": "05:14"
-      },
-      {
-        "station": "左營",
-        "time": "05:16"
-      },
-      {
-        "station": "新左營",
-        "time": "05:20"
-      },
-      {
-        "station": "楠梓",
-        "time": "05:25"
-      },
-      {
-        "station": "橋頭",
-        "time": "05:29"
-      },
-      {
-        "station": "岡山",
-        "time": "05:34"
-      },
-      {
-        "station": "路竹",
-        "time": "05:40"
-      },
-      {
-        "station": "大湖",
-        "time": "05:44"
-      },
-      {
-        "station": "中洲",
-        "time": "05:48"
-      },
-      {
-        "station": "仁德",
-        "time": "05:51"
-      },
-      {
-        "station": "保安",
-        "time": "05:54"
-      },
-      {
-        "station": "台南",
-        "time": "06:02"
-      },
-      {
-        "station": "大橋",
-        "time": "06:05"
-      },
-      {
-        "station": "永康",
-        "time": "06:10"
-      },
-      {
-        "station": "新市",
-        "time": "06:16"
-      },
-      {
-        "station": "南科",
-        "time": "06:21"
-      },
-      {
-        "station": "善化",
-        "time": "06:25"
-      },
-      {
-        "station": "拔林",
-        "time": "06:29"
-      },
-      {
-        "station": "隆田",
-        "time": "06:33"
-      },
-      {
-        "station": "林鳳營",
-        "time": "06:38"
-      },
-      {
-        "station": "柳營",
-        "time": "06:42"
-      },
-      {
-        "station": "新營",
-        "time": "06:46"
-      },
-      {
-        "station": "後壁",
-        "time": "06:52"
-      },
-      {
-        "station": "南靖",
-        "time": "06:58"
-      },
-      {
-        "station": "水上",
-        "time": "07:01"
       }
     ]
   },
@@ -56017,7 +47869,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -56140,58 +47992,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "07:22"
-      },
-      {
-        "station": "民族",
-        "time": "07:24"
-      },
-      {
-        "station": "科工館",
-        "time": "07:27"
-      },
-      {
-        "station": "正義",
-        "time": "07:30"
-      },
-      {
-        "station": "鳳山",
-        "time": "07:33"
-      },
-      {
-        "station": "後庄",
-        "time": "07:37"
-      },
-      {
-        "station": "九曲堂",
-        "time": "07:41"
-      },
-      {
-        "station": "六塊厝",
-        "time": "07:46"
-      },
-      {
-        "station": "屏東",
-        "time": "07:51"
-      },
-      {
-        "station": "歸來",
-        "time": "07:54"
-      },
-      {
-        "station": "麟洛",
-        "time": "07:57"
-      },
-      {
-        "station": "西勢",
-        "time": "08:01"
-      },
-      {
-        "station": "竹田",
-        "time": "08:05"
-      },
-      {
-        "station": "潮州",
-        "time": "08:10"
       }
     ]
   },
@@ -56201,7 +48001,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "嘉義",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -56324,38 +48124,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "嘉義",
         "time": "07:38"
-      },
-      {
-        "station": "屏東",
-        "time": "05:00"
-      },
-      {
-        "station": "六塊厝",
-        "time": "05:03"
-      },
-      {
-        "station": "九曲堂",
-        "time": "05:08"
-      },
-      {
-        "station": "後庄",
-        "time": "05:12"
-      },
-      {
-        "station": "鳳山",
-        "time": "05:17"
-      },
-      {
-        "station": "正義",
-        "time": "05:19"
-      },
-      {
-        "station": "科工館",
-        "time": "05:23"
-      },
-      {
-        "station": "民族",
-        "time": "05:25"
       }
     ]
   },
@@ -56365,7 +48133,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -56488,58 +48256,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "07:56"
-      },
-      {
-        "station": "民族",
-        "time": "07:59"
-      },
-      {
-        "station": "科工館",
-        "time": "08:01"
-      },
-      {
-        "station": "正義",
-        "time": "08:04"
-      },
-      {
-        "station": "鳳山",
-        "time": "08:07"
-      },
-      {
-        "station": "後庄",
-        "time": "08:11"
-      },
-      {
-        "station": "九曲堂",
-        "time": "08:15"
-      },
-      {
-        "station": "六塊厝",
-        "time": "08:20"
-      },
-      {
-        "station": "屏東",
-        "time": "08:24"
-      },
-      {
-        "station": "歸來",
-        "time": "08:27"
-      },
-      {
-        "station": "麟洛",
-        "time": "08:30"
-      },
-      {
-        "station": "西勢",
-        "time": "08:34"
-      },
-      {
-        "station": "竹田",
-        "time": "08:38"
-      },
-      {
-        "station": "潮州",
-        "time": "08:43"
       }
     ]
   },
@@ -56549,7 +48265,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "后里",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -56612,238 +48328,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "后里",
         "time": "10:47"
-      },
-      {
-        "station": "嘉義",
-        "time": "08:20"
-      },
-      {
-        "station": "嘉北",
-        "time": "08:24"
-      },
-      {
-        "station": "民雄",
-        "time": "08:30"
-      },
-      {
-        "station": "大林",
-        "time": "08:36"
-      },
-      {
-        "station": "石龜",
-        "time": "08:40"
-      },
-      {
-        "station": "斗南",
-        "time": "08:45"
-      },
-      {
-        "station": "斗六",
-        "time": "08:52"
-      },
-      {
-        "station": "石榴",
-        "time": "08:56"
-      },
-      {
-        "station": "林內",
-        "time": "09:01"
-      },
-      {
-        "station": "二水",
-        "time": "09:08"
-      },
-      {
-        "station": "田中",
-        "time": "09:14"
-      },
-      {
-        "station": "社頭",
-        "time": "09:18"
-      },
-      {
-        "station": "永靖",
-        "time": "09:22"
-      },
-      {
-        "station": "員林",
-        "time": "09:28"
-      },
-      {
-        "station": "大村",
-        "time": "09:32"
-      },
-      {
-        "station": "花壇",
-        "time": "09:37"
-      },
-      {
-        "station": "高雄",
-        "time": "05:48"
-      },
-      {
-        "station": "三塊厝",
-        "time": "05:50"
-      },
-      {
-        "station": "鼓山",
-        "time": "05:53"
-      },
-      {
-        "station": "美術館",
-        "time": "05:56"
-      },
-      {
-        "station": "內惟",
-        "time": "05:58"
-      },
-      {
-        "station": "左營",
-        "time": "06:00"
-      },
-      {
-        "station": "新左營",
-        "time": "06:11"
-      },
-      {
-        "station": "楠梓",
-        "time": "06:17"
-      },
-      {
-        "station": "橋頭",
-        "time": "06:21"
-      },
-      {
-        "station": "岡山",
-        "time": "06:26"
-      },
-      {
-        "station": "路竹",
-        "time": "06:32"
-      },
-      {
-        "station": "大湖",
-        "time": "06:36"
-      },
-      {
-        "station": "中洲",
-        "time": "06:45"
-      },
-      {
-        "station": "仁德",
-        "time": "06:49"
-      },
-      {
-        "station": "保安",
-        "time": "06:52"
-      },
-      {
-        "station": "台南",
-        "time": "06:59"
-      },
-      {
-        "station": "大橋",
-        "time": "07:02"
-      },
-      {
-        "station": "永康",
-        "time": "07:07"
-      },
-      {
-        "station": "新市",
-        "time": "07:13"
-      },
-      {
-        "station": "南科",
-        "time": "07:18"
-      },
-      {
-        "station": "善化",
-        "time": "07:22"
-      },
-      {
-        "station": "拔林",
-        "time": "07:26"
-      },
-      {
-        "station": "隆田",
-        "time": "07:30"
-      },
-      {
-        "station": "林鳳營",
-        "time": "07:40"
-      },
-      {
-        "station": "柳營",
-        "time": "07:45"
-      },
-      {
-        "station": "新營",
-        "time": "07:49"
-      },
-      {
-        "station": "後壁",
-        "time": "07:55"
-      },
-      {
-        "station": "南靖",
-        "time": "08:07"
-      },
-      {
-        "station": "水上",
-        "time": "08:11"
-      },
-      {
-        "station": "潮州",
-        "time": "05:02"
-      },
-      {
-        "station": "竹田",
-        "time": "05:06"
-      },
-      {
-        "station": "西勢",
-        "time": "05:11"
-      },
-      {
-        "station": "麟洛",
-        "time": "05:14"
-      },
-      {
-        "station": "歸來",
-        "time": "05:17"
-      },
-      {
-        "station": "屏東",
-        "time": "05:21"
-      },
-      {
-        "station": "六塊厝",
-        "time": "05:24"
-      },
-      {
-        "station": "九曲堂",
-        "time": "05:28"
-      },
-      {
-        "station": "後庄",
-        "time": "05:32"
-      },
-      {
-        "station": "鳳山",
-        "time": "05:37"
-      },
-      {
-        "station": "正義",
-        "time": "05:40"
-      },
-      {
-        "station": "科工館",
-        "time": "05:43"
-      },
-      {
-        "station": "民族",
-        "time": "05:45"
       }
     ]
   },
@@ -56853,7 +48337,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "二水",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -57012,58 +48496,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "08:10"
-      },
-      {
-        "station": "民族",
-        "time": "08:12"
-      },
-      {
-        "station": "科工館",
-        "time": "08:15"
-      },
-      {
-        "station": "正義",
-        "time": "08:18"
-      },
-      {
-        "station": "鳳山",
-        "time": "08:21"
-      },
-      {
-        "station": "後庄",
-        "time": "08:25"
-      },
-      {
-        "station": "九曲堂",
-        "time": "08:29"
-      },
-      {
-        "station": "六塊厝",
-        "time": "08:34"
-      },
-      {
-        "station": "屏東",
-        "time": "08:38"
-      },
-      {
-        "station": "歸來",
-        "time": "08:41"
-      },
-      {
-        "station": "麟洛",
-        "time": "08:44"
-      },
-      {
-        "station": "西勢",
-        "time": "08:48"
-      },
-      {
-        "station": "竹田",
-        "time": "08:52"
-      },
-      {
-        "station": "潮州",
-        "time": "08:57"
       }
     ]
   },
@@ -57073,9 +48505,9 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "民族",
+    "dest": "北湖",
     "line": "縱貫線北段",
-    "route_dir": "山線",
+    "route_dir": "",
     "stops": [
       {
         "station": "新竹",
@@ -57100,342 +48532,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "北湖",
         "time": "12:36"
-      },
-      {
-        "station": "彰化",
-        "time": "10:10"
-      },
-      {
-        "station": "成功",
-        "time": "10:16"
-      },
-      {
-        "station": "新烏日",
-        "time": "10:20"
-      },
-      {
-        "station": "烏日",
-        "time": "10:22"
-      },
-      {
-        "station": "大慶",
-        "time": "10:26"
-      },
-      {
-        "station": "五權",
-        "time": "10:29"
-      },
-      {
-        "station": "台中",
-        "time": "10:35"
-      },
-      {
-        "station": "精武",
-        "time": "10:38"
-      },
-      {
-        "station": "太原",
-        "time": "10:41"
-      },
-      {
-        "station": "松竹",
-        "time": "10:44"
-      },
-      {
-        "station": "頭家厝",
-        "time": "10:46"
-      },
-      {
-        "station": "潭子",
-        "time": "10:54"
-      },
-      {
-        "station": "栗林",
-        "time": "10:58"
-      },
-      {
-        "station": "豐原",
-        "time": "11:03"
-      },
-      {
-        "station": "后里",
-        "time": "11:10"
-      },
-      {
-        "station": "泰安",
-        "time": "11:13"
-      },
-      {
-        "station": "三義",
-        "time": "11:20"
-      },
-      {
-        "station": "銅鑼",
-        "time": "11:27"
-      },
-      {
-        "station": "南勢",
-        "time": "11:31"
-      },
-      {
-        "station": "苗栗",
-        "time": "11:38"
-      },
-      {
-        "station": "豐富",
-        "time": "11:42"
-      },
-      {
-        "station": "造橋",
-        "time": "11:47"
-      },
-      {
-        "station": "竹南",
-        "time": "11:53"
-      },
-      {
-        "station": "崎頂",
-        "time": "11:57"
-      },
-      {
-        "station": "香山",
-        "time": "12:03"
-      },
-      {
-        "station": "三姓橋",
-        "time": "12:06"
-      },
-      {
-        "station": "嘉義",
-        "time": "08:35"
-      },
-      {
-        "station": "嘉北",
-        "time": "08:39"
-      },
-      {
-        "station": "民雄",
-        "time": "08:45"
-      },
-      {
-        "station": "大林",
-        "time": "08:51"
-      },
-      {
-        "station": "石龜",
-        "time": "08:55"
-      },
-      {
-        "station": "斗南",
-        "time": "09:00"
-      },
-      {
-        "station": "斗六",
-        "time": "09:07"
-      },
-      {
-        "station": "石榴",
-        "time": "09:11"
-      },
-      {
-        "station": "林內",
-        "time": "09:16"
-      },
-      {
-        "station": "二水",
-        "time": "09:23"
-      },
-      {
-        "station": "田中",
-        "time": "09:29"
-      },
-      {
-        "station": "社頭",
-        "time": "09:40"
-      },
-      {
-        "station": "永靖",
-        "time": "09:45"
-      },
-      {
-        "station": "員林",
-        "time": "09:50"
-      },
-      {
-        "station": "大村",
-        "time": "09:54"
-      },
-      {
-        "station": "花壇",
-        "time": "09:59"
-      },
-      {
-        "station": "高雄",
-        "time": "06:07"
-      },
-      {
-        "station": "三塊厝",
-        "time": "06:09"
-      },
-      {
-        "station": "鼓山",
-        "time": "06:12"
-      },
-      {
-        "station": "美術館",
-        "time": "06:23"
-      },
-      {
-        "station": "內惟",
-        "time": "06:26"
-      },
-      {
-        "station": "左營",
-        "time": "06:28"
-      },
-      {
-        "station": "新左營",
-        "time": "06:32"
-      },
-      {
-        "station": "楠梓",
-        "time": "06:37"
-      },
-      {
-        "station": "橋頭",
-        "time": "06:41"
-      },
-      {
-        "station": "岡山",
-        "time": "06:46"
-      },
-      {
-        "station": "路竹",
-        "time": "06:52"
-      },
-      {
-        "station": "大湖",
-        "time": "06:56"
-      },
-      {
-        "station": "中洲",
-        "time": "07:00"
-      },
-      {
-        "station": "仁德",
-        "time": "07:03"
-      },
-      {
-        "station": "保安",
-        "time": "07:06"
-      },
-      {
-        "station": "台南",
-        "time": "07:14"
-      },
-      {
-        "station": "大橋",
-        "time": "07:17"
-      },
-      {
-        "station": "永康",
-        "time": "07:27"
-      },
-      {
-        "station": "新市",
-        "time": "07:39"
-      },
-      {
-        "station": "南科",
-        "time": "07:44"
-      },
-      {
-        "station": "善化",
-        "time": "07:48"
-      },
-      {
-        "station": "拔林",
-        "time": "07:52"
-      },
-      {
-        "station": "隆田",
-        "time": "07:56"
-      },
-      {
-        "station": "林鳳營",
-        "time": "08:01"
-      },
-      {
-        "station": "柳營",
-        "time": "08:05"
-      },
-      {
-        "station": "新營",
-        "time": "08:09"
-      },
-      {
-        "station": "後壁",
-        "time": "08:15"
-      },
-      {
-        "station": "南靖",
-        "time": "08:21"
-      },
-      {
-        "station": "水上",
-        "time": "08:24"
-      },
-      {
-        "station": "潮州",
-        "time": "05:13"
-      },
-      {
-        "station": "竹田",
-        "time": "05:17"
-      },
-      {
-        "station": "西勢",
-        "time": "05:22"
-      },
-      {
-        "station": "麟洛",
-        "time": "05:25"
-      },
-      {
-        "station": "歸來",
-        "time": "05:28"
-      },
-      {
-        "station": "屏東",
-        "time": "05:32"
-      },
-      {
-        "station": "六塊厝",
-        "time": "05:35"
-      },
-      {
-        "station": "九曲堂",
-        "time": "05:40"
-      },
-      {
-        "station": "後庄",
-        "time": "05:44"
-      },
-      {
-        "station": "鳳山",
-        "time": "05:55"
-      },
-      {
-        "station": "正義",
-        "time": "05:59"
-      },
-      {
-        "station": "科工館",
-        "time": "06:02"
-      },
-      {
-        "station": "民族",
-        "time": "06:04"
       }
     ]
   },
@@ -57445,7 +48541,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -57632,58 +48728,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "08:44"
-      },
-      {
-        "station": "民族",
-        "time": "08:46"
-      },
-      {
-        "station": "科工館",
-        "time": "08:49"
-      },
-      {
-        "station": "正義",
-        "time": "08:52"
-      },
-      {
-        "station": "鳳山",
-        "time": "08:55"
-      },
-      {
-        "station": "後庄",
-        "time": "08:59"
-      },
-      {
-        "station": "九曲堂",
-        "time": "09:03"
-      },
-      {
-        "station": "六塊厝",
-        "time": "09:08"
-      },
-      {
-        "station": "屏東",
-        "time": "09:12"
-      },
-      {
-        "station": "歸來",
-        "time": "09:15"
-      },
-      {
-        "station": "麟洛",
-        "time": "09:18"
-      },
-      {
-        "station": "西勢",
-        "time": "09:22"
-      },
-      {
-        "station": "竹田",
-        "time": "09:26"
-      },
-      {
-        "station": "潮州",
-        "time": "09:31"
       }
     ]
   },
@@ -57693,7 +48737,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "后里",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -57756,238 +48800,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "后里",
         "time": "11:43"
-      },
-      {
-        "station": "嘉義",
-        "time": "09:16"
-      },
-      {
-        "station": "嘉北",
-        "time": "09:20"
-      },
-      {
-        "station": "民雄",
-        "time": "09:26"
-      },
-      {
-        "station": "大林",
-        "time": "09:37"
-      },
-      {
-        "station": "石龜",
-        "time": "09:43"
-      },
-      {
-        "station": "斗南",
-        "time": "09:47"
-      },
-      {
-        "station": "斗六",
-        "time": "09:55"
-      },
-      {
-        "station": "石榴",
-        "time": "09:59"
-      },
-      {
-        "station": "林內",
-        "time": "10:04"
-      },
-      {
-        "station": "二水",
-        "time": "10:11"
-      },
-      {
-        "station": "田中",
-        "time": "10:17"
-      },
-      {
-        "station": "社頭",
-        "time": "10:21"
-      },
-      {
-        "station": "永靖",
-        "time": "10:25"
-      },
-      {
-        "station": "員林",
-        "time": "10:31"
-      },
-      {
-        "station": "大村",
-        "time": "10:35"
-      },
-      {
-        "station": "花壇",
-        "time": "10:40"
-      },
-      {
-        "station": "高雄",
-        "time": "06:37"
-      },
-      {
-        "station": "三塊厝",
-        "time": "06:39"
-      },
-      {
-        "station": "鼓山",
-        "time": "06:42"
-      },
-      {
-        "station": "美術館",
-        "time": "06:45"
-      },
-      {
-        "station": "內惟",
-        "time": "06:47"
-      },
-      {
-        "station": "左營",
-        "time": "06:49"
-      },
-      {
-        "station": "新左營",
-        "time": "07:06"
-      },
-      {
-        "station": "楠梓",
-        "time": "07:12"
-      },
-      {
-        "station": "橋頭",
-        "time": "07:16"
-      },
-      {
-        "station": "岡山",
-        "time": "07:21"
-      },
-      {
-        "station": "路竹",
-        "time": "07:27"
-      },
-      {
-        "station": "大湖",
-        "time": "07:31"
-      },
-      {
-        "station": "中洲",
-        "time": "07:35"
-      },
-      {
-        "station": "仁德",
-        "time": "07:38"
-      },
-      {
-        "station": "保安",
-        "time": "07:41"
-      },
-      {
-        "station": "台南",
-        "time": "07:49"
-      },
-      {
-        "station": "大橋",
-        "time": "07:52"
-      },
-      {
-        "station": "永康",
-        "time": "07:58"
-      },
-      {
-        "station": "新市",
-        "time": "08:04"
-      },
-      {
-        "station": "南科",
-        "time": "08:09"
-      },
-      {
-        "station": "善化",
-        "time": "08:13"
-      },
-      {
-        "station": "拔林",
-        "time": "08:17"
-      },
-      {
-        "station": "隆田",
-        "time": "08:21"
-      },
-      {
-        "station": "林鳳營",
-        "time": "08:34"
-      },
-      {
-        "station": "柳營",
-        "time": "08:39"
-      },
-      {
-        "station": "新營",
-        "time": "08:43"
-      },
-      {
-        "station": "後壁",
-        "time": "08:57"
-      },
-      {
-        "station": "南靖",
-        "time": "09:04"
-      },
-      {
-        "station": "水上",
-        "time": "09:07"
-      },
-      {
-        "station": "潮州",
-        "time": "05:49"
-      },
-      {
-        "station": "竹田",
-        "time": "05:53"
-      },
-      {
-        "station": "西勢",
-        "time": "05:58"
-      },
-      {
-        "station": "麟洛",
-        "time": "06:01"
-      },
-      {
-        "station": "歸來",
-        "time": "06:04"
-      },
-      {
-        "station": "屏東",
-        "time": "06:08"
-      },
-      {
-        "station": "六塊厝",
-        "time": "06:11"
-      },
-      {
-        "station": "九曲堂",
-        "time": "06:16"
-      },
-      {
-        "station": "後庄",
-        "time": "06:20"
-      },
-      {
-        "station": "鳳山",
-        "time": "06:25"
-      },
-      {
-        "station": "正義",
-        "time": "06:27"
-      },
-      {
-        "station": "科工館",
-        "time": "06:31"
-      },
-      {
-        "station": "民族",
-        "time": "06:33"
       }
     ]
   },
@@ -57997,7 +48809,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -58028,58 +48840,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "07:26"
-      },
-      {
-        "station": "潮州",
-        "time": "06:16"
-      },
-      {
-        "station": "竹田",
-        "time": "06:20"
-      },
-      {
-        "station": "西勢",
-        "time": "06:30"
-      },
-      {
-        "station": "麟洛",
-        "time": "06:34"
-      },
-      {
-        "station": "歸來",
-        "time": "06:37"
-      },
-      {
-        "station": "屏東",
-        "time": "06:41"
-      },
-      {
-        "station": "六塊厝",
-        "time": "06:44"
-      },
-      {
-        "station": "九曲堂",
-        "time": "06:49"
-      },
-      {
-        "station": "後庄",
-        "time": "06:53"
-      },
-      {
-        "station": "鳳山",
-        "time": "06:58"
-      },
-      {
-        "station": "正義",
-        "time": "07:01"
-      },
-      {
-        "station": "科工館",
-        "time": "07:04"
-      },
-      {
-        "station": "民族",
-        "time": "07:07"
       }
     ]
   },
@@ -58089,7 +48849,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "大林",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -58224,58 +48984,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "09:35"
-      },
-      {
-        "station": "民族",
-        "time": "09:37"
-      },
-      {
-        "station": "科工館",
-        "time": "09:40"
-      },
-      {
-        "station": "正義",
-        "time": "09:43"
-      },
-      {
-        "station": "鳳山",
-        "time": "09:47"
-      },
-      {
-        "station": "後庄",
-        "time": "09:51"
-      },
-      {
-        "station": "九曲堂",
-        "time": "09:55"
-      },
-      {
-        "station": "六塊厝",
-        "time": "10:00"
-      },
-      {
-        "station": "屏東",
-        "time": "10:05"
-      },
-      {
-        "station": "歸來",
-        "time": "10:08"
-      },
-      {
-        "station": "麟洛",
-        "time": "10:11"
-      },
-      {
-        "station": "西勢",
-        "time": "10:21"
-      },
-      {
-        "station": "竹田",
-        "time": "10:26"
-      },
-      {
-        "station": "潮州",
-        "time": "10:31"
       }
     ]
   },
@@ -58285,7 +48993,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "嘉義",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -58408,58 +49116,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "嘉義",
         "time": "09:45"
-      },
-      {
-        "station": "潮州",
-        "time": "06:31"
-      },
-      {
-        "station": "竹田",
-        "time": "06:35"
-      },
-      {
-        "station": "西勢",
-        "time": "06:40"
-      },
-      {
-        "station": "麟洛",
-        "time": "06:43"
-      },
-      {
-        "station": "歸來",
-        "time": "06:46"
-      },
-      {
-        "station": "屏東",
-        "time": "06:50"
-      },
-      {
-        "station": "六塊厝",
-        "time": "06:53"
-      },
-      {
-        "station": "九曲堂",
-        "time": "06:58"
-      },
-      {
-        "station": "後庄",
-        "time": "07:02"
-      },
-      {
-        "station": "鳳山",
-        "time": "07:07"
-      },
-      {
-        "station": "正義",
-        "time": "07:10"
-      },
-      {
-        "station": "科工館",
-        "time": "07:13"
-      },
-      {
-        "station": "民族",
-        "time": "07:15"
       }
     ]
   },
@@ -58549,7 +49205,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "屏東",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -58580,38 +49236,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "09:49"
-      },
-      {
-        "station": "民族",
-        "time": "09:51"
-      },
-      {
-        "station": "科工館",
-        "time": "09:54"
-      },
-      {
-        "station": "正義",
-        "time": "09:57"
-      },
-      {
-        "station": "鳳山",
-        "time": "10:05"
-      },
-      {
-        "station": "後庄",
-        "time": "10:10"
-      },
-      {
-        "station": "九曲堂",
-        "time": "10:14"
-      },
-      {
-        "station": "六塊厝",
-        "time": "10:19"
-      },
-      {
-        "station": "屏東",
-        "time": "10:23"
       }
     ]
   },
@@ -58621,7 +49245,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "后里",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -58684,238 +49308,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "后里",
         "time": "12:44"
-      },
-      {
-        "station": "嘉義",
-        "time": "10:17"
-      },
-      {
-        "station": "嘉北",
-        "time": "10:21"
-      },
-      {
-        "station": "民雄",
-        "time": "10:27"
-      },
-      {
-        "station": "大林",
-        "time": "10:32"
-      },
-      {
-        "station": "石龜",
-        "time": "10:36"
-      },
-      {
-        "station": "斗南",
-        "time": "10:40"
-      },
-      {
-        "station": "斗六",
-        "time": "10:47"
-      },
-      {
-        "station": "石榴",
-        "time": "10:51"
-      },
-      {
-        "station": "林內",
-        "time": "10:56"
-      },
-      {
-        "station": "二水",
-        "time": "11:03"
-      },
-      {
-        "station": "田中",
-        "time": "11:14"
-      },
-      {
-        "station": "社頭",
-        "time": "11:19"
-      },
-      {
-        "station": "永靖",
-        "time": "11:23"
-      },
-      {
-        "station": "員林",
-        "time": "11:28"
-      },
-      {
-        "station": "大村",
-        "time": "11:32"
-      },
-      {
-        "station": "花壇",
-        "time": "11:37"
-      },
-      {
-        "station": "高雄",
-        "time": "07:50"
-      },
-      {
-        "station": "三塊厝",
-        "time": "07:52"
-      },
-      {
-        "station": "鼓山",
-        "time": "07:55"
-      },
-      {
-        "station": "美術館",
-        "time": "08:02"
-      },
-      {
-        "station": "內惟",
-        "time": "08:05"
-      },
-      {
-        "station": "左營",
-        "time": "08:07"
-      },
-      {
-        "station": "新左營",
-        "time": "08:18"
-      },
-      {
-        "station": "楠梓",
-        "time": "08:24"
-      },
-      {
-        "station": "橋頭",
-        "time": "08:28"
-      },
-      {
-        "station": "岡山",
-        "time": "08:33"
-      },
-      {
-        "station": "路竹",
-        "time": "08:39"
-      },
-      {
-        "station": "大湖",
-        "time": "08:43"
-      },
-      {
-        "station": "中洲",
-        "time": "08:47"
-      },
-      {
-        "station": "仁德",
-        "time": "08:50"
-      },
-      {
-        "station": "保安",
-        "time": "08:53"
-      },
-      {
-        "station": "台南",
-        "time": "09:00"
-      },
-      {
-        "station": "大橋",
-        "time": "09:03"
-      },
-      {
-        "station": "永康",
-        "time": "09:08"
-      },
-      {
-        "station": "新市",
-        "time": "09:14"
-      },
-      {
-        "station": "南科",
-        "time": "09:19"
-      },
-      {
-        "station": "善化",
-        "time": "09:26"
-      },
-      {
-        "station": "拔林",
-        "time": "09:31"
-      },
-      {
-        "station": "隆田",
-        "time": "09:34"
-      },
-      {
-        "station": "林鳳營",
-        "time": "09:45"
-      },
-      {
-        "station": "柳營",
-        "time": "09:50"
-      },
-      {
-        "station": "新營",
-        "time": "09:54"
-      },
-      {
-        "station": "後壁",
-        "time": "10:00"
-      },
-      {
-        "station": "南靖",
-        "time": "10:06"
-      },
-      {
-        "station": "水上",
-        "time": "10:09"
-      },
-      {
-        "station": "潮州",
-        "time": "06:48"
-      },
-      {
-        "station": "竹田",
-        "time": "06:52"
-      },
-      {
-        "station": "西勢",
-        "time": "06:57"
-      },
-      {
-        "station": "麟洛",
-        "time": "07:00"
-      },
-      {
-        "station": "歸來",
-        "time": "07:03"
-      },
-      {
-        "station": "屏東",
-        "time": "07:07"
-      },
-      {
-        "station": "六塊厝",
-        "time": "07:10"
-      },
-      {
-        "station": "九曲堂",
-        "time": "07:22"
-      },
-      {
-        "station": "後庄",
-        "time": "07:27"
-      },
-      {
-        "station": "鳳山",
-        "time": "07:38"
-      },
-      {
-        "station": "正義",
-        "time": "07:41"
-      },
-      {
-        "station": "科工館",
-        "time": "07:44"
-      },
-      {
-        "station": "民族",
-        "time": "07:46"
       }
     ]
   },
@@ -58925,7 +49317,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "后里",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -59168,58 +49560,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "10:11"
-      },
-      {
-        "station": "民族",
-        "time": "10:13"
-      },
-      {
-        "station": "科工館",
-        "time": "10:16"
-      },
-      {
-        "station": "正義",
-        "time": "10:19"
-      },
-      {
-        "station": "鳳山",
-        "time": "10:22"
-      },
-      {
-        "station": "後庄",
-        "time": "10:26"
-      },
-      {
-        "station": "九曲堂",
-        "time": "10:30"
-      },
-      {
-        "station": "六塊厝",
-        "time": "10:35"
-      },
-      {
-        "station": "屏東",
-        "time": "10:47"
-      },
-      {
-        "station": "歸來",
-        "time": "10:51"
-      },
-      {
-        "station": "麟洛",
-        "time": "10:54"
-      },
-      {
-        "station": "西勢",
-        "time": "10:58"
-      },
-      {
-        "station": "竹田",
-        "time": "11:02"
-      },
-      {
-        "station": "潮州",
-        "time": "11:07"
       }
     ]
   },
@@ -59229,7 +49569,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "后里",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -59292,238 +49632,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "后里",
         "time": "12:44"
-      },
-      {
-        "station": "嘉義",
-        "time": "10:17"
-      },
-      {
-        "station": "嘉北",
-        "time": "10:21"
-      },
-      {
-        "station": "民雄",
-        "time": "10:27"
-      },
-      {
-        "station": "大林",
-        "time": "10:32"
-      },
-      {
-        "station": "石龜",
-        "time": "10:36"
-      },
-      {
-        "station": "斗南",
-        "time": "10:40"
-      },
-      {
-        "station": "斗六",
-        "time": "10:47"
-      },
-      {
-        "station": "石榴",
-        "time": "10:51"
-      },
-      {
-        "station": "林內",
-        "time": "10:56"
-      },
-      {
-        "station": "二水",
-        "time": "11:03"
-      },
-      {
-        "station": "田中",
-        "time": "11:14"
-      },
-      {
-        "station": "社頭",
-        "time": "11:19"
-      },
-      {
-        "station": "永靖",
-        "time": "11:23"
-      },
-      {
-        "station": "員林",
-        "time": "11:28"
-      },
-      {
-        "station": "大村",
-        "time": "11:32"
-      },
-      {
-        "station": "花壇",
-        "time": "11:37"
-      },
-      {
-        "station": "高雄",
-        "time": "07:50"
-      },
-      {
-        "station": "三塊厝",
-        "time": "07:52"
-      },
-      {
-        "station": "鼓山",
-        "time": "07:55"
-      },
-      {
-        "station": "美術館",
-        "time": "08:02"
-      },
-      {
-        "station": "內惟",
-        "time": "08:05"
-      },
-      {
-        "station": "左營",
-        "time": "08:07"
-      },
-      {
-        "station": "新左營",
-        "time": "08:18"
-      },
-      {
-        "station": "楠梓",
-        "time": "08:24"
-      },
-      {
-        "station": "橋頭",
-        "time": "08:28"
-      },
-      {
-        "station": "岡山",
-        "time": "08:33"
-      },
-      {
-        "station": "路竹",
-        "time": "08:39"
-      },
-      {
-        "station": "大湖",
-        "time": "08:43"
-      },
-      {
-        "station": "中洲",
-        "time": "08:47"
-      },
-      {
-        "station": "仁德",
-        "time": "08:50"
-      },
-      {
-        "station": "保安",
-        "time": "08:53"
-      },
-      {
-        "station": "台南",
-        "time": "09:00"
-      },
-      {
-        "station": "大橋",
-        "time": "09:03"
-      },
-      {
-        "station": "永康",
-        "time": "09:08"
-      },
-      {
-        "station": "新市",
-        "time": "09:14"
-      },
-      {
-        "station": "南科",
-        "time": "09:19"
-      },
-      {
-        "station": "善化",
-        "time": "09:26"
-      },
-      {
-        "station": "拔林",
-        "time": "09:31"
-      },
-      {
-        "station": "隆田",
-        "time": "09:34"
-      },
-      {
-        "station": "林鳳營",
-        "time": "09:45"
-      },
-      {
-        "station": "柳營",
-        "time": "09:50"
-      },
-      {
-        "station": "新營",
-        "time": "09:54"
-      },
-      {
-        "station": "後壁",
-        "time": "10:00"
-      },
-      {
-        "station": "南靖",
-        "time": "10:06"
-      },
-      {
-        "station": "水上",
-        "time": "10:09"
-      },
-      {
-        "station": "潮州",
-        "time": "07:03"
-      },
-      {
-        "station": "竹田",
-        "time": "07:07"
-      },
-      {
-        "station": "西勢",
-        "time": "07:11"
-      },
-      {
-        "station": "麟洛",
-        "time": "07:14"
-      },
-      {
-        "station": "歸來",
-        "time": "07:17"
-      },
-      {
-        "station": "屏東",
-        "time": "07:22"
-      },
-      {
-        "station": "六塊厝",
-        "time": "07:25"
-      },
-      {
-        "station": "九曲堂",
-        "time": "07:30"
-      },
-      {
-        "station": "後庄",
-        "time": "07:34"
-      },
-      {
-        "station": "鳳山",
-        "time": "07:39"
-      },
-      {
-        "station": "正義",
-        "time": "07:41"
-      },
-      {
-        "station": "科工館",
-        "time": "07:44"
-      },
-      {
-        "station": "民族",
-        "time": "07:46"
       }
     ]
   },
@@ -59533,7 +49641,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -59656,58 +49764,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "10:42"
-      },
-      {
-        "station": "民族",
-        "time": "10:44"
-      },
-      {
-        "station": "科工館",
-        "time": "10:47"
-      },
-      {
-        "station": "正義",
-        "time": "10:50"
-      },
-      {
-        "station": "鳳山",
-        "time": "10:53"
-      },
-      {
-        "station": "後庄",
-        "time": "10:57"
-      },
-      {
-        "station": "九曲堂",
-        "time": "11:01"
-      },
-      {
-        "station": "六塊厝",
-        "time": "11:06"
-      },
-      {
-        "station": "屏東",
-        "time": "11:23"
-      },
-      {
-        "station": "歸來",
-        "time": "11:27"
-      },
-      {
-        "station": "麟洛",
-        "time": "11:30"
-      },
-      {
-        "station": "西勢",
-        "time": "11:34"
-      },
-      {
-        "station": "竹田",
-        "time": "11:38"
-      },
-      {
-        "station": "潮州",
-        "time": "11:43"
       }
     ]
   },
@@ -59717,7 +49773,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "嘉義",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -59840,58 +49896,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "嘉義",
         "time": "10:42"
-      },
-      {
-        "station": "潮州",
-        "time": "07:36"
-      },
-      {
-        "station": "竹田",
-        "time": "07:40"
-      },
-      {
-        "station": "西勢",
-        "time": "07:45"
-      },
-      {
-        "station": "麟洛",
-        "time": "07:48"
-      },
-      {
-        "station": "歸來",
-        "time": "07:51"
-      },
-      {
-        "station": "屏東",
-        "time": "07:55"
-      },
-      {
-        "station": "六塊厝",
-        "time": "07:58"
-      },
-      {
-        "station": "九曲堂",
-        "time": "08:03"
-      },
-      {
-        "station": "後庄",
-        "time": "08:07"
-      },
-      {
-        "station": "鳳山",
-        "time": "08:12"
-      },
-      {
-        "station": "正義",
-        "time": "08:14"
-      },
-      {
-        "station": "科工館",
-        "time": "08:18"
-      },
-      {
-        "station": "民族",
-        "time": "08:20"
       }
     ]
   },
@@ -59901,7 +49905,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "新竹",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -60192,58 +50196,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "11:24"
-      },
-      {
-        "station": "民族",
-        "time": "11:26"
-      },
-      {
-        "station": "科工館",
-        "time": "11:29"
-      },
-      {
-        "station": "正義",
-        "time": "11:32"
-      },
-      {
-        "station": "鳳山",
-        "time": "11:35"
-      },
-      {
-        "station": "後庄",
-        "time": "11:39"
-      },
-      {
-        "station": "九曲堂",
-        "time": "11:43"
-      },
-      {
-        "station": "六塊厝",
-        "time": "11:48"
-      },
-      {
-        "station": "屏東",
-        "time": "11:52"
-      },
-      {
-        "station": "歸來",
-        "time": "11:55"
-      },
-      {
-        "station": "麟洛",
-        "time": "11:58"
-      },
-      {
-        "station": "西勢",
-        "time": "12:02"
-      },
-      {
-        "station": "竹田",
-        "time": "12:06"
-      },
-      {
-        "station": "潮州",
-        "time": "12:11"
       }
     ]
   },
@@ -60253,7 +50205,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "后里",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -60316,238 +50268,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "后里",
         "time": "13:45"
-      },
-      {
-        "station": "嘉義",
-        "time": "11:13"
-      },
-      {
-        "station": "嘉北",
-        "time": "11:17"
-      },
-      {
-        "station": "民雄",
-        "time": "11:23"
-      },
-      {
-        "station": "大林",
-        "time": "11:29"
-      },
-      {
-        "station": "石龜",
-        "time": "11:33"
-      },
-      {
-        "station": "斗南",
-        "time": "11:44"
-      },
-      {
-        "station": "斗六",
-        "time": "11:52"
-      },
-      {
-        "station": "石榴",
-        "time": "11:56"
-      },
-      {
-        "station": "林內",
-        "time": "12:01"
-      },
-      {
-        "station": "二水",
-        "time": "12:08"
-      },
-      {
-        "station": "田中",
-        "time": "12:14"
-      },
-      {
-        "station": "社頭",
-        "time": "12:18"
-      },
-      {
-        "station": "永靖",
-        "time": "12:22"
-      },
-      {
-        "station": "員林",
-        "time": "12:33"
-      },
-      {
-        "station": "大村",
-        "time": "12:38"
-      },
-      {
-        "station": "花壇",
-        "time": "12:43"
-      },
-      {
-        "station": "高雄",
-        "time": "08:53"
-      },
-      {
-        "station": "三塊厝",
-        "time": "08:55"
-      },
-      {
-        "station": "鼓山",
-        "time": "08:58"
-      },
-      {
-        "station": "美術館",
-        "time": "09:01"
-      },
-      {
-        "station": "內惟",
-        "time": "09:03"
-      },
-      {
-        "station": "左營",
-        "time": "09:05"
-      },
-      {
-        "station": "新左營",
-        "time": "09:10"
-      },
-      {
-        "station": "楠梓",
-        "time": "09:15"
-      },
-      {
-        "station": "橋頭",
-        "time": "09:19"
-      },
-      {
-        "station": "岡山",
-        "time": "09:24"
-      },
-      {
-        "station": "路竹",
-        "time": "09:30"
-      },
-      {
-        "station": "大湖",
-        "time": "09:34"
-      },
-      {
-        "station": "中洲",
-        "time": "09:38"
-      },
-      {
-        "station": "仁德",
-        "time": "09:41"
-      },
-      {
-        "station": "保安",
-        "time": "09:44"
-      },
-      {
-        "station": "台南",
-        "time": "09:59"
-      },
-      {
-        "station": "大橋",
-        "time": "10:03"
-      },
-      {
-        "station": "永康",
-        "time": "10:08"
-      },
-      {
-        "station": "新市",
-        "time": "10:14"
-      },
-      {
-        "station": "南科",
-        "time": "10:19"
-      },
-      {
-        "station": "善化",
-        "time": "10:23"
-      },
-      {
-        "station": "拔林",
-        "time": "10:27"
-      },
-      {
-        "station": "隆田",
-        "time": "10:31"
-      },
-      {
-        "station": "林鳳營",
-        "time": "10:36"
-      },
-      {
-        "station": "柳營",
-        "time": "10:40"
-      },
-      {
-        "station": "新營",
-        "time": "10:49"
-      },
-      {
-        "station": "後壁",
-        "time": "10:57"
-      },
-      {
-        "station": "南靖",
-        "time": "11:02"
-      },
-      {
-        "station": "水上",
-        "time": "11:05"
-      },
-      {
-        "station": "潮州",
-        "time": "07:57"
-      },
-      {
-        "station": "竹田",
-        "time": "08:01"
-      },
-      {
-        "station": "西勢",
-        "time": "08:06"
-      },
-      {
-        "station": "麟洛",
-        "time": "08:09"
-      },
-      {
-        "station": "歸來",
-        "time": "08:12"
-      },
-      {
-        "station": "屏東",
-        "time": "08:16"
-      },
-      {
-        "station": "六塊厝",
-        "time": "08:19"
-      },
-      {
-        "station": "九曲堂",
-        "time": "08:24"
-      },
-      {
-        "station": "後庄",
-        "time": "08:28"
-      },
-      {
-        "station": "鳳山",
-        "time": "08:40"
-      },
-      {
-        "station": "正義",
-        "time": "08:43"
-      },
-      {
-        "station": "科工館",
-        "time": "08:47"
-      },
-      {
-        "station": "民族",
-        "time": "08:49"
       }
     ]
   },
@@ -60557,7 +50277,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -60680,58 +50400,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "11:51"
-      },
-      {
-        "station": "民族",
-        "time": "11:53"
-      },
-      {
-        "station": "科工館",
-        "time": "11:56"
-      },
-      {
-        "station": "正義",
-        "time": "11:59"
-      },
-      {
-        "station": "鳳山",
-        "time": "12:02"
-      },
-      {
-        "station": "後庄",
-        "time": "12:06"
-      },
-      {
-        "station": "九曲堂",
-        "time": "12:16"
-      },
-      {
-        "station": "六塊厝",
-        "time": "12:22"
-      },
-      {
-        "station": "屏東",
-        "time": "12:26"
-      },
-      {
-        "station": "歸來",
-        "time": "12:29"
-      },
-      {
-        "station": "麟洛",
-        "time": "12:32"
-      },
-      {
-        "station": "西勢",
-        "time": "12:36"
-      },
-      {
-        "station": "竹田",
-        "time": "12:40"
-      },
-      {
-        "station": "潮州",
-        "time": "12:45"
       }
     ]
   },
@@ -60741,7 +50409,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "嘉義",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -60864,58 +50532,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "嘉義",
         "time": "11:43"
-      },
-      {
-        "station": "潮州",
-        "time": "08:31"
-      },
-      {
-        "station": "竹田",
-        "time": "08:35"
-      },
-      {
-        "station": "西勢",
-        "time": "08:40"
-      },
-      {
-        "station": "麟洛",
-        "time": "08:43"
-      },
-      {
-        "station": "歸來",
-        "time": "08:46"
-      },
-      {
-        "station": "屏東",
-        "time": "08:50"
-      },
-      {
-        "station": "六塊厝",
-        "time": "08:53"
-      },
-      {
-        "station": "九曲堂",
-        "time": "08:58"
-      },
-      {
-        "station": "後庄",
-        "time": "09:02"
-      },
-      {
-        "station": "鳳山",
-        "time": "09:07"
-      },
-      {
-        "station": "正義",
-        "time": "09:09"
-      },
-      {
-        "station": "科工館",
-        "time": "09:13"
-      },
-      {
-        "station": "民族",
-        "time": "09:15"
       }
     ]
   },
@@ -60925,7 +50541,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -60956,58 +50572,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "12:18"
-      },
-      {
-        "station": "民族",
-        "time": "12:21"
-      },
-      {
-        "station": "科工館",
-        "time": "12:24"
-      },
-      {
-        "station": "正義",
-        "time": "12:27"
-      },
-      {
-        "station": "鳳山",
-        "time": "12:30"
-      },
-      {
-        "station": "後庄",
-        "time": "12:34"
-      },
-      {
-        "station": "九曲堂",
-        "time": "12:38"
-      },
-      {
-        "station": "六塊厝",
-        "time": "12:43"
-      },
-      {
-        "station": "屏東",
-        "time": "12:47"
-      },
-      {
-        "station": "歸來",
-        "time": "12:50"
-      },
-      {
-        "station": "麟洛",
-        "time": "12:53"
-      },
-      {
-        "station": "西勢",
-        "time": "12:57"
-      },
-      {
-        "station": "竹田",
-        "time": "13:01"
-      },
-      {
-        "station": "潮州",
-        "time": "13:06"
       }
     ]
   },
@@ -61017,7 +50581,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "后里",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -61260,58 +50824,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "12:30"
-      },
-      {
-        "station": "民族",
-        "time": "12:32"
-      },
-      {
-        "station": "科工館",
-        "time": "12:35"
-      },
-      {
-        "station": "正義",
-        "time": "12:38"
-      },
-      {
-        "station": "鳳山",
-        "time": "12:41"
-      },
-      {
-        "station": "後庄",
-        "time": "12:45"
-      },
-      {
-        "station": "九曲堂",
-        "time": "12:49"
-      },
-      {
-        "station": "六塊厝",
-        "time": "12:54"
-      },
-      {
-        "station": "屏東",
-        "time": "12:58"
-      },
-      {
-        "station": "歸來",
-        "time": "13:01"
-      },
-      {
-        "station": "麟洛",
-        "time": "13:04"
-      },
-      {
-        "station": "西勢",
-        "time": "13:08"
-      },
-      {
-        "station": "竹田",
-        "time": "13:12"
-      },
-      {
-        "station": "潮州",
-        "time": "13:17"
       }
     ]
   },
@@ -61321,7 +50833,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "后里",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -61384,238 +50896,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "后里",
         "time": "14:31"
-      },
-      {
-        "station": "嘉義",
-        "time": "12:08"
-      },
-      {
-        "station": "嘉北",
-        "time": "12:12"
-      },
-      {
-        "station": "民雄",
-        "time": "12:18"
-      },
-      {
-        "station": "大林",
-        "time": "12:24"
-      },
-      {
-        "station": "石龜",
-        "time": "12:28"
-      },
-      {
-        "station": "斗南",
-        "time": "12:33"
-      },
-      {
-        "station": "斗六",
-        "time": "12:40"
-      },
-      {
-        "station": "石榴",
-        "time": "12:44"
-      },
-      {
-        "station": "林內",
-        "time": "12:49"
-      },
-      {
-        "station": "二水",
-        "time": "12:56"
-      },
-      {
-        "station": "田中",
-        "time": "13:07"
-      },
-      {
-        "station": "社頭",
-        "time": "13:12"
-      },
-      {
-        "station": "永靖",
-        "time": "13:16"
-      },
-      {
-        "station": "員林",
-        "time": "13:21"
-      },
-      {
-        "station": "大村",
-        "time": "13:25"
-      },
-      {
-        "station": "花壇",
-        "time": "13:30"
-      },
-      {
-        "station": "高雄",
-        "time": "09:42"
-      },
-      {
-        "station": "三塊厝",
-        "time": "09:44"
-      },
-      {
-        "station": "鼓山",
-        "time": "09:47"
-      },
-      {
-        "station": "美術館",
-        "time": "09:59"
-      },
-      {
-        "station": "內惟",
-        "time": "10:02"
-      },
-      {
-        "station": "左營",
-        "time": "10:04"
-      },
-      {
-        "station": "新左營",
-        "time": "10:09"
-      },
-      {
-        "station": "楠梓",
-        "time": "10:20"
-      },
-      {
-        "station": "橋頭",
-        "time": "10:25"
-      },
-      {
-        "station": "岡山",
-        "time": "10:30"
-      },
-      {
-        "station": "路竹",
-        "time": "10:36"
-      },
-      {
-        "station": "大湖",
-        "time": "10:40"
-      },
-      {
-        "station": "中洲",
-        "time": "10:44"
-      },
-      {
-        "station": "仁德",
-        "time": "10:47"
-      },
-      {
-        "station": "保安",
-        "time": "10:50"
-      },
-      {
-        "station": "台南",
-        "time": "10:57"
-      },
-      {
-        "station": "大橋",
-        "time": "11:00"
-      },
-      {
-        "station": "永康",
-        "time": "11:05"
-      },
-      {
-        "station": "新市",
-        "time": "11:16"
-      },
-      {
-        "station": "南科",
-        "time": "11:21"
-      },
-      {
-        "station": "善化",
-        "time": "11:25"
-      },
-      {
-        "station": "拔林",
-        "time": "11:29"
-      },
-      {
-        "station": "隆田",
-        "time": "11:32"
-      },
-      {
-        "station": "林鳳營",
-        "time": "11:37"
-      },
-      {
-        "station": "柳營",
-        "time": "11:41"
-      },
-      {
-        "station": "新營",
-        "time": "11:45"
-      },
-      {
-        "station": "後壁",
-        "time": "11:52"
-      },
-      {
-        "station": "南靖",
-        "time": "11:57"
-      },
-      {
-        "station": "水上",
-        "time": "12:00"
-      },
-      {
-        "station": "潮州",
-        "time": "08:55"
-      },
-      {
-        "station": "竹田",
-        "time": "08:59"
-      },
-      {
-        "station": "西勢",
-        "time": "09:04"
-      },
-      {
-        "station": "麟洛",
-        "time": "09:07"
-      },
-      {
-        "station": "歸來",
-        "time": "09:10"
-      },
-      {
-        "station": "屏東",
-        "time": "09:14"
-      },
-      {
-        "station": "六塊厝",
-        "time": "09:17"
-      },
-      {
-        "station": "九曲堂",
-        "time": "09:22"
-      },
-      {
-        "station": "後庄",
-        "time": "09:26"
-      },
-      {
-        "station": "鳳山",
-        "time": "09:31"
-      },
-      {
-        "station": "正義",
-        "time": "09:33"
-      },
-      {
-        "station": "科工館",
-        "time": "09:37"
-      },
-      {
-        "station": "民族",
-        "time": "09:39"
       }
     ]
   },
@@ -61625,7 +50905,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -61748,58 +51028,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "12:55"
-      },
-      {
-        "station": "民族",
-        "time": "12:58"
-      },
-      {
-        "station": "科工館",
-        "time": "13:00"
-      },
-      {
-        "station": "正義",
-        "time": "13:03"
-      },
-      {
-        "station": "鳳山",
-        "time": "13:06"
-      },
-      {
-        "station": "後庄",
-        "time": "13:11"
-      },
-      {
-        "station": "九曲堂",
-        "time": "13:15"
-      },
-      {
-        "station": "六塊厝",
-        "time": "13:20"
-      },
-      {
-        "station": "屏東",
-        "time": "13:24"
-      },
-      {
-        "station": "歸來",
-        "time": "13:27"
-      },
-      {
-        "station": "麟洛",
-        "time": "13:30"
-      },
-      {
-        "station": "西勢",
-        "time": "13:34"
-      },
-      {
-        "station": "竹田",
-        "time": "13:38"
-      },
-      {
-        "station": "潮州",
-        "time": "13:43"
       }
     ]
   },
@@ -61809,7 +51037,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "嘉義",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -61932,58 +51160,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "嘉義",
         "time": "12:36"
-      },
-      {
-        "station": "潮州",
-        "time": "09:33"
-      },
-      {
-        "station": "竹田",
-        "time": "09:37"
-      },
-      {
-        "station": "西勢",
-        "time": "09:42"
-      },
-      {
-        "station": "麟洛",
-        "time": "09:45"
-      },
-      {
-        "station": "歸來",
-        "time": "09:48"
-      },
-      {
-        "station": "屏東",
-        "time": "09:52"
-      },
-      {
-        "station": "六塊厝",
-        "time": "09:55"
-      },
-      {
-        "station": "九曲堂",
-        "time": "10:00"
-      },
-      {
-        "station": "後庄",
-        "time": "10:04"
-      },
-      {
-        "station": "鳳山",
-        "time": "10:09"
-      },
-      {
-        "station": "正義",
-        "time": "10:11"
-      },
-      {
-        "station": "科工館",
-        "time": "10:15"
-      },
-      {
-        "station": "民族",
-        "time": "10:17"
       }
     ]
   },
@@ -61993,7 +51169,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "銅鑼",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -62248,58 +51424,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "13:19"
-      },
-      {
-        "station": "民族",
-        "time": "13:21"
-      },
-      {
-        "station": "科工館",
-        "time": "13:24"
-      },
-      {
-        "station": "正義",
-        "time": "13:27"
-      },
-      {
-        "station": "鳳山",
-        "time": "13:37"
-      },
-      {
-        "station": "後庄",
-        "time": "13:42"
-      },
-      {
-        "station": "九曲堂",
-        "time": "13:46"
-      },
-      {
-        "station": "六塊厝",
-        "time": "13:51"
-      },
-      {
-        "station": "屏東",
-        "time": "13:55"
-      },
-      {
-        "station": "歸來",
-        "time": "13:58"
-      },
-      {
-        "station": "麟洛",
-        "time": "14:01"
-      },
-      {
-        "station": "西勢",
-        "time": "14:05"
-      },
-      {
-        "station": "竹田",
-        "time": "14:09"
-      },
-      {
-        "station": "潮州",
-        "time": "14:14"
       }
     ]
   },
@@ -62309,7 +51433,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "后里",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -62372,238 +51496,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "后里",
         "time": "15:54"
-      },
-      {
-        "station": "嘉義",
-        "time": "13:14"
-      },
-      {
-        "station": "嘉北",
-        "time": "13:18"
-      },
-      {
-        "station": "民雄",
-        "time": "13:29"
-      },
-      {
-        "station": "大林",
-        "time": "13:43"
-      },
-      {
-        "station": "石龜",
-        "time": "13:48"
-      },
-      {
-        "station": "斗南",
-        "time": "13:54"
-      },
-      {
-        "station": "斗六",
-        "time": "14:01"
-      },
-      {
-        "station": "石榴",
-        "time": "14:05"
-      },
-      {
-        "station": "林內",
-        "time": "14:10"
-      },
-      {
-        "station": "二水",
-        "time": "14:17"
-      },
-      {
-        "station": "田中",
-        "time": "14:23"
-      },
-      {
-        "station": "社頭",
-        "time": "14:27"
-      },
-      {
-        "station": "永靖",
-        "time": "14:31"
-      },
-      {
-        "station": "員林",
-        "time": "14:36"
-      },
-      {
-        "station": "大村",
-        "time": "14:40"
-      },
-      {
-        "station": "花壇",
-        "time": "14:45"
-      },
-      {
-        "station": "高雄",
-        "time": "10:44"
-      },
-      {
-        "station": "三塊厝",
-        "time": "10:46"
-      },
-      {
-        "station": "鼓山",
-        "time": "10:49"
-      },
-      {
-        "station": "美術館",
-        "time": "10:57"
-      },
-      {
-        "station": "內惟",
-        "time": "11:00"
-      },
-      {
-        "station": "左營",
-        "time": "11:02"
-      },
-      {
-        "station": "新左營",
-        "time": "11:08"
-      },
-      {
-        "station": "楠梓",
-        "time": "11:14"
-      },
-      {
-        "station": "橋頭",
-        "time": "11:18"
-      },
-      {
-        "station": "岡山",
-        "time": "11:30"
-      },
-      {
-        "station": "路竹",
-        "time": "11:38"
-      },
-      {
-        "station": "大湖",
-        "time": "11:42"
-      },
-      {
-        "station": "中洲",
-        "time": "11:46"
-      },
-      {
-        "station": "仁德",
-        "time": "11:49"
-      },
-      {
-        "station": "保安",
-        "time": "11:52"
-      },
-      {
-        "station": "台南",
-        "time": "12:00"
-      },
-      {
-        "station": "大橋",
-        "time": "12:03"
-      },
-      {
-        "station": "永康",
-        "time": "12:08"
-      },
-      {
-        "station": "新市",
-        "time": "12:14"
-      },
-      {
-        "station": "南科",
-        "time": "12:19"
-      },
-      {
-        "station": "善化",
-        "time": "12:23"
-      },
-      {
-        "station": "拔林",
-        "time": "12:27"
-      },
-      {
-        "station": "隆田",
-        "time": "12:31"
-      },
-      {
-        "station": "林鳳營",
-        "time": "12:42"
-      },
-      {
-        "station": "柳營",
-        "time": "12:47"
-      },
-      {
-        "station": "新營",
-        "time": "12:51"
-      },
-      {
-        "station": "後壁",
-        "time": "12:57"
-      },
-      {
-        "station": "南靖",
-        "time": "13:03"
-      },
-      {
-        "station": "水上",
-        "time": "13:06"
-      },
-      {
-        "station": "潮州",
-        "time": "09:48"
-      },
-      {
-        "station": "竹田",
-        "time": "09:52"
-      },
-      {
-        "station": "西勢",
-        "time": "09:57"
-      },
-      {
-        "station": "麟洛",
-        "time": "10:00"
-      },
-      {
-        "station": "歸來",
-        "time": "10:03"
-      },
-      {
-        "station": "屏東",
-        "time": "10:07"
-      },
-      {
-        "station": "六塊厝",
-        "time": "10:10"
-      },
-      {
-        "station": "九曲堂",
-        "time": "10:22"
-      },
-      {
-        "station": "後庄",
-        "time": "10:27"
-      },
-      {
-        "station": "鳳山",
-        "time": "10:32"
-      },
-      {
-        "station": "正義",
-        "time": "10:34"
-      },
-      {
-        "station": "科工館",
-        "time": "10:38"
-      },
-      {
-        "station": "民族",
-        "time": "10:40"
       }
     ]
   },
@@ -62613,7 +51505,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -62644,38 +51536,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "11:33"
-      },
-      {
-        "station": "屏東",
-        "time": "10:41"
-      },
-      {
-        "station": "六塊厝",
-        "time": "10:45"
-      },
-      {
-        "station": "九曲堂",
-        "time": "10:50"
-      },
-      {
-        "station": "後庄",
-        "time": "10:54"
-      },
-      {
-        "station": "鳳山",
-        "time": "11:06"
-      },
-      {
-        "station": "正義",
-        "time": "11:09"
-      },
-      {
-        "station": "科工館",
-        "time": "11:13"
-      },
-      {
-        "station": "民族",
-        "time": "11:15"
       }
     ]
   },
@@ -62685,7 +51545,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -62808,58 +51668,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "13:43"
-      },
-      {
-        "station": "民族",
-        "time": "13:45"
-      },
-      {
-        "station": "科工館",
-        "time": "13:48"
-      },
-      {
-        "station": "正義",
-        "time": "13:51"
-      },
-      {
-        "station": "鳳山",
-        "time": "13:54"
-      },
-      {
-        "station": "後庄",
-        "time": "13:58"
-      },
-      {
-        "station": "九曲堂",
-        "time": "14:02"
-      },
-      {
-        "station": "六塊厝",
-        "time": "14:07"
-      },
-      {
-        "station": "屏東",
-        "time": "14:11"
-      },
-      {
-        "station": "歸來",
-        "time": "14:14"
-      },
-      {
-        "station": "麟洛",
-        "time": "14:17"
-      },
-      {
-        "station": "西勢",
-        "time": "14:21"
-      },
-      {
-        "station": "竹田",
-        "time": "14:25"
-      },
-      {
-        "station": "潮州",
-        "time": "14:30"
       }
     ]
   },
@@ -62869,7 +51677,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "三義",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -63120,58 +51928,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "14:13"
-      },
-      {
-        "station": "民族",
-        "time": "14:16"
-      },
-      {
-        "station": "科工館",
-        "time": "14:18"
-      },
-      {
-        "station": "正義",
-        "time": "14:21"
-      },
-      {
-        "station": "鳳山",
-        "time": "14:24"
-      },
-      {
-        "station": "後庄",
-        "time": "14:28"
-      },
-      {
-        "station": "九曲堂",
-        "time": "14:32"
-      },
-      {
-        "station": "六塊厝",
-        "time": "14:37"
-      },
-      {
-        "station": "屏東",
-        "time": "14:41"
-      },
-      {
-        "station": "歸來",
-        "time": "14:44"
-      },
-      {
-        "station": "麟洛",
-        "time": "14:47"
-      },
-      {
-        "station": "西勢",
-        "time": "14:51"
-      },
-      {
-        "station": "竹田",
-        "time": "14:55"
-      },
-      {
-        "station": "潮州",
-        "time": "15:00"
       }
     ]
   },
@@ -63181,7 +51937,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "后里",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -63244,238 +52000,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "后里",
         "time": "16:47"
-      },
-      {
-        "station": "嘉義",
-        "time": "14:00"
-      },
-      {
-        "station": "嘉北",
-        "time": "14:04"
-      },
-      {
-        "station": "民雄",
-        "time": "14:16"
-      },
-      {
-        "station": "大林",
-        "time": "14:24"
-      },
-      {
-        "station": "石龜",
-        "time": "14:28"
-      },
-      {
-        "station": "斗南",
-        "time": "14:33"
-      },
-      {
-        "station": "斗六",
-        "time": "14:41"
-      },
-      {
-        "station": "石榴",
-        "time": "14:45"
-      },
-      {
-        "station": "林內",
-        "time": "14:50"
-      },
-      {
-        "station": "二水",
-        "time": "14:57"
-      },
-      {
-        "station": "田中",
-        "time": "15:03"
-      },
-      {
-        "station": "社頭",
-        "time": "15:07"
-      },
-      {
-        "station": "永靖",
-        "time": "15:11"
-      },
-      {
-        "station": "員林",
-        "time": "15:16"
-      },
-      {
-        "station": "大村",
-        "time": "15:20"
-      },
-      {
-        "station": "花壇",
-        "time": "15:25"
-      },
-      {
-        "station": "高雄",
-        "time": "11:32"
-      },
-      {
-        "station": "三塊厝",
-        "time": "11:34"
-      },
-      {
-        "station": "鼓山",
-        "time": "11:37"
-      },
-      {
-        "station": "美術館",
-        "time": "11:50"
-      },
-      {
-        "station": "內惟",
-        "time": "11:53"
-      },
-      {
-        "station": "左營",
-        "time": "11:55"
-      },
-      {
-        "station": "新左營",
-        "time": "11:59"
-      },
-      {
-        "station": "楠梓",
-        "time": "12:04"
-      },
-      {
-        "station": "橋頭",
-        "time": "12:08"
-      },
-      {
-        "station": "岡山",
-        "time": "12:18"
-      },
-      {
-        "station": "路竹",
-        "time": "12:25"
-      },
-      {
-        "station": "大湖",
-        "time": "12:29"
-      },
-      {
-        "station": "中洲",
-        "time": "12:33"
-      },
-      {
-        "station": "仁德",
-        "time": "12:36"
-      },
-      {
-        "station": "保安",
-        "time": "12:39"
-      },
-      {
-        "station": "台南",
-        "time": "12:47"
-      },
-      {
-        "station": "大橋",
-        "time": "12:50"
-      },
-      {
-        "station": "永康",
-        "time": "12:55"
-      },
-      {
-        "station": "新市",
-        "time": "13:06"
-      },
-      {
-        "station": "南科",
-        "time": "13:11"
-      },
-      {
-        "station": "善化",
-        "time": "13:16"
-      },
-      {
-        "station": "拔林",
-        "time": "13:20"
-      },
-      {
-        "station": "隆田",
-        "time": "13:24"
-      },
-      {
-        "station": "林鳳營",
-        "time": "13:29"
-      },
-      {
-        "station": "柳營",
-        "time": "13:33"
-      },
-      {
-        "station": "新營",
-        "time": "13:37"
-      },
-      {
-        "station": "後壁",
-        "time": "13:43"
-      },
-      {
-        "station": "南靖",
-        "time": "13:49"
-      },
-      {
-        "station": "水上",
-        "time": "13:52"
-      },
-      {
-        "station": "潮州",
-        "time": "10:45"
-      },
-      {
-        "station": "竹田",
-        "time": "10:49"
-      },
-      {
-        "station": "西勢",
-        "time": "10:54"
-      },
-      {
-        "station": "麟洛",
-        "time": "10:57"
-      },
-      {
-        "station": "歸來",
-        "time": "11:00"
-      },
-      {
-        "station": "屏東",
-        "time": "11:04"
-      },
-      {
-        "station": "六塊厝",
-        "time": "11:07"
-      },
-      {
-        "station": "九曲堂",
-        "time": "11:12"
-      },
-      {
-        "station": "後庄",
-        "time": "11:16"
-      },
-      {
-        "station": "鳳山",
-        "time": "11:21"
-      },
-      {
-        "station": "正義",
-        "time": "11:23"
-      },
-      {
-        "station": "科工館",
-        "time": "11:27"
-      },
-      {
-        "station": "民族",
-        "time": "11:29"
       }
     ]
   },
@@ -63485,7 +52009,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -63608,58 +52132,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "14:32"
-      },
-      {
-        "station": "民族",
-        "time": "14:34"
-      },
-      {
-        "station": "科工館",
-        "time": "14:37"
-      },
-      {
-        "station": "正義",
-        "time": "14:40"
-      },
-      {
-        "station": "鳳山",
-        "time": "14:43"
-      },
-      {
-        "station": "後庄",
-        "time": "14:47"
-      },
-      {
-        "station": "九曲堂",
-        "time": "14:51"
-      },
-      {
-        "station": "六塊厝",
-        "time": "14:56"
-      },
-      {
-        "station": "屏東",
-        "time": "15:00"
-      },
-      {
-        "station": "歸來",
-        "time": "15:03"
-      },
-      {
-        "station": "麟洛",
-        "time": "15:06"
-      },
-      {
-        "station": "西勢",
-        "time": "15:10"
-      },
-      {
-        "station": "竹田",
-        "time": "15:14"
-      },
-      {
-        "station": "潮州",
-        "time": "15:19"
       }
     ]
   },
@@ -63669,7 +52141,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "民族",
+    "dest": "斗六",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -63700,174 +52172,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "斗六",
         "time": "15:22"
-      },
-      {
-        "station": "高雄",
-        "time": "12:15"
-      },
-      {
-        "station": "三塊厝",
-        "time": "12:17"
-      },
-      {
-        "station": "鼓山",
-        "time": "12:20"
-      },
-      {
-        "station": "美術館",
-        "time": "12:23"
-      },
-      {
-        "station": "內惟",
-        "time": "12:25"
-      },
-      {
-        "station": "左營",
-        "time": "12:27"
-      },
-      {
-        "station": "新左營",
-        "time": "12:37"
-      },
-      {
-        "station": "楠梓",
-        "time": "12:43"
-      },
-      {
-        "station": "橋頭",
-        "time": "12:48"
-      },
-      {
-        "station": "岡山",
-        "time": "12:54"
-      },
-      {
-        "station": "路竹",
-        "time": "13:01"
-      },
-      {
-        "station": "大湖",
-        "time": "13:06"
-      },
-      {
-        "station": "中洲",
-        "time": "13:17"
-      },
-      {
-        "station": "仁德",
-        "time": "13:21"
-      },
-      {
-        "station": "保安",
-        "time": "13:24"
-      },
-      {
-        "station": "台南",
-        "time": "13:32"
-      },
-      {
-        "station": "大橋",
-        "time": "13:35"
-      },
-      {
-        "station": "永康",
-        "time": "13:41"
-      },
-      {
-        "station": "新市",
-        "time": "13:47"
-      },
-      {
-        "station": "南科",
-        "time": "13:52"
-      },
-      {
-        "station": "善化",
-        "time": "13:56"
-      },
-      {
-        "station": "拔林",
-        "time": "14:00"
-      },
-      {
-        "station": "隆田",
-        "time": "14:04"
-      },
-      {
-        "station": "林鳳營",
-        "time": "14:09"
-      },
-      {
-        "station": "柳營",
-        "time": "14:13"
-      },
-      {
-        "station": "新營",
-        "time": "14:17"
-      },
-      {
-        "station": "後壁",
-        "time": "14:23"
-      },
-      {
-        "station": "南靖",
-        "time": "14:29"
-      },
-      {
-        "station": "水上",
-        "time": "14:32"
-      },
-      {
-        "station": "潮州",
-        "time": "11:27"
-      },
-      {
-        "station": "竹田",
-        "time": "11:31"
-      },
-      {
-        "station": "西勢",
-        "time": "11:36"
-      },
-      {
-        "station": "麟洛",
-        "time": "11:39"
-      },
-      {
-        "station": "歸來",
-        "time": "11:42"
-      },
-      {
-        "station": "屏東",
-        "time": "11:46"
-      },
-      {
-        "station": "六塊厝",
-        "time": "11:49"
-      },
-      {
-        "station": "九曲堂",
-        "time": "11:54"
-      },
-      {
-        "station": "後庄",
-        "time": "11:58"
-      },
-      {
-        "station": "鳳山",
-        "time": "12:03"
-      },
-      {
-        "station": "正義",
-        "time": "12:05"
-      },
-      {
-        "station": "科工館",
-        "time": "12:09"
-      },
-      {
-        "station": "民族",
-        "time": "12:11"
       }
     ]
   },
@@ -63877,7 +52181,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "后里",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -64120,58 +52424,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "15:09"
-      },
-      {
-        "station": "民族",
-        "time": "15:11"
-      },
-      {
-        "station": "科工館",
-        "time": "15:13"
-      },
-      {
-        "station": "正義",
-        "time": "15:16"
-      },
-      {
-        "station": "鳳山",
-        "time": "15:19"
-      },
-      {
-        "station": "後庄",
-        "time": "15:23"
-      },
-      {
-        "station": "九曲堂",
-        "time": "15:38"
-      },
-      {
-        "station": "六塊厝",
-        "time": "15:43"
-      },
-      {
-        "station": "屏東",
-        "time": "15:48"
-      },
-      {
-        "station": "歸來",
-        "time": "15:51"
-      },
-      {
-        "station": "麟洛",
-        "time": "15:54"
-      },
-      {
-        "station": "西勢",
-        "time": "16:03"
-      },
-      {
-        "station": "竹田",
-        "time": "16:08"
-      },
-      {
-        "station": "潮州",
-        "time": "16:13"
       }
     ]
   },
@@ -64181,7 +52433,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "后里",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -64244,238 +52496,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "后里",
         "time": "17:35"
-      },
-      {
-        "station": "嘉義",
-        "time": "15:01"
-      },
-      {
-        "station": "嘉北",
-        "time": "15:05"
-      },
-      {
-        "station": "民雄",
-        "time": "15:12"
-      },
-      {
-        "station": "大林",
-        "time": "15:18"
-      },
-      {
-        "station": "石龜",
-        "time": "15:22"
-      },
-      {
-        "station": "斗南",
-        "time": "15:27"
-      },
-      {
-        "station": "斗六",
-        "time": "15:41"
-      },
-      {
-        "station": "石榴",
-        "time": "15:46"
-      },
-      {
-        "station": "林內",
-        "time": "15:51"
-      },
-      {
-        "station": "二水",
-        "time": "15:58"
-      },
-      {
-        "station": "田中",
-        "time": "16:04"
-      },
-      {
-        "station": "社頭",
-        "time": "16:08"
-      },
-      {
-        "station": "永靖",
-        "time": "16:12"
-      },
-      {
-        "station": "員林",
-        "time": "16:17"
-      },
-      {
-        "station": "大村",
-        "time": "16:21"
-      },
-      {
-        "station": "花壇",
-        "time": "16:26"
-      },
-      {
-        "station": "高雄",
-        "time": "12:35"
-      },
-      {
-        "station": "三塊厝",
-        "time": "12:37"
-      },
-      {
-        "station": "鼓山",
-        "time": "12:40"
-      },
-      {
-        "station": "美術館",
-        "time": "12:55"
-      },
-      {
-        "station": "內惟",
-        "time": "12:58"
-      },
-      {
-        "station": "左營",
-        "time": "13:00"
-      },
-      {
-        "station": "新左營",
-        "time": "13:04"
-      },
-      {
-        "station": "楠梓",
-        "time": "13:09"
-      },
-      {
-        "station": "橋頭",
-        "time": "13:14"
-      },
-      {
-        "station": "岡山",
-        "time": "13:19"
-      },
-      {
-        "station": "路竹",
-        "time": "13:25"
-      },
-      {
-        "station": "大湖",
-        "time": "13:29"
-      },
-      {
-        "station": "中洲",
-        "time": "13:33"
-      },
-      {
-        "station": "仁德",
-        "time": "13:36"
-      },
-      {
-        "station": "保安",
-        "time": "13:39"
-      },
-      {
-        "station": "台南",
-        "time": "13:47"
-      },
-      {
-        "station": "大橋",
-        "time": "13:50"
-      },
-      {
-        "station": "永康",
-        "time": "13:55"
-      },
-      {
-        "station": "新市",
-        "time": "14:01"
-      },
-      {
-        "station": "南科",
-        "time": "14:06"
-      },
-      {
-        "station": "善化",
-        "time": "14:10"
-      },
-      {
-        "station": "拔林",
-        "time": "14:14"
-      },
-      {
-        "station": "隆田",
-        "time": "14:23"
-      },
-      {
-        "station": "林鳳營",
-        "time": "14:29"
-      },
-      {
-        "station": "柳營",
-        "time": "14:33"
-      },
-      {
-        "station": "新營",
-        "time": "14:37"
-      },
-      {
-        "station": "後壁",
-        "time": "14:43"
-      },
-      {
-        "station": "南靖",
-        "time": "14:49"
-      },
-      {
-        "station": "水上",
-        "time": "14:52"
-      },
-      {
-        "station": "潮州",
-        "time": "11:41"
-      },
-      {
-        "station": "竹田",
-        "time": "11:45"
-      },
-      {
-        "station": "西勢",
-        "time": "11:50"
-      },
-      {
-        "station": "麟洛",
-        "time": "11:53"
-      },
-      {
-        "station": "歸來",
-        "time": "11:56"
-      },
-      {
-        "station": "屏東",
-        "time": "12:00"
-      },
-      {
-        "station": "六塊厝",
-        "time": "12:03"
-      },
-      {
-        "station": "九曲堂",
-        "time": "12:08"
-      },
-      {
-        "station": "後庄",
-        "time": "12:12"
-      },
-      {
-        "station": "鳳山",
-        "time": "12:23"
-      },
-      {
-        "station": "正義",
-        "time": "12:26"
-      },
-      {
-        "station": "科工館",
-        "time": "12:29"
-      },
-      {
-        "station": "民族",
-        "time": "12:31"
       }
     ]
   },
@@ -64485,7 +52505,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -64608,58 +52628,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "15:40"
-      },
-      {
-        "station": "民族",
-        "time": "15:43"
-      },
-      {
-        "station": "科工館",
-        "time": "15:46"
-      },
-      {
-        "station": "正義",
-        "time": "15:49"
-      },
-      {
-        "station": "鳳山",
-        "time": "15:52"
-      },
-      {
-        "station": "後庄",
-        "time": "15:56"
-      },
-      {
-        "station": "九曲堂",
-        "time": "16:00"
-      },
-      {
-        "station": "六塊厝",
-        "time": "16:05"
-      },
-      {
-        "station": "屏東",
-        "time": "16:09"
-      },
-      {
-        "station": "歸來",
-        "time": "16:12"
-      },
-      {
-        "station": "麟洛",
-        "time": "16:15"
-      },
-      {
-        "station": "西勢",
-        "time": "16:19"
-      },
-      {
-        "station": "竹田",
-        "time": "16:23"
-      },
-      {
-        "station": "潮州",
-        "time": "16:28"
       }
     ]
   },
@@ -64669,7 +52637,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "嘉義",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -64792,58 +52760,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "嘉義",
         "time": "15:44"
-      },
-      {
-        "station": "潮州",
-        "time": "12:26"
-      },
-      {
-        "station": "竹田",
-        "time": "12:30"
-      },
-      {
-        "station": "西勢",
-        "time": "12:35"
-      },
-      {
-        "station": "麟洛",
-        "time": "12:38"
-      },
-      {
-        "station": "歸來",
-        "time": "12:41"
-      },
-      {
-        "station": "屏東",
-        "time": "12:45"
-      },
-      {
-        "station": "六塊厝",
-        "time": "12:48"
-      },
-      {
-        "station": "九曲堂",
-        "time": "12:53"
-      },
-      {
-        "station": "後庄",
-        "time": "12:57"
-      },
-      {
-        "station": "鳳山",
-        "time": "13:02"
-      },
-      {
-        "station": "正義",
-        "time": "13:04"
-      },
-      {
-        "station": "科工館",
-        "time": "13:08"
-      },
-      {
-        "station": "民族",
-        "time": "13:10"
       }
     ]
   },
@@ -64853,7 +52769,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "后里",
-    "dest": "屏東",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -65096,38 +53012,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "16:10"
-      },
-      {
-        "station": "民族",
-        "time": "16:12"
-      },
-      {
-        "station": "科工館",
-        "time": "16:15"
-      },
-      {
-        "station": "正義",
-        "time": "16:18"
-      },
-      {
-        "station": "鳳山",
-        "time": "16:21"
-      },
-      {
-        "station": "後庄",
-        "time": "16:25"
-      },
-      {
-        "station": "九曲堂",
-        "time": "16:34"
-      },
-      {
-        "station": "六塊厝",
-        "time": "16:40"
-      },
-      {
-        "station": "屏東",
-        "time": "16:44"
       }
     ]
   },
@@ -65137,7 +53021,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "后里",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -65200,238 +53084,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "后里",
         "time": "18:46"
-      },
-      {
-        "station": "嘉義",
-        "time": "16:09"
-      },
-      {
-        "station": "嘉北",
-        "time": "16:13"
-      },
-      {
-        "station": "民雄",
-        "time": "16:19"
-      },
-      {
-        "station": "大林",
-        "time": "16:24"
-      },
-      {
-        "station": "石龜",
-        "time": "16:28"
-      },
-      {
-        "station": "斗南",
-        "time": "16:33"
-      },
-      {
-        "station": "斗六",
-        "time": "16:40"
-      },
-      {
-        "station": "石榴",
-        "time": "16:44"
-      },
-      {
-        "station": "林內",
-        "time": "16:49"
-      },
-      {
-        "station": "二水",
-        "time": "16:56"
-      },
-      {
-        "station": "田中",
-        "time": "17:02"
-      },
-      {
-        "station": "社頭",
-        "time": "17:06"
-      },
-      {
-        "station": "永靖",
-        "time": "17:10"
-      },
-      {
-        "station": "員林",
-        "time": "17:20"
-      },
-      {
-        "station": "大村",
-        "time": "17:25"
-      },
-      {
-        "station": "花壇",
-        "time": "17:30"
-      },
-      {
-        "station": "高雄",
-        "time": "13:51"
-      },
-      {
-        "station": "三塊厝",
-        "time": "13:53"
-      },
-      {
-        "station": "鼓山",
-        "time": "13:56"
-      },
-      {
-        "station": "美術館",
-        "time": "13:59"
-      },
-      {
-        "station": "內惟",
-        "time": "14:01"
-      },
-      {
-        "station": "左營",
-        "time": "14:03"
-      },
-      {
-        "station": "新左營",
-        "time": "14:08"
-      },
-      {
-        "station": "楠梓",
-        "time": "14:13"
-      },
-      {
-        "station": "橋頭",
-        "time": "14:17"
-      },
-      {
-        "station": "岡山",
-        "time": "14:28"
-      },
-      {
-        "station": "路竹",
-        "time": "14:35"
-      },
-      {
-        "station": "大湖",
-        "time": "14:40"
-      },
-      {
-        "station": "中洲",
-        "time": "14:44"
-      },
-      {
-        "station": "仁德",
-        "time": "14:47"
-      },
-      {
-        "station": "保安",
-        "time": "14:50"
-      },
-      {
-        "station": "台南",
-        "time": "14:57"
-      },
-      {
-        "station": "大橋",
-        "time": "15:00"
-      },
-      {
-        "station": "永康",
-        "time": "15:05"
-      },
-      {
-        "station": "新市",
-        "time": "15:16"
-      },
-      {
-        "station": "南科",
-        "time": "15:21"
-      },
-      {
-        "station": "善化",
-        "time": "15:24"
-      },
-      {
-        "station": "拔林",
-        "time": "15:29"
-      },
-      {
-        "station": "隆田",
-        "time": "15:32"
-      },
-      {
-        "station": "林鳳營",
-        "time": "15:37"
-      },
-      {
-        "station": "柳營",
-        "time": "15:41"
-      },
-      {
-        "station": "新營",
-        "time": "15:46"
-      },
-      {
-        "station": "後壁",
-        "time": "15:52"
-      },
-      {
-        "station": "南靖",
-        "time": "15:58"
-      },
-      {
-        "station": "水上",
-        "time": "16:01"
-      },
-      {
-        "station": "潮州",
-        "time": "13:04"
-      },
-      {
-        "station": "竹田",
-        "time": "13:08"
-      },
-      {
-        "station": "西勢",
-        "time": "13:13"
-      },
-      {
-        "station": "麟洛",
-        "time": "13:16"
-      },
-      {
-        "station": "歸來",
-        "time": "13:19"
-      },
-      {
-        "station": "屏東",
-        "time": "13:23"
-      },
-      {
-        "station": "六塊厝",
-        "time": "13:26"
-      },
-      {
-        "station": "九曲堂",
-        "time": "13:31"
-      },
-      {
-        "station": "後庄",
-        "time": "13:35"
-      },
-      {
-        "station": "鳳山",
-        "time": "13:40"
-      },
-      {
-        "station": "正義",
-        "time": "13:42"
-      },
-      {
-        "station": "科工館",
-        "time": "13:46"
-      },
-      {
-        "station": "民族",
-        "time": "13:48"
       }
     ]
   },
@@ -65441,7 +53093,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -65564,58 +53216,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "16:32"
-      },
-      {
-        "station": "民族",
-        "time": "16:34"
-      },
-      {
-        "station": "科工館",
-        "time": "16:37"
-      },
-      {
-        "station": "正義",
-        "time": "16:40"
-      },
-      {
-        "station": "鳳山",
-        "time": "16:43"
-      },
-      {
-        "station": "後庄",
-        "time": "16:47"
-      },
-      {
-        "station": "九曲堂",
-        "time": "16:51"
-      },
-      {
-        "station": "六塊厝",
-        "time": "16:56"
-      },
-      {
-        "station": "屏東",
-        "time": "17:00"
-      },
-      {
-        "station": "歸來",
-        "time": "17:03"
-      },
-      {
-        "station": "麟洛",
-        "time": "17:06"
-      },
-      {
-        "station": "西勢",
-        "time": "17:10"
-      },
-      {
-        "station": "竹田",
-        "time": "17:14"
-      },
-      {
-        "station": "潮州",
-        "time": "17:19"
       }
     ]
   },
@@ -65625,7 +53225,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "嘉義",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -65748,58 +53348,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "嘉義",
         "time": "16:37"
-      },
-      {
-        "station": "潮州",
-        "time": "13:26"
-      },
-      {
-        "station": "竹田",
-        "time": "13:30"
-      },
-      {
-        "station": "西勢",
-        "time": "13:34"
-      },
-      {
-        "station": "麟洛",
-        "time": "13:38"
-      },
-      {
-        "station": "歸來",
-        "time": "13:41"
-      },
-      {
-        "station": "屏東",
-        "time": "13:45"
-      },
-      {
-        "station": "六塊厝",
-        "time": "13:48"
-      },
-      {
-        "station": "九曲堂",
-        "time": "13:53"
-      },
-      {
-        "station": "後庄",
-        "time": "13:57"
-      },
-      {
-        "station": "鳳山",
-        "time": "14:07"
-      },
-      {
-        "station": "正義",
-        "time": "14:10"
-      },
-      {
-        "station": "科工館",
-        "time": "14:14"
-      },
-      {
-        "station": "民族",
-        "time": "14:16"
       }
     ]
   },
@@ -65809,7 +53357,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "后里",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -66052,58 +53600,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "17:04"
-      },
-      {
-        "station": "民族",
-        "time": "17:07"
-      },
-      {
-        "station": "科工館",
-        "time": "17:10"
-      },
-      {
-        "station": "正義",
-        "time": "17:13"
-      },
-      {
-        "station": "鳳山",
-        "time": "17:16"
-      },
-      {
-        "station": "後庄",
-        "time": "17:20"
-      },
-      {
-        "station": "九曲堂",
-        "time": "17:24"
-      },
-      {
-        "station": "六塊厝",
-        "time": "17:29"
-      },
-      {
-        "station": "屏東",
-        "time": "17:33"
-      },
-      {
-        "station": "歸來",
-        "time": "17:36"
-      },
-      {
-        "station": "麟洛",
-        "time": "17:39"
-      },
-      {
-        "station": "西勢",
-        "time": "17:43"
-      },
-      {
-        "station": "竹田",
-        "time": "17:47"
-      },
-      {
-        "station": "潮州",
-        "time": "17:52"
       }
     ]
   },
@@ -66113,7 +53609,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "后里",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -66176,238 +53672,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "后里",
         "time": "19:52"
-      },
-      {
-        "station": "嘉義",
-        "time": "17:14"
-      },
-      {
-        "station": "嘉北",
-        "time": "17:18"
-      },
-      {
-        "station": "民雄",
-        "time": "17:24"
-      },
-      {
-        "station": "大林",
-        "time": "17:30"
-      },
-      {
-        "station": "石龜",
-        "time": "17:34"
-      },
-      {
-        "station": "斗南",
-        "time": "17:39"
-      },
-      {
-        "station": "斗六",
-        "time": "17:46"
-      },
-      {
-        "station": "石榴",
-        "time": "17:50"
-      },
-      {
-        "station": "林內",
-        "time": "17:55"
-      },
-      {
-        "station": "二水",
-        "time": "18:03"
-      },
-      {
-        "station": "田中",
-        "time": "18:14"
-      },
-      {
-        "station": "社頭",
-        "time": "18:19"
-      },
-      {
-        "station": "永靖",
-        "time": "18:23"
-      },
-      {
-        "station": "員林",
-        "time": "18:28"
-      },
-      {
-        "station": "大村",
-        "time": "18:32"
-      },
-      {
-        "station": "花壇",
-        "time": "18:37"
-      },
-      {
-        "station": "高雄",
-        "time": "14:45"
-      },
-      {
-        "station": "三塊厝",
-        "time": "14:47"
-      },
-      {
-        "station": "鼓山",
-        "time": "14:50"
-      },
-      {
-        "station": "美術館",
-        "time": "14:58"
-      },
-      {
-        "station": "內惟",
-        "time": "15:01"
-      },
-      {
-        "station": "左營",
-        "time": "15:03"
-      },
-      {
-        "station": "新左營",
-        "time": "15:07"
-      },
-      {
-        "station": "楠梓",
-        "time": "15:12"
-      },
-      {
-        "station": "橋頭",
-        "time": "15:16"
-      },
-      {
-        "station": "岡山",
-        "time": "15:22"
-      },
-      {
-        "station": "路竹",
-        "time": "15:28"
-      },
-      {
-        "station": "大湖",
-        "time": "15:32"
-      },
-      {
-        "station": "中洲",
-        "time": "15:41"
-      },
-      {
-        "station": "仁德",
-        "time": "15:45"
-      },
-      {
-        "station": "保安",
-        "time": "15:48"
-      },
-      {
-        "station": "台南",
-        "time": "15:55"
-      },
-      {
-        "station": "大橋",
-        "time": "15:58"
-      },
-      {
-        "station": "永康",
-        "time": "16:02"
-      },
-      {
-        "station": "新市",
-        "time": "16:08"
-      },
-      {
-        "station": "南科",
-        "time": "16:13"
-      },
-      {
-        "station": "善化",
-        "time": "16:22"
-      },
-      {
-        "station": "拔林",
-        "time": "16:27"
-      },
-      {
-        "station": "隆田",
-        "time": "16:31"
-      },
-      {
-        "station": "林鳳營",
-        "time": "16:36"
-      },
-      {
-        "station": "柳營",
-        "time": "16:40"
-      },
-      {
-        "station": "新營",
-        "time": "16:50"
-      },
-      {
-        "station": "後壁",
-        "time": "16:58"
-      },
-      {
-        "station": "南靖",
-        "time": "17:03"
-      },
-      {
-        "station": "水上",
-        "time": "17:06"
-      },
-      {
-        "station": "潮州",
-        "time": "13:52"
-      },
-      {
-        "station": "竹田",
-        "time": "13:56"
-      },
-      {
-        "station": "西勢",
-        "time": "14:01"
-      },
-      {
-        "station": "麟洛",
-        "time": "14:04"
-      },
-      {
-        "station": "歸來",
-        "time": "14:07"
-      },
-      {
-        "station": "屏東",
-        "time": "14:11"
-      },
-      {
-        "station": "六塊厝",
-        "time": "14:14"
-      },
-      {
-        "station": "九曲堂",
-        "time": "14:24"
-      },
-      {
-        "station": "後庄",
-        "time": "14:29"
-      },
-      {
-        "station": "鳳山",
-        "time": "14:34"
-      },
-      {
-        "station": "正義",
-        "time": "14:36"
-      },
-      {
-        "station": "科工館",
-        "time": "14:40"
-      },
-      {
-        "station": "民族",
-        "time": "14:42"
       }
     ]
   },
@@ -66417,7 +53681,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -66540,58 +53804,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "17:42"
-      },
-      {
-        "station": "民族",
-        "time": "17:44"
-      },
-      {
-        "station": "科工館",
-        "time": "17:47"
-      },
-      {
-        "station": "正義",
-        "time": "17:50"
-      },
-      {
-        "station": "鳳山",
-        "time": "17:53"
-      },
-      {
-        "station": "後庄",
-        "time": "17:57"
-      },
-      {
-        "station": "九曲堂",
-        "time": "18:06"
-      },
-      {
-        "station": "六塊厝",
-        "time": "18:12"
-      },
-      {
-        "station": "屏東",
-        "time": "18:16"
-      },
-      {
-        "station": "歸來",
-        "time": "18:19"
-      },
-      {
-        "station": "麟洛",
-        "time": "18:22"
-      },
-      {
-        "station": "西勢",
-        "time": "18:26"
-      },
-      {
-        "station": "竹田",
-        "time": "18:30"
-      },
-      {
-        "station": "潮州",
-        "time": "18:35"
       }
     ]
   },
@@ -66601,7 +53813,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "嘉義",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -66724,58 +53936,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "嘉義",
         "time": "17:44"
-      },
-      {
-        "station": "潮州",
-        "time": "14:08"
-      },
-      {
-        "station": "竹田",
-        "time": "14:12"
-      },
-      {
-        "station": "西勢",
-        "time": "14:17"
-      },
-      {
-        "station": "麟洛",
-        "time": "14:20"
-      },
-      {
-        "station": "歸來",
-        "time": "14:23"
-      },
-      {
-        "station": "屏東",
-        "time": "14:27"
-      },
-      {
-        "station": "六塊厝",
-        "time": "14:30"
-      },
-      {
-        "station": "九曲堂",
-        "time": "14:40"
-      },
-      {
-        "station": "後庄",
-        "time": "14:45"
-      },
-      {
-        "station": "鳳山",
-        "time": "14:50"
-      },
-      {
-        "station": "正義",
-        "time": "14:52"
-      },
-      {
-        "station": "科工館",
-        "time": "14:56"
-      },
-      {
-        "station": "民族",
-        "time": "14:58"
       }
     ]
   },
@@ -66785,7 +53945,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "后里",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -67028,58 +54188,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "18:17"
-      },
-      {
-        "station": "民族",
-        "time": "18:19"
-      },
-      {
-        "station": "科工館",
-        "time": "18:22"
-      },
-      {
-        "station": "正義",
-        "time": "18:25"
-      },
-      {
-        "station": "鳳山",
-        "time": "18:28"
-      },
-      {
-        "station": "後庄",
-        "time": "18:32"
-      },
-      {
-        "station": "九曲堂",
-        "time": "18:36"
-      },
-      {
-        "station": "六塊厝",
-        "time": "18:41"
-      },
-      {
-        "station": "屏東",
-        "time": "18:45"
-      },
-      {
-        "station": "歸來",
-        "time": "18:48"
-      },
-      {
-        "station": "麟洛",
-        "time": "18:51"
-      },
-      {
-        "station": "西勢",
-        "time": "18:55"
-      },
-      {
-        "station": "竹田",
-        "time": "18:59"
-      },
-      {
-        "station": "潮州",
-        "time": "19:04"
       }
     ]
   },
@@ -67089,7 +54197,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "后里",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -67152,238 +54260,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "后里",
         "time": "20:48"
-      },
-      {
-        "station": "嘉義",
-        "time": "18:07"
-      },
-      {
-        "station": "嘉北",
-        "time": "18:11"
-      },
-      {
-        "station": "民雄",
-        "time": "18:17"
-      },
-      {
-        "station": "大林",
-        "time": "18:22"
-      },
-      {
-        "station": "石龜",
-        "time": "18:27"
-      },
-      {
-        "station": "斗南",
-        "time": "18:31"
-      },
-      {
-        "station": "斗六",
-        "time": "18:38"
-      },
-      {
-        "station": "石榴",
-        "time": "18:42"
-      },
-      {
-        "station": "林內",
-        "time": "18:47"
-      },
-      {
-        "station": "二水",
-        "time": "18:54"
-      },
-      {
-        "station": "田中",
-        "time": "19:07"
-      },
-      {
-        "station": "社頭",
-        "time": "19:19"
-      },
-      {
-        "station": "永靖",
-        "time": "19:24"
-      },
-      {
-        "station": "員林",
-        "time": "19:29"
-      },
-      {
-        "station": "大村",
-        "time": "19:33"
-      },
-      {
-        "station": "花壇",
-        "time": "19:38"
-      },
-      {
-        "station": "高雄",
-        "time": "15:35"
-      },
-      {
-        "station": "三塊厝",
-        "time": "15:37"
-      },
-      {
-        "station": "鼓山",
-        "time": "15:40"
-      },
-      {
-        "station": "美術館",
-        "time": "15:47"
-      },
-      {
-        "station": "內惟",
-        "time": "15:50"
-      },
-      {
-        "station": "左營",
-        "time": "15:52"
-      },
-      {
-        "station": "新左營",
-        "time": "15:56"
-      },
-      {
-        "station": "楠梓",
-        "time": "16:06"
-      },
-      {
-        "station": "橋頭",
-        "time": "16:12"
-      },
-      {
-        "station": "岡山",
-        "time": "16:17"
-      },
-      {
-        "station": "路竹",
-        "time": "16:24"
-      },
-      {
-        "station": "大湖",
-        "time": "16:28"
-      },
-      {
-        "station": "中洲",
-        "time": "16:38"
-      },
-      {
-        "station": "仁德",
-        "time": "16:42"
-      },
-      {
-        "station": "保安",
-        "time": "16:45"
-      },
-      {
-        "station": "台南",
-        "time": "16:54"
-      },
-      {
-        "station": "大橋",
-        "time": "16:57"
-      },
-      {
-        "station": "永康",
-        "time": "17:02"
-      },
-      {
-        "station": "新市",
-        "time": "17:08"
-      },
-      {
-        "station": "南科",
-        "time": "17:13"
-      },
-      {
-        "station": "善化",
-        "time": "17:17"
-      },
-      {
-        "station": "拔林",
-        "time": "17:21"
-      },
-      {
-        "station": "隆田",
-        "time": "17:29"
-      },
-      {
-        "station": "林鳳營",
-        "time": "17:35"
-      },
-      {
-        "station": "柳營",
-        "time": "17:39"
-      },
-      {
-        "station": "新營",
-        "time": "17:43"
-      },
-      {
-        "station": "後壁",
-        "time": "17:49"
-      },
-      {
-        "station": "南靖",
-        "time": "17:55"
-      },
-      {
-        "station": "水上",
-        "time": "17:58"
-      },
-      {
-        "station": "潮州",
-        "time": "14:40"
-      },
-      {
-        "station": "竹田",
-        "time": "14:44"
-      },
-      {
-        "station": "西勢",
-        "time": "14:49"
-      },
-      {
-        "station": "麟洛",
-        "time": "14:52"
-      },
-      {
-        "station": "歸來",
-        "time": "14:55"
-      },
-      {
-        "station": "屏東",
-        "time": "14:59"
-      },
-      {
-        "station": "六塊厝",
-        "time": "15:02"
-      },
-      {
-        "station": "九曲堂",
-        "time": "15:07"
-      },
-      {
-        "station": "後庄",
-        "time": "15:11"
-      },
-      {
-        "station": "鳳山",
-        "time": "15:16"
-      },
-      {
-        "station": "正義",
-        "time": "15:18"
-      },
-      {
-        "station": "科工館",
-        "time": "15:22"
-      },
-      {
-        "station": "民族",
-        "time": "15:24"
       }
     ]
   },
@@ -67393,7 +54269,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "屏東",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -67424,38 +54300,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "18:28"
-      },
-      {
-        "station": "民族",
-        "time": "18:31"
-      },
-      {
-        "station": "科工館",
-        "time": "18:34"
-      },
-      {
-        "station": "正義",
-        "time": "18:37"
-      },
-      {
-        "station": "鳳山",
-        "time": "18:40"
-      },
-      {
-        "station": "後庄",
-        "time": "18:44"
-      },
-      {
-        "station": "九曲堂",
-        "time": "18:48"
-      },
-      {
-        "station": "六塊厝",
-        "time": "18:53"
-      },
-      {
-        "station": "屏東",
-        "time": "18:57"
       }
     ]
   },
@@ -67465,7 +54309,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "斗南",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -67608,58 +54452,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "18:42"
-      },
-      {
-        "station": "民族",
-        "time": "18:44"
-      },
-      {
-        "station": "科工館",
-        "time": "18:47"
-      },
-      {
-        "station": "正義",
-        "time": "18:50"
-      },
-      {
-        "station": "鳳山",
-        "time": "18:53"
-      },
-      {
-        "station": "後庄",
-        "time": "18:57"
-      },
-      {
-        "station": "九曲堂",
-        "time": "19:01"
-      },
-      {
-        "station": "六塊厝",
-        "time": "19:06"
-      },
-      {
-        "station": "屏東",
-        "time": "19:10"
-      },
-      {
-        "station": "歸來",
-        "time": "19:13"
-      },
-      {
-        "station": "麟洛",
-        "time": "19:16"
-      },
-      {
-        "station": "西勢",
-        "time": "19:25"
-      },
-      {
-        "station": "竹田",
-        "time": "19:30"
-      },
-      {
-        "station": "潮州",
-        "time": "19:35"
       }
     ]
   },
@@ -67669,7 +54461,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "嘉義",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -67792,58 +54584,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "嘉義",
         "time": "18:48"
-      },
-      {
-        "station": "潮州",
-        "time": "15:00"
-      },
-      {
-        "station": "竹田",
-        "time": "15:04"
-      },
-      {
-        "station": "西勢",
-        "time": "15:09"
-      },
-      {
-        "station": "麟洛",
-        "time": "15:12"
-      },
-      {
-        "station": "歸來",
-        "time": "15:15"
-      },
-      {
-        "station": "屏東",
-        "time": "15:26"
-      },
-      {
-        "station": "六塊厝",
-        "time": "15:30"
-      },
-      {
-        "station": "九曲堂",
-        "time": "15:35"
-      },
-      {
-        "station": "後庄",
-        "time": "15:39"
-      },
-      {
-        "station": "鳳山",
-        "time": "15:50"
-      },
-      {
-        "station": "正義",
-        "time": "15:53"
-      },
-      {
-        "station": "科工館",
-        "time": "15:57"
-      },
-      {
-        "station": "民族",
-        "time": "15:59"
       }
     ]
   },
@@ -67853,7 +54593,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "后里",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -68096,58 +54836,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "19:16"
-      },
-      {
-        "station": "民族",
-        "time": "19:18"
-      },
-      {
-        "station": "科工館",
-        "time": "19:21"
-      },
-      {
-        "station": "正義",
-        "time": "19:24"
-      },
-      {
-        "station": "鳳山",
-        "time": "19:27"
-      },
-      {
-        "station": "後庄",
-        "time": "19:31"
-      },
-      {
-        "station": "九曲堂",
-        "time": "19:35"
-      },
-      {
-        "station": "六塊厝",
-        "time": "19:40"
-      },
-      {
-        "station": "屏東",
-        "time": "19:44"
-      },
-      {
-        "station": "歸來",
-        "time": "19:47"
-      },
-      {
-        "station": "麟洛",
-        "time": "19:50"
-      },
-      {
-        "station": "西勢",
-        "time": "20:00"
-      },
-      {
-        "station": "竹田",
-        "time": "20:05"
-      },
-      {
-        "station": "潮州",
-        "time": "20:10"
       }
     ]
   },
@@ -68157,7 +54845,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "后里",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -68220,238 +54908,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "后里",
         "time": "21:48"
-      },
-      {
-        "station": "嘉義",
-        "time": "19:13"
-      },
-      {
-        "station": "嘉北",
-        "time": "19:17"
-      },
-      {
-        "station": "民雄",
-        "time": "19:23"
-      },
-      {
-        "station": "大林",
-        "time": "19:30"
-      },
-      {
-        "station": "石龜",
-        "time": "19:34"
-      },
-      {
-        "station": "斗南",
-        "time": "19:39"
-      },
-      {
-        "station": "斗六",
-        "time": "19:46"
-      },
-      {
-        "station": "石榴",
-        "time": "19:50"
-      },
-      {
-        "station": "林內",
-        "time": "19:55"
-      },
-      {
-        "station": "二水",
-        "time": "20:02"
-      },
-      {
-        "station": "田中",
-        "time": "20:08"
-      },
-      {
-        "station": "社頭",
-        "time": "20:12"
-      },
-      {
-        "station": "永靖",
-        "time": "20:16"
-      },
-      {
-        "station": "員林",
-        "time": "20:22"
-      },
-      {
-        "station": "大村",
-        "time": "20:26"
-      },
-      {
-        "station": "花壇",
-        "time": "20:42"
-      },
-      {
-        "station": "高雄",
-        "time": "16:44"
-      },
-      {
-        "station": "三塊厝",
-        "time": "16:46"
-      },
-      {
-        "station": "鼓山",
-        "time": "16:49"
-      },
-      {
-        "station": "美術館",
-        "time": "16:57"
-      },
-      {
-        "station": "內惟",
-        "time": "17:00"
-      },
-      {
-        "station": "左營",
-        "time": "17:02"
-      },
-      {
-        "station": "新左營",
-        "time": "17:07"
-      },
-      {
-        "station": "楠梓",
-        "time": "17:12"
-      },
-      {
-        "station": "橋頭",
-        "time": "17:16"
-      },
-      {
-        "station": "岡山",
-        "time": "17:26"
-      },
-      {
-        "station": "路竹",
-        "time": "17:33"
-      },
-      {
-        "station": "大湖",
-        "time": "17:37"
-      },
-      {
-        "station": "中洲",
-        "time": "17:41"
-      },
-      {
-        "station": "仁德",
-        "time": "17:44"
-      },
-      {
-        "station": "保安",
-        "time": "17:47"
-      },
-      {
-        "station": "台南",
-        "time": "17:54"
-      },
-      {
-        "station": "大橋",
-        "time": "17:57"
-      },
-      {
-        "station": "永康",
-        "time": "18:07"
-      },
-      {
-        "station": "新市",
-        "time": "18:14"
-      },
-      {
-        "station": "南科",
-        "time": "18:19"
-      },
-      {
-        "station": "善化",
-        "time": "18:23"
-      },
-      {
-        "station": "拔林",
-        "time": "18:27"
-      },
-      {
-        "station": "隆田",
-        "time": "18:31"
-      },
-      {
-        "station": "林鳳營",
-        "time": "18:36"
-      },
-      {
-        "station": "柳營",
-        "time": "18:40"
-      },
-      {
-        "station": "新營",
-        "time": "18:44"
-      },
-      {
-        "station": "後壁",
-        "time": "18:56"
-      },
-      {
-        "station": "南靖",
-        "time": "19:02"
-      },
-      {
-        "station": "水上",
-        "time": "19:05"
-      },
-      {
-        "station": "潮州",
-        "time": "15:56"
-      },
-      {
-        "station": "竹田",
-        "time": "16:00"
-      },
-      {
-        "station": "西勢",
-        "time": "16:05"
-      },
-      {
-        "station": "麟洛",
-        "time": "16:08"
-      },
-      {
-        "station": "歸來",
-        "time": "16:11"
-      },
-      {
-        "station": "屏東",
-        "time": "16:15"
-      },
-      {
-        "station": "六塊厝",
-        "time": "16:18"
-      },
-      {
-        "station": "九曲堂",
-        "time": "16:23"
-      },
-      {
-        "station": "後庄",
-        "time": "16:27"
-      },
-      {
-        "station": "鳳山",
-        "time": "16:32"
-      },
-      {
-        "station": "正義",
-        "time": "16:34"
-      },
-      {
-        "station": "科工館",
-        "time": "16:38"
-      },
-      {
-        "station": "民族",
-        "time": "16:40"
       }
     ]
   },
@@ -68461,7 +54917,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -68584,58 +55040,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "19:38"
-      },
-      {
-        "station": "民族",
-        "time": "19:41"
-      },
-      {
-        "station": "科工館",
-        "time": "19:43"
-      },
-      {
-        "station": "正義",
-        "time": "19:46"
-      },
-      {
-        "station": "鳳山",
-        "time": "19:49"
-      },
-      {
-        "station": "後庄",
-        "time": "19:53"
-      },
-      {
-        "station": "九曲堂",
-        "time": "19:57"
-      },
-      {
-        "station": "六塊厝",
-        "time": "20:02"
-      },
-      {
-        "station": "屏東",
-        "time": "20:13"
-      },
-      {
-        "station": "歸來",
-        "time": "20:17"
-      },
-      {
-        "station": "麟洛",
-        "time": "20:20"
-      },
-      {
-        "station": "西勢",
-        "time": "20:24"
-      },
-      {
-        "station": "竹田",
-        "time": "20:28"
-      },
-      {
-        "station": "潮州",
-        "time": "20:33"
       }
     ]
   },
@@ -68645,7 +55049,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "民族",
+    "dest": "民雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -68660,174 +55064,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "民雄",
         "time": "19:55"
-      },
-      {
-        "station": "高雄",
-        "time": "17:18"
-      },
-      {
-        "station": "三塊厝",
-        "time": "17:20"
-      },
-      {
-        "station": "鼓山",
-        "time": "17:23"
-      },
-      {
-        "station": "美術館",
-        "time": "17:30"
-      },
-      {
-        "station": "內惟",
-        "time": "17:33"
-      },
-      {
-        "station": "左營",
-        "time": "17:35"
-      },
-      {
-        "station": "新左營",
-        "time": "17:40"
-      },
-      {
-        "station": "楠梓",
-        "time": "17:45"
-      },
-      {
-        "station": "橋頭",
-        "time": "17:49"
-      },
-      {
-        "station": "岡山",
-        "time": "17:55"
-      },
-      {
-        "station": "路竹",
-        "time": "18:02"
-      },
-      {
-        "station": "大湖",
-        "time": "18:06"
-      },
-      {
-        "station": "中洲",
-        "time": "18:15"
-      },
-      {
-        "station": "仁德",
-        "time": "18:19"
-      },
-      {
-        "station": "保安",
-        "time": "18:22"
-      },
-      {
-        "station": "台南",
-        "time": "18:30"
-      },
-      {
-        "station": "大橋",
-        "time": "18:33"
-      },
-      {
-        "station": "永康",
-        "time": "18:38"
-      },
-      {
-        "station": "新市",
-        "time": "18:44"
-      },
-      {
-        "station": "南科",
-        "time": "18:49"
-      },
-      {
-        "station": "善化",
-        "time": "18:53"
-      },
-      {
-        "station": "拔林",
-        "time": "18:57"
-      },
-      {
-        "station": "隆田",
-        "time": "19:01"
-      },
-      {
-        "station": "林鳳營",
-        "time": "19:06"
-      },
-      {
-        "station": "柳營",
-        "time": "19:10"
-      },
-      {
-        "station": "新營",
-        "time": "19:14"
-      },
-      {
-        "station": "後壁",
-        "time": "19:21"
-      },
-      {
-        "station": "南靖",
-        "time": "19:33"
-      },
-      {
-        "station": "水上",
-        "time": "19:37"
-      },
-      {
-        "station": "潮州",
-        "time": "16:20"
-      },
-      {
-        "station": "竹田",
-        "time": "16:24"
-      },
-      {
-        "station": "西勢",
-        "time": "16:29"
-      },
-      {
-        "station": "麟洛",
-        "time": "16:32"
-      },
-      {
-        "station": "歸來",
-        "time": "16:35"
-      },
-      {
-        "station": "屏東",
-        "time": "16:39"
-      },
-      {
-        "station": "六塊厝",
-        "time": "16:42"
-      },
-      {
-        "station": "九曲堂",
-        "time": "16:57"
-      },
-      {
-        "station": "後庄",
-        "time": "17:02"
-      },
-      {
-        "station": "鳳山",
-        "time": "17:07"
-      },
-      {
-        "station": "正義",
-        "time": "17:09"
-      },
-      {
-        "station": "科工館",
-        "time": "17:13"
-      },
-      {
-        "station": "民族",
-        "time": "17:15"
       }
     ]
   },
@@ -68837,7 +55073,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "后里",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -69080,58 +55316,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "20:16"
-      },
-      {
-        "station": "民族",
-        "time": "20:19"
-      },
-      {
-        "station": "科工館",
-        "time": "20:21"
-      },
-      {
-        "station": "正義",
-        "time": "20:24"
-      },
-      {
-        "station": "鳳山",
-        "time": "20:27"
-      },
-      {
-        "station": "後庄",
-        "time": "20:31"
-      },
-      {
-        "station": "九曲堂",
-        "time": "20:35"
-      },
-      {
-        "station": "六塊厝",
-        "time": "20:40"
-      },
-      {
-        "station": "屏東",
-        "time": "20:44"
-      },
-      {
-        "station": "歸來",
-        "time": "20:47"
-      },
-      {
-        "station": "麟洛",
-        "time": "20:50"
-      },
-      {
-        "station": "西勢",
-        "time": "21:00"
-      },
-      {
-        "station": "竹田",
-        "time": "21:05"
-      },
-      {
-        "station": "潮州",
-        "time": "21:10"
       }
     ]
   },
@@ -69141,7 +55325,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "新竹",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -69252,218 +55436,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新竹",
         "time": "23:52"
-      },
-      {
-        "station": "嘉義",
-        "time": "20:18"
-      },
-      {
-        "station": "嘉北",
-        "time": "20:22"
-      },
-      {
-        "station": "民雄",
-        "time": "20:28"
-      },
-      {
-        "station": "大林",
-        "time": "20:40"
-      },
-      {
-        "station": "石龜",
-        "time": "20:45"
-      },
-      {
-        "station": "斗南",
-        "time": "20:50"
-      },
-      {
-        "station": "斗六",
-        "time": "20:57"
-      },
-      {
-        "station": "石榴",
-        "time": "21:01"
-      },
-      {
-        "station": "林內",
-        "time": "21:06"
-      },
-      {
-        "station": "二水",
-        "time": "21:13"
-      },
-      {
-        "station": "田中",
-        "time": "21:19"
-      },
-      {
-        "station": "社頭",
-        "time": "21:30"
-      },
-      {
-        "station": "永靖",
-        "time": "21:35"
-      },
-      {
-        "station": "員林",
-        "time": "21:40"
-      },
-      {
-        "station": "大村",
-        "time": "21:44"
-      },
-      {
-        "station": "花壇",
-        "time": "21:49"
-      },
-      {
-        "station": "高雄",
-        "time": "17:41"
-      },
-      {
-        "station": "三塊厝",
-        "time": "17:43"
-      },
-      {
-        "station": "鼓山",
-        "time": "17:46"
-      },
-      {
-        "station": "美術館",
-        "time": "17:54"
-      },
-      {
-        "station": "內惟",
-        "time": "17:57"
-      },
-      {
-        "station": "左營",
-        "time": "17:59"
-      },
-      {
-        "station": "新左營",
-        "time": "18:03"
-      },
-      {
-        "station": "楠梓",
-        "time": "18:14"
-      },
-      {
-        "station": "橋頭",
-        "time": "18:19"
-      },
-      {
-        "station": "岡山",
-        "time": "18:24"
-      },
-      {
-        "station": "路竹",
-        "time": "18:31"
-      },
-      {
-        "station": "大湖",
-        "time": "18:35"
-      },
-      {
-        "station": "中洲",
-        "time": "18:47"
-      },
-      {
-        "station": "仁德",
-        "time": "18:51"
-      },
-      {
-        "station": "保安",
-        "time": "18:55"
-      },
-      {
-        "station": "台南",
-        "time": "19:05"
-      },
-      {
-        "station": "大橋",
-        "time": "19:08"
-      },
-      {
-        "station": "永康",
-        "time": "19:14"
-      },
-      {
-        "station": "新市",
-        "time": "19:25"
-      },
-      {
-        "station": "南科",
-        "time": "19:30"
-      },
-      {
-        "station": "善化",
-        "time": "19:34"
-      },
-      {
-        "station": "拔林",
-        "time": "19:38"
-      },
-      {
-        "station": "隆田",
-        "time": "19:42"
-      },
-      {
-        "station": "林鳳營",
-        "time": "19:47"
-      },
-      {
-        "station": "柳營",
-        "time": "19:51"
-      },
-      {
-        "station": "新營",
-        "time": "19:55"
-      },
-      {
-        "station": "後壁",
-        "time": "20:01"
-      },
-      {
-        "station": "南靖",
-        "time": "20:07"
-      },
-      {
-        "station": "水上",
-        "time": "20:10"
-      },
-      {
-        "station": "屏東",
-        "time": "17:11"
-      },
-      {
-        "station": "六塊厝",
-        "time": "17:15"
-      },
-      {
-        "station": "九曲堂",
-        "time": "17:20"
-      },
-      {
-        "station": "後庄",
-        "time": "17:24"
-      },
-      {
-        "station": "鳳山",
-        "time": "17:29"
-      },
-      {
-        "station": "正義",
-        "time": "17:31"
-      },
-      {
-        "station": "科工館",
-        "time": "17:35"
-      },
-      {
-        "station": "民族",
-        "time": "17:37"
       }
     ]
   },
@@ -69473,7 +55445,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -69504,58 +55476,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "18:18"
-      },
-      {
-        "station": "潮州",
-        "time": "17:00"
-      },
-      {
-        "station": "竹田",
-        "time": "17:04"
-      },
-      {
-        "station": "西勢",
-        "time": "17:09"
-      },
-      {
-        "station": "麟洛",
-        "time": "17:12"
-      },
-      {
-        "station": "歸來",
-        "time": "17:15"
-      },
-      {
-        "station": "屏東",
-        "time": "17:19"
-      },
-      {
-        "station": "六塊厝",
-        "time": "17:22"
-      },
-      {
-        "station": "九曲堂",
-        "time": "17:28"
-      },
-      {
-        "station": "後庄",
-        "time": "17:32"
-      },
-      {
-        "station": "鳳山",
-        "time": "17:44"
-      },
-      {
-        "station": "正義",
-        "time": "17:47"
-      },
-      {
-        "station": "科工館",
-        "time": "17:50"
-      },
-      {
-        "station": "民族",
-        "time": "17:52"
       }
     ]
   },
@@ -69565,7 +55485,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -69688,58 +55608,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "20:50"
-      },
-      {
-        "station": "民族",
-        "time": "20:53"
-      },
-      {
-        "station": "科工館",
-        "time": "20:55"
-      },
-      {
-        "station": "正義",
-        "time": "20:58"
-      },
-      {
-        "station": "鳳山",
-        "time": "21:01"
-      },
-      {
-        "station": "後庄",
-        "time": "21:05"
-      },
-      {
-        "station": "九曲堂",
-        "time": "21:09"
-      },
-      {
-        "station": "六塊厝",
-        "time": "21:14"
-      },
-      {
-        "station": "屏東",
-        "time": "21:18"
-      },
-      {
-        "station": "歸來",
-        "time": "21:21"
-      },
-      {
-        "station": "麟洛",
-        "time": "21:24"
-      },
-      {
-        "station": "西勢",
-        "time": "21:28"
-      },
-      {
-        "station": "竹田",
-        "time": "21:32"
-      },
-      {
-        "station": "潮州",
-        "time": "21:37"
       }
     ]
   },
@@ -69749,7 +55617,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "彰化",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -69926,172 +55794,8 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "22:13"
       },
       {
-        "station": "高雄",
-        "time": "18:25"
-      },
-      {
-        "station": "三塊厝",
-        "time": "18:27"
-      },
-      {
-        "station": "鼓山",
-        "time": "18:30"
-      },
-      {
-        "station": "美術館",
-        "time": "18:33"
-      },
-      {
-        "station": "內惟",
-        "time": "18:35"
-      },
-      {
-        "station": "左營",
-        "time": "18:37"
-      },
-      {
-        "station": "新左營",
-        "time": "18:42"
-      },
-      {
-        "station": "楠梓",
-        "time": "18:47"
-      },
-      {
-        "station": "橋頭",
-        "time": "18:51"
-      },
-      {
-        "station": "岡山",
-        "time": "19:02"
-      },
-      {
-        "station": "路竹",
-        "time": "19:10"
-      },
-      {
-        "station": "大湖",
-        "time": "19:15"
-      },
-      {
-        "station": "中洲",
-        "time": "19:19"
-      },
-      {
-        "station": "仁德",
-        "time": "19:23"
-      },
-      {
-        "station": "保安",
-        "time": "19:26"
-      },
-      {
-        "station": "台南",
-        "time": "19:35"
-      },
-      {
-        "station": "大橋",
-        "time": "19:38"
-      },
-      {
-        "station": "永康",
-        "time": "19:44"
-      },
-      {
-        "station": "新市",
-        "time": "19:55"
-      },
-      {
-        "station": "南科",
-        "time": "20:00"
-      },
-      {
-        "station": "善化",
-        "time": "20:04"
-      },
-      {
-        "station": "拔林",
-        "time": "20:08"
-      },
-      {
-        "station": "隆田",
-        "time": "20:12"
-      },
-      {
-        "station": "林鳳營",
-        "time": "20:17"
-      },
-      {
-        "station": "柳營",
-        "time": "20:21"
-      },
-      {
-        "station": "新營",
-        "time": "20:25"
-      },
-      {
-        "station": "後壁",
-        "time": "20:31"
-      },
-      {
-        "station": "南靖",
-        "time": "20:37"
-      },
-      {
-        "station": "水上",
-        "time": "20:40"
-      },
-      {
-        "station": "潮州",
-        "time": "17:37"
-      },
-      {
-        "station": "竹田",
-        "time": "17:41"
-      },
-      {
-        "station": "西勢",
-        "time": "17:46"
-      },
-      {
-        "station": "麟洛",
-        "time": "17:49"
-      },
-      {
-        "station": "歸來",
-        "time": "17:52"
-      },
-      {
-        "station": "屏東",
-        "time": "17:56"
-      },
-      {
-        "station": "六塊厝",
-        "time": "17:59"
-      },
-      {
-        "station": "九曲堂",
-        "time": "18:04"
-      },
-      {
-        "station": "後庄",
-        "time": "18:08"
-      },
-      {
-        "station": "鳳山",
-        "time": "18:13"
-      },
-      {
-        "station": "正義",
-        "time": "18:15"
-      },
-      {
-        "station": "科工館",
-        "time": "18:19"
-      },
-      {
-        "station": "民族",
-        "time": "18:21"
+        "station": "彰化",
+        "time": "22:23"
       }
     ]
   },
@@ -70101,7 +55805,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "后里",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -70344,58 +56048,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "21:18"
-      },
-      {
-        "station": "民族",
-        "time": "21:20"
-      },
-      {
-        "station": "科工館",
-        "time": "21:23"
-      },
-      {
-        "station": "正義",
-        "time": "21:26"
-      },
-      {
-        "station": "鳳山",
-        "time": "21:29"
-      },
-      {
-        "station": "後庄",
-        "time": "21:33"
-      },
-      {
-        "station": "九曲堂",
-        "time": "21:37"
-      },
-      {
-        "station": "六塊厝",
-        "time": "21:42"
-      },
-      {
-        "station": "屏東",
-        "time": "21:46"
-      },
-      {
-        "station": "歸來",
-        "time": "21:49"
-      },
-      {
-        "station": "麟洛",
-        "time": "21:52"
-      },
-      {
-        "station": "西勢",
-        "time": "22:06"
-      },
-      {
-        "station": "竹田",
-        "time": "22:11"
-      },
-      {
-        "station": "潮州",
-        "time": "22:16"
       }
     ]
   },
@@ -70405,7 +56057,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "民族",
+    "dest": "二水",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -70448,174 +56100,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "二水",
         "time": "22:07"
-      },
-      {
-        "station": "高雄",
-        "time": "19:08"
-      },
-      {
-        "station": "三塊厝",
-        "time": "19:10"
-      },
-      {
-        "station": "鼓山",
-        "time": "19:13"
-      },
-      {
-        "station": "美術館",
-        "time": "19:16"
-      },
-      {
-        "station": "內惟",
-        "time": "19:18"
-      },
-      {
-        "station": "左營",
-        "time": "19:20"
-      },
-      {
-        "station": "新左營",
-        "time": "19:24"
-      },
-      {
-        "station": "楠梓",
-        "time": "19:29"
-      },
-      {
-        "station": "橋頭",
-        "time": "19:33"
-      },
-      {
-        "station": "岡山",
-        "time": "19:38"
-      },
-      {
-        "station": "路竹",
-        "time": "19:44"
-      },
-      {
-        "station": "大湖",
-        "time": "19:48"
-      },
-      {
-        "station": "中洲",
-        "time": "19:52"
-      },
-      {
-        "station": "仁德",
-        "time": "19:55"
-      },
-      {
-        "station": "保安",
-        "time": "19:58"
-      },
-      {
-        "station": "台南",
-        "time": "20:05"
-      },
-      {
-        "station": "大橋",
-        "time": "20:08"
-      },
-      {
-        "station": "永康",
-        "time": "20:18"
-      },
-      {
-        "station": "新市",
-        "time": "20:25"
-      },
-      {
-        "station": "南科",
-        "time": "20:30"
-      },
-      {
-        "station": "善化",
-        "time": "20:34"
-      },
-      {
-        "station": "拔林",
-        "time": "20:38"
-      },
-      {
-        "station": "隆田",
-        "time": "20:42"
-      },
-      {
-        "station": "林鳳營",
-        "time": "20:47"
-      },
-      {
-        "station": "柳營",
-        "time": "20:51"
-      },
-      {
-        "station": "新營",
-        "time": "20:55"
-      },
-      {
-        "station": "後壁",
-        "time": "21:01"
-      },
-      {
-        "station": "南靖",
-        "time": "21:07"
-      },
-      {
-        "station": "水上",
-        "time": "21:10"
-      },
-      {
-        "station": "潮州",
-        "time": "18:08"
-      },
-      {
-        "station": "竹田",
-        "time": "18:12"
-      },
-      {
-        "station": "西勢",
-        "time": "18:22"
-      },
-      {
-        "station": "麟洛",
-        "time": "18:26"
-      },
-      {
-        "station": "歸來",
-        "time": "18:29"
-      },
-      {
-        "station": "屏東",
-        "time": "18:33"
-      },
-      {
-        "station": "六塊厝",
-        "time": "18:36"
-      },
-      {
-        "station": "九曲堂",
-        "time": "18:41"
-      },
-      {
-        "station": "後庄",
-        "time": "18:45"
-      },
-      {
-        "station": "鳳山",
-        "time": "18:50"
-      },
-      {
-        "station": "正義",
-        "time": "18:52"
-      },
-      {
-        "station": "科工館",
-        "time": "18:55"
-      },
-      {
-        "station": "民族",
-        "time": "18:57"
       }
     ]
   },
@@ -70625,7 +56109,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -70748,58 +56232,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "21:45"
-      },
-      {
-        "station": "民族",
-        "time": "21:48"
-      },
-      {
-        "station": "科工館",
-        "time": "21:50"
-      },
-      {
-        "station": "正義",
-        "time": "21:53"
-      },
-      {
-        "station": "鳳山",
-        "time": "21:56"
-      },
-      {
-        "station": "後庄",
-        "time": "22:00"
-      },
-      {
-        "station": "九曲堂",
-        "time": "22:09"
-      },
-      {
-        "station": "六塊厝",
-        "time": "22:15"
-      },
-      {
-        "station": "屏東",
-        "time": "22:19"
-      },
-      {
-        "station": "歸來",
-        "time": "22:22"
-      },
-      {
-        "station": "麟洛",
-        "time": "22:25"
-      },
-      {
-        "station": "西勢",
-        "time": "22:35"
-      },
-      {
-        "station": "竹田",
-        "time": "22:40"
-      },
-      {
-        "station": "潮州",
-        "time": "22:45"
       }
     ]
   },
@@ -70809,7 +56241,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "彰化",
-    "dest": "民族",
+    "dest": "彰化",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -70938,172 +56370,8 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "23:07"
       },
       {
-        "station": "高雄",
-        "time": "19:28"
-      },
-      {
-        "station": "三塊厝",
-        "time": "19:30"
-      },
-      {
-        "station": "鼓山",
-        "time": "19:33"
-      },
-      {
-        "station": "美術館",
-        "time": "19:40"
-      },
-      {
-        "station": "內惟",
-        "time": "19:43"
-      },
-      {
-        "station": "左營",
-        "time": "19:45"
-      },
-      {
-        "station": "新左營",
-        "time": "19:50"
-      },
-      {
-        "station": "楠梓",
-        "time": "19:55"
-      },
-      {
-        "station": "橋頭",
-        "time": "19:59"
-      },
-      {
-        "station": "岡山",
-        "time": "20:04"
-      },
-      {
-        "station": "路竹",
-        "time": "20:10"
-      },
-      {
-        "station": "大湖",
-        "time": "20:19"
-      },
-      {
-        "station": "中洲",
-        "time": "20:23"
-      },
-      {
-        "station": "仁德",
-        "time": "20:27"
-      },
-      {
-        "station": "保安",
-        "time": "20:29"
-      },
-      {
-        "station": "台南",
-        "time": "20:37"
-      },
-      {
-        "station": "大橋",
-        "time": "20:40"
-      },
-      {
-        "station": "永康",
-        "time": "20:46"
-      },
-      {
-        "station": "新市",
-        "time": "20:52"
-      },
-      {
-        "station": "南科",
-        "time": "20:57"
-      },
-      {
-        "station": "善化",
-        "time": "21:01"
-      },
-      {
-        "station": "拔林",
-        "time": "21:05"
-      },
-      {
-        "station": "隆田",
-        "time": "21:14"
-      },
-      {
-        "station": "林鳳營",
-        "time": "21:20"
-      },
-      {
-        "station": "柳營",
-        "time": "21:24"
-      },
-      {
-        "station": "新營",
-        "time": "21:29"
-      },
-      {
-        "station": "後壁",
-        "time": "21:35"
-      },
-      {
-        "station": "南靖",
-        "time": "21:41"
-      },
-      {
-        "station": "水上",
-        "time": "21:44"
-      },
-      {
-        "station": "潮州",
-        "time": "18:41"
-      },
-      {
-        "station": "竹田",
-        "time": "18:45"
-      },
-      {
-        "station": "西勢",
-        "time": "18:50"
-      },
-      {
-        "station": "麟洛",
-        "time": "18:53"
-      },
-      {
-        "station": "歸來",
-        "time": "18:56"
-      },
-      {
-        "station": "屏東",
-        "time": "19:00"
-      },
-      {
-        "station": "六塊厝",
-        "time": "19:03"
-      },
-      {
-        "station": "九曲堂",
-        "time": "19:08"
-      },
-      {
-        "station": "後庄",
-        "time": "19:12"
-      },
-      {
-        "station": "鳳山",
-        "time": "19:17"
-      },
-      {
-        "station": "正義",
-        "time": "19:19"
-      },
-      {
-        "station": "科工館",
-        "time": "19:23"
-      },
-      {
-        "station": "民族",
-        "time": "19:25"
+        "station": "彰化",
+        "time": "23:16"
       }
     ]
   },
@@ -71113,7 +56381,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "善化",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -71200,38 +56468,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "善化",
         "time": "21:29"
-      },
-      {
-        "station": "屏東",
-        "time": "19:19"
-      },
-      {
-        "station": "六塊厝",
-        "time": "19:23"
-      },
-      {
-        "station": "九曲堂",
-        "time": "19:28"
-      },
-      {
-        "station": "後庄",
-        "time": "19:32"
-      },
-      {
-        "station": "鳳山",
-        "time": "19:44"
-      },
-      {
-        "station": "正義",
-        "time": "19:47"
-      },
-      {
-        "station": "科工館",
-        "time": "19:51"
-      },
-      {
-        "station": "民族",
-        "time": "19:53"
       }
     ]
   },
@@ -71241,7 +56477,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "后里",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -71484,58 +56720,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "22:13"
-      },
-      {
-        "station": "民族",
-        "time": "22:15"
-      },
-      {
-        "station": "科工館",
-        "time": "22:18"
-      },
-      {
-        "station": "正義",
-        "time": "22:21"
-      },
-      {
-        "station": "鳳山",
-        "time": "22:24"
-      },
-      {
-        "station": "後庄",
-        "time": "22:28"
-      },
-      {
-        "station": "九曲堂",
-        "time": "22:32"
-      },
-      {
-        "station": "六塊厝",
-        "time": "22:37"
-      },
-      {
-        "station": "屏東",
-        "time": "22:41"
-      },
-      {
-        "station": "歸來",
-        "time": "22:44"
-      },
-      {
-        "station": "麟洛",
-        "time": "22:47"
-      },
-      {
-        "station": "西勢",
-        "time": "22:51"
-      },
-      {
-        "station": "竹田",
-        "time": "22:55"
-      },
-      {
-        "station": "潮州",
-        "time": "23:00"
       }
     ]
   },
@@ -71545,7 +56729,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "民族",
+    "dest": "彰化",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -71616,174 +56800,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "彰化",
         "time": "23:49"
-      },
-      {
-        "station": "高雄",
-        "time": "20:15"
-      },
-      {
-        "station": "三塊厝",
-        "time": "20:17"
-      },
-      {
-        "station": "鼓山",
-        "time": "20:20"
-      },
-      {
-        "station": "美術館",
-        "time": "20:27"
-      },
-      {
-        "station": "內惟",
-        "time": "20:30"
-      },
-      {
-        "station": "左營",
-        "time": "20:32"
-      },
-      {
-        "station": "新左營",
-        "time": "20:36"
-      },
-      {
-        "station": "楠梓",
-        "time": "20:41"
-      },
-      {
-        "station": "橋頭",
-        "time": "20:45"
-      },
-      {
-        "station": "岡山",
-        "time": "20:50"
-      },
-      {
-        "station": "路竹",
-        "time": "20:56"
-      },
-      {
-        "station": "大湖",
-        "time": "21:00"
-      },
-      {
-        "station": "中洲",
-        "time": "21:04"
-      },
-      {
-        "station": "仁德",
-        "time": "21:07"
-      },
-      {
-        "station": "保安",
-        "time": "21:10"
-      },
-      {
-        "station": "台南",
-        "time": "21:18"
-      },
-      {
-        "station": "大橋",
-        "time": "21:21"
-      },
-      {
-        "station": "永康",
-        "time": "21:26"
-      },
-      {
-        "station": "新市",
-        "time": "21:32"
-      },
-      {
-        "station": "南科",
-        "time": "21:37"
-      },
-      {
-        "station": "善化",
-        "time": "21:41"
-      },
-      {
-        "station": "拔林",
-        "time": "21:45"
-      },
-      {
-        "station": "隆田",
-        "time": "21:49"
-      },
-      {
-        "station": "林鳳營",
-        "time": "21:54"
-      },
-      {
-        "station": "柳營",
-        "time": "21:58"
-      },
-      {
-        "station": "新營",
-        "time": "22:02"
-      },
-      {
-        "station": "後壁",
-        "time": "22:08"
-      },
-      {
-        "station": "南靖",
-        "time": "22:14"
-      },
-      {
-        "station": "水上",
-        "time": "22:17"
-      },
-      {
-        "station": "潮州",
-        "time": "19:20"
-      },
-      {
-        "station": "竹田",
-        "time": "19:25"
-      },
-      {
-        "station": "西勢",
-        "time": "19:29"
-      },
-      {
-        "station": "麟洛",
-        "time": "19:32"
-      },
-      {
-        "station": "歸來",
-        "time": "19:35"
-      },
-      {
-        "station": "屏東",
-        "time": "19:39"
-      },
-      {
-        "station": "六塊厝",
-        "time": "19:42"
-      },
-      {
-        "station": "九曲堂",
-        "time": "19:54"
-      },
-      {
-        "station": "後庄",
-        "time": "19:59"
-      },
-      {
-        "station": "鳳山",
-        "time": "20:04"
-      },
-      {
-        "station": "正義",
-        "time": "20:06"
-      },
-      {
-        "station": "科工館",
-        "time": "20:10"
-      },
-      {
-        "station": "民族",
-        "time": "20:12"
       }
     ]
   },
@@ -71793,7 +56809,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "民雄",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -71924,58 +56940,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "23:36"
-      },
-      {
-        "station": "民族",
-        "time": "23:38"
-      },
-      {
-        "station": "科工館",
-        "time": "23:40"
-      },
-      {
-        "station": "正義",
-        "time": "23:44"
-      },
-      {
-        "station": "鳳山",
-        "time": "23:47"
-      },
-      {
-        "station": "後庄",
-        "time": "23:51"
-      },
-      {
-        "station": "九曲堂",
-        "time": "23:55"
-      },
-      {
-        "station": "六塊厝",
-        "time": "00:00"
-      },
-      {
-        "station": "屏東",
-        "time": "00:04"
-      },
-      {
-        "station": "歸來",
-        "time": "00:07"
-      },
-      {
-        "station": "麟洛",
-        "time": "00:10"
-      },
-      {
-        "station": "西勢",
-        "time": "00:14"
-      },
-      {
-        "station": "竹田",
-        "time": "00:18"
-      },
-      {
-        "station": "潮州",
-        "time": "00:23"
       }
     ]
   },
@@ -71985,7 +56949,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "嘉義",
-    "dest": "民族",
+    "dest": "斗六",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -72016,174 +56980,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "斗六",
         "time": "23:22"
-      },
-      {
-        "station": "高雄",
-        "time": "20:40"
-      },
-      {
-        "station": "三塊厝",
-        "time": "20:42"
-      },
-      {
-        "station": "鼓山",
-        "time": "20:45"
-      },
-      {
-        "station": "美術館",
-        "time": "20:48"
-      },
-      {
-        "station": "內惟",
-        "time": "20:50"
-      },
-      {
-        "station": "左營",
-        "time": "20:52"
-      },
-      {
-        "station": "新左營",
-        "time": "20:57"
-      },
-      {
-        "station": "楠梓",
-        "time": "21:02"
-      },
-      {
-        "station": "橋頭",
-        "time": "21:06"
-      },
-      {
-        "station": "岡山",
-        "time": "21:11"
-      },
-      {
-        "station": "路竹",
-        "time": "21:17"
-      },
-      {
-        "station": "大湖",
-        "time": "21:21"
-      },
-      {
-        "station": "中洲",
-        "time": "21:25"
-      },
-      {
-        "station": "仁德",
-        "time": "21:28"
-      },
-      {
-        "station": "保安",
-        "time": "21:31"
-      },
-      {
-        "station": "台南",
-        "time": "21:40"
-      },
-      {
-        "station": "大橋",
-        "time": "21:43"
-      },
-      {
-        "station": "永康",
-        "time": "21:49"
-      },
-      {
-        "station": "新市",
-        "time": "22:00"
-      },
-      {
-        "station": "南科",
-        "time": "22:05"
-      },
-      {
-        "station": "善化",
-        "time": "22:08"
-      },
-      {
-        "station": "拔林",
-        "time": "22:13"
-      },
-      {
-        "station": "隆田",
-        "time": "22:16"
-      },
-      {
-        "station": "林鳳營",
-        "time": "22:21"
-      },
-      {
-        "station": "柳營",
-        "time": "22:25"
-      },
-      {
-        "station": "新營",
-        "time": "22:29"
-      },
-      {
-        "station": "後壁",
-        "time": "22:35"
-      },
-      {
-        "station": "南靖",
-        "time": "22:41"
-      },
-      {
-        "station": "水上",
-        "time": "22:44"
-      },
-      {
-        "station": "潮州",
-        "time": "19:52"
-      },
-      {
-        "station": "竹田",
-        "time": "19:56"
-      },
-      {
-        "station": "西勢",
-        "time": "20:01"
-      },
-      {
-        "station": "麟洛",
-        "time": "20:04"
-      },
-      {
-        "station": "歸來",
-        "time": "20:07"
-      },
-      {
-        "station": "屏東",
-        "time": "20:11"
-      },
-      {
-        "station": "六塊厝",
-        "time": "20:14"
-      },
-      {
-        "station": "九曲堂",
-        "time": "20:19"
-      },
-      {
-        "station": "後庄",
-        "time": "20:23"
-      },
-      {
-        "station": "鳳山",
-        "time": "20:28"
-      },
-      {
-        "station": "正義",
-        "time": "20:30"
-      },
-      {
-        "station": "科工館",
-        "time": "20:34"
-      },
-      {
-        "station": "民族",
-        "time": "20:36"
       }
     ]
   },
@@ -72193,7 +56989,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "后里",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "台中線(山線)",
     "route_dir": "山線",
     "stops": [
@@ -72436,58 +57232,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "22:55"
-      },
-      {
-        "station": "民族",
-        "time": "22:57"
-      },
-      {
-        "station": "科工館",
-        "time": "23:00"
-      },
-      {
-        "station": "正義",
-        "time": "23:03"
-      },
-      {
-        "station": "鳳山",
-        "time": "23:06"
-      },
-      {
-        "station": "後庄",
-        "time": "23:10"
-      },
-      {
-        "station": "九曲堂",
-        "time": "23:14"
-      },
-      {
-        "station": "六塊厝",
-        "time": "23:19"
-      },
-      {
-        "station": "屏東",
-        "time": "23:30"
-      },
-      {
-        "station": "歸來",
-        "time": "23:34"
-      },
-      {
-        "station": "麟洛",
-        "time": "23:37"
-      },
-      {
-        "station": "西勢",
-        "time": "23:41"
-      },
-      {
-        "station": "竹田",
-        "time": "23:45"
-      },
-      {
-        "station": "潮州",
-        "time": "23:50"
       }
     ]
   },
@@ -72497,7 +57241,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "嘉義",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -72620,58 +57364,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "嘉義",
         "time": "23:20"
-      },
-      {
-        "station": "潮州",
-        "time": "20:28"
-      },
-      {
-        "station": "竹田",
-        "time": "20:32"
-      },
-      {
-        "station": "西勢",
-        "time": "20:37"
-      },
-      {
-        "station": "麟洛",
-        "time": "20:40"
-      },
-      {
-        "station": "歸來",
-        "time": "20:43"
-      },
-      {
-        "station": "屏東",
-        "time": "20:47"
-      },
-      {
-        "station": "六塊厝",
-        "time": "20:50"
-      },
-      {
-        "station": "九曲堂",
-        "time": "20:55"
-      },
-      {
-        "station": "後庄",
-        "time": "20:59"
-      },
-      {
-        "station": "鳳山",
-        "time": "21:04"
-      },
-      {
-        "station": "正義",
-        "time": "21:06"
-      },
-      {
-        "station": "科工館",
-        "time": "21:10"
-      },
-      {
-        "station": "民族",
-        "time": "21:12"
       }
     ]
   },
@@ -72681,7 +57373,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "善化",
-    "dest": "潮州",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -72768,58 +57460,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "23:18"
-      },
-      {
-        "station": "民族",
-        "time": "23:20"
-      },
-      {
-        "station": "科工館",
-        "time": "23:23"
-      },
-      {
-        "station": "正義",
-        "time": "23:26"
-      },
-      {
-        "station": "鳳山",
-        "time": "23:29"
-      },
-      {
-        "station": "後庄",
-        "time": "23:33"
-      },
-      {
-        "station": "九曲堂",
-        "time": "23:37"
-      },
-      {
-        "station": "六塊厝",
-        "time": "23:42"
-      },
-      {
-        "station": "屏東",
-        "time": "23:46"
-      },
-      {
-        "station": "歸來",
-        "time": "23:49"
-      },
-      {
-        "station": "麟洛",
-        "time": "23:52"
-      },
-      {
-        "station": "西勢",
-        "time": "23:56"
-      },
-      {
-        "station": "竹田",
-        "time": "00:00"
-      },
-      {
-        "station": "潮州",
-        "time": "00:05"
       }
     ]
   },
@@ -72829,7 +57469,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "新營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -72936,58 +57576,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新營",
         "time": "23:26"
-      },
-      {
-        "station": "潮州",
-        "time": "20:50"
-      },
-      {
-        "station": "竹田",
-        "time": "20:54"
-      },
-      {
-        "station": "西勢",
-        "time": "20:59"
-      },
-      {
-        "station": "麟洛",
-        "time": "21:02"
-      },
-      {
-        "station": "歸來",
-        "time": "21:05"
-      },
-      {
-        "station": "屏東",
-        "time": "21:09"
-      },
-      {
-        "station": "六塊厝",
-        "time": "21:12"
-      },
-      {
-        "station": "九曲堂",
-        "time": "21:16"
-      },
-      {
-        "station": "後庄",
-        "time": "21:20"
-      },
-      {
-        "station": "鳳山",
-        "time": "21:26"
-      },
-      {
-        "station": "正義",
-        "time": "21:28"
-      },
-      {
-        "station": "科工館",
-        "time": "21:32"
-      },
-      {
-        "station": "民族",
-        "time": "21:34"
       }
     ]
   },
@@ -73242,6 +57830,34 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "00:01"
       },
       {
+        "station": "新左營",
+        "time": "23:36"
+      },
+      {
+        "station": "左營",
+        "time": "23:39"
+      },
+      {
+        "station": "內惟",
+        "time": "23:41"
+      },
+      {
+        "station": "美術館",
+        "time": "23:44"
+      },
+      {
+        "station": "鼓山",
+        "time": "23:46"
+      },
+      {
+        "station": "三塊厝",
+        "time": "23:49"
+      },
+      {
+        "station": "高雄",
+        "time": "00:01"
+      },
+      {
         "station": "民族",
         "time": "00:04"
       },
@@ -73281,7 +57897,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "善化",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -73368,58 +57984,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "善化",
         "time": "23:36"
-      },
-      {
-        "station": "潮州",
-        "time": "21:24"
-      },
-      {
-        "station": "竹田",
-        "time": "21:28"
-      },
-      {
-        "station": "西勢",
-        "time": "21:33"
-      },
-      {
-        "station": "麟洛",
-        "time": "21:36"
-      },
-      {
-        "station": "歸來",
-        "time": "21:39"
-      },
-      {
-        "station": "屏東",
-        "time": "21:44"
-      },
-      {
-        "station": "六塊厝",
-        "time": "21:47"
-      },
-      {
-        "station": "九曲堂",
-        "time": "21:52"
-      },
-      {
-        "station": "後庄",
-        "time": "21:56"
-      },
-      {
-        "station": "鳳山",
-        "time": "22:01"
-      },
-      {
-        "station": "正義",
-        "time": "22:03"
-      },
-      {
-        "station": "科工館",
-        "time": "22:07"
-      },
-      {
-        "station": "民族",
-        "time": "22:09"
       }
     ]
   },
@@ -73501,7 +58065,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "台南",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -73568,58 +58132,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "台南",
         "time": "23:29"
-      },
-      {
-        "station": "潮州",
-        "time": "21:45"
-      },
-      {
-        "station": "竹田",
-        "time": "21:49"
-      },
-      {
-        "station": "西勢",
-        "time": "21:54"
-      },
-      {
-        "station": "麟洛",
-        "time": "21:57"
-      },
-      {
-        "station": "歸來",
-        "time": "22:00"
-      },
-      {
-        "station": "屏東",
-        "time": "22:04"
-      },
-      {
-        "station": "六塊厝",
-        "time": "22:07"
-      },
-      {
-        "station": "九曲堂",
-        "time": "22:12"
-      },
-      {
-        "station": "後庄",
-        "time": "22:16"
-      },
-      {
-        "station": "鳳山",
-        "time": "22:21"
-      },
-      {
-        "station": "正義",
-        "time": "22:23"
-      },
-      {
-        "station": "科工館",
-        "time": "22:27"
-      },
-      {
-        "station": "民族",
-        "time": "22:29"
       }
     ]
   },
@@ -73629,7 +58141,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "台南",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -73696,58 +58208,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "台南",
         "time": "23:51"
-      },
-      {
-        "station": "潮州",
-        "time": "22:01"
-      },
-      {
-        "station": "竹田",
-        "time": "22:05"
-      },
-      {
-        "station": "西勢",
-        "time": "22:10"
-      },
-      {
-        "station": "麟洛",
-        "time": "22:13"
-      },
-      {
-        "station": "歸來",
-        "time": "22:16"
-      },
-      {
-        "station": "屏東",
-        "time": "22:20"
-      },
-      {
-        "station": "六塊厝",
-        "time": "22:23"
-      },
-      {
-        "station": "九曲堂",
-        "time": "22:28"
-      },
-      {
-        "station": "後庄",
-        "time": "22:32"
-      },
-      {
-        "station": "鳳山",
-        "time": "22:37"
-      },
-      {
-        "station": "正義",
-        "time": "22:39"
-      },
-      {
-        "station": "科工館",
-        "time": "22:43"
-      },
-      {
-        "station": "民族",
-        "time": "22:45"
       }
     ]
   },
@@ -74037,7 +58497,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -74068,86 +58528,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "05:45"
-      },
-      {
-        "station": "民族",
-        "time": "05:47"
-      },
-      {
-        "station": "科工館",
-        "time": "05:50"
-      },
-      {
-        "station": "正義",
-        "time": "05:53"
-      },
-      {
-        "station": "鳳山",
-        "time": "05:56"
-      },
-      {
-        "station": "後庄",
-        "time": "06:00"
-      },
-      {
-        "station": "九曲堂",
-        "time": "06:04"
-      },
-      {
-        "station": "六塊厝",
-        "time": "06:09"
-      },
-      {
-        "station": "屏東",
-        "time": "06:13"
-      },
-      {
-        "station": "歸來",
-        "time": "06:16"
-      },
-      {
-        "station": "麟洛",
-        "time": "06:19"
-      },
-      {
-        "station": "西勢",
-        "time": "06:23"
-      },
-      {
-        "station": "竹田",
-        "time": "06:27"
-      },
-      {
-        "station": "潮州",
-        "time": "06:32"
-      },
-      {
-        "station": "崁頂",
-        "time": "06:37"
-      },
-      {
-        "station": "南州",
-        "time": "06:41"
-      },
-      {
-        "station": "鎮安",
-        "time": "06:46"
-      },
-      {
-        "station": "林邊",
-        "time": "06:51"
-      },
-      {
-        "station": "佳冬",
-        "time": "06:55"
-      },
-      {
-        "station": "東海",
-        "time": "06:59"
-      },
-      {
-        "station": "枋寮",
-        "time": "07:04"
       }
     ]
   },
@@ -74157,7 +58537,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -74188,86 +58568,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "08:46"
-      },
-      {
-        "station": "枋寮",
-        "time": "07:11"
-      },
-      {
-        "station": "東海",
-        "time": "07:15"
-      },
-      {
-        "station": "佳冬",
-        "time": "07:18"
-      },
-      {
-        "station": "林邊",
-        "time": "07:24"
-      },
-      {
-        "station": "鎮安",
-        "time": "07:28"
-      },
-      {
-        "station": "南州",
-        "time": "07:33"
-      },
-      {
-        "station": "崁頂",
-        "time": "07:36"
-      },
-      {
-        "station": "潮州",
-        "time": "07:43"
-      },
-      {
-        "station": "竹田",
-        "time": "07:47"
-      },
-      {
-        "station": "西勢",
-        "time": "07:52"
-      },
-      {
-        "station": "麟洛",
-        "time": "07:55"
-      },
-      {
-        "station": "歸來",
-        "time": "07:58"
-      },
-      {
-        "station": "屏東",
-        "time": "08:02"
-      },
-      {
-        "station": "六塊厝",
-        "time": "08:05"
-      },
-      {
-        "station": "九曲堂",
-        "time": "08:10"
-      },
-      {
-        "station": "後庄",
-        "time": "08:14"
-      },
-      {
-        "station": "鳳山",
-        "time": "08:19"
-      },
-      {
-        "station": "正義",
-        "time": "08:21"
-      },
-      {
-        "station": "科工館",
-        "time": "08:25"
-      },
-      {
-        "station": "民族",
-        "time": "08:27"
       }
     ]
   },
@@ -74277,7 +58577,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -74308,86 +58608,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "09:29"
-      },
-      {
-        "station": "民族",
-        "time": "09:32"
-      },
-      {
-        "station": "科工館",
-        "time": "09:35"
-      },
-      {
-        "station": "正義",
-        "time": "09:38"
-      },
-      {
-        "station": "鳳山",
-        "time": "09:41"
-      },
-      {
-        "station": "後庄",
-        "time": "09:45"
-      },
-      {
-        "station": "九曲堂",
-        "time": "09:49"
-      },
-      {
-        "station": "六塊厝",
-        "time": "09:54"
-      },
-      {
-        "station": "屏東",
-        "time": "09:59"
-      },
-      {
-        "station": "歸來",
-        "time": "10:02"
-      },
-      {
-        "station": "麟洛",
-        "time": "10:05"
-      },
-      {
-        "station": "西勢",
-        "time": "10:09"
-      },
-      {
-        "station": "竹田",
-        "time": "10:13"
-      },
-      {
-        "station": "潮州",
-        "time": "10:22"
-      },
-      {
-        "station": "崁頂",
-        "time": "10:27"
-      },
-      {
-        "station": "南州",
-        "time": "10:31"
-      },
-      {
-        "station": "鎮安",
-        "time": "10:36"
-      },
-      {
-        "station": "林邊",
-        "time": "10:41"
-      },
-      {
-        "station": "佳冬",
-        "time": "10:48"
-      },
-      {
-        "station": "東海",
-        "time": "10:52"
-      },
-      {
-        "station": "枋寮",
-        "time": "10:57"
       }
     ]
   },
@@ -74441,7 +58661,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -74472,86 +58692,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "13:14"
-      },
-      {
-        "station": "枋寮",
-        "time": "11:17"
-      },
-      {
-        "station": "東海",
-        "time": "11:22"
-      },
-      {
-        "station": "佳冬",
-        "time": "11:25"
-      },
-      {
-        "station": "林邊",
-        "time": "11:31"
-      },
-      {
-        "station": "鎮安",
-        "time": "11:36"
-      },
-      {
-        "station": "南州",
-        "time": "11:41"
-      },
-      {
-        "station": "崁頂",
-        "time": "11:44"
-      },
-      {
-        "station": "潮州",
-        "time": "11:50"
-      },
-      {
-        "station": "竹田",
-        "time": "11:54"
-      },
-      {
-        "station": "西勢",
-        "time": "11:59"
-      },
-      {
-        "station": "麟洛",
-        "time": "12:02"
-      },
-      {
-        "station": "歸來",
-        "time": "12:05"
-      },
-      {
-        "station": "屏東",
-        "time": "12:16"
-      },
-      {
-        "station": "六塊厝",
-        "time": "12:20"
-      },
-      {
-        "station": "九曲堂",
-        "time": "12:37"
-      },
-      {
-        "station": "後庄",
-        "time": "12:42"
-      },
-      {
-        "station": "鳳山",
-        "time": "12:47"
-      },
-      {
-        "station": "正義",
-        "time": "12:49"
-      },
-      {
-        "station": "科工館",
-        "time": "12:53"
-      },
-      {
-        "station": "民族",
-        "time": "12:55"
       }
     ]
   },
@@ -74605,7 +58745,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -74636,86 +58776,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "16:45"
-      },
-      {
-        "station": "枋寮",
-        "time": "14:55"
-      },
-      {
-        "station": "東海",
-        "time": "15:00"
-      },
-      {
-        "station": "佳冬",
-        "time": "15:03"
-      },
-      {
-        "station": "林邊",
-        "time": "15:09"
-      },
-      {
-        "station": "鎮安",
-        "time": "15:13"
-      },
-      {
-        "station": "南州",
-        "time": "15:18"
-      },
-      {
-        "station": "崁頂",
-        "time": "15:22"
-      },
-      {
-        "station": "潮州",
-        "time": "15:35"
-      },
-      {
-        "station": "竹田",
-        "time": "15:39"
-      },
-      {
-        "station": "西勢",
-        "time": "15:44"
-      },
-      {
-        "station": "麟洛",
-        "time": "15:47"
-      },
-      {
-        "station": "歸來",
-        "time": "15:50"
-      },
-      {
-        "station": "屏東",
-        "time": "15:54"
-      },
-      {
-        "station": "六塊厝",
-        "time": "15:57"
-      },
-      {
-        "station": "九曲堂",
-        "time": "16:02"
-      },
-      {
-        "station": "後庄",
-        "time": "16:06"
-      },
-      {
-        "station": "鳳山",
-        "time": "16:11"
-      },
-      {
-        "station": "正義",
-        "time": "16:13"
-      },
-      {
-        "station": "科工館",
-        "time": "16:17"
-      },
-      {
-        "station": "民族",
-        "time": "16:19"
       }
     ]
   },
@@ -74769,7 +58829,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -74800,86 +58860,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "17:17"
-      },
-      {
-        "station": "民族",
-        "time": "17:19"
-      },
-      {
-        "station": "科工館",
-        "time": "17:21"
-      },
-      {
-        "station": "正義",
-        "time": "17:24"
-      },
-      {
-        "station": "鳳山",
-        "time": "17:33"
-      },
-      {
-        "station": "後庄",
-        "time": "17:38"
-      },
-      {
-        "station": "九曲堂",
-        "time": "17:42"
-      },
-      {
-        "station": "六塊厝",
-        "time": "17:47"
-      },
-      {
-        "station": "屏東",
-        "time": "17:51"
-      },
-      {
-        "station": "歸來",
-        "time": "17:54"
-      },
-      {
-        "station": "麟洛",
-        "time": "17:57"
-      },
-      {
-        "station": "西勢",
-        "time": "18:05"
-      },
-      {
-        "station": "竹田",
-        "time": "18:10"
-      },
-      {
-        "station": "潮州",
-        "time": "18:16"
-      },
-      {
-        "station": "崁頂",
-        "time": "18:21"
-      },
-      {
-        "station": "南州",
-        "time": "18:30"
-      },
-      {
-        "station": "鎮安",
-        "time": "18:35"
-      },
-      {
-        "station": "林邊",
-        "time": "18:41"
-      },
-      {
-        "station": "佳冬",
-        "time": "18:48"
-      },
-      {
-        "station": "東海",
-        "time": "18:53"
-      },
-      {
-        "station": "枋寮",
-        "time": "18:57"
       }
     ]
   },
@@ -74889,7 +58869,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -74920,86 +58900,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "19:08"
-      },
-      {
-        "station": "枋寮",
-        "time": "17:26"
-      },
-      {
-        "station": "東海",
-        "time": "17:31"
-      },
-      {
-        "station": "佳冬",
-        "time": "17:34"
-      },
-      {
-        "station": "林邊",
-        "time": "17:40"
-      },
-      {
-        "station": "鎮安",
-        "time": "17:44"
-      },
-      {
-        "station": "南州",
-        "time": "17:49"
-      },
-      {
-        "station": "崁頂",
-        "time": "17:52"
-      },
-      {
-        "station": "潮州",
-        "time": "17:58"
-      },
-      {
-        "station": "竹田",
-        "time": "18:02"
-      },
-      {
-        "station": "西勢",
-        "time": "18:07"
-      },
-      {
-        "station": "麟洛",
-        "time": "18:10"
-      },
-      {
-        "station": "歸來",
-        "time": "18:13"
-      },
-      {
-        "station": "屏東",
-        "time": "18:17"
-      },
-      {
-        "station": "六塊厝",
-        "time": "18:20"
-      },
-      {
-        "station": "九曲堂",
-        "time": "18:25"
-      },
-      {
-        "station": "後庄",
-        "time": "18:29"
-      },
-      {
-        "station": "鳳山",
-        "time": "18:39"
-      },
-      {
-        "station": "正義",
-        "time": "18:42"
-      },
-      {
-        "station": "科工館",
-        "time": "18:45"
-      },
-      {
-        "station": "民族",
-        "time": "18:47"
       }
     ]
   },
@@ -75009,7 +58909,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "新左營",
-    "dest": "枋寮",
+    "dest": "高雄",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -75040,86 +58940,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "高雄",
         "time": "18:50"
-      },
-      {
-        "station": "民族",
-        "time": "18:52"
-      },
-      {
-        "station": "科工館",
-        "time": "18:55"
-      },
-      {
-        "station": "正義",
-        "time": "18:58"
-      },
-      {
-        "station": "鳳山",
-        "time": "19:01"
-      },
-      {
-        "station": "後庄",
-        "time": "19:05"
-      },
-      {
-        "station": "九曲堂",
-        "time": "19:19"
-      },
-      {
-        "station": "六塊厝",
-        "time": "19:25"
-      },
-      {
-        "station": "屏東",
-        "time": "19:36"
-      },
-      {
-        "station": "歸來",
-        "time": "19:40"
-      },
-      {
-        "station": "麟洛",
-        "time": "19:43"
-      },
-      {
-        "station": "西勢",
-        "time": "19:47"
-      },
-      {
-        "station": "竹田",
-        "time": "19:51"
-      },
-      {
-        "station": "潮州",
-        "time": "19:58"
-      },
-      {
-        "station": "崁頂",
-        "time": "20:03"
-      },
-      {
-        "station": "南州",
-        "time": "20:07"
-      },
-      {
-        "station": "鎮安",
-        "time": "20:12"
-      },
-      {
-        "station": "林邊",
-        "time": "20:23"
-      },
-      {
-        "station": "佳冬",
-        "time": "20:27"
-      },
-      {
-        "station": "東海",
-        "time": "20:31"
-      },
-      {
-        "station": "枋寮",
-        "time": "20:36"
       }
     ]
   },
@@ -75261,7 +59081,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "電車",
     "is_trpass": true,
     "origin": "高雄",
-    "dest": "民族",
+    "dest": "新左營",
     "line": "縱貫線南段",
     "route_dir": "",
     "stops": [
@@ -75292,86 +59112,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "新左營",
         "time": "23:59"
-      },
-      {
-        "station": "枋寮",
-        "time": "22:19"
-      },
-      {
-        "station": "東海",
-        "time": "22:24"
-      },
-      {
-        "station": "佳冬",
-        "time": "22:30"
-      },
-      {
-        "station": "林邊",
-        "time": "22:37"
-      },
-      {
-        "station": "鎮安",
-        "time": "22:41"
-      },
-      {
-        "station": "南州",
-        "time": "22:46"
-      },
-      {
-        "station": "崁頂",
-        "time": "22:49"
-      },
-      {
-        "station": "潮州",
-        "time": "22:55"
-      },
-      {
-        "station": "竹田",
-        "time": "22:59"
-      },
-      {
-        "station": "西勢",
-        "time": "23:04"
-      },
-      {
-        "station": "麟洛",
-        "time": "23:07"
-      },
-      {
-        "station": "歸來",
-        "time": "23:10"
-      },
-      {
-        "station": "屏東",
-        "time": "23:14"
-      },
-      {
-        "station": "六塊厝",
-        "time": "23:17"
-      },
-      {
-        "station": "九曲堂",
-        "time": "23:22"
-      },
-      {
-        "station": "後庄",
-        "time": "23:26"
-      },
-      {
-        "station": "鳳山",
-        "time": "23:31"
-      },
-      {
-        "station": "正義",
-        "time": "23:33"
-      },
-      {
-        "station": "科工館",
-        "time": "23:37"
-      },
-      {
-        "station": "民族",
-        "time": "23:39"
       }
     ]
   },
@@ -75545,7 +59285,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU系列",
     "is_trpass": true,
     "origin": "善化",
-    "dest": "拔林",
+    "dest": "沙崙",
     "line": "沙崙線",
     "route_dir": "",
     "stops": [
@@ -75592,42 +59332,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "沙崙",
         "time": "06:57"
-      },
-      {
-        "station": "嘉義",
-        "time": "05:21"
-      },
-      {
-        "station": "水上",
-        "time": "05:27"
-      },
-      {
-        "station": "南靖",
-        "time": "05:30"
-      },
-      {
-        "station": "後壁",
-        "time": "05:36"
-      },
-      {
-        "station": "新營",
-        "time": "05:44"
-      },
-      {
-        "station": "柳營",
-        "time": "05:47"
-      },
-      {
-        "station": "林鳳營",
-        "time": "05:51"
-      },
-      {
-        "station": "隆田",
-        "time": "05:57"
-      },
-      {
-        "station": "拔林",
-        "time": "06:00"
       }
     ]
   },
@@ -75785,7 +59489,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU系列",
     "is_trpass": true,
     "origin": "善化",
-    "dest": "拔林",
+    "dest": "沙崙",
     "line": "沙崙線",
     "route_dir": "",
     "stops": [
@@ -75832,42 +59536,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "沙崙",
         "time": "08:02"
-      },
-      {
-        "station": "嘉義",
-        "time": "06:32"
-      },
-      {
-        "station": "水上",
-        "time": "06:38"
-      },
-      {
-        "station": "南靖",
-        "time": "06:41"
-      },
-      {
-        "station": "後壁",
-        "time": "06:47"
-      },
-      {
-        "station": "新營",
-        "time": "06:55"
-      },
-      {
-        "station": "柳營",
-        "time": "06:58"
-      },
-      {
-        "station": "林鳳營",
-        "time": "07:02"
-      },
-      {
-        "station": "隆田",
-        "time": "07:08"
-      },
-      {
-        "station": "拔林",
-        "time": "07:11"
       }
     ]
   },
@@ -78457,7 +62125,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU系列",
     "is_trpass": true,
     "origin": "沙崙",
-    "dest": "嘉義",
+    "dest": "善化",
     "line": "沙崙線",
     "route_dir": "",
     "stops": [
@@ -78504,42 +62172,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "善化",
         "time": "23:14"
-      },
-      {
-        "station": "拔林",
-        "time": "23:18"
-      },
-      {
-        "station": "隆田",
-        "time": "23:22"
-      },
-      {
-        "station": "林鳳營",
-        "time": "23:27"
-      },
-      {
-        "station": "柳營",
-        "time": "23:31"
-      },
-      {
-        "station": "新營",
-        "time": "23:35"
-      },
-      {
-        "station": "後壁",
-        "time": "23:41"
-      },
-      {
-        "station": "南靖",
-        "time": "23:47"
-      },
-      {
-        "station": "水上",
-        "time": "23:50"
-      },
-      {
-        "station": "嘉義",
-        "time": "23:56"
       }
     ]
   },
@@ -78898,42 +62530,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "08:26"
       },
       {
-        "station": "桃園",
-        "time": "05:47"
-      },
-      {
-        "station": "山佳",
-        "time": "05:56"
-      },
-      {
-        "station": "浮洲",
-        "time": "06:05"
-      },
-      {
-        "station": "萬華",
-        "time": "06:12"
-      },
-      {
-        "station": "台北",
-        "time": "06:17"
-      },
-      {
-        "station": "松山",
-        "time": "06:25"
-      },
-      {
-        "station": "南港",
-        "time": "06:32"
-      },
-      {
-        "station": "汐科",
-        "time": "06:36"
-      },
-      {
-        "station": "三坑",
-        "time": "06:52"
-      },
-      {
         "station": "南澳",
         "time": "08:41"
       },
@@ -79086,30 +62682,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "08:26"
       },
       {
-        "station": "萬華",
-        "time": "06:12"
-      },
-      {
-        "station": "台北",
-        "time": "06:17"
-      },
-      {
-        "station": "松山",
-        "time": "06:25"
-      },
-      {
-        "station": "南港",
-        "time": "06:32"
-      },
-      {
-        "station": "汐科",
-        "time": "06:36"
-      },
-      {
-        "station": "三坑",
-        "time": "06:52"
-      },
-      {
         "station": "南澳",
         "time": "08:41"
       },
@@ -79125,7 +62697,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "樹林",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -79192,30 +62764,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "樹林",
         "time": "09:32"
-      },
-      {
-        "station": "永樂",
-        "time": "06:11"
-      },
-      {
-        "station": "南澳",
-        "time": "06:20"
-      },
-      {
-        "station": "和平",
-        "time": "06:41"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "06:56"
-      },
-      {
-        "station": "景美",
-        "time": "07:02"
-      },
-      {
-        "station": "花蓮",
-        "time": "07:12"
       }
     ]
   },
@@ -79329,7 +62877,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "樹林",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -79404,22 +62952,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "樹林",
         "time": "12:25"
-      },
-      {
-        "station": "和平",
-        "time": "09:32"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "09:47"
-      },
-      {
-        "station": "景美",
-        "time": "09:53"
-      },
-      {
-        "station": "花蓮",
-        "time": "10:03"
       }
     ]
   },
@@ -79429,7 +62961,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "瑞芳",
-    "dest": "八堵",
+    "dest": "蘇澳新",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -79460,42 +62992,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳新",
         "time": "10:33"
-      },
-      {
-        "station": "山佳",
-        "time": "07:58"
-      },
-      {
-        "station": "浮洲",
-        "time": "08:11"
-      },
-      {
-        "station": "萬華",
-        "time": "08:20"
-      },
-      {
-        "station": "松山",
-        "time": "08:33"
-      },
-      {
-        "station": "南港",
-        "time": "08:40"
-      },
-      {
-        "station": "汐科",
-        "time": "08:44"
-      },
-      {
-        "station": "汐止",
-        "time": "08:50"
-      },
-      {
-        "station": "五堵",
-        "time": "08:54"
-      },
-      {
-        "station": "八堵",
-        "time": "09:09"
       }
     ]
   },
@@ -79584,34 +63080,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳新",
         "time": "12:05"
-      },
-      {
-        "station": "浮洲",
-        "time": "09:44"
-      },
-      {
-        "station": "萬華",
-        "time": "09:53"
-      },
-      {
-        "station": "松山",
-        "time": "10:05"
-      },
-      {
-        "station": "南港",
-        "time": "10:12"
-      },
-      {
-        "station": "汐科",
-        "time": "10:16"
-      },
-      {
-        "station": "五堵",
-        "time": "10:24"
-      },
-      {
-        "station": "八堵",
-        "time": "10:33"
       },
       {
         "station": "東澳",
@@ -79790,34 +63258,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "14:19"
       },
       {
-        "station": "浮洲",
-        "time": "11:46"
-      },
-      {
-        "station": "萬華",
-        "time": "11:56"
-      },
-      {
-        "station": "松山",
-        "time": "12:08"
-      },
-      {
-        "station": "南港",
-        "time": "12:15"
-      },
-      {
-        "station": "汐科",
-        "time": "12:18"
-      },
-      {
-        "station": "五堵",
-        "time": "12:26"
-      },
-      {
-        "station": "三坑",
-        "time": "12:40"
-      },
-      {
         "station": "東澳",
         "time": "14:29"
       },
@@ -79918,34 +63358,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "16:56"
       },
       {
-        "station": "浮洲",
-        "time": "14:29"
-      },
-      {
-        "station": "萬華",
-        "time": "14:38"
-      },
-      {
-        "station": "松山",
-        "time": "14:50"
-      },
-      {
-        "station": "南港",
-        "time": "14:57"
-      },
-      {
-        "station": "汐科",
-        "time": "15:02"
-      },
-      {
-        "station": "五堵",
-        "time": "15:10"
-      },
-      {
-        "station": "八堵",
-        "time": "15:19"
-      },
-      {
         "station": "東澳",
         "time": "17:05"
       },
@@ -79981,7 +63393,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "宜蘭",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -80000,34 +63412,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "宜蘭",
         "time": "18:08"
-      },
-      {
-        "station": "永樂",
-        "time": "16:33"
-      },
-      {
-        "station": "南澳",
-        "time": "16:42"
-      },
-      {
-        "station": "漢本",
-        "time": "16:58"
-      },
-      {
-        "station": "和平",
-        "time": "17:05"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "17:26"
-      },
-      {
-        "station": "景美",
-        "time": "17:33"
-      },
-      {
-        "station": "花蓮",
-        "time": "17:43"
       }
     ]
   },
@@ -80037,7 +63421,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "板橋",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -80104,42 +63488,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "板橋",
         "time": "23:02"
-      },
-      {
-        "station": "永樂",
-        "time": "19:30"
-      },
-      {
-        "station": "南澳",
-        "time": "19:39"
-      },
-      {
-        "station": "武塔",
-        "time": "19:44"
-      },
-      {
-        "station": "漢本",
-        "time": "19:57"
-      },
-      {
-        "station": "和平",
-        "time": "20:10"
-      },
-      {
-        "station": "和仁",
-        "time": "20:15"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "20:27"
-      },
-      {
-        "station": "景美",
-        "time": "20:33"
-      },
-      {
-        "station": "花蓮",
-        "time": "20:43"
       }
     ]
   },
@@ -80149,7 +63497,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "內壢",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -80228,42 +63576,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "內壢",
         "time": "23:26"
-      },
-      {
-        "station": "永樂",
-        "time": "19:30"
-      },
-      {
-        "station": "南澳",
-        "time": "19:39"
-      },
-      {
-        "station": "武塔",
-        "time": "19:44"
-      },
-      {
-        "station": "漢本",
-        "time": "19:57"
-      },
-      {
-        "station": "和平",
-        "time": "20:10"
-      },
-      {
-        "station": "和仁",
-        "time": "20:15"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "20:27"
-      },
-      {
-        "station": "景美",
-        "time": "20:33"
-      },
-      {
-        "station": "花蓮",
-        "time": "20:43"
       }
     ]
   },
@@ -80389,7 +63701,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "山里",
+    "dest": "花蓮",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -80450,6 +63762,10 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "00:23"
       },
       {
+        "station": "蘇澳新",
+        "time": "21:20"
+      },
+      {
         "station": "南澳",
         "time": "21:33"
       },
@@ -80464,78 +63780,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "花蓮",
         "time": "22:21"
-      },
-      {
-        "station": "志學",
-        "time": "18:28"
-      },
-      {
-        "station": "平和",
-        "time": "18:35"
-      },
-      {
-        "station": "豐田",
-        "time": "19:02"
-      },
-      {
-        "station": "南平",
-        "time": "19:14"
-      },
-      {
-        "station": "鳳林",
-        "time": "19:22"
-      },
-      {
-        "station": "萬榮",
-        "time": "19:28"
-      },
-      {
-        "station": "光復",
-        "time": "19:34"
-      },
-      {
-        "station": "大富",
-        "time": "19:51"
-      },
-      {
-        "station": "瑞穗",
-        "time": "20:08"
-      },
-      {
-        "station": "三民",
-        "time": "20:21"
-      },
-      {
-        "station": "東里",
-        "time": "20:31"
-      },
-      {
-        "station": "東竹",
-        "time": "20:36"
-      },
-      {
-        "station": "富里",
-        "time": "20:42"
-      },
-      {
-        "station": "關山",
-        "time": "20:52"
-      },
-      {
-        "station": "月美",
-        "time": "20:56"
-      },
-      {
-        "station": "瑞源",
-        "time": "21:03"
-      },
-      {
-        "station": "鹿野",
-        "time": "21:13"
-      },
-      {
-        "station": "山里",
-        "time": "21:20"
       }
     ]
   },
@@ -80758,70 +64002,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "21:16"
       },
       {
-        "station": "新豐",
-        "time": "17:32"
-      },
-      {
-        "station": "湖口",
-        "time": "17:38"
-      },
-      {
-        "station": "楊梅",
-        "time": "17:49"
-      },
-      {
-        "station": "埔心",
-        "time": "17:53"
-      },
-      {
-        "station": "中壢",
-        "time": "18:01"
-      },
-      {
-        "station": "內壢",
-        "time": "18:05"
-      },
-      {
-        "station": "桃園",
-        "time": "18:13"
-      },
-      {
-        "station": "山佳",
-        "time": "18:29"
-      },
-      {
-        "station": "浮洲",
-        "time": "18:40"
-      },
-      {
-        "station": "萬華",
-        "time": "18:47"
-      },
-      {
-        "station": "松山",
-        "time": "19:00"
-      },
-      {
-        "station": "南港",
-        "time": "19:07"
-      },
-      {
-        "station": "汐科",
-        "time": "19:11"
-      },
-      {
-        "station": "汐止",
-        "time": "19:17"
-      },
-      {
-        "station": "五堵",
-        "time": "19:21"
-      },
-      {
-        "station": "三坑",
-        "time": "19:36"
-      },
-      {
         "station": "東澳",
         "time": "21:25"
       },
@@ -80853,7 +64033,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "蘇澳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -80908,42 +64088,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳",
         "time": "22:32"
-      },
-      {
-        "station": "浮洲",
-        "time": "19:55"
-      },
-      {
-        "station": "萬華",
-        "time": "20:03"
-      },
-      {
-        "station": "台北",
-        "time": "20:08"
-      },
-      {
-        "station": "松山",
-        "time": "20:15"
-      },
-      {
-        "station": "南港",
-        "time": "20:22"
-      },
-      {
-        "station": "汐科",
-        "time": "20:25"
-      },
-      {
-        "station": "汐止",
-        "time": "20:31"
-      },
-      {
-        "station": "五堵",
-        "time": "20:34"
-      },
-      {
-        "station": "三坑",
-        "time": "20:47"
       }
     ]
   },
@@ -81433,7 +64577,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "樹林",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -81584,22 +64728,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "樹林",
         "time": "08:25"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "05:04"
-      },
-      {
-        "station": "景美",
-        "time": "05:11"
-      },
-      {
-        "station": "北埔",
-        "time": "05:17"
-      },
-      {
-        "station": "花蓮",
-        "time": "05:23"
       }
     ]
   },
@@ -81973,7 +65101,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "頭城",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -82016,54 +65144,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "頭城",
         "time": "06:54"
-      },
-      {
-        "station": "永樂",
-        "time": "05:01"
-      },
-      {
-        "station": "東澳",
-        "time": "05:06"
-      },
-      {
-        "station": "南澳",
-        "time": "05:12"
-      },
-      {
-        "station": "武塔",
-        "time": "05:17"
-      },
-      {
-        "station": "漢本",
-        "time": "05:30"
-      },
-      {
-        "station": "和平",
-        "time": "05:37"
-      },
-      {
-        "station": "和仁",
-        "time": "05:41"
-      },
-      {
-        "station": "崇德",
-        "time": "05:51"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "05:56"
-      },
-      {
-        "station": "景美",
-        "time": "06:02"
-      },
-      {
-        "station": "北埔",
-        "time": "06:08"
-      },
-      {
-        "station": "花蓮",
-        "time": "06:14"
       }
     ]
   },
@@ -82721,7 +65801,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "蘇澳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -82828,54 +65908,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳",
         "time": "08:23"
-      },
-      {
-        "station": "浮洲",
-        "time": "05:05"
-      },
-      {
-        "station": "板橋",
-        "time": "05:10"
-      },
-      {
-        "station": "萬華",
-        "time": "05:14"
-      },
-      {
-        "station": "台北",
-        "time": "05:19"
-      },
-      {
-        "station": "松山",
-        "time": "05:26"
-      },
-      {
-        "station": "南港",
-        "time": "05:33"
-      },
-      {
-        "station": "汐科",
-        "time": "05:36"
-      },
-      {
-        "station": "汐止",
-        "time": "05:42"
-      },
-      {
-        "station": "五堵",
-        "time": "05:45"
-      },
-      {
-        "station": "百福",
-        "time": "05:47"
-      },
-      {
-        "station": "七堵",
-        "time": "05:51"
-      },
-      {
-        "station": "三坑",
-        "time": "06:00"
       }
     ]
   },
@@ -83017,7 +66049,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "宜蘭",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -83044,54 +66076,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "宜蘭",
         "time": "09:33"
-      },
-      {
-        "station": "永樂",
-        "time": "07:40"
-      },
-      {
-        "station": "東澳",
-        "time": "07:45"
-      },
-      {
-        "station": "南澳",
-        "time": "07:51"
-      },
-      {
-        "station": "武塔",
-        "time": "07:56"
-      },
-      {
-        "station": "漢本",
-        "time": "08:11"
-      },
-      {
-        "station": "和平",
-        "time": "08:25"
-      },
-      {
-        "station": "和仁",
-        "time": "08:30"
-      },
-      {
-        "station": "崇德",
-        "time": "08:40"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "08:51"
-      },
-      {
-        "station": "景美",
-        "time": "08:58"
-      },
-      {
-        "station": "北埔",
-        "time": "09:04"
-      },
-      {
-        "station": "花蓮",
-        "time": "09:10"
       }
     ]
   },
@@ -83365,7 +66349,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "蘇澳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -83472,82 +66456,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳",
         "time": "09:10"
-      },
-      {
-        "station": "中壢",
-        "time": "05:16"
-      },
-      {
-        "station": "內壢",
-        "time": "05:21"
-      },
-      {
-        "station": "桃園",
-        "time": "05:28"
-      },
-      {
-        "station": "鶯歌",
-        "time": "05:33"
-      },
-      {
-        "station": "山佳",
-        "time": "05:39"
-      },
-      {
-        "station": "南樹林",
-        "time": "05:43"
-      },
-      {
-        "station": "樹林",
-        "time": "05:46"
-      },
-      {
-        "station": "浮洲",
-        "time": "05:50"
-      },
-      {
-        "station": "板橋",
-        "time": "05:54"
-      },
-      {
-        "station": "萬華",
-        "time": "05:58"
-      },
-      {
-        "station": "台北",
-        "time": "06:03"
-      },
-      {
-        "station": "松山",
-        "time": "06:09"
-      },
-      {
-        "station": "南港",
-        "time": "06:16"
-      },
-      {
-        "station": "汐科",
-        "time": "06:19"
-      },
-      {
-        "station": "汐止",
-        "time": "06:25"
-      },
-      {
-        "station": "五堵",
-        "time": "06:29"
-      },
-      {
-        "station": "百福",
-        "time": "06:31"
-      },
-      {
-        "station": "七堵",
-        "time": "06:35"
-      },
-      {
-        "station": "三坑",
-        "time": "06:44"
       }
     ]
   },
@@ -83613,7 +66521,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "瑞芳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -83632,54 +66540,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "瑞芳",
         "time": "07:30"
-      },
-      {
-        "station": "浮洲",
-        "time": "06:23"
-      },
-      {
-        "station": "板橋",
-        "time": "06:28"
-      },
-      {
-        "station": "萬華",
-        "time": "06:32"
-      },
-      {
-        "station": "台北",
-        "time": "06:37"
-      },
-      {
-        "station": "松山",
-        "time": "06:44"
-      },
-      {
-        "station": "南港",
-        "time": "06:51"
-      },
-      {
-        "station": "汐科",
-        "time": "06:54"
-      },
-      {
-        "station": "汐止",
-        "time": "07:00"
-      },
-      {
-        "station": "五堵",
-        "time": "07:03"
-      },
-      {
-        "station": "百福",
-        "time": "07:05"
-      },
-      {
-        "station": "七堵",
-        "time": "07:09"
-      },
-      {
-        "station": "三坑",
-        "time": "07:18"
       }
     ]
   },
@@ -83773,7 +66633,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "蘇澳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -83880,82 +66740,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳",
         "time": "10:40"
-      },
-      {
-        "station": "中壢",
-        "time": "06:37"
-      },
-      {
-        "station": "內壢",
-        "time": "06:42"
-      },
-      {
-        "station": "桃園",
-        "time": "06:50"
-      },
-      {
-        "station": "鶯歌",
-        "time": "06:55"
-      },
-      {
-        "station": "山佳",
-        "time": "07:01"
-      },
-      {
-        "station": "南樹林",
-        "time": "07:06"
-      },
-      {
-        "station": "樹林",
-        "time": "07:09"
-      },
-      {
-        "station": "浮洲",
-        "time": "07:13"
-      },
-      {
-        "station": "板橋",
-        "time": "07:17"
-      },
-      {
-        "station": "萬華",
-        "time": "07:22"
-      },
-      {
-        "station": "台北",
-        "time": "07:27"
-      },
-      {
-        "station": "松山",
-        "time": "07:34"
-      },
-      {
-        "station": "南港",
-        "time": "07:41"
-      },
-      {
-        "station": "汐科",
-        "time": "07:44"
-      },
-      {
-        "station": "汐止",
-        "time": "07:50"
-      },
-      {
-        "station": "五堵",
-        "time": "07:53"
-      },
-      {
-        "station": "百福",
-        "time": "07:55"
-      },
-      {
-        "station": "七堵",
-        "time": "07:59"
-      },
-      {
-        "station": "三坑",
-        "time": "08:08"
       }
     ]
   },
@@ -84129,7 +66913,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "福隆",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -84172,90 +66956,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "福隆",
         "time": "09:18"
-      },
-      {
-        "station": "楊梅",
-        "time": "06:40"
-      },
-      {
-        "station": "埔心",
-        "time": "06:45"
-      },
-      {
-        "station": "中壢",
-        "time": "06:54"
-      },
-      {
-        "station": "內壢",
-        "time": "06:58"
-      },
-      {
-        "station": "桃園",
-        "time": "07:06"
-      },
-      {
-        "station": "鶯歌",
-        "time": "07:11"
-      },
-      {
-        "station": "山佳",
-        "time": "07:17"
-      },
-      {
-        "station": "南樹林",
-        "time": "07:22"
-      },
-      {
-        "station": "樹林",
-        "time": "07:25"
-      },
-      {
-        "station": "浮洲",
-        "time": "07:30"
-      },
-      {
-        "station": "板橋",
-        "time": "07:34"
-      },
-      {
-        "station": "萬華",
-        "time": "07:38"
-      },
-      {
-        "station": "台北",
-        "time": "07:43"
-      },
-      {
-        "station": "松山",
-        "time": "07:50"
-      },
-      {
-        "station": "南港",
-        "time": "07:57"
-      },
-      {
-        "station": "汐科",
-        "time": "08:01"
-      },
-      {
-        "station": "汐止",
-        "time": "08:07"
-      },
-      {
-        "station": "五堵",
-        "time": "08:13"
-      },
-      {
-        "station": "百福",
-        "time": "08:15"
-      },
-      {
-        "station": "七堵",
-        "time": "08:19"
-      },
-      {
-        "station": "三坑",
-        "time": "08:35"
       }
     ]
   },
@@ -84265,7 +66965,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "瑞芳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -84284,102 +66984,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "瑞芳",
         "time": "09:09"
-      },
-      {
-        "station": "北湖",
-        "time": "06:53"
-      },
-      {
-        "station": "新富",
-        "time": "06:56"
-      },
-      {
-        "station": "富岡",
-        "time": "06:58"
-      },
-      {
-        "station": "楊梅",
-        "time": "07:05"
-      },
-      {
-        "station": "埔心",
-        "time": "07:09"
-      },
-      {
-        "station": "中壢",
-        "time": "07:18"
-      },
-      {
-        "station": "內壢",
-        "time": "07:22"
-      },
-      {
-        "station": "桃園",
-        "time": "07:30"
-      },
-      {
-        "station": "鶯歌",
-        "time": "07:35"
-      },
-      {
-        "station": "山佳",
-        "time": "07:41"
-      },
-      {
-        "station": "南樹林",
-        "time": "07:46"
-      },
-      {
-        "station": "樹林",
-        "time": "07:49"
-      },
-      {
-        "station": "浮洲",
-        "time": "07:54"
-      },
-      {
-        "station": "板橋",
-        "time": "07:58"
-      },
-      {
-        "station": "萬華",
-        "time": "08:02"
-      },
-      {
-        "station": "台北",
-        "time": "08:07"
-      },
-      {
-        "station": "松山",
-        "time": "08:15"
-      },
-      {
-        "station": "南港",
-        "time": "08:22"
-      },
-      {
-        "station": "汐科",
-        "time": "08:26"
-      },
-      {
-        "station": "汐止",
-        "time": "08:32"
-      },
-      {
-        "station": "五堵",
-        "time": "08:35"
-      },
-      {
-        "station": "百福",
-        "time": "08:37"
-      },
-      {
-        "station": "七堵",
-        "time": "08:41"
-      },
-      {
-        "station": "三坑",
-        "time": "08:56"
       }
     ]
   },
@@ -84493,7 +67097,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "宜蘭",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -84520,54 +67124,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "宜蘭",
         "time": "11:17"
-      },
-      {
-        "station": "永樂",
-        "time": "09:34"
-      },
-      {
-        "station": "東澳",
-        "time": "09:39"
-      },
-      {
-        "station": "南澳",
-        "time": "09:45"
-      },
-      {
-        "station": "武塔",
-        "time": "09:50"
-      },
-      {
-        "station": "漢本",
-        "time": "10:03"
-      },
-      {
-        "station": "和平",
-        "time": "10:11"
-      },
-      {
-        "station": "和仁",
-        "time": "10:15"
-      },
-      {
-        "station": "崇德",
-        "time": "10:25"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "10:36"
-      },
-      {
-        "station": "景美",
-        "time": "10:43"
-      },
-      {
-        "station": "北埔",
-        "time": "10:49"
-      },
-      {
-        "station": "花蓮",
-        "time": "10:55"
       }
     ]
   },
@@ -84577,7 +67133,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "蘇澳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -84684,54 +67240,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳",
         "time": "12:49"
-      },
-      {
-        "station": "浮洲",
-        "time": "09:00"
-      },
-      {
-        "station": "板橋",
-        "time": "09:05"
-      },
-      {
-        "station": "萬華",
-        "time": "09:09"
-      },
-      {
-        "station": "台北",
-        "time": "09:14"
-      },
-      {
-        "station": "松山",
-        "time": "09:20"
-      },
-      {
-        "station": "南港",
-        "time": "09:32"
-      },
-      {
-        "station": "汐科",
-        "time": "09:41"
-      },
-      {
-        "station": "汐止",
-        "time": "09:48"
-      },
-      {
-        "station": "五堵",
-        "time": "09:51"
-      },
-      {
-        "station": "百福",
-        "time": "09:53"
-      },
-      {
-        "station": "七堵",
-        "time": "09:57"
-      },
-      {
-        "station": "三坑",
-        "time": "10:16"
       }
     ]
   },
@@ -84905,7 +67413,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "蘇澳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -85012,54 +67520,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳",
         "time": "13:30"
-      },
-      {
-        "station": "浮洲",
-        "time": "10:23"
-      },
-      {
-        "station": "板橋",
-        "time": "10:28"
-      },
-      {
-        "station": "萬華",
-        "time": "10:33"
-      },
-      {
-        "station": "台北",
-        "time": "10:38"
-      },
-      {
-        "station": "松山",
-        "time": "10:48"
-      },
-      {
-        "station": "南港",
-        "time": "10:55"
-      },
-      {
-        "station": "汐科",
-        "time": "10:58"
-      },
-      {
-        "station": "汐止",
-        "time": "11:04"
-      },
-      {
-        "station": "五堵",
-        "time": "11:11"
-      },
-      {
-        "station": "百福",
-        "time": "11:13"
-      },
-      {
-        "station": "七堵",
-        "time": "11:17"
-      },
-      {
-        "station": "三坑",
-        "time": "11:26"
       }
     ]
   },
@@ -85233,7 +67693,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "樹林",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -85384,54 +67844,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "樹林",
         "time": "15:50"
-      },
-      {
-        "station": "永樂",
-        "time": "11:19"
-      },
-      {
-        "station": "東澳",
-        "time": "11:24"
-      },
-      {
-        "station": "南澳",
-        "time": "11:30"
-      },
-      {
-        "station": "武塔",
-        "time": "11:35"
-      },
-      {
-        "station": "漢本",
-        "time": "11:48"
-      },
-      {
-        "station": "和平",
-        "time": "11:55"
-      },
-      {
-        "station": "和仁",
-        "time": "11:59"
-      },
-      {
-        "station": "崇德",
-        "time": "12:09"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "12:14"
-      },
-      {
-        "station": "景美",
-        "time": "12:20"
-      },
-      {
-        "station": "北埔",
-        "time": "12:26"
-      },
-      {
-        "station": "花蓮",
-        "time": "12:32"
       }
     ]
   },
@@ -85441,7 +67853,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "蘇澳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -85548,54 +67960,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳",
         "time": "14:07"
-      },
-      {
-        "station": "浮洲",
-        "time": "11:02"
-      },
-      {
-        "station": "板橋",
-        "time": "11:07"
-      },
-      {
-        "station": "萬華",
-        "time": "11:11"
-      },
-      {
-        "station": "台北",
-        "time": "11:16"
-      },
-      {
-        "station": "松山",
-        "time": "11:23"
-      },
-      {
-        "station": "南港",
-        "time": "11:30"
-      },
-      {
-        "station": "汐科",
-        "time": "11:33"
-      },
-      {
-        "station": "汐止",
-        "time": "11:39"
-      },
-      {
-        "station": "五堵",
-        "time": "11:42"
-      },
-      {
-        "station": "百福",
-        "time": "11:44"
-      },
-      {
-        "station": "七堵",
-        "time": "11:48"
-      },
-      {
-        "station": "三坑",
-        "time": "12:02"
       }
     ]
   },
@@ -85605,7 +67969,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "蘇澳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -85712,54 +68076,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳",
         "time": "15:18"
-      },
-      {
-        "station": "浮洲",
-        "time": "12:13"
-      },
-      {
-        "station": "板橋",
-        "time": "12:18"
-      },
-      {
-        "station": "萬華",
-        "time": "12:22"
-      },
-      {
-        "station": "台北",
-        "time": "12:27"
-      },
-      {
-        "station": "松山",
-        "time": "12:34"
-      },
-      {
-        "station": "南港",
-        "time": "12:41"
-      },
-      {
-        "station": "汐科",
-        "time": "12:44"
-      },
-      {
-        "station": "汐止",
-        "time": "12:50"
-      },
-      {
-        "station": "五堵",
-        "time": "12:56"
-      },
-      {
-        "station": "百福",
-        "time": "12:58"
-      },
-      {
-        "station": "七堵",
-        "time": "13:02"
-      },
-      {
-        "station": "三坑",
-        "time": "13:11"
       }
     ]
   },
@@ -86065,7 +68381,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "頭城",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -86108,54 +68424,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "頭城",
         "time": "15:42"
-      },
-      {
-        "station": "永樂",
-        "time": "13:31"
-      },
-      {
-        "station": "東澳",
-        "time": "13:36"
-      },
-      {
-        "station": "南澳",
-        "time": "13:42"
-      },
-      {
-        "station": "武塔",
-        "time": "13:47"
-      },
-      {
-        "station": "漢本",
-        "time": "14:00"
-      },
-      {
-        "station": "和平",
-        "time": "14:07"
-      },
-      {
-        "station": "和仁",
-        "time": "14:11"
-      },
-      {
-        "station": "崇德",
-        "time": "14:21"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "14:26"
-      },
-      {
-        "station": "景美",
-        "time": "14:39"
-      },
-      {
-        "station": "北埔",
-        "time": "14:46"
-      },
-      {
-        "station": "花蓮",
-        "time": "14:52"
       }
     ]
   },
@@ -86165,7 +68433,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "蘇澳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -86272,54 +68540,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳",
         "time": "16:32"
-      },
-      {
-        "station": "浮洲",
-        "time": "13:13"
-      },
-      {
-        "station": "板橋",
-        "time": "13:18"
-      },
-      {
-        "station": "萬華",
-        "time": "13:22"
-      },
-      {
-        "station": "台北",
-        "time": "13:27"
-      },
-      {
-        "station": "松山",
-        "time": "13:34"
-      },
-      {
-        "station": "南港",
-        "time": "13:41"
-      },
-      {
-        "station": "汐科",
-        "time": "13:44"
-      },
-      {
-        "station": "汐止",
-        "time": "13:50"
-      },
-      {
-        "station": "五堵",
-        "time": "13:53"
-      },
-      {
-        "station": "百福",
-        "time": "13:55"
-      },
-      {
-        "station": "七堵",
-        "time": "13:59"
-      },
-      {
-        "station": "三坑",
-        "time": "14:08"
       }
     ]
   },
@@ -86897,7 +69117,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "蘇澳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -87004,54 +69224,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳",
         "time": "17:30"
-      },
-      {
-        "station": "浮洲",
-        "time": "14:12"
-      },
-      {
-        "station": "板橋",
-        "time": "14:17"
-      },
-      {
-        "station": "萬華",
-        "time": "14:21"
-      },
-      {
-        "station": "台北",
-        "time": "14:26"
-      },
-      {
-        "station": "松山",
-        "time": "14:35"
-      },
-      {
-        "station": "南港",
-        "time": "14:42"
-      },
-      {
-        "station": "汐科",
-        "time": "14:45"
-      },
-      {
-        "station": "汐止",
-        "time": "14:51"
-      },
-      {
-        "station": "五堵",
-        "time": "14:54"
-      },
-      {
-        "station": "百福",
-        "time": "14:56"
-      },
-      {
-        "station": "七堵",
-        "time": "15:00"
-      },
-      {
-        "station": "三坑",
-        "time": "15:10"
       }
     ]
   },
@@ -87145,7 +69317,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "宜蘭",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -87172,54 +69344,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "宜蘭",
         "time": "17:29"
-      },
-      {
-        "station": "永樂",
-        "time": "15:45"
-      },
-      {
-        "station": "東澳",
-        "time": "15:50"
-      },
-      {
-        "station": "南澳",
-        "time": "15:56"
-      },
-      {
-        "station": "武塔",
-        "time": "16:01"
-      },
-      {
-        "station": "漢本",
-        "time": "16:14"
-      },
-      {
-        "station": "和平",
-        "time": "16:21"
-      },
-      {
-        "station": "和仁",
-        "time": "16:25"
-      },
-      {
-        "station": "崇德",
-        "time": "16:35"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "16:46"
-      },
-      {
-        "station": "景美",
-        "time": "16:54"
-      },
-      {
-        "station": "北埔",
-        "time": "17:00"
-      },
-      {
-        "station": "花蓮",
-        "time": "17:06"
       }
     ]
   },
@@ -87229,7 +69353,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "蘇澳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -87336,54 +69460,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳",
         "time": "18:25"
-      },
-      {
-        "station": "浮洲",
-        "time": "15:07"
-      },
-      {
-        "station": "板橋",
-        "time": "15:12"
-      },
-      {
-        "station": "萬華",
-        "time": "15:17"
-      },
-      {
-        "station": "台北",
-        "time": "15:22"
-      },
-      {
-        "station": "松山",
-        "time": "15:30"
-      },
-      {
-        "station": "南港",
-        "time": "15:37"
-      },
-      {
-        "station": "汐科",
-        "time": "15:40"
-      },
-      {
-        "station": "汐止",
-        "time": "15:46"
-      },
-      {
-        "station": "五堵",
-        "time": "15:49"
-      },
-      {
-        "station": "百福",
-        "time": "15:51"
-      },
-      {
-        "station": "七堵",
-        "time": "15:55"
-      },
-      {
-        "station": "三坑",
-        "time": "16:10"
       }
     ]
   },
@@ -87942,54 +70018,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "19:15"
       },
       {
-        "station": "浮洲",
-        "time": "16:12"
-      },
-      {
-        "station": "板橋",
-        "time": "16:17"
-      },
-      {
-        "station": "萬華",
-        "time": "16:21"
-      },
-      {
-        "station": "台北",
-        "time": "16:26"
-      },
-      {
-        "station": "松山",
-        "time": "16:33"
-      },
-      {
-        "station": "南港",
-        "time": "16:40"
-      },
-      {
-        "station": "汐科",
-        "time": "16:43"
-      },
-      {
-        "station": "汐止",
-        "time": "16:49"
-      },
-      {
-        "station": "五堵",
-        "time": "16:52"
-      },
-      {
-        "station": "百福",
-        "time": "16:54"
-      },
-      {
-        "station": "七堵",
-        "time": "16:58"
-      },
-      {
-        "station": "三坑",
-        "time": "17:07"
-      },
-      {
         "station": "永樂",
         "time": "19:21"
       },
@@ -88329,7 +70357,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "宜蘭",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -88412,54 +70440,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "宜蘭",
         "time": "19:51"
-      },
-      {
-        "station": "浮洲",
-        "time": "17:05"
-      },
-      {
-        "station": "板橋",
-        "time": "17:10"
-      },
-      {
-        "station": "萬華",
-        "time": "17:14"
-      },
-      {
-        "station": "台北",
-        "time": "17:19"
-      },
-      {
-        "station": "松山",
-        "time": "17:25"
-      },
-      {
-        "station": "南港",
-        "time": "17:32"
-      },
-      {
-        "station": "汐科",
-        "time": "17:36"
-      },
-      {
-        "station": "汐止",
-        "time": "17:42"
-      },
-      {
-        "station": "五堵",
-        "time": "17:45"
-      },
-      {
-        "station": "百福",
-        "time": "17:47"
-      },
-      {
-        "station": "七堵",
-        "time": "17:51"
-      },
-      {
-        "station": "三坑",
-        "time": "18:08"
       }
     ]
   },
@@ -88617,7 +70597,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "宜蘭",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -88644,54 +70624,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "宜蘭",
         "time": "19:44"
-      },
-      {
-        "station": "永樂",
-        "time": "17:39"
-      },
-      {
-        "station": "東澳",
-        "time": "17:44"
-      },
-      {
-        "station": "南澳",
-        "time": "17:56"
-      },
-      {
-        "station": "武塔",
-        "time": "18:02"
-      },
-      {
-        "station": "漢本",
-        "time": "18:15"
-      },
-      {
-        "station": "和平",
-        "time": "18:31"
-      },
-      {
-        "station": "和仁",
-        "time": "18:36"
-      },
-      {
-        "station": "崇德",
-        "time": "18:46"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "18:56"
-      },
-      {
-        "station": "景美",
-        "time": "19:03"
-      },
-      {
-        "station": "北埔",
-        "time": "19:15"
-      },
-      {
-        "station": "花蓮",
-        "time": "19:22"
       }
     ]
   },
@@ -88841,7 +70773,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "蘇澳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -88948,102 +70880,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳",
         "time": "20:41"
-      },
-      {
-        "station": "北湖",
-        "time": "16:24"
-      },
-      {
-        "station": "新富",
-        "time": "16:27"
-      },
-      {
-        "station": "富岡",
-        "time": "16:29"
-      },
-      {
-        "station": "楊梅",
-        "time": "16:36"
-      },
-      {
-        "station": "埔心",
-        "time": "16:40"
-      },
-      {
-        "station": "中壢",
-        "time": "16:49"
-      },
-      {
-        "station": "內壢",
-        "time": "16:53"
-      },
-      {
-        "station": "桃園",
-        "time": "17:00"
-      },
-      {
-        "station": "鶯歌",
-        "time": "17:05"
-      },
-      {
-        "station": "山佳",
-        "time": "17:11"
-      },
-      {
-        "station": "南樹林",
-        "time": "17:22"
-      },
-      {
-        "station": "樹林",
-        "time": "17:25"
-      },
-      {
-        "station": "浮洲",
-        "time": "17:29"
-      },
-      {
-        "station": "板橋",
-        "time": "17:33"
-      },
-      {
-        "station": "萬華",
-        "time": "17:37"
-      },
-      {
-        "station": "台北",
-        "time": "17:42"
-      },
-      {
-        "station": "松山",
-        "time": "17:49"
-      },
-      {
-        "station": "南港",
-        "time": "17:56"
-      },
-      {
-        "station": "汐科",
-        "time": "18:00"
-      },
-      {
-        "station": "汐止",
-        "time": "18:06"
-      },
-      {
-        "station": "五堵",
-        "time": "18:18"
-      },
-      {
-        "station": "百福",
-        "time": "18:20"
-      },
-      {
-        "station": "七堵",
-        "time": "18:24"
-      },
-      {
-        "station": "三坑",
-        "time": "18:35"
       }
     ]
   },
@@ -89053,7 +70889,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "福隆",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -89096,54 +70932,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "福隆",
         "time": "19:34"
-      },
-      {
-        "station": "浮洲",
-        "time": "17:49"
-      },
-      {
-        "station": "板橋",
-        "time": "17:54"
-      },
-      {
-        "station": "萬華",
-        "time": "17:58"
-      },
-      {
-        "station": "台北",
-        "time": "18:03"
-      },
-      {
-        "station": "松山",
-        "time": "18:10"
-      },
-      {
-        "station": "南港",
-        "time": "18:17"
-      },
-      {
-        "station": "汐科",
-        "time": "18:21"
-      },
-      {
-        "station": "汐止",
-        "time": "18:27"
-      },
-      {
-        "station": "五堵",
-        "time": "18:30"
-      },
-      {
-        "station": "百福",
-        "time": "18:32"
-      },
-      {
-        "station": "七堵",
-        "time": "18:36"
-      },
-      {
-        "station": "三坑",
-        "time": "18:45"
       }
     ]
   },
@@ -89353,7 +71141,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "瑞芳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -89372,54 +71160,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "瑞芳",
         "time": "19:37"
-      },
-      {
-        "station": "浮洲",
-        "time": "18:28"
-      },
-      {
-        "station": "板橋",
-        "time": "18:33"
-      },
-      {
-        "station": "萬華",
-        "time": "18:37"
-      },
-      {
-        "station": "台北",
-        "time": "18:42"
-      },
-      {
-        "station": "松山",
-        "time": "18:50"
-      },
-      {
-        "station": "南港",
-        "time": "18:57"
-      },
-      {
-        "station": "汐科",
-        "time": "19:01"
-      },
-      {
-        "station": "汐止",
-        "time": "19:07"
-      },
-      {
-        "station": "五堵",
-        "time": "19:10"
-      },
-      {
-        "station": "百福",
-        "time": "19:12"
-      },
-      {
-        "station": "七堵",
-        "time": "19:16"
-      },
-      {
-        "station": "三坑",
-        "time": "19:25"
       }
     ]
   },
@@ -89610,74 +71350,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
         "time": "22:34"
       },
       {
-        "station": "桃園",
-        "time": "18:59"
-      },
-      {
-        "station": "鶯歌",
-        "time": "19:05"
-      },
-      {
-        "station": "山佳",
-        "time": "19:11"
-      },
-      {
-        "station": "南樹林",
-        "time": "19:15"
-      },
-      {
-        "station": "樹林",
-        "time": "19:18"
-      },
-      {
-        "station": "浮洲",
-        "time": "19:28"
-      },
-      {
-        "station": "板橋",
-        "time": "19:33"
-      },
-      {
-        "station": "萬華",
-        "time": "19:37"
-      },
-      {
-        "station": "台北",
-        "time": "19:42"
-      },
-      {
-        "station": "松山",
-        "time": "19:50"
-      },
-      {
-        "station": "南港",
-        "time": "19:57"
-      },
-      {
-        "station": "汐科",
-        "time": "20:01"
-      },
-      {
-        "station": "汐止",
-        "time": "20:07"
-      },
-      {
-        "station": "五堵",
-        "time": "20:10"
-      },
-      {
-        "station": "百福",
-        "time": "20:12"
-      },
-      {
-        "station": "七堵",
-        "time": "20:16"
-      },
-      {
-        "station": "三坑",
-        "time": "20:32"
-      },
-      {
         "station": "永樂",
         "time": "22:42"
       },
@@ -89697,7 +71369,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "樹林",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -89848,22 +71520,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "樹林",
         "time": "23:42"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "20:12"
-      },
-      {
-        "station": "景美",
-        "time": "20:25"
-      },
-      {
-        "station": "北埔",
-        "time": "20:32"
-      },
-      {
-        "station": "花蓮",
-        "time": "20:38"
       }
     ]
   },
@@ -89989,7 +71645,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "蘇澳",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -90096,54 +71752,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "蘇澳",
         "time": "23:30"
-      },
-      {
-        "station": "浮洲",
-        "time": "20:27"
-      },
-      {
-        "station": "板橋",
-        "time": "20:32"
-      },
-      {
-        "station": "萬華",
-        "time": "20:36"
-      },
-      {
-        "station": "台北",
-        "time": "20:41"
-      },
-      {
-        "station": "松山",
-        "time": "20:50"
-      },
-      {
-        "station": "南港",
-        "time": "20:57"
-      },
-      {
-        "station": "汐科",
-        "time": "21:00"
-      },
-      {
-        "station": "汐止",
-        "time": "21:06"
-      },
-      {
-        "station": "五堵",
-        "time": "21:09"
-      },
-      {
-        "station": "百福",
-        "time": "21:11"
-      },
-      {
-        "station": "七堵",
-        "time": "21:15"
-      },
-      {
-        "station": "三坑",
-        "time": "21:24"
       }
     ]
   },
@@ -90153,7 +71761,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "花蓮",
+    "dest": "宜蘭",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -90180,54 +71788,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "宜蘭",
         "time": "22:15"
-      },
-      {
-        "station": "永樂",
-        "time": "20:31"
-      },
-      {
-        "station": "東澳",
-        "time": "20:36"
-      },
-      {
-        "station": "南澳",
-        "time": "20:42"
-      },
-      {
-        "station": "武塔",
-        "time": "20:55"
-      },
-      {
-        "station": "漢本",
-        "time": "21:08"
-      },
-      {
-        "station": "和平",
-        "time": "21:16"
-      },
-      {
-        "station": "和仁",
-        "time": "21:20"
-      },
-      {
-        "station": "崇德",
-        "time": "21:30"
-      },
-      {
-        "station": "新城(太魯閣)",
-        "time": "21:35"
-      },
-      {
-        "station": "景美",
-        "time": "21:41"
-      },
-      {
-        "station": "北埔",
-        "time": "21:47"
-      },
-      {
-        "station": "花蓮",
-        "time": "21:53"
       }
     ]
   },
@@ -90237,7 +71797,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "宜蘭",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -90320,54 +71880,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "宜蘭",
         "time": "23:39"
-      },
-      {
-        "station": "浮洲",
-        "time": "21:09"
-      },
-      {
-        "station": "板橋",
-        "time": "21:14"
-      },
-      {
-        "station": "萬華",
-        "time": "21:18"
-      },
-      {
-        "station": "台北",
-        "time": "21:23"
-      },
-      {
-        "station": "松山",
-        "time": "21:30"
-      },
-      {
-        "station": "南港",
-        "time": "21:37"
-      },
-      {
-        "station": "汐科",
-        "time": "21:40"
-      },
-      {
-        "station": "汐止",
-        "time": "21:46"
-      },
-      {
-        "station": "五堵",
-        "time": "21:49"
-      },
-      {
-        "station": "百福",
-        "time": "21:51"
-      },
-      {
-        "station": "七堵",
-        "time": "21:55"
-      },
-      {
-        "station": "三坑",
-        "time": "22:04"
       }
     ]
   },
@@ -90377,7 +71889,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "八堵",
-    "dest": "三坑",
+    "dest": "福隆",
     "line": "宜蘭線",
     "route_dir": "",
     "stops": [
@@ -90420,102 +71932,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "福隆",
         "time": "23:22"
-      },
-      {
-        "station": "北湖",
-        "time": "20:35"
-      },
-      {
-        "station": "新富",
-        "time": "20:38"
-      },
-      {
-        "station": "富岡",
-        "time": "20:41"
-      },
-      {
-        "station": "楊梅",
-        "time": "20:47"
-      },
-      {
-        "station": "埔心",
-        "time": "21:03"
-      },
-      {
-        "station": "中壢",
-        "time": "21:12"
-      },
-      {
-        "station": "內壢",
-        "time": "21:16"
-      },
-      {
-        "station": "桃園",
-        "time": "21:24"
-      },
-      {
-        "station": "鶯歌",
-        "time": "21:29"
-      },
-      {
-        "station": "山佳",
-        "time": "21:35"
-      },
-      {
-        "station": "南樹林",
-        "time": "21:39"
-      },
-      {
-        "station": "樹林",
-        "time": "21:42"
-      },
-      {
-        "station": "浮洲",
-        "time": "21:46"
-      },
-      {
-        "station": "板橋",
-        "time": "21:50"
-      },
-      {
-        "station": "萬華",
-        "time": "21:54"
-      },
-      {
-        "station": "台北",
-        "time": "21:59"
-      },
-      {
-        "station": "松山",
-        "time": "22:07"
-      },
-      {
-        "station": "南港",
-        "time": "22:14"
-      },
-      {
-        "station": "汐科",
-        "time": "22:17"
-      },
-      {
-        "station": "汐止",
-        "time": "22:23"
-      },
-      {
-        "station": "五堵",
-        "time": "22:26"
-      },
-      {
-        "station": "百福",
-        "time": "22:28"
-      },
-      {
-        "station": "七堵",
-        "time": "22:32"
-      },
-      {
-        "station": "三坑",
-        "time": "22:41"
       }
     ]
   },
@@ -90893,7 +72309,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "EMU900/EMU800/EMU700",
     "is_trpass": true,
     "origin": "蘇澳新",
-    "dest": "山里",
+    "dest": "和平",
     "line": "北迴線",
     "route_dir": "",
     "stops": [
@@ -90924,66 +72340,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "和平",
         "time": "07:49"
-      },
-      {
-        "station": "大富",
-        "time": "05:26"
-      },
-      {
-        "station": "富源",
-        "time": "05:36"
-      },
-      {
-        "station": "瑞穗",
-        "time": "05:45"
-      },
-      {
-        "station": "三民",
-        "time": "05:52"
-      },
-      {
-        "station": "玉里",
-        "time": "05:56"
-      },
-      {
-        "station": "東里",
-        "time": "06:12"
-      },
-      {
-        "station": "東竹",
-        "time": "06:19"
-      },
-      {
-        "station": "富里",
-        "time": "06:25"
-      },
-      {
-        "station": "池上",
-        "time": "06:29"
-      },
-      {
-        "station": "關山",
-        "time": "06:36"
-      },
-      {
-        "station": "月美",
-        "time": "06:42"
-      },
-      {
-        "station": "瑞和",
-        "time": "06:46"
-      },
-      {
-        "station": "瑞源",
-        "time": "06:50"
-      },
-      {
-        "station": "鹿野",
-        "time": "07:00"
-      },
-      {
-        "station": "山里",
-        "time": "07:07"
       }
     ]
   },
@@ -92637,7 +73993,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "大華",
-    "dest": "三貂嶺",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -92664,18 +74020,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "05:39"
-      },
-      {
-        "station": "瑞芳",
-        "time": "05:07"
-      },
-      {
-        "station": "猴硐",
-        "time": "05:14"
-      },
-      {
-        "station": "三貂嶺",
-        "time": "05:19"
       }
     ]
   },
@@ -92721,7 +74065,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "八斗子",
-    "dest": "三貂嶺",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -92760,26 +74104,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "07:02"
-      },
-      {
-        "station": "八堵",
-        "time": "06:10"
-      },
-      {
-        "station": "暖暖",
-        "time": "06:13"
-      },
-      {
-        "station": "四腳亭",
-        "time": "06:17"
-      },
-      {
-        "station": "猴硐",
-        "time": "06:37"
-      },
-      {
-        "station": "三貂嶺",
-        "time": "06:42"
       }
     ]
   },
@@ -92825,7 +74149,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "大華",
-    "dest": "三貂嶺",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -92852,18 +74176,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "07:52"
-      },
-      {
-        "station": "瑞芳",
-        "time": "07:12"
-      },
-      {
-        "station": "猴硐",
-        "time": "07:19"
-      },
-      {
-        "station": "三貂嶺",
-        "time": "07:24"
       }
     ]
   },
@@ -92873,7 +74185,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "八斗子",
-    "dest": "三貂嶺",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -92912,26 +74224,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "08:41"
-      },
-      {
-        "station": "八堵",
-        "time": "07:32"
-      },
-      {
-        "station": "暖暖",
-        "time": "07:35"
-      },
-      {
-        "station": "四腳亭",
-        "time": "07:39"
-      },
-      {
-        "station": "猴硐",
-        "time": "08:03"
-      },
-      {
-        "station": "三貂嶺",
-        "time": "08:08"
       }
     ]
   },
@@ -92941,7 +74233,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "大華",
-    "dest": "三貂嶺",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -92968,18 +74260,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "09:41"
-      },
-      {
-        "station": "瑞芳",
-        "time": "09:04"
-      },
-      {
-        "station": "猴硐",
-        "time": "09:11"
-      },
-      {
-        "station": "三貂嶺",
-        "time": "09:16"
       }
     ]
   },
@@ -93025,7 +74305,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "八斗子",
-    "dest": "三貂嶺",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -93064,26 +74344,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "12:40"
-      },
-      {
-        "station": "八堵",
-        "time": "11:41"
-      },
-      {
-        "station": "暖暖",
-        "time": "11:44"
-      },
-      {
-        "station": "四腳亭",
-        "time": "11:48"
-      },
-      {
-        "station": "猴硐",
-        "time": "12:02"
-      },
-      {
-        "station": "三貂嶺",
-        "time": "12:07"
       }
     ]
   },
@@ -93189,7 +74449,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "八斗子",
-    "dest": "三貂嶺",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -93228,26 +74488,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "20:01"
-      },
-      {
-        "station": "八堵",
-        "time": "18:58"
-      },
-      {
-        "station": "暖暖",
-        "time": "19:01"
-      },
-      {
-        "station": "四腳亭",
-        "time": "19:05"
-      },
-      {
-        "station": "猴硐",
-        "time": "19:29"
-      },
-      {
-        "station": "三貂嶺",
-        "time": "19:34"
       }
     ]
   },
@@ -93293,7 +74533,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "八斗子",
-    "dest": "三貂嶺",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -93332,26 +74572,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "21:39"
-      },
-      {
-        "station": "八堵",
-        "time": "20:52"
-      },
-      {
-        "station": "暖暖",
-        "time": "20:55"
-      },
-      {
-        "station": "四腳亭",
-        "time": "20:59"
-      },
-      {
-        "station": "猴硐",
-        "time": "21:13"
-      },
-      {
-        "station": "三貂嶺",
-        "time": "21:18"
       }
     ]
   },
@@ -93361,7 +74581,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "八斗子",
-    "dest": "三貂嶺",
+    "dest": "平溪",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -93396,26 +74616,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "平溪",
         "time": "22:47"
-      },
-      {
-        "station": "八堵",
-        "time": "21:58"
-      },
-      {
-        "station": "暖暖",
-        "time": "22:01"
-      },
-      {
-        "station": "四腳亭",
-        "time": "22:05"
-      },
-      {
-        "station": "猴硐",
-        "time": "22:27"
-      },
-      {
-        "station": "三貂嶺",
-        "time": "22:32"
       }
     ]
   },
@@ -93497,7 +74697,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "猴硐",
-    "dest": "瑞芳",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -93532,10 +74732,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "09:41"
-      },
-      {
-        "station": "瑞芳",
-        "time": "09:04"
       }
     ]
   },
@@ -93569,7 +74765,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "猴硐",
-    "dest": "瑞芳",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -93604,10 +74800,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "10:40"
-      },
-      {
-        "station": "瑞芳",
-        "time": "09:57"
       }
     ]
   },
@@ -93641,7 +74833,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "猴硐",
-    "dest": "瑞芳",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -93676,10 +74868,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "11:41"
-      },
-      {
-        "station": "瑞芳",
-        "time": "10:55"
       }
     ]
   },
@@ -93713,7 +74901,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "猴硐",
-    "dest": "瑞芳",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -93748,10 +74936,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "12:40"
-      },
-      {
-        "station": "瑞芳",
-        "time": "11:55"
       }
     ]
   },
@@ -93785,7 +74969,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "猴硐",
-    "dest": "瑞芳",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -93820,10 +75004,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "13:41"
-      },
-      {
-        "station": "瑞芳",
-        "time": "13:00"
       }
     ]
   },
@@ -93857,7 +75037,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "猴硐",
-    "dest": "瑞芳",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -93892,10 +75072,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "14:41"
-      },
-      {
-        "station": "瑞芳",
-        "time": "14:00"
       }
     ]
   },
@@ -93929,7 +75105,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "猴硐",
-    "dest": "瑞芳",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -93964,10 +75140,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "15:40"
-      },
-      {
-        "station": "瑞芳",
-        "time": "15:00"
       }
     ]
   },
@@ -94001,7 +75173,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "猴硐",
-    "dest": "瑞芳",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -94036,10 +75208,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "16:41"
-      },
-      {
-        "station": "瑞芳",
-        "time": "15:59"
       }
     ]
   },
@@ -94049,7 +75217,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "猴硐",
-    "dest": "瑞芳",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -94084,10 +75252,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "17:36"
-      },
-      {
-        "station": "瑞芳",
-        "time": "16:54"
       }
     ]
   },
@@ -94097,7 +75261,7 @@ window.EMBEDDED_TIMETABLE_DATA = [
     "train_model": "柴油客車",
     "is_trpass": true,
     "origin": "猴硐",
-    "dest": "瑞芳",
+    "dest": "菁桐",
     "line": "平溪/深澳線",
     "route_dir": "",
     "stops": [
@@ -94132,10 +75296,6 @@ window.EMBEDDED_TIMETABLE_DATA = [
       {
         "station": "菁桐",
         "time": "19:05"
-      },
-      {
-        "station": "瑞芳",
-        "time": "18:33"
       }
     ]
   }

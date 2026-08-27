@@ -5052,6 +5052,7 @@
 
         function isStationOvershooting(orig, dest, mid) {
             if (!orig || !dest || !mid || mid === orig || mid === dest) return false;
+            const TERMINAL_HUBS = new Set(['七堵', '八堵', '基隆', '新左營', '高雄', '二水', '竹中', '瑞芳']);
             for (let cIdx = 0; cIdx < CORRIDOR_MAPS.length; cIdx++) {
                 const corridor = CORRIDOR_MAPS[cIdx];
                 const iOrig = corridor.indexOf(orig);
@@ -5061,6 +5062,9 @@
                     const minP = Math.min(iOrig, iDest);
                     const maxP = Math.max(iOrig, iDest);
                     if (iMid < minP || iMid > maxP) {
+                        if (TERMINAL_HUBS.has(mid) && Math.abs(iMid - iDest) <= 2) {
+                            continue; // Valid transfer at adjacent terminal interchange hub!
+                        }
                         return true; // Strictly out of corridor bounds!
                     }
                 }
