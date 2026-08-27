@@ -4559,81 +4559,89 @@
 
         
         
-                        function pruneDominatedRoutes(routes) {
-            if (!routes || routes.length === 0) return [];
-
-            function parseMin(t) {
-                if (!t) return 0;
-                const parts = String(t).split(':').map(Number);
-                return (parts[0] || 0) * 60 + (parts[1] || 0);
+                                // Fast Train Map Cache for O(1) Pre-leg Lookup
+        let cachedTrainMap = null;
+        function getTrainMap() {
+            if (!cachedTrainMap || cachedTrainMap.size !== allTimetableData.length) {
+                cachedTrainMap = new Map();
+                allTimetableData.forEach(t => cachedTrainMap.set(t.train_number, t));
             }
+            return cachedTrainMap;
+        }
 
-            function getNormalizedArr(dMin, aMin) {
-                if (aMin < dMin) return aMin + 1440;
-                return aMin;
-            }
+        // 3. Intelligent Real-World Pruning (去慢保優 ＆ 始發車次平替保留)
+        function pruneDominatedRoutes(routes) {
+            if (!routes || routes.length <= 1) return routes || [];
 
-            // 1. All Direct Scheduled Trains are 100% Preserved (Never pruned!)
-            const directRoutes = [];
-            const directTrainNos = new Set();
-            for (let r of routes) {
-                if (r.transfers === 0) {
-                    directRoutes.push(r);
-                    if (r.legs && r.legs[0]) {
-                        directTrainNos.add(String(r.legs[0].train_number || r.legs[0].trainNo));
+            const directRoutes = routes.filter(r => r.transfers === 0);
+            const transferRoutes = routes.filter(r => r.transfers > 0);
+
+            const parseMin = (tStr) => {
+                if (!tStr || !tStr.includes(':')) return 0;
+                const [h, m] = tStr.split(':').map(Number);
+                return h * 60 + m;
+            };
+
+            const getNormalizedArr = (depMin, arrMin) => {
+                return (arrMin < depMin) ? arrMin + 1440 : arrMin;
+            };
+
+            const trainMap = getTrainMap();
+
+            // Filter 1: Eliminate nonsensical pre-leg commuter routes
+            // (If an express train in leg 2+ already stops at the origin station later, passenger should board the express directly at origin!)
+            const validTransferRoutes = transferRoutes.filter(r => {
+                if (!r.legs || r.legs.length < 2) return true;
+                const origStation = r.legs[0].from;
+                const rDepMin = parseMin(r.dep_time);
+                
+                for (let i = 1; i < r.legs.length; i++) {
+                    const nextTrain = trainMap.get(r.legs[i].train_number);
+                    if (nextTrain && nextTrain.stops) {
+                        const origStop = nextTrain.stops.find(s => s.station === origStation);
+                        if (origStop) {
+                            const origStopTimeMin = parseMin(origStop.time);
+                            // If the express train stopped at origin at or after commuter train departure time, eliminate this redundant early commuter hop!
+                            if (origStopTimeMin >= rDepMin) {
+                                return false;
+                            }
+                        }
                     }
                 }
-            }
-
-            // 2. Transfer routes: eliminate fake/overshoot transfers
-            const validTransferRoutes = routes.filter(r => {
-                if (r.transfers > 0 && r.legs && r.legs.length > 1) {
-                    const lastTrainNo = String(r.legs[r.legs.length - 1].train_number || r.legs[r.legs.length - 1].trainNo);
-                    if (directTrainNos.has(lastTrainNo)) {
-                        return false;
-                    }
-                    return true;
-                }
-                return false;
+                return true;
             });
 
-            // 3. Strict Pareto Dominance & Slower Elimination (去慢保優)
-            const allCandidates = [...directRoutes, ...validTransferRoutes];
+            // Filter 2: Group by the FIRST TRAIN from origin station!
+            // Each distinct first train (e.g. 103 海線, 105 PP自強, 107 普悠瑪, 161 EMU3000) is preserved as an official legitimate departure choice.
             const nonDominatedTransfers = [];
+            const byFirstTrain = new Map();
+            validTransferRoutes.forEach(r => {
+                const firstTrainKey = r.legs[0].train_number;
+                if (!byFirstTrain.has(firstTrainKey)) byFirstTrain.set(firstTrainKey, []);
+                byFirstTrain.get(firstTrainKey).push(r);
+            });
 
-            for (let i = 0; i < validTransferRoutes.length; i++) {
-                const r1 = validTransferRoutes[i];
-                const dep1 = parseMin(r1.dep_time || (r1.legs && r1.legs[0] ? r1.legs[0].dep : '00:00'));
-                const rawArr1 = parseMin(r1.arr_time || (r1.legs && r1.legs[r1.legs.length - 1] ? r1.legs[r1.legs.length - 1].arr : '00:00'));
-                const arr1 = getNormalizedArr(dep1, rawArr1);
-                const tx1 = r1.transfers;
-                const trainSeq1 = (r1.legs || []).map(l => String(l.train_number || l.trainNo)).join('-');
+            byFirstTrain.forEach((groupRoutes) => {
+                for (let i = 0; i < groupRoutes.length; i++) {
+                    const r1 = groupRoutes[i];
+                    const dep1 = parseMin(r1.dep_time);
+                    const arr1 = getNormalizedArr(dep1, parseMin(r1.arr_time));
+                    const tx1 = r1.transfers;
+                    const trainSeq1 = r1.legs.map(l => l.train_number).join('-');
 
-                let dominated = false;
-                for (let j = 0; j < allCandidates.length; j++) {
-                    const r2 = allCandidates[j];
-                    if (r1 === r2) continue;
+                    let dominated = false;
+                    for (let j = 0; j < groupRoutes.length; j++) {
+                        if (i === j) continue;
+                        const r2 = groupRoutes[j];
+                        const dep2 = parseMin(r2.dep_time);
+                        const arr2 = getNormalizedArr(dep2, parseMin(r2.arr_time));
+                        const tx2 = r2.transfers;
+                        const trainSeq2 = r2.legs.map(l => l.train_number).join('-');
 
-                    const dep2 = parseMin(r2.dep_time || (r2.legs && r2.legs[0] ? r2.legs[0].dep : '00:00'));
-                    const rawArr2 = parseMin(r2.arr_time || (r2.legs && r2.legs[r2.legs.length - 1] ? r2.legs[r2.legs.length - 1].arr : '00:00'));
-                    const arr2 = getNormalizedArr(dep2, rawArr2);
-                    const tx2 = r2.transfers;
-                    const trainSeq2 = (r2.legs || []).map(l => String(l.train_number || l.trainNo)).join('-');
-
-                    // If r2 departs at the same time or later, and arrives at the same time or earlier:
-                    if (dep2 >= dep1 && arr2 <= arr1) {
-                        // Case A: r2 leaves later and arrives same/earlier -> r1 took longer from origin to destination (strictly slower)
-                        if (dep2 > dep1 && arr2 <= arr1) {
+                        if (arr2 < arr1) {
                             dominated = true;
                             break;
-                        }
-                        // Case B: r2 leaves same time and arrives earlier -> r1 strictly slower
-                        if (dep2 === dep1 && arr2 < arr1) {
-                            dominated = true;
-                            break;
-                        }
-                        // Case C: r2 leaves same time and arrives exact same time
-                        if (dep2 === dep1 && arr2 === arr1) {
+                        } else if (arr2 === arr1) {
                             if (tx2 < tx1) {
                                 dominated = true;
                                 break;
@@ -4641,15 +4649,13 @@
                                 dominated = true;
                                 break;
                             }
-                            // If same dep, same arr, same tx, but DIFFERENT middle legs (trainSeq1 !== trainSeq2):
-                            // Both distinct options are preserved so users can pick alternative trains!
                         }
                     }
+                    if (!dominated) {
+                        nonDominatedTransfers.push(r1);
+                    }
                 }
-                if (!dominated) {
-                    nonDominatedTransfers.push(r1);
-                }
-            }
+            });
 
             return [...directRoutes, ...nonDominatedTransfers];
         }
