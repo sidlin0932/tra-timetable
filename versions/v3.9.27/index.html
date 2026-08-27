@@ -4559,7 +4559,7 @@
 
         
         
-                                // Fast Train Map Cache for O(1) Pre-leg Lookup
+                                        // Fast Train Map Cache for O(1) Pre-leg Lookup
         let cachedTrainMap = null;
         function getTrainMap() {
             if (!cachedTrainMap || cachedTrainMap.size !== allTimetableData.length) {
@@ -4569,7 +4569,7 @@
             return cachedTrainMap;
         }
 
-        // 3. Intelligent Real-World Pruning (去慢保優 ＆ 始發車次平替保留)
+        // 3. Intelligent Real-World Pruning: 去除無意義前贅步，全面保留多元主力列車 (如 152, 150, EMU3000, 普悠瑪)
         function pruneDominatedRoutes(routes) {
             if (!routes || routes.length <= 1) return routes || [];
 
@@ -4601,9 +4601,8 @@
                         const origStop = nextTrain.stops.find(s => s.station === origStation);
                         if (origStop) {
                             const origStopTimeMin = parseMin(origStop.time);
-                            // If the express train stopped at origin at or after commuter train departure time, eliminate this redundant early commuter hop!
                             if (origStopTimeMin >= rDepMin) {
-                                return false;
+                                return false; // Eliminate redundant pre-leg detour!
                             }
                         }
                     }
@@ -4611,50 +4610,36 @@
                 return true;
             });
 
-            // Filter 2: Group by the FIRST TRAIN from origin station!
-            // Each distinct first train (e.g. 103 海線, 105 PP自強, 107 普悠瑪, 161 EMU3000) is preserved as an official legitimate departure choice.
-            const nonDominatedTransfers = [];
-            const byFirstTrain = new Map();
+            // Filter 2: Group by (First Train, Final Trunk Train)!
+            // This guarantees that every distinct primary express train (e.g. 150, 152, 154, 168, 2046)
+            // gets its optimal feeder connection preserved without being wiped out by earlier arrivals!
+            const byPair = new Map();
             validTransferRoutes.forEach(r => {
-                const firstTrainKey = r.legs[0].train_number;
-                if (!byFirstTrain.has(firstTrainKey)) byFirstTrain.set(firstTrainKey, []);
-                byFirstTrain.get(firstTrainKey).push(r);
+                const firstTrain = r.legs[0].train_number;
+                const lastTrain = r.legs[r.legs.length - 1].train_number;
+                const key = `${firstTrain}___${lastTrain}`;
+                if (!byPair.has(key)) byPair.set(key, []);
+                byPair.get(key).push(r);
             });
 
-            byFirstTrain.forEach((groupRoutes) => {
-                for (let i = 0; i < groupRoutes.length; i++) {
-                    const r1 = groupRoutes[i];
-                    const dep1 = parseMin(r1.dep_time);
-                    const arr1 = getNormalizedArr(dep1, parseMin(r1.arr_time));
-                    const tx1 = r1.transfers;
-                    const trainSeq1 = r1.legs.map(l => l.train_number).join('-');
-
-                    let dominated = false;
-                    for (let j = 0; j < groupRoutes.length; j++) {
-                        if (i === j) continue;
-                        const r2 = groupRoutes[j];
-                        const dep2 = parseMin(r2.dep_time);
-                        const arr2 = getNormalizedArr(dep2, parseMin(r2.arr_time));
-                        const tx2 = r2.transfers;
-                        const trainSeq2 = r2.legs.map(l => l.train_number).join('-');
-
-                        if (arr2 < arr1) {
-                            dominated = true;
-                            break;
-                        } else if (arr2 === arr1) {
-                            if (tx2 < tx1) {
-                                dominated = true;
-                                break;
-                            } else if (tx2 === tx1 && trainSeq1 === trainSeq2) {
-                                dominated = true;
-                                break;
-                            }
-                        }
+            const nonDominatedTransfers = [];
+            byPair.forEach(groupRoutes => {
+                // Within the SAME (First Train -> Last Train) combo:
+                // Sort by total duration, then transfers
+                groupRoutes.sort((a, b) => {
+                    if (a.duration !== b.duration) return a.duration - b.duration;
+                    return a.transfers - b.transfers;
+                });
+                
+                // Keep the best distinct middle-leg transfer paths for this trunk train
+                const seenSeq = new Set();
+                groupRoutes.forEach(r => {
+                    const seq = r.legs.map(l => l.train_number).join('-');
+                    if (!seenSeq.has(seq) && seenSeq.size < 2) {
+                        seenSeq.add(seq);
+                        nonDominatedTransfers.push(r);
                     }
-                    if (!dominated) {
-                        nonDominatedTransfers.push(r1);
-                    }
-                }
+                });
             });
 
             return [...directRoutes, ...nonDominatedTransfers];
