@@ -4,7 +4,7 @@ import re
 import json
 import pandas as pd
 
-print("Rebuilding pristine database with standard chronological stop sorting...")
+print("Rebuilding pristine database with strict English-filter station normalizer...")
 
 folder = 'data/raw_ods'
 
@@ -23,6 +23,15 @@ def clean_time(val):
 def normalize_station(st_raw):
     if not st_raw or pd.isna(st_raw): return ''
     s = str(st_raw).replace('臺', '台').replace('\u3000', '').replace(' ', '').strip()
+    
+    # Ignore English duplicate station rows in raw ODS
+    english_pure = ['taipei', 'kaohsiung', 'hualien', 'taitung', 'taichung', 'tainan', 'chiayi', 'hsinchu', 'taoyuan', 'keelung']
+    if s.lower() in english_pure or (s.isascii() and s.isalpha()):
+        return ''
+    
+    # Strip any trailing English like Xincheng
+    s = re.sub(r'[a-zA-Z]+', '', s).strip()
+    
     if s in ['新城', '新城(太魯閣)', '新城（太魯閣）']:
         return '新城(太魯閣)'
     return s
@@ -77,7 +86,7 @@ def sort_stops_chronologically(stops):
     cleaned = []
     seen = set()
     for s in stops:
-        if s['station'] not in seen:
+        if s['station'] not in seen and s['station']:
             seen.add(s['station'])
             cleaned.append(s)
             
@@ -435,11 +444,13 @@ for t_num, t in COMMUTER_TRAINS.items():
         FINAL_MAP[t_num] = t
 
 final_list = sorted(FINAL_MAP.values(), key=lambda x: int(x['train_number']) if x['train_number'].isdigit() else 99999)
-print(f"Total Complete Pristine Trains: {len(final_list)}")
+print(f"Total Pristine Trains: {len(final_list)}")
 
-t2007 = FINAL_MAP.get('2007')
-if t2007:
-    print(f"Train 2007: {t2007['origin']} -> {t2007['dest']}, last={t2007['stops'][-1]}")
+t138 = FINAL_MAP.get('138')
+if t138:
+    print(f"Train 138 stops count: {len(t138['stops'])}")
+    for s in t138['stops'][-6:]:
+        print(' ', s)
 
 with open('full_network_timetable.json', 'w', encoding='utf-8') as f:
     json.dump(final_list, f, ensure_ascii=False, indent=2)
