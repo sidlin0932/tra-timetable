@@ -1,6 +1,6 @@
-// Service Worker for 2026 台鐵時刻表 PWA (v3.9.26)
-const CACHE_NAME = 'tra-timetable-pwa-v3925';
-const RUNTIME_CACHE = 'tra-runtime-v3925';
+// Service Worker for 2026 台鐵時刻表 PWA (v3.9.27)
+const CACHE_NAME = 'tra-timetable-pwa-v3.9.27';
+const RUNTIME_CACHE = 'tra-runtime-v3.9.27';
 
 // Core Application Shell & Timetable Data Assets
 const CORE_ASSETS = [
@@ -18,31 +18,22 @@ const CORE_ASSETS = [
 self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_NAME).then(async (cache) => {
-      console.log('[ServiceWorker] Caching core offline assets for', CACHE_NAME);
-      for (const url of CORE_ASSETS) {
-        try {
-          const res = await fetch(url, { cache: 'reload' });
-          if (res && res.ok) {
-            await cache.put(url, res);
-          }
-        } catch (err) {
-          console.warn('[ServiceWorker] Pre-cache warning for:', url, err);
-        }
-      }
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log('[SW] Pre-caching core app assets for offline use (v3.9.27)...');
+      return cache.addAll(CORE_ASSETS);
     })
   );
 });
 
-// 2. Activate: Clean up old caches immediately and claim control of all clients
+// 2. Activate: Clean up old version caches immediately and claim clients
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keys) => {
+    caches.keys().then((cacheNames) => {
       return Promise.all(
-        keys.map((key) => {
-          if (key !== CACHE_NAME && key !== RUNTIME_CACHE) {
-            console.log('[ServiceWorker] Deleting old cache version:', key);
-            return caches.delete(key);
+        cacheNames.map((name) => {
+          if (name !== CACHE_NAME && name !== RUNTIME_CACHE) {
+            console.log('[SW] Deleting obsolete cache:', name);
+            return caches.delete(name);
           }
         })
       );
@@ -50,62 +41,46 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// 3. Fetch Strategy: Network-First when Online, Instant Cache Fallback when Offline
+// 3. Fetch Strategy: Cache-First for static assets & Stale-While-Revalidate with network fallback
 self.addEventListener('fetch', (event) => {
-  const req = event.request;
-  if (req.method !== 'GET') return;
+  const url = new URL(event.request.url);
 
-  const url = new URL(req.url);
+  // Ignore cross-origin non-GET requests
+  if (event.request.method !== 'GET') return;
 
-  // Strategy A: Page Navigation & Core JS Data
-  if (req.mode === 'navigate' || req.destination === 'document' || url.pathname.endsWith('index.html') || url.pathname.endsWith('data.js')) {
-    event.respondWith(
-      (async () => {
-        try {
-          // Network-first with fresh content
-          const netRes = await fetch(req, { cache: 'no-cache' });
-          if (netRes && netRes.ok) {
-            const cache = await caches.open(CACHE_NAME);
-            cache.put(req, netRes.clone());
-            return netRes;
-          }
-        } catch (err) {
-          // Offline or network error -> fallback to cache
-        }
-
-        const cachedDoc = await caches.match(req, { ignoreSearch: true })
-          || await caches.match('./index.html',
-  './lite.html', { ignoreSearch: true })
-          || await caches.match('./', { ignoreSearch: true });
-
-        if (cachedDoc) return cachedDoc;
-
-        return new Response('<h1>2026 台鐵時刻表 (離線模式)</h1><p>請重新整理載入快取頁面。</p>', {
-          headers: { 'Content-Type': 'text/html; charset=utf-8' }
-        });
-      })()
-    );
-    return;
-  }
-
-  // Strategy B: Static Assets (JSON, PNG, Icons)
+  // Handle local resources
   event.respondWith(
-    (async () => {
-      try {
-        const netRes = await fetch(req);
-        if (netRes && netRes.ok) {
-          const cache = await caches.open(CACHE_NAME);
-          cache.put(req, netRes.clone());
-          return netRes;
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        // Fetch background update for dynamic data files if online
+        if (url.pathname.endsWith('full_network_timetable.json') || url.pathname.endsWith('data.js')) {
+          fetch(event.request).then((networkResponse) => {
+            if (networkResponse && networkResponse.status === 200) {
+              caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse));
+            }
+          }).catch(() => {});
         }
-      } catch (e) {
-        // Fallback to cache
+        return cachedResponse;
       }
 
-      const cached = await caches.match(req, { ignoreSearch: true });
-      if (cached) return cached;
+      // Network Fallback with Runtime Cache
+      return fetch(event.request).then((networkResponse) => {
+        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+          return networkResponse;
+        }
 
-      return new Response('', { status: 404, statusText: 'Not Found' });
-    })()
+        const responseToCache = networkResponse.clone();
+        caches.open(RUNTIME_CACHE).then((cache) => {
+          cache.put(event.request, responseToCache);
+        });
+
+        return networkResponse;
+      }).catch(() => {
+        // Offline Fallback for HTML documents
+        if (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html')) {
+          return caches.match('./index.html');
+        }
+      });
+    })
   );
 });
