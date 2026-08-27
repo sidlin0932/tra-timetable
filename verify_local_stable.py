@@ -242,6 +242,7 @@ def test_routing_simulation():
         navigator: { onLine: true },
         location: { search: '', href: '', replace: () => {} },
         addEventListener: () => {},
+        URLSearchParams: URLSearchParams,
         setInterval: () => {},
         clearInterval: () => {},
         setTimeout: (fn) => fn(),
