@@ -4,7 +4,7 @@ import re
 import json
 import pandas as pd
 
-print("Rebuilding pristine database with express-priority merging...")
+print("Rebuilding pristine database with standard chronological stop sorting...")
 
 folder = 'data/raw_ods'
 
@@ -19,6 +19,13 @@ def clean_time(val):
         minute = int(m.group(2))
         return f"{h:02d}:{minute:02d}"
     return None
+
+def normalize_station(st_raw):
+    if not st_raw or pd.isna(st_raw): return ''
+    s = str(st_raw).replace('臺', '台').replace('\u3000', '').replace(' ', '').strip()
+    if s in ['新城', '新城(太魯閣)', '新城（太魯閣）']:
+        return '新城(太魯閣)'
+    return s
 
 def extract_type_and_model(raw_type, raw_note=""):
     raw = f"{raw_type} {raw_note}".strip()
@@ -60,6 +67,35 @@ def extract_type_and_model(raw_type, raw_note=""):
 
     return train_type, train_model, is_trpass
 
+def timeToMin(tStr):
+    if not tStr: return 0
+    h, m = map(int, tStr.split(':'))
+    return h * 60 + m
+
+def sort_stops_chronologically(stops):
+    if not stops or len(stops) < 2: return stops
+    cleaned = []
+    seen = set()
+    for s in stops:
+        if s['station'] not in seen:
+            seen.add(s['station'])
+            cleaned.append(s)
+            
+    has_night = any(timeToMin(s['time']) >= 1200 for s in cleaned)
+    has_morning = any(timeToMin(s['time']) < 360 for s in cleaned)
+    
+    if has_night and has_morning:
+        items = []
+        for s in cleaned:
+            m = timeToMin(s['time'])
+            abs_m = (m + 1440) if m < 360 else m
+            items.append((abs_m, s))
+        items.sort(key=lambda x: x[0])
+        return [x[1] for x in items]
+    else:
+        cleaned.sort(key=lambda s: timeToMin(s['time']))
+        return cleaned
+
 EXPRESS_TRAINS = {}
 COMMUTER_TRAINS = {}
 BRANCH_TRAINS = {}
@@ -94,16 +130,16 @@ for fname in ['KeelungToChaozhou20260701.ods', 'ChaozhouToKeelung20260701.ods']:
             
         stops = []
         for r in range(t_row + 1, len(df)):
-            st_raw = str(df.iloc[r, 1]).strip() if pd.notna(df.iloc[r, 1]) else (str(df.iloc[r, 0]).strip() if pd.notna(df.iloc[r, 0]) else '')
-            st = st_raw.replace('臺', '台').replace('\u3000','').replace(' ','').strip()
+            st_raw = df.iloc[r, 1] if pd.notna(df.iloc[r, 1]) else df.iloc[r, 0]
+            st = normalize_station(st_raw)
             if not st: continue
             
-            is_mountain_st = st in ['苗栗', '豐富', '銅鑼', '三義', '后里', '豐原', '潭子', '太原', '台中', '新烏日']
-            is_sea_st = st in ['竹南', '談文', '大山', '後龍', '龍港', '白沙屯', '新埔', '通霄', '苑裡', '日南', '大甲', '台中港', '清水', '沙鹿', '龍井', '大肚', '追分']
+            is_mountain_st = st in ['苗栗', '豐富', '銅鑼', '三義', '后里', '豐原', '栗林', '潭子', '頭家厝', '松竹', '太原', '精武', '台中', '五權', '大慶', '烏日', '新烏日', '成功']
+            is_sea_st = st in ['談文', '大山', '後龍', '龍港', '白沙屯', '新埔', '通霄', '苑裡', '日南', '大甲', '台中港', '清水', '沙鹿', '龍井', '大肚', '追分']
             
             if route_dir == '海線' and is_mountain_st:
                 continue
-            if route_dir == '山線' and is_sea_st and st != '竹南':
+            if route_dir == '山線' and is_sea_st:
                 continue
                 
             t_str = clean_time(df.iloc[r, c])
@@ -111,6 +147,7 @@ for fname in ['KeelungToChaozhou20260701.ods', 'ChaozhouToKeelung20260701.ods']:
                 stops.append({'station': st, 'time': t_str})
                 
         if len(stops) >= 2:
+            stops = sort_stops_chronologically(stops)
             EXPRESS_TRAINS[t_num] = {
                 'train_number': t_num, 'train_type': t_type, 'train_model': t_model,
                 'is_trpass': is_tr, 'origin': stops[0]['station'], 'dest': stops[-1]['station'],
@@ -140,14 +177,15 @@ for fname, line_name in [('ShulinToTaitung20260701.ods', '東部幹線'), ('Tait
         
         stops = []
         for r in range(t_row + 1, len(df)):
-            st_raw = str(df.iloc[r, 1]).strip() if pd.notna(df.iloc[r, 1]) else (str(df.iloc[r, 0]).strip() if pd.notna(df.iloc[r, 0]) else '')
-            st = st_raw.replace('臺', '台').replace('\u3000','').replace(' ','').strip()
+            st_raw = df.iloc[r, 1] if pd.notna(df.iloc[r, 1]) else df.iloc[r, 0]
+            st = normalize_station(st_raw)
             if not st: continue
             t_str = clean_time(df.iloc[r, c])
             if t_str:
                 stops.append({'station': st, 'time': t_str})
                 
         if len(stops) >= 2:
+            stops = sort_stops_chronologically(stops)
             EXPRESS_TRAINS[t_num] = {
                 'train_number': t_num, 'train_type': t_type, 'train_model': t_model,
                 'is_trpass': is_tr, 'origin': stops[0]['station'], 'dest': stops[-1]['station'],
@@ -197,11 +235,11 @@ neiwan_down_sts = ['新竹', '北新竹', '千甲', '新莊', '竹中', '六家'
 neiwan_up_sts = ['內灣', '富貴', '合興', '九讚頭', '橫山', '竹東', '榮華', '上員', '六家', '竹中', '新莊', '千甲', '北新竹', '新竹']
 
 for r in range(4, 66):
-    t_num = str(df_neiwan.iloc[r, 1]).strip().replace('.0', '')
-    if not t_num.isdigit() and df_neiwan.shape[1] > 2:
-        alt = str(df_neiwan.iloc[r, 2]).strip().replace('.0', '')
-        if alt.isdigit(): t_num = alt
-    if not t_num.isdigit(): continue
+    t_num = ''
+    for c in [1, 2, 3]:
+        val = str(df_neiwan.iloc[r, c]).strip().replace('.0', '')
+        if val.isdigit() and len(val) >= 3: t_num = val; break
+    if not t_num: continue
     stops = []
     for idx, st in enumerate(neiwan_down_sts):
         c_idx = 4 + idx
@@ -216,11 +254,11 @@ for r in range(4, 66):
         }
 
 for r in range(71, len(df_neiwan)):
-    t_num = str(df_neiwan.iloc[r, 1]).strip().replace('.0', '')
-    if not t_num.isdigit() and df_neiwan.shape[1] > 2:
-        alt = str(df_neiwan.iloc[r, 2]).strip().replace('.0', '')
-        if alt.isdigit(): t_num = alt
-    if not t_num.isdigit(): continue
+    t_num = ''
+    for c in [1, 2, 3]:
+        val = str(df_neiwan.iloc[r, c]).strip().replace('.0', '')
+        if val.isdigit() and len(val) >= 3: t_num = val; break
+    if not t_num: continue
     stops = []
     for idx, st in enumerate(neiwan_up_sts):
         c_idx = 4 + idx
@@ -240,11 +278,11 @@ px_down_sts = ['八斗子', '海科館', '瑞芳', '猴硐', '三貂嶺', '大�
 px_up_sts = ['菁桐', '平溪', '嶺腳', '望古', '十分', '大華', '三貂嶺', '猴硐', '瑞芳', '海科館', '八斗子']
 
 for r in range(4, len(df_px)):
-    t_num = str(df_px.iloc[r, 1]).strip().replace('.0', '')
-    if not t_num.isdigit() and df_px.shape[1] > 2:
-        alt = str(df_px.iloc[r, 2]).strip().replace('.0', '')
-        if alt.isdigit(): t_num = alt
-    if not t_num.isdigit(): continue
+    t_num = ''
+    for c in [1, 2, 3]:
+        val = str(df_px.iloc[r, c]).strip().replace('.0', '')
+        if val.isdigit() and len(val) >= 3: t_num = val; break
+    if not t_num: continue
     stops = []
     for idx, st in enumerate(px_down_sts):
         c_idx = 4 + idx
@@ -260,19 +298,22 @@ for r in range(4, len(df_px)):
 
 for r in range(4, len(df_px)):
     t_num = str(df_px.iloc[r, 20]).strip().replace('.0', '') if df_px.shape[1] > 20 else ''
-    if t_num.isdigit():
-        stops = []
-        for idx, st in enumerate(px_up_sts):
-            c_idx = 22 + idx
-            if c_idx < df_px.shape[1]:
-                t_str = clean_time(df_px.iloc[r, c_idx])
-                if t_str: stops.append({'station': st, 'time': t_str})
-        if len(stops) >= 2:
-            BRANCH_TRAINS[t_num] = {
-                'train_number': t_num, 'train_type': '區間車', 'train_model': '柴油客車',
-                'is_trpass': True, 'origin': stops[0]['station'], 'dest': stops[-1]['station'],
-                'line': '平溪/深澳線', 'route_dir': '', 'stops': stops
-            }
+    if not t_num.isdigit() and df_px.shape[1] > 21:
+        alt = str(df_px.iloc[r, 21]).strip().replace('.0', '')
+        if alt.isdigit(): t_num = alt
+    if not t_num.isdigit(): continue
+    stops = []
+    for idx, st in enumerate(px_up_sts):
+        c_idx = 22 + idx
+        if c_idx < df_px.shape[1]:
+            t_str = clean_time(df_px.iloc[r, c_idx])
+            if t_str: stops.append({'station': st, 'time': t_str})
+    if len(stops) >= 2:
+        BRANCH_TRAINS[t_num] = {
+            'train_number': t_num, 'train_type': '區間車', 'train_model': '柴油客車',
+            'is_trpass': True, 'origin': stops[0]['station'], 'dest': stops[-1]['station'],
+            'line': '平溪/深澳線', 'route_dir': '', 'stops': stops
+        }
 
 # Shalun
 df_sl = pd.read_excel(os.path.join(folder, 'Shalun2026070.ods'), engine='odf', header=None)
@@ -311,7 +352,7 @@ for r in range(3, len(df_sl)):
                 'line': '沙崙線', 'route_dir': '', 'stops': stops
             }
 
-# 4. Commuter files
+# 4. Commuter files (Dynamic multi-column scan)
 commuter_specs = [
     ('BaduToSuao20260701.ods', 0, 7, ['八堵', '暖暖', '四腳亭', '瑞芳', '猴硐', '三貂嶺', '牡丹', '雙溪', '貢寮', '福隆', '石城', '大里', '大溪', '龜山', '外澳', '頭城', '頂埔', '礁溪', '四城', '宜蘭', '二結', '中里', '羅東', '冬山', '新馬', '蘇澳新', '蘇澳'], '宜蘭線'),
     ('SuaoToBadu20260701.ods', 0, 4, ['蘇澳', '蘇澳新', '新馬', '冬山', '羅東', '中里', '二結', '宜蘭', '四城', '礁溪', '頂埔', '頭城', '外澳', '龜山', '大溪', '大里', '石城', '福隆', '貢寮', '雙溪', '牡丹', '三貂嶺', '猴硐', '瑞芳', '四腳亭', '暖暖', '八堵'], '宜蘭線'),
@@ -340,18 +381,18 @@ for fname, sheet_idx, st_start_col, station_list, line_name in commuter_specs:
     sheet = xl.sheet_names[sheet_idx] if sheet_idx < len(xl.sheet_names) else xl.sheet_names[0]
     df = xl.parse(sheet, header=None)
     
-    t_col = 2
-    for c in range(1, 5):
-        nums = [str(df.iloc[r, c]).strip().replace('.0', '') for r in range(3, min(15, len(df))) if pd.notna(df.iloc[r, c])]
-        if len(nums) >= 3 and all(n.isdigit() for n in nums):
-            t_col = c
-            break
-            
     for r in range(3, len(df)):
-        t_num = str(df.iloc[r, t_col]).strip().replace('.0', '')
-        if not t_num.isdigit() or len(t_num) < 3: continue
+        t_num = ''
+        t_col = -1
+        for c in [1, 2, 3]:
+            val = str(df.iloc[r, c]).strip().replace('.0', '')
+            if val.isdigit() and len(val) >= 3:
+                t_num = val
+                t_col = c
+                break
+        if not t_num: continue
         
-        # If train is already in authoritative EXPRESS_TRAINS, do NOT overwrite with commuter slice!
+        # If train is already in authoritative EXPRESS_TRAINS, do NOT overwrite
         if t_num in EXPRESS_TRAINS:
             continue
             
@@ -368,7 +409,7 @@ for fname, sheet_idx, st_start_col, station_list, line_name in commuter_specs:
                 
         if len(stops) >= 2:
             r_dir = '山線' if '山線' in line_name else ''
-            # If commuter train appears across sheets (e.g. HsinchuToKeelung + KeelungToHsinchu or continuous northern+mountain)
+            
             if t_num not in COMMUTER_TRAINS:
                 COMMUTER_TRAINS[t_num] = {
                     'train_number': t_num, 'train_type': t_type, 'train_model': t_model,
@@ -376,19 +417,11 @@ for fname, sheet_idx, st_start_col, station_list, line_name in commuter_specs:
                     'line': line_name, 'route_dir': r_dir, 'stops': stops
                 }
             else:
-                # Merge continuous commuter stops (e.g. 2113 running Keelung -> Hsinchu -> Chiayi)
                 ext = COMMUTER_TRAINS[t_num]
-                # Check direction
-                ext_stops = ext['stops']
-                # Concatenate stops if in same continuous time progression
-                ext_end_m = int(ext_stops[-1]['time'].split(':')[0])*60 + int(ext_stops[-1]['time'].split(':')[1])
-                new_start_m = int(stops[0]['time'].split(':')[0])*60 + int(stops[0]['time'].split(':')[1])
-                if new_start_m >= ext_end_m - 5:
-                    # Append new stops avoiding duplicate station
-                    for s in stops:
-                        if s['station'] != ext_stops[-1]['station']:
-                            ext_stops.append(s)
-                    ext['dest'] = ext_stops[-1]['station']
+                merged = ext['stops'] + stops
+                ext['stops'] = sort_stops_chronologically(merged)
+                ext['origin'] = ext['stops'][0]['station']
+                ext['dest'] = ext['stops'][-1]['station']
 
 # Final Merge: EXPRESS > BRANCH > COMMUTER
 FINAL_MAP = {}
@@ -402,12 +435,11 @@ for t_num, t in COMMUTER_TRAINS.items():
         FINAL_MAP[t_num] = t
 
 final_list = sorted(FINAL_MAP.values(), key=lambda x: int(x['train_number']) if x['train_number'].isdigit() else 99999)
-print(f"Total Pristine Trains: {len(final_list)}")
+print(f"Total Complete Pristine Trains: {len(final_list)}")
 
 t2007 = FINAL_MAP.get('2007')
 if t2007:
-    print(f"Train 2007 verified: {t2007['origin']} -> {t2007['dest']}")
-    print(f"  Last stop: {t2007['stops'][-1]}")
+    print(f"Train 2007: {t2007['origin']} -> {t2007['dest']}, last={t2007['stops'][-1]}")
 
 with open('full_network_timetable.json', 'w', encoding='utf-8') as f:
     json.dump(final_list, f, ensure_ascii=False, indent=2)
