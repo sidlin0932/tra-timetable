@@ -52733,14 +52733,38 @@
   },
   {
     "train_number": "2702",
-    "train_type": "區間快",
-    "train_model": "EMU900/EMU800",
+    "train_type": "區間車",
+    "train_model": "DR1000柴油客車",
     "is_trpass": true,
-    "origin": "田中",
+    "origin": "水里",
     "dest": "大村",
-    "line": "縱貫線南段",
+    "line": "集集線",
     "route_dir": "",
     "stops": [
+      {
+        "station": "水里",
+        "time": "05:42"
+      },
+      {
+        "station": "集集",
+        "time": "05:54"
+      },
+      {
+        "station": "龍泉",
+        "time": "06:01"
+      },
+      {
+        "station": "濁水",
+        "time": "06:11"
+      },
+      {
+        "station": "源泉",
+        "time": "06:21"
+      },
+      {
+        "station": "二水",
+        "time": "06:37"
+      },
       {
         "station": "田中",
         "time": "06:37"
@@ -52757,12 +52781,12 @@
   },
   {
     "train_number": "2703",
-    "train_type": "區間快",
-    "train_model": "EMU900/EMU800",
+    "train_type": "區間車",
+    "train_model": "DR1000柴油客車",
     "is_trpass": true,
     "origin": "花壇",
-    "dest": "林內",
-    "line": "縱貫線南段",
+    "dest": "車埕",
+    "line": "集集線",
     "route_dir": "",
     "stops": [
       {
@@ -52775,11 +52799,35 @@
       },
       {
         "station": "二水",
-        "time": "05:43"
+        "time": "05:54"
       },
       {
         "station": "林內",
         "time": "05:54"
+      },
+      {
+        "station": "源泉",
+        "time": "05:59"
+      },
+      {
+        "station": "濁水",
+        "time": "06:12"
+      },
+      {
+        "station": "龍泉",
+        "time": "06:20"
+      },
+      {
+        "station": "集集",
+        "time": "06:29"
+      },
+      {
+        "station": "水里",
+        "time": "06:41"
+      },
+      {
+        "station": "車埕",
+        "time": "06:46"
       }
     ]
   },

@@ -144,7 +144,7 @@ if os.path.exists(path):
     df = pd.read_excel(path, engine='odf', header=None)
     down_cols = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
     down_stations = ['八堵', '暖暖', '四腳亭', '八斗子', '海科館', '瑞芳', '猴硐', '三貂嶺', '大華', '十分', '望古', '嶺腳', '平溪', '菁桐']
-    for r in range(4, len(df)):
+    for r in range(3, len(df)):
         t_num = ''
         for c in [1, 2, 3]:
             val = str(df.iloc[r, c]).strip().replace('.0', '')
@@ -172,7 +172,7 @@ if os.path.exists(path):
         
     up_cols = [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
     up_stations = ['菁桐', '平溪', '嶺腳', '望古', '十分', '大華', '三貂嶺', '猴硐', '瑞芳', '海科館', '八斗子', '四腳亭', '暖暖', '八堵']
-    for r in range(4, len(df)):
+    for r in range(3, len(df)):
         t_num = ''
         for c in [19, 20, 21, 22]:
             if c < df.shape[1]:
@@ -205,7 +205,7 @@ if os.path.exists(path):
     df = pd.read_excel(path, engine='odf', header=None)
     jiji_down_cols = [4, 5, 6, 7, 8, 9, 10]
     jiji_down_sts = ['二水', '源泉', '濁水', '龍泉', '集集', '水里', '車埕']
-    for r in range(4, len(df)):
+    for r in range(3, len(df)):
         t_num = str(df.iloc[r, 2]).strip().replace('.0', '') if df.shape[1] > 2 else ''
         if not t_num.isdigit(): continue
         stops = []
@@ -228,7 +228,7 @@ if os.path.exists(path):
         
     jiji_up_cols = [16, 17, 18, 19, 20, 21, 22]
     jiji_up_sts = ['車埕', '水里', '集集', '龍泉', '濁水', '源泉', '二水']
-    for r in range(4, len(df)):
+    for r in range(3, len(df)):
         t_num = str(df.iloc[r, 14]).strip().replace('.0', '') if df.shape[1] > 14 else ''
         if not t_num.isdigit(): continue
         stops = []

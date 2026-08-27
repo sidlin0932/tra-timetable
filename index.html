@@ -4655,6 +4655,69 @@
         }
         window.pruneDominatedRoutes = pruneDominatedRoutes;
 
+                function planMultiStopRoutes(wps, startTimeMin) {
+            if (!wps || wps.length < 2) return [];
+            if (wps.length === 2) {
+                return planRoutes(wps[0].station, wps[1].station, startTimeMin);
+            }
+
+            // Segment 1 (A -> B)
+            let candidateChains = planRoutes(wps[0].station, wps[1].station, startTimeMin).slice(0, 20);
+            if (candidateChains.length === 0) return [];
+
+            for (let seg = 1; seg < wps.length - 1; seg++) {
+                const segOrig = wps[seg].station;
+                const segDest = wps[seg + 1].station;
+                const minStay = parseInt(wps[seg].minStay || 0, 10);
+                
+                const minArrMin = Math.min(...candidateChains.map(c => timeToMin(c.arr_time)));
+                const allSegRoutes = planRoutes(segOrig, segDest, minArrMin + minStay);
+                if (allSegRoutes.length === 0) return [];
+
+                const nextChains = [];
+                for (let cIdx = 0; cIdx < candidateChains.length; cIdx++) {
+                    const chain = candidateChains[cIdx];
+                    const arrMin = timeToMin(chain.arr_time);
+                    const earliestDep = arrMin + minStay;
+                    
+                    const viableNext = allSegRoutes.filter(r => timeToMin(r.dep_time) >= earliestDep).slice(0, 3);
+                    for (let nIdx = 0; nIdx < viableNext.length; nIdx++) {
+                        const nRoute = viableNext[nIdx];
+                        const depMin = timeToMin(nRoute.dep_time);
+                        const stayActual = depMin - arrMin;
+
+                        const newLegs = [
+                            ...chain.legs,
+                            ...nRoute.legs.map((l, lIdx) => lIdx === 0 ? { ...l, stayBefore: stayActual, layover: stayActual } : l)
+                        ];
+
+                        const totalDuration = timeToMin(nRoute.arr_time) - timeToMin(chain.dep_time);
+
+                        nextChains.push({
+                            transfers: chain.transfers + nRoute.transfers + 1,
+                            dep_time: chain.dep_time,
+                            arr_time: nRoute.arr_time,
+                            duration: totalDuration,
+                            is_trpass: chain.is_trpass && nRoute.is_trpass,
+                            train_types: newLegs.map(l => l.train_type),
+                            transfer_stations: newLegs.slice(0, -1).map(l => l.to),
+                            stopovers: [
+                                ...(chain.stopovers || []),
+                                { station: segOrig, stayMin: stayActual, is_through: false }
+                            ],
+                            legs: newLegs
+                        });
+                    }
+                }
+                candidateChains = nextChains;
+                if (candidateChains.length === 0) break;
+            }
+
+            return candidateChains;
+        }
+        window.planMultiStopRoutes = planMultiStopRoutes;
+
+
         
         const CORRIDOR_MAPS = [
             ['基隆', '三坑', '八堵', '七堵', '百福', '五堵', '汐止', '汐科', '南港', '松山', '台北', '萬華', '板橋', '浮洲', '樹林', '南樹林', '山佳', '鶯歌', '桃園', '內壢', '中壢', '埔心', '楊梅', '富岡', '新富', '北湖', '湖口', '新豐', '竹北', '北新竹', '新竹', '三姓橋', '香山', '崎頂', '竹南', '造橋', '豐富', '苗栗', '南勢', '銅鑼', '三義', '泰安', '后里', '豐原', '栗林', '潭子', '頭家厝', '松竹', '太原', '精武', '台中', '五權', '大慶', '烏日', '新烏日', '成功', '彰化', '花壇', '大村', '員林', '永靖', '社頭', '田中', '二水', '林內', '石榴', '斗六', '斗南', '石龜', '大林', '民雄', '嘉北', '嘉義', '水上', '南靖', '後壁', '新營', '柳營', '林鳳營', '隆田', '拔林', '善化', '南科', '新市', '永康', '大橋', '台南', '保安', '仁德', '中洲', '大湖', '路竹', '岡山', '橋頭', '楠梓', '新左營', '左營', '內惟', '美術館', '鼓山', '三塊厝', '高雄', '民族', '科工館', '正義', '鳳山', '後庄', '九曲堂', '六塊厝', '屏東', '歸來', '麟洛', '西勢', '竹田', '潮州', '崁頂', '南州', '鎮安', '林邊', '佳冬', '東海', '枋寮'],
@@ -4737,7 +4800,7 @@
 
             // 2. Transfer Route Calculation
             let allowTransfers = transferCondition !== 'direct';
-            let maxAllowedHops = 3;
+            let maxAllowedHops = 2;
             if (transferCondition === 'max1') maxAllowedHops = 1;
             else if (transferCondition === 'max2') maxAllowedHops = 2;
             else if (directResults.length > 20 && !viaStation && transferCondition !== 'transfer_only') {
@@ -4849,8 +4912,11 @@
                                             legs: newLegs
                                         });
                                     } else if (hop < maxAllowedHops) {
-                                        if (!bestAtStation[nextSt] || arrMin < bestAtStation[nextSt]) {
-                                            bestAtStation[nextSt] = arrMin;
+                                        if (!bestAtStation[nextSt]) bestAtStation[nextSt] = [];
+                                        if (bestAtStation[nextSt].length < 3 || arrMin < bestAtStation[nextSt][bestAtStation[nextSt].length - 1]) {
+                                            bestAtStation[nextSt].push(arrMin);
+                                            bestAtStation[nextSt].sort((a, b) => a - b);
+                                            if (bestAtStation[nextSt].length > 3) bestAtStation[nextSt].pop();
                                             const nextVis = new Set(state.visited);
                                             nextVis.add(nextSt);
                                             nextQueue.push({
@@ -5110,49 +5176,7 @@
             }).join('');
         }
 
-        function executeSearch() {
-            const timeStr = document.getElementById('timeInput') ? (document.getElementById('timeInput').value || '00:00') : '00:00';
-            const startTimeMin = timeToMin(timeStr);
-            const via = document.getElementById('viaInput') ? document.getElementById('viaInput').value.trim() : '';
 
-            const routeStr = waypoints.map(w => w.station).join(' ➔ ');
-            const summaryEl = document.getElementById('routeSummaryText');
-            if (summaryEl) {
-                if (waypoints.length === 2 && via) {
-                    summaryEl.textContent = `${waypoints[0].station} ➔ [經由 ${via}] ➔ ${waypoints[1].station}`;
-                } else {
-                    summaryEl.textContent = routeStr;
-                }
-            }
-            updateClearViaButton();
-
-            const orig = waypoints[0].station;
-            const dest = waypoints[waypoints.length - 1].station;
-
-            if (!orig || !dest || orig === dest || allTimetableData.length === 0) {
-                currentRoutes = [];
-                renderResults();
-                return;
-            }
-
-            let rawRoutes = [];
-            if (waypoints.length === 2) {
-                rawRoutes = planRoutes(orig, dest, startTimeMin, via);
-            } else {
-                rawRoutes = planMultiStopRoutes(waypoints, startTimeMin);
-            }
-
-            const seen = new Set();
-            currentRoutes = rawRoutes.filter(r => {
-                const key = `${r.dep_time}-${r.arr_time}-${r.transfers}-${r.legs.map(l=>l.train_number).join('_')}`;
-                if (seen.has(key)) return false;
-                seen.add(key);
-                return true;
-            });
-
-            currentRoutes = sortRoutes(currentRoutes);
-            renderResults();
-        }
 
 
         let currentVisibleLimit = 35;
