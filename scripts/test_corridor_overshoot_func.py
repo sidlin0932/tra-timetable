@@ -1,0 +1,66 @@
+import json
+
+# Define linear corridor index maps
+WESTERN_LINE = [
+    '基隆', '三坑', '八堵', '七堵', '百福', '五堵', '汐止', '汐科', '南港', '松山', '台北', '萬華',
+    '板橋', '浮洲', '樹林', '南樹林', '山佳', '鶯歌', '桃園', '內壢', '中壢', '埔心', '楊梅',
+    '富岡', '新富', '北湖', '湖口', '新豐', '竹北', '北新竹', '新竹', '三姓橋', '香山', '崎頂', '竹南'
+]
+MOUNTAIN_LINE = [
+    '竹南', '造橋', '豐富', '苗栗', '南勢', '銅鑼', '三義', '泰安', '后里', '豐原', '栗林',
+    '潭子', '頭家厝', '松竹', '太原', '精武', '台中', '五權', '大慶', '烏日', '新烏日', '成功', '彰化'
+]
+SEA_LINE = [
+    '竹南', '談文', '大山', '後龍', '龍港', '白沙屯', '新埔', '通霄', '苑裡', '日南', '大甲',
+    '台中港', '清水', '沙鹿', '龍井', '大肚', '追分', '彰化'
+]
+SOUTH_LINE = [
+    '彰化', '花壇', '大村', '員林', '永靖', '社頭', '田中', '二水', '林內', '石榴', '斗六',
+    '斗南', '石龜', '大林', '民雄', '嘉北', '嘉義', '水上', '南靖', '後壁', '新營', '柳營',
+    '林鳳營', '隆田', '拔林', '善化', '南科', '新市', '永康', '大橋', '台南', '保安', '仁德',
+    '中洲', '大湖', '路竹', '岡山', '橋頭', '楠梓', '新左營', '左營', '內惟', '美術館', '鼓山',
+    '三塊厝', '高雄', '民族', '科工館', '正義', '鳳山', '後庄', '九曲堂', '六塊厝', '屏東',
+    '歸來', '麟洛', '西勢', '竹田', '潮州', '崁頂', '南州', '鎮安', '林邊', '佳冬', '東海', '枋寮'
+]
+EASTERN_LINE = [
+    '八堵', '暖暖', '四腳亭', '瑞芳', '猴硐', '三貂嶺', '牡丹', '雙溪', '貢寮', '福隆',
+    '石城', '大里', '大溪', '龜山', '外澳', '頭城', '頂埔', '礁溪', '四城', '宜蘭',
+    '二結', '中里', '羅東', '冬山', '新馬', '蘇澳新', '蘇澳',
+    '永樂', '東澳', '南澳', '武塔', '漢本', '和平', '和仁', '崇德', '新城(太魯閣)',
+    '景美', '北埔', '花蓮', '吉安', '志學', '平和', '壽豐', '豐田', '林榮新光',
+    '南平', '鳳林', '萬榮', '光復', '大富', '富源', '瑞穗', '三民', '玉里',
+    '東里', '東竹', '富里', '池上', '海端', '關山', '月美', '瑞和', '瑞源',
+    '鹿野', '山里', '台東'
+]
+SOUTH_LINK_LINE = [
+    '枋寮', '加祿', '內獅', '枋山', '枋野', '大武', '瀧溪', '金崙', '太麻里', '知本', '康樂', '台東'
+]
+
+# Combined Western Trunk (Mountain as main)
+WESTERN_TRUNK_MT = WESTERN_LINE + MOUNTAIN_LINE[1:-1] + SOUTH_LINE
+WESTERN_TRUNK_SEA = WESTERN_LINE + SEA_LINE[1:-1] + SOUTH_LINE
+
+pos_mt = {st: i for i, st in enumerate(WESTERN_TRUNK_MT)}
+pos_sea = {st: i for i, st in enumerate(WESTERN_TRUNK_SEA)}
+pos_east = {st: i for i, st in enumerate(EASTERN_LINE)}
+pos_slink = {st: i for i, st in enumerate(SOUTH_LINK_LINE)}
+
+def isStationOvershooting(orig, dest, mid):
+    # Check if mid lies outside the corridor between orig and dest on any shared line
+    for p_map in [pos_mt, pos_sea, pos_east, pos_slink]:
+        if orig in p_map and dest in p_map and mid in p_map:
+            p_orig = p_map[orig]
+            p_dest = p_map[dest]
+            p_mid = p_map[mid]
+            min_p = min(p_orig, p_dest)
+            max_p = max(p_orig, p_dest)
+            # If mid is not strictly within [min_p, max_p], it's an overshoot or backtrack!
+            if p_mid < min_p or p_mid > max_p:
+                return True
+    return False
+
+# Test cases
+print("Taipei -> Yingge via Taoyuan:", isStationOvershooting('台北', '鶯歌', '桃園')) # Should be True (Overshoot)
+print("Taipei -> Yingge via Shulin:", isStationOvershooting('台北', '鶯歌', '樹林')) # Should be False (Valid)
+print("Taipei -> Taichung via Hsinchu:", isStationOvershooting('台北', '台中', '新竹')) # Should be False (Valid)
+print("Taipei -> Ruifang via Yilan:", isStationOvershooting('台北', '瑞芳', '宜蘭')) # Should be True (Overshoot)
