@@ -664,7 +664,7 @@
     <header>
         <div class="brand">
             <span>🚆 台鐵時刻表</span>
-            <span class="badge-lite">⚡ SuperLite 極速極簡版 v3.9.37-lite</span>
+            <span class="badge-lite">⚡ SuperLite 極速極簡版 v3.9.34-lite</span>
         </div>
         
         <div class="header-actions">
@@ -672,7 +672,7 @@
                 <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; margin-right: 4px;">🔖 版本切換:</span>
                 <select id="versionSelectorLite" onchange="switchVersion(this.value)" style="border: none; background: transparent; color: var(--primary); font-size: 0.78rem; font-weight: 700; cursor: pointer; outline: none;">
                     <option value="lite" selected>⚡ 極速極簡版 (TRA SuperLite)</option>
-                    <option value="latest">🌟 全功能旗艦版 (v3.9.37)</option>
+                    <option value="latest">🌟 全功能旗艦版 (v3.9.34)</option>
                     <option value="hub">📋 所有歷史版本中心...</option>
                 </select>
             </div>
@@ -1104,10 +1104,10 @@
             return `<span class=\"badge ${cls}\" style=\"cursor:pointer;\" onclick=\"event.stopPropagation(); showTrainDetail('${no}')\" title=\"點擊查看 ${no} 次完整停靠時刻表\">${type} ${no}次 🔍</span>`;
         }
 
-        function isTypeAllowed(type, isTrPass, filter, trainNumber) {
+        function isTypeAllowed(type, isTrPass, filter) {
             if (filter === 'express' && !['自強號', '新自強(EMU3000)', '普悠瑪', '太魯閣', '莒光號'].includes(type)) return false;
             if (filter === 'local' && !['區間車', '區間快'].includes(type)) return false;
-            if (trainNumber && !isTrainRunningOnToday(trainNumber)) return false;
+            if (!isTrainRunningOnToday(t.train_number)) return false;
             if (filter === 'trpass' && !isTrPass) return false;
             return true;
         }
@@ -1153,15 +1153,11 @@
             ['新竹', '北新竹', '千甲', '新莊', '竹中', '六家'],
             ['八堵', '暖暖', '四腳亭', '瑞芳', '猴硐', '三貂嶺', '大華', '十分', '望古', '嶺腳', '平溪', '菁桐'],
             ['二水', '源泉', '濁水', '龍泉', '集集', '水里', '車埕'],
-            ['善化', '南科', '新市', '永康', '大橋', '台南', '保安', '仁德', '中洲', '長榮大學', '沙崙'],
-            // 6. Chengzhui Line & Mountain-Sea Bypass Corridors
-            ['台中', '五權', '大慶', '烏日', '新烏日', '成功', '追分', '大肚', '龍井', '沙鹿', '清水', '台中港', '大甲', '日南', '苑裡', '通霄'],
-            ['台中', '五權', '大慶', '烏日', '新烏日', '成功', '彰化', '追分', '大肚', '龍井', '沙鹿', '清水', '台中港', '大甲', '日南', '苑裡', '通霄', '白沙屯', '後龍', '竹南']
+            ['善化', '南科', '新市', '永康', '大橋', '台南', '保安', '仁德', '中洲', '長榮大學', '沙崙']
         ];
 
         function isStationOvershooting(orig, dest, mid) {
             if (!orig || !dest || !mid || mid === orig || mid === dest) return false;
-            const INTERCHANGE_HUBS = new Set(['七堵', '八堵', '基隆', '新左營', '高雄', '二水', '竹中', '瑞芳', '彰化', '竹南', '成功', '追分', '新烏日', '枋寮', '中洲']);
             for (let cIdx = 0; cIdx < CORRIDOR_MAPS.length; cIdx++) {
                 const corridor = CORRIDOR_MAPS[cIdx];
                 const iOrig = corridor.indexOf(orig);
@@ -1171,9 +1167,6 @@
                     const minP = Math.min(iOrig, iDest);
                     const maxP = Math.max(iOrig, iDest);
                     if (iMid < minP || iMid > maxP) {
-                        if (INTERCHANGE_HUBS.has(mid) && (Math.abs(iMid - iDest) <= 2 || Math.abs(iMid - iOrig) <= 2)) {
-                            continue; // Valid transfer at adjacent terminal or junction interchange hub!
-                        }
                         return true; // Strictly out of corridor bounds!
                     }
                 }
@@ -1190,7 +1183,7 @@
             // 1. Direct Trains
             for (let dep of startDeps) {
                 const t = dep.train;
-                if (!isTypeAllowed(t.train_type, t.is_trpass, typeF, t.train_number)) continue;
+                if (!isTypeAllowed(t.train_type, t.is_trpass, typeF)) continue;
 
                 let dMin = dep.depMin;
                 if (dMin < startMin) continue;
@@ -1237,15 +1230,12 @@
                     const t1 = dep.train;
                     let dMin1 = dep.depMin;
                     if (dMin1 < startMin) continue;
-                    if (!isTypeAllowed(t1.train_type, t1.is_trpass, typeF, t1.train_number)) continue;
 
                     // Check if t1 already directly reaches dest
                     let t1DirectReachesDest = false;
-                    let t1DirectArrMin = 0;
                     for (let k = dep.stopIdx + 1; k < t1.stops.length; k++) {
                         if (t1.stops[k].station === dest) {
                             t1DirectReachesDest = true;
-                            t1DirectArrMin = timeToMin(t1.stops[k].time);
                             break;
                         }
                     }
@@ -1267,7 +1257,6 @@
                         for (let midDep of midDeps) {
                             const t2 = midDep.train;
                             if (t2.train_number === t1.train_number) continue;
-                            if (!isTypeAllowed(t2.train_type, t2.is_trpass, typeF, t2.train_number)) continue;
 
                             // Pruning 1: If t2 itself directly stops at orig after startMin, don't take t1 to transfer to t2!
                             if (directTrainNumbers.has(String(t2.train_number))) continue;
@@ -1280,11 +1269,6 @@
                                 if (t2.stops[j].station === dest) {
                                     const arrMin2 = timeToMin(t2.stops[j].time);
                                     if (arrMin2 > dMin2) {
-                                        // User's rule: If t1 directly reaches dest, transfer MUST arrive strictly earlier!
-                                        if (t1DirectReachesDest && t1DirectArrMin > 0 && arrMin2 >= t1DirectArrMin) {
-                                            continue; // 嚴格阻斷：搭原車直達即可，絕不下車換車卻更慢或同時到達！
-                                        }
-
                                         // Pruning 2: Directional check (must not be slower than direct alternatives arriving at same time)
                                         const dur = arrMin2 - dMin1;
                                         const key = `${t1.train_number}-${t2.train_number}-${dMin1}-${arrMin2}`;
@@ -1321,9 +1305,9 @@
                 // Fast Train Map Cache for O(1) Pre-leg Lookup
         let cachedTrainMap = null;
         function getTrainMap() {
-            if (!cachedTrainMap || cachedTrainMap.size !== timetableData.length) {
+            if (!cachedTrainMap || cachedTrainMap.size !== allTimetableData.length) {
                 cachedTrainMap = new Map();
-                timetableData.forEach(t => cachedTrainMap.set(t.train_number, t));
+                allTimetableData.forEach(t => cachedTrainMap.set(t.train_number, t));
             }
             return cachedTrainMap;
         }
@@ -1342,55 +1326,21 @@
 
             const trainMap = getTrainMap();
 
-            // Filter 1: Eliminate transfer routes that are strictly dominated by a direct train
+            // Filter 1: Eliminate nonsensical pre-leg commuter routes
             const validTransferRoutes = transferRoutes.filter(r => {
+                if (!r.legs || r.legs.length < 2) return true;
+                const origStation = r.legs[0].from;
                 const rDepMin = r.depMin;
-                const rArrMin = r.arrMin;
-
-                // Check 1A: If leg 1 train itself reaches dest directly:
-                // NEVER get off a direct express train to transfer! Stay on the direct train!
-                const firstTrainNo = r.legs[0].trainNo || r.legs[0].train_number;
-                const firstTrain = trainMap.get(firstTrainNo);
-                if (firstTrain && firstTrain.stops) {
-                    const origStop = firstTrain.stops.find(s => s.station === r.legs[0].from);
-                    const destStop = firstTrain.stops.find(s => s.station === r.legs[r.legs.length - 1].to);
-                    if (origStop && destStop) {
-                        const oIdx = firstTrain.stops.indexOf(origStop);
-                        const dIdx = firstTrain.stops.indexOf(destStop);
-                        if (oIdx < dIdx) {
-                            const expressTypes = new Set(['自強號', '新自強(EMU3000)', '普悠瑪', '太魯閣', '莒光號']);
-                            const t1Type = r.legs[0].trainType || r.legs[0].train_type;
-                            if (expressTypes.has(t1Type)) {
-                                return false; // 旅客已搭上直達快車，絕不中途下車換車！
-                            }
-                            const directArrMin = timeToMin(destStop.time);
-                            if (directArrMin - rArrMin < 25) {
+                
+                for (let i = 1; i < r.legs.length; i++) {
+                    const nextTrainNo = r.legs[i].trainNo || r.legs[i].train_number;
+                    const nextTrain = trainMap.get(nextTrainNo);
+                    if (nextTrain && nextTrain.stops) {
+                        const origStop = nextTrain.stops.find(s => s.station === origStation);
+                        if (origStop) {
+                            const origStopTimeMin = timeToMin(origStop.time);
+                            if (origStopTimeMin >= rDepMin) {
                                 return false;
-                            }
-                        }
-                    }
-                }
-
-                // Check 1B: If ANY direct train leaves at or after rDepMin and arrives at or before rArrMin
-                for (let d of directRoutes) {
-                    if (d.depMin >= rDepMin && d.arrMin <= rArrMin) {
-                        return false; // Strictly dominated by direct train d!
-                    }
-                }
-
-                // Check 1C: Eliminate nonsensical pre-leg commuter routes
-                if (r.legs.length >= 2) {
-                    const origStation = r.legs[0].from;
-                    for (let i = 1; i < r.legs.length; i++) {
-                        const nextTrainNo = r.legs[i].trainNo || r.legs[i].train_number;
-                        const nextTrain = trainMap.get(nextTrainNo);
-                        if (nextTrain && nextTrain.stops) {
-                            const origStop = nextTrain.stops.find(s => s.station === origStation);
-                            if (origStop) {
-                                const origStopTimeMin = timeToMin(origStop.time);
-                                if (origStopTimeMin >= rDepMin) {
-                                    return false;
-                                }
                             }
                         }
                     }
@@ -1424,48 +1374,7 @@
                 });
             });
 
-            // Filter 3: Dual-Track Pareto Dominance Sweep (Separate Pure Local vs Express)
-            const isAllLocal = (r) => r.legs.every(l => ['區間車', '區間快'].includes(l.trainType || l.train_type));
-
-            const pruneCategory = (routeList) => {
-                const mapped = routeList.map(r => ({
-                    route: r,
-                    depMin: r.depMin,
-                    arrMin: r.arrMin,
-                    transfers: r.transfers || 0
-                }));
-
-                const nonDom = [];
-                for (let i = 0; i < mapped.length; i++) {
-                    const a = mapped[i];
-                    let isDom = false;
-                    for (let j = 0; j < mapped.length; j++) {
-                        if (i === j) continue;
-                        const b = mapped[j];
-                        if (b.depMin >= a.depMin && b.arrMin <= a.arrMin && b.transfers <= a.transfers) {
-                            if (b.depMin > a.depMin || b.arrMin < a.arrMin || b.transfers < a.transfers) {
-                                isDom = true;
-                                break;
-                            } else if (i > j) {
-                                isDom = true;
-                                break;
-                            }
-                        }
-                    }
-                    if (!isDom) nonDom.push(a.route);
-                }
-                return nonDom;
-            };
-
-            const localRoutes = [...directRoutes.filter(isAllLocal), ...nonDominatedTransfers.filter(isAllLocal)];
-            const expressRoutes = [...directRoutes.filter(r => !isAllLocal(r)), ...nonDominatedTransfers.filter(r => !isAllLocal(r))];
-
-            const finalLocal = pruneCategory(localRoutes);
-            const finalExpress = pruneCategory(expressRoutes);
-
-            const combined = [...finalLocal, ...finalExpress];
-            combined.sort((a, b) => a.depMin - b.depMin);
-            return combined;
+            return [...directRoutes, ...nonDominatedTransfers];
         }
 
 

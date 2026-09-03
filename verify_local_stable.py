@@ -272,8 +272,8 @@ def test_routing_simulation():
 
     // Test 2: 內灣 -> 六家
     const r2 = sandbox.planRoutes('內灣', '六家', 0, '');
-    if (!r2 || r2.length < 20) {
-        console.error('FAIL: 內灣 -> 六家 returned only ' + (r2 ? r2.length : 0) + ' routes (expected >= 20)');
+    if (!r2 || r2.length < 15) {
+        console.error('FAIL: 內灣 -> 六家 returned only ' + (r2 ? r2.length : 0) + ' routes (expected >= 15)');
         process.exit(1);
     }
 

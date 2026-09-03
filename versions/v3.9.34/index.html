@@ -1570,7 +1570,7 @@
         
         
         /* =========================================================
-           v3.9.36 Station Modal Layout & Guaranteed Smooth Scrolling
+           v3.9.34 Station Modal Layout & Guaranteed Smooth Scrolling
            ========================================================= */
         .modal-backdrop {
             position: fixed;
@@ -2294,7 +2294,7 @@
 
 
         /* ==========================================
-           v3.9.36 Multi-Stop Waypoints & Real Progress Bar
+           v3.9.34 Multi-Stop Waypoints & Real Progress Bar
            ========================================== */
         .waypoints-container {
             display: flex;
@@ -2480,7 +2480,7 @@
 
 
         /* ==========================================
-           v3.9.36 Solid Multi-Stop Waypoint & Input Styling
+           v3.9.34 Solid Multi-Stop Waypoint & Input Styling
            ========================================== */
         .waypoint-list {
             display: flex;
@@ -2772,7 +2772,7 @@
             <div class="nav-title">
                     <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                         <h1 id="appTitle">台鐵全路網時刻表 & 縣市導航智慧接駁系統</h1>
-                        <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v3.9.36 (2026.07.01 最新版)</span>
+                        <span style="background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; font-family: 'Outfit', sans-serif;">v3.9.34 (2026.07.01 最新版)</span>
                         <div id="networkStatusBadge" class="network-status-pill online" title="網路連線狀態（本系統支援 100% 純離線離網運算）">
                             <span class="status-indicator-dot"></span>
                             <span id="networkStatusText">🟢 連線中 (離線已就緒)</span>
@@ -2780,10 +2780,10 @@
                         <div style="display: inline-flex; align-items: center; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: 8px; padding: 2px 8px;">
                             <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-right: 4px;">🔖 版本切換:</span>
                             <select id="versionSelector" onchange="switchVersion(this.value)" style="border: none; background: transparent; color: var(--primary); font-size: 0.78rem; font-weight: 700; cursor: pointer; outline: none; font-family: 'Outfit', sans-serif;">
-                                <option value="latest" selected>🌟 v3.9.37 (全功能旗艦版)</option>
+                                <option value="latest" selected>🌟 v3.9.34 (全功能旗艦版)</option>
                                 <option value="lite">⚡ 極速極簡版 (TRA SuperLite)</option>
-                                <option value="v3.9.36">v3.9.36 (多站規劃+選站優化版)</option>
-                                <option value="v3.9.36">v3.9.36 (大站邊框加強版)</option>
+                                <option value="v3.9.34">v3.9.34 (多站規劃+選站優化版)</option>
+                                <option value="v3.9.34">v3.9.34 (大站邊框加強版)</option>
                                 <option value="v3.8.14">v3.8.14 (純離線保證版)</option>
                                 <option value="v3.8.13">v3.8.13 (多版本架構版)</option>
                                 <option value="v3.8.12">v3.8.12 (自動門禁測試版)</option>
@@ -3056,7 +3056,7 @@
         <footer class="app-footer-clean">
             <div class="footer-brand-line">
                 <span class="footer-title">🚆 2026 台鐵全路網跨區間轉乘規劃系統</span>
-                <span class="footer-ver-tag">v3.9.36</span>
+                <span class="footer-ver-tag">v3.9.34</span>
             </div>
             <div class="footer-sub-text">
                 ⚡ 100% 純前端本地記憶體極速運算 · 完整收錄 2026/07/01 官方大改點 1,465 班全路網列車
@@ -4442,19 +4442,16 @@
             '員林', '田中', '斗六', '斗南', '嘉義', '新營', '善化', '台南', '新左營', '高雄',
             '鳳山', '屏東', '潮州', '枋寮', '頭城', '礁溪', '宜蘭', '羅東', '蘇澳新', '東澳',
             '南澳', '新城(太魯閣)', '花蓮', '吉安', '壽豐', '鳳林', '光復', '瑞穗', '玉里',
-            '池上', '關山', '鹿野', '台東', '知本', '太麻里', '金崙', '大武',
-            '後龍', '白沙屯', '通霄', '苑裡', '大甲', '清水', '沙鹿'
+            '池上', '關山', '鹿野', '台東', '知本', '太麻里', '大武'
         ]);
 
         const KEY_HUBS = new Set([
-            '基隆', '八堵', '七堵', '南港', '松山', '台北', '板橋', '樹林', '鶯歌', '桃園', '中壢',
-            '新竹', '竹南', '苗栗', '豐原', '台中', '新烏日', '成功', '彰化', '員林', '田中', '二水', '斗六',
-            '嘉義', '新營', '善化', '台南', '中洲', '新左營', '高雄', '鳳山', '屏東', '潮州', '枋寮',
-            '後龍', '白沙屯', '通霄', '苑裡', '大甲', '清水', '沙鹿', '追分',
-            '大武', '金崙', '太麻里', '知本', '枋山',
+            '基隆', '八堵', '七堵', '南港', '松山', '台北', '板橋', '樹林', '桃園', '中壢',
+            '新竹', '竹南', '苗栗', '豐原', '台中', '彰化', '員林', '田中', '二水', '斗六',
+            '嘉義', '新營', '善化', '台南', '新左營', '高雄', '鳳山', '屏東', '潮州', '枋寮',
             '瑞芳', '雙溪', '福隆', '頭城', '礁溪', '宜蘭', '羅東', '蘇澳新', '東澳', '南澳',
             '新城(太魯閣)', '花蓮', '壽豐', '鳳林', '光復', '瑞穗', '玉里', '池上', '關山', '台東',
-            '竹中', '濁水'
+            '知本', '枋山', '竹中', '濁水'
         ]);
 
         const ALL_STATIONS = [];
@@ -4924,57 +4921,21 @@
 
             const trainMap = getTrainMap();
 
-            // Filter 1: Eliminate transfer routes that are strictly dominated by a direct train
+            // Filter 1: Eliminate nonsensical pre-leg commuter routes
+            // (If an express train in leg 2+ already stops at the origin station later, passenger should board the express directly at origin!)
             const validTransferRoutes = transferRoutes.filter(r => {
+                if (!r.legs || r.legs.length < 2) return true;
+                const origStation = r.legs[0].from;
                 const rDepMin = parseMin(r.dep_time);
-                const rArrMin = parseMin(r.arr_time);
-                const rNormArr = getNormalizedArr(rDepMin, rArrMin);
-
-                // Check 1A: If leg 1 train itself reaches dest directly:
-                // NEVER get off a direct express train to transfer! Stay on the direct train!
-                const firstTrain = trainMap.get(r.legs[0].train_number);
-                if (firstTrain && firstTrain.stops) {
-                    const origStop = firstTrain.stops.find(s => s.station === r.legs[0].from);
-                    const destStop = firstTrain.stops.find(s => s.station === r.legs[r.legs.length - 1].to);
-                    if (origStop && destStop) {
-                        const oIdx = firstTrain.stops.indexOf(origStop);
-                        const dIdx = firstTrain.stops.indexOf(destStop);
-                        if (oIdx < dIdx) {
-                            const expressTypes = new Set(['自強號', '新自強(EMU3000)', '普悠瑪', '太魯閣', '莒光號']);
-                            if (expressTypes.has(r.legs[0].train_type)) {
-                                return false; // 旅客已搭上直達快車，絕不中途下車換車！
-                            }
-                            const directArrMin = parseMin(destStop.time);
-                            const directNormArr = getNormalizedArr(rDepMin, directArrMin);
-                            if (directNormArr - rNormArr < 25) {
-                                return false; // 若為慢車，換車未省時超過 25 分鐘亦不換！
-                            }
-                        }
-                    }
-                }
-
-                // Check 1B: If ANY direct train leaves at or after rDepMin and arrives at or before rNormArr
-                for (let d of directRoutes) {
-                    const dDepMin = parseMin(d.dep_time);
-                    const dArrMin = parseMin(d.arr_time);
-                    const dNormArr = getNormalizedArr(dDepMin, dArrMin);
-                    if (dDepMin >= rDepMin && dNormArr <= rNormArr) {
-                        return false; // Strictly dominated by direct train d!
-                    }
-                }
-
-                // Check 1C: Eliminate nonsensical pre-leg commuter routes
-                if (r.legs.length >= 2) {
-                    const origStation = r.legs[0].from;
-                    for (let i = 1; i < r.legs.length; i++) {
-                        const nextTrain = trainMap.get(r.legs[i].train_number);
-                        if (nextTrain && nextTrain.stops) {
-                            const origStop = nextTrain.stops.find(s => s.station === origStation);
-                            if (origStop) {
-                                const origStopTimeMin = parseMin(origStop.time);
-                                if (origStopTimeMin >= rDepMin) {
-                                    return false; // Eliminate redundant pre-leg detour!
-                                }
+                
+                for (let i = 1; i < r.legs.length; i++) {
+                    const nextTrain = trainMap.get(r.legs[i].train_number);
+                    if (nextTrain && nextTrain.stops) {
+                        const origStop = nextTrain.stops.find(s => s.station === origStation);
+                        if (origStop) {
+                            const origStopTimeMin = parseMin(origStop.time);
+                            if (origStopTimeMin >= rDepMin) {
+                                return false; // Eliminate redundant pre-leg detour!
                             }
                         }
                     }
@@ -5014,54 +4975,7 @@
                 });
             });
 
-            // Filter 3: Dual-Track Pareto Dominance Sweep
-            // Separate into All-Local (Commuter/TPASS) and Express/Mixed so Local transfers are NOT killed by Express!
-            const isAllLocal = (r) => r.legs.every(l => ['區間車', '區間快'].includes(l.train_type));
-
-            const pruneCategory = (routeList) => {
-                const mapped = routeList.map(r => {
-                    const dMin = parseMin(r.dep_time);
-                    const aMin = parseMin(r.arr_time);
-                    return {
-                        route: r,
-                        depMin: dMin,
-                        arrMin: aMin,
-                        normArr: getNormalizedArr(dMin, aMin),
-                        transfers: r.transfers || 0
-                    };
-                });
-
-                const nonDom = [];
-                for (let i = 0; i < mapped.length; i++) {
-                    const a = mapped[i];
-                    let isDom = false;
-                    for (let j = 0; j < mapped.length; j++) {
-                        if (i === j) continue;
-                        const b = mapped[j];
-                        if (b.depMin >= a.depMin && b.normArr <= a.normArr && b.transfers <= a.transfers) {
-                            if (b.depMin > a.depMin || b.normArr < a.normArr || b.transfers < a.transfers) {
-                                isDom = true;
-                                break;
-                            } else if (i > j) {
-                                isDom = true;
-                                break;
-                            }
-                        }
-                    }
-                    if (!isDom) nonDom.push(a.route);
-                }
-                return nonDom;
-            };
-
-            const localRoutes = [...directRoutes.filter(isAllLocal), ...nonDominatedTransfers.filter(isAllLocal)];
-            const expressRoutes = [...directRoutes.filter(r => !isAllLocal(r)), ...nonDominatedTransfers.filter(r => !isAllLocal(r))];
-
-            const finalLocal = pruneCategory(localRoutes);
-            const finalExpress = pruneCategory(expressRoutes);
-
-            const combined = [...finalLocal, ...finalExpress];
-            combined.sort((a, b) => parseMin(a.dep_time) - parseMin(b.dep_time));
-            return combined;
+            return [...directRoutes, ...nonDominatedTransfers];
         }
         window.pruneDominatedRoutes = pruneDominatedRoutes;
 
@@ -5145,15 +5059,12 @@
             ['新竹', '北新竹', '千甲', '新莊', '竹中', '六家'],
             ['八堵', '暖暖', '四腳亭', '瑞芳', '猴硐', '三貂嶺', '大華', '十分', '望古', '嶺腳', '平溪', '菁桐'],
             ['二水', '源泉', '濁水', '龍泉', '集集', '水里', '車埕'],
-            ['善化', '南科', '新市', '永康', '大橋', '台南', '保安', '仁德', '中洲', '長榮大學', '沙崙'],
-            // 6. Chengzhui Line & Mountain-Sea Bypass Corridors
-            ['台中', '五權', '大慶', '烏日', '新烏日', '成功', '追分', '大肚', '龍井', '沙鹿', '清水', '台中港', '大甲', '日南', '苑裡', '通霄'],
-            ['台中', '五權', '大慶', '烏日', '新烏日', '成功', '彰化', '追分', '大肚', '龍井', '沙鹿', '清水', '台中港', '大甲', '日南', '苑裡', '通霄', '白沙屯', '後龍', '竹南']
+            ['善化', '南科', '新市', '永康', '大橋', '台南', '保安', '仁德', '中洲', '長榮大學', '沙崙']
         ];
 
         function isStationOvershooting(orig, dest, mid) {
             if (!orig || !dest || !mid || mid === orig || mid === dest) return false;
-            const INTERCHANGE_HUBS = new Set(['七堵', '八堵', '基隆', '新左營', '高雄', '二水', '竹中', '瑞芳', '彰化', '竹南', '成功', '追分', '新烏日', '枋寮', '中洲']);
+            const TERMINAL_HUBS = new Set(['七堵', '八堵', '基隆', '新左營', '高雄', '二水', '竹中', '瑞芳']);
             for (let cIdx = 0; cIdx < CORRIDOR_MAPS.length; cIdx++) {
                 const corridor = CORRIDOR_MAPS[cIdx];
                 const iOrig = corridor.indexOf(orig);
@@ -5163,8 +5074,8 @@
                     const minP = Math.min(iOrig, iDest);
                     const maxP = Math.max(iOrig, iDest);
                     if (iMid < minP || iMid > maxP) {
-                        if (INTERCHANGE_HUBS.has(mid) && (Math.abs(iMid - iDest) <= 2 || Math.abs(iMid - iOrig) <= 2)) {
-                            continue; // Valid transfer at adjacent terminal or junction interchange hub!
+                        if (TERMINAL_HUBS.has(mid) && Math.abs(iMid - iDest) <= 2) {
+                            continue; // Valid transfer at adjacent terminal interchange hub!
                         }
                         return true; // Strictly out of corridor bounds!
                     }
@@ -5241,11 +5152,9 @@
 
                     // Check if train1 directly reaches dest
                     let train1ReachesDest = false;
-                    let train1DirectArrMin = 0;
                     for (let k = firstDep.stopIdx + 1; k < train1.stops.length; k++) {
                         if (train1.stops[k].station === dest) {
                             train1ReachesDest = true;
-                            train1DirectArrMin = timeToMin(train1.stops[k].time);
                             break;
                         }
                     }
@@ -5327,16 +5236,6 @@
                                     const newLegs = [...state.legs, newLeg];
 
                                     if (nextSt === dest) {
-                                        // User's rule: If train1 directly reaches dest, transfer MUST arrive strictly earlier!
-                                        if (train1ReachesDest && train1DirectArrMin > 0) {
-                                            const dep0Min = firstDep.depTimeMin;
-                                            const normDirectArr = (train1DirectArrMin < dep0Min) ? train1DirectArrMin + 1440 : train1DirectArrMin;
-                                            const normTransferArr = (arrMin < dep0Min) ? arrMin + 1440 : arrMin;
-                                            if (normTransferArr >= normDirectArr) {
-                                                continue; // 嚴格阻斷：搭原車直達即可，絕不下車換車卻更慢或同時到達！
-                                            }
-                                        }
-
                                         transferResults.push({
                                             transfers: newLegs.length - 1,
                                             dep_time: newLegs[0].dep,
@@ -6260,7 +6159,7 @@
 
         
         // ==========================================
-        // v3.9.36 Multi-County Checkbox & Map System
+        // v3.9.34 Multi-County Checkbox & Map System
         // ==========================================
         let modalViewMode = 'list'; // 'list' | 'map'
         let selectedCounties = new Set(COUNTY_GROUPS.map(g => g.county));
