@@ -1,9 +1,15 @@
 [
   {
+    "version": "v3.9.38",
+    "date": "2026-09-04",
+    "title": "v3.9.38 - 多站停留時間綁定修復、手動查詢機制確立、離線快取全面強化",
+    "path": "index.html"
+  },
+  {
     "version": "v3.9.37",
     "date": "2026-09-04",
     "title": "v3.9.37 - 山海線拓撲精準分離、南迴線全線補齊、直達優先嚴禁下車、雙軌 Pareto 剪枝",
-    "path": "index.html"
+    "path": "versions/v3.9.37/index.html"
   },
   {
     "version": "v3.9.36",
