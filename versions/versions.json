@@ -1,9 +1,15 @@
 [
   {
+    "version": "v3.9.47",
+    "date": "2026-09-04",
+    "title": "v3.9.47 - 重大修復：補齊 COUNTY_DATA 與 STATIONS_IN_ORDER 定義，修復全車站專區與站名點擊開箱失效",
+    "path": "index.html"
+  },
+  {
     "version": "v3.9.46",
     "date": "2026-09-04",
     "title": "v3.9.46 - 多站體驗極致直覺化：修正「新增下一站」預設直接跳轉選取最新末端站點機制",
-    "path": "index.html"
+    "path": "versions/v3.9.46/index.html"
   },
   {
     "version": "v3.9.45",
