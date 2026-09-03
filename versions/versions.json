@@ -1,9 +1,15 @@
 [
   {
+    "version": "v3.9.48",
+    "date": "2026-09-04",
+    "title": "v3.9.48 - 全路網站名點擊秒開復原：回歸極速車站時刻表彈窗，解決點擊遲鈍與無反應問題",
+    "path": "index.html"
+  },
+  {
     "version": "v3.9.47",
     "date": "2026-09-04",
     "title": "v3.9.47 - 重大修復：補齊 COUNTY_DATA 與 STATIONS_IN_ORDER 定義，修復全車站專區與站名點擊開箱失效",
-    "path": "index.html"
+    "path": "versions/v3.9.47/index.html"
   },
   {
     "version": "v3.9.46",
