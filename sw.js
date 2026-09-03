@@ -19,7 +19,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[SW] Pre-caching core app assets for offline use (v3.9.36)...');
+      console.log('[SW] Pre-caching core app assets for offline use (v3.9.37)...');
       return cache.addAll(CORE_ASSETS);
     })
   );
@@ -50,7 +50,7 @@ self.addEventListener('fetch', (event) => {
 
   // Handle local resources
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
+    caches.match(event.request, { ignoreSearch: true }).then((cachedResponse) => {
       if (cachedResponse) {
         // Fetch background update for dynamic data files if online
         if (url.pathname.endsWith('full_network_timetable.json') || url.pathname.endsWith('data.js')) {
@@ -78,7 +78,10 @@ self.addEventListener('fetch', (event) => {
       }).catch(() => {
         // Offline Fallback for HTML documents
         if (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html')) {
-          return caches.match('./index.html');
+          if (url.pathname.includes('lite')) {
+            return caches.match('./lite.html', { ignoreSearch: true });
+          }
+          return caches.match('./index.html', { ignoreSearch: true });
         }
       });
     })

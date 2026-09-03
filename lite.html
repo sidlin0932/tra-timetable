@@ -329,6 +329,13 @@
         .btn-search:hover {
             background: var(--primary-dark);
         }
+        @keyframes pulseSearchBtn {
+            0%, 100% { transform: scale(1); box-shadow: 0 2px 6px rgba(2,132,199,0.3); }
+            50% { transform: scale(1.02); box-shadow: 0 4px 14px rgba(2,132,199,0.7); }
+        }
+        .btn-search.ready-pulse {
+            animation: pulseSearchBtn 1.2s ease-in-out infinite;
+        }
 
         /* Results */
         .results-header {
@@ -786,11 +793,11 @@
     </div>
 
     <footer>
-        <p>⚡ 2026 台鐵時刻表 · 純本地記憶體極速引擎 · 100% 離線可用</p>
+        <p>⚡ 2026 台鐵時刻表 · 純本地記憶體極速引擎 · 100% 離線可用 · <span style="background:var(--bg-card); border:1px solid var(--border); padding:2px 6px; border-radius:4px; font-weight:700;">v3.9.37-lite</span></p>
     </footer>
 
     <!-- Embedded Local Database -->
-    <script src="data.js?v=3.9.19"></script>
+    <script src="data.js?v=v3.9.37"></script>
 
     <script>
         function switchVersion(val) {
@@ -1559,12 +1566,29 @@
             }).join('');
         }
 
+        function highlightSearchBtnLite() {
+            const btn = document.querySelector('.btn-search');
+            if (btn) {
+                btn.classList.remove('ready-pulse');
+                void btn.offsetWidth;
+                btn.classList.add('ready-pulse');
+            }
+            const countBadge = document.getElementById('resultsCount');
+            if (countBadge) {
+                countBadge.textContent = '👆 車站已選定，請點擊「查詢」';
+            }
+            const routeSummary = document.getElementById('routeSummary');
+            if (routeSummary) {
+                routeSummary.textContent = waypoints.map(w => w.station || '未選').join(' ➔ ');
+            }
+        }
+
         function addWaypoint() {
             if (waypoints.length >= 6) { alert('最多支援 6 個停靠站！'); return; }
             waypoints.splice(waypoints.length - 1, 0, { station: '台中', minStay: 30 });
             renderWaypointsUI();
             renderLiteFavs();
-            runSearch();
+            highlightSearchBtnLite();
         }
 
         function removeWp(idx) {
@@ -1572,7 +1596,7 @@
             waypoints.splice(idx, 1);
             renderWaypointsUI();
             renderLiteFavs();
-            runSearch();
+            highlightSearchBtnLite();
         }
 
         function moveWp(idx, dir) {
@@ -1583,19 +1607,19 @@
             waypoints[target] = temp;
             renderWaypointsUI();
             renderLiteFavs();
-            runSearch();
+            highlightSearchBtnLite();
         }
 
         function swapStations() {
             waypoints.reverse();
             renderWaypointsUI();
             renderLiteFavs();
-            runSearch();
+            highlightSearchBtnLite();
         }
 
         function updateStay(idx, val) {
             if (waypoints[idx]) waypoints[idx].minStay = parseInt(val, 10);
-            runSearch();
+            highlightSearchBtnLite();
         }
 
         let openDetailsIdx = -1;
@@ -1607,6 +1631,8 @@
         let currentRoutes = [];
 
         function runSearch() {
+            const btn = document.querySelector('.btn-search');
+            if (btn) btn.classList.remove('ready-pulse');
             const timeStr = document.getElementById('timeInput').value || '00:00';
             const transferF = document.getElementById('transferFilter').value;
             const typeF = document.getElementById('typeFilter').value;
@@ -1728,7 +1754,7 @@
             waypoints = [{ station: o, minStay: 0 }, { station: d, minStay: 0 }];
             renderWaypointsUI();
             renderLiteFavs();
-            runSearch();
+            highlightSearchBtnLite();
         }
 
         function setTimeVal(val) {
@@ -1740,7 +1766,7 @@
             } else {
                 document.getElementById('timeInput').value = val;
             }
-            runSearch();
+            highlightSearchBtnLite();
         }
 
         function handleAuto(idx, val) {
@@ -1763,7 +1789,7 @@
             if (el) el.value = st;
             const autoEl = document.getElementById(`autoList-${idx}`);
             if (autoEl) autoEl.style.display = 'none';
-            runSearch();
+            highlightSearchBtnLite();
         }
 
         document.addEventListener('click', (e) => {
@@ -1858,10 +1884,10 @@
             renderWaypointsUI();
             renderLiteFavs();
             closeModalDirect();
-            runSearch();
+            highlightSearchBtnLite();
 
-            if (currentModalTargetIdx < waypoints.length - 1 && !waypoints[currentModalTargetIdx + 1].station) {
-                setTimeout(() => openPicker(currentModalTargetIdx + 1), 80);
+            if (currentModalTargetIdx === 0 && (!waypoints[1] || !waypoints[1].station)) {
+                setTimeout(() => openPicker(1), 80);
             }
         }
 
