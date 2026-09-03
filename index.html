@@ -4744,6 +4744,14 @@
         }
         window.highlightSearchButton = highlightSearchButton;
 
+        function updateWaypointStay(idx, val) {
+            if (waypoints[idx]) {
+                waypoints[idx].minStay = parseInt(val, 10);
+            }
+            highlightSearchButton();
+        }
+        window.updateWaypointStay = updateWaypointStay;
+
         function removeWaypoint(idx) {
             if (waypoints.length <= 2) return;
             waypoints.splice(idx, 1);
@@ -5726,10 +5734,16 @@
                     if (leg.is_through) {
                         layoverAlert = `<div class="layover-alert through" style="background:#f0fdf4; color:#166534; border:1px solid #bbf7d0; padding:8px 12px; border-radius:6px; margin-bottom:8px; font-size:0.85rem;">🟢 <strong>原車直通繼續行駛</strong> · 列車抵達 <strong>${leg.from}</strong> 站後繼續開往 <strong>${leg.to}</strong>，旅客留在原車即可。</div>`;
                     } else if (leg.layover) {
-                        const isTight = leg.layover <= 15;
-                        const alertClass = isTight ? 'layover-alert tight' : 'layover-alert';
-                        const tightNotice = isTight ? ' <span style="color:#ef4444; font-weight:800;">(⚠️ 緊湊轉乘)</span>' : '';
-                        layoverAlert = `<div class="${alertClass}">⏳ 在 <strong>${leg.from}</strong> 站轉乘，停留等候 <strong>${leg.layover} 分鐘</strong>${tightNotice}</div>`;
+                        const wpMatch = waypoints.find((w, wIdx) => wIdx > 0 && wIdx < waypoints.length - 1 && w.station === leg.from);
+                        const userWantedStay = wpMatch && wpMatch.minStay > 0;
+                        if (userWantedStay) {
+                            layoverAlert = `<div class="layover-alert" style="background:#eff6ff; color:#1e40af; border:1px solid #bfdbfe; padding:8px 12px; border-radius:6px; margin-bottom:8px; font-size:0.85rem;">📍 <strong>在 ${leg.from} 站中途停留 ${minToDuration(leg.layover)}</strong>（已滿足您設定的停留 ${wpMatch.minStay} 分鐘以上需求）</div>`;
+                        } else {
+                            const isTight = leg.layover <= 15;
+                            const alertClass = isTight ? 'layover-alert tight' : 'layover-alert';
+                            const tightNotice = isTight ? ' <span style="color:#ef4444; font-weight:800;">(⚠️ 緊湊轉乘)</span>' : '';
+                            layoverAlert = `<div class="${alertClass}">⏳ 在 <strong>${leg.from}</strong> 站轉乘，停留等候 <strong>${leg.layover} 分鐘</strong>${tightNotice}</div>`;
+                        }
 
                         const backup = findBackupLeg(leg.from, leg.to, leg.dep);
                         if (backup) {
