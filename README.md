@@ -1,8 +1,8 @@
-# 🚆 2026 台鐵全路網時刻表 & 縣市導航智慧接駁系統 (v3.9.43)
+# 🚆 2026 台鐵全路網時刻表 & 縣市導航智慧接駁系統 (v3.9.44)
 
-> **2026/07/01 大改點全線全班次 · 100% 純前端離線運算 · 支援 Google Maps 多中繼站遊程規劃 · 台灣鐵路地理地圖選站 · 17縣市多選過濾 · PWA 離線手機 App**
+> **2026/07/01 大改點全線全班次 · 100% 純前端離線運算 · 全車次時刻表專區 & 全車站時刻表專區 · Google Maps 多中繼站遊程規劃 · PWA 離線手機 App**
 
-[![Version](https://img.shields.io/badge/version-v3.9.43-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-v3.9.44-blue.svg)](CHANGELOG.md)
 [![PWA](https://img.shields.io/badge/PWA-100%25%20Offline-success.svg)](manifest.json)
 [![Stable Policy](https://img.shields.io/badge/Local%20Stable-Passed-brightgreen.svg)](verify_local_stable.py)
 [![Multi-Version](https://img.shields.io/badge/Multi--Version-Supported-purple.svg)](versions/index.html)
@@ -12,6 +12,8 @@
 
 ## ✨ 核心特色 (Core Features)
 
+- 🚆 **全車次時刻表專區 (All Trains Timetable Hub)**：收錄全路網 954 班列車，支援即時車次、車種、起訖站與路線篩選，一鍵開箱列車全線各站停靠時刻。
+- 📍 **全車站時刻表專區 (All Stations Timetable Hub)**：全台 17 縣市 231 座車站全日發車時刻表看板，支援站名快搜、順逆行方向與特快/區間篩選。
 - 🗺️ **台灣鐵路地理地圖模式 (Interactive SVG Map)**：依據台灣輪廓與鐵路拓撲繪製，直接於地圖上點選車站或縣市區域，直觀視覺化排程。
 - 📋 **全台 17 縣市多選勾選過濾 (Multi-County Filter)**：自由勾選/多選指定縣市，未勾選者自動隱藏，支援全選/全清/反選與搜尋框混合過濾。
 - 🚄 **全台 1,402 班列車、240+ 個車站完整收錄**：涵蓋西部幹線山海線、東部幹線、南迴線及四大支線（平溪/深澳、內灣/六家、集集、沙崙）。
