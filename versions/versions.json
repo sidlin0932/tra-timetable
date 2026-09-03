@@ -1,9 +1,15 @@
 [
   {
+    "version": "v3.9.39",
+    "date": "2026-09-04",
+    "title": "v3.9.39 - 跨區間區間車停靠站縫合修復、集集線等支線 20 組全日接駁方案大復活",
+    "path": "index.html"
+  },
+  {
     "version": "v3.9.38",
     "date": "2026-09-04",
     "title": "v3.9.38 - 多站停留時間綁定修復、手動查詢機制確立、離線快取全面強化",
-    "path": "index.html"
+    "path": "versions/v3.9.38/index.html"
   },
   {
     "version": "v3.9.37",
