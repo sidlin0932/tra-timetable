@@ -1,6 +1,6 @@
-// Service Worker for 2026 台鐵時刻表 PWA (v3.9.39)
-const CACHE_NAME = 'tra-timetable-pwa-v3.9.39';
-const RUNTIME_CACHE = 'tra-runtime-v3.9.39';
+// Service Worker for 2026 台鐵時刻表 PWA (v3.9.40)
+const CACHE_NAME = 'tra-timetable-pwa-v3.9.40';
+const RUNTIME_CACHE = 'tra-runtime-v3.9.40';
 
 // Core Application Shell & Timetable Data Assets
 const CORE_ASSETS = [
@@ -19,7 +19,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[SW] Pre-caching core app assets for offline use (v3.9.39)...');
+      console.log('[SW] Pre-caching core app assets for offline use (v3.9.40)...');
       return cache.addAll(CORE_ASSETS);
     })
   );
