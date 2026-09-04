@@ -1,9 +1,15 @@
 [
   {
+    "version": "v3.9.51",
+    "date": "2026-09-05",
+    "title": "v3.9.51 - 快車為原則拒絕提早換慢車 & 杜絕荒謬中途下車換車缺陷",
+    "path": "index.html"
+  },
+  {
     "version": "v3.9.50",
     "date": "2026-09-05",
     "title": "v3.9.50 - 環島全路網航向向量防護 & 快車優先多元策略方案完整保留",
-    "path": "index.html"
+    "path": "versions/v3.9.50/index.html"
   },
   {
     "version": "v3.9.49",

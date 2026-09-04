@@ -1,8 +1,8 @@
-# 🚆 2026 台鐵全路網時刻表 & 縣市導航智慧接駁系統 (v3.9.50)
+# 🚆 2026 台鐵全路網時刻表 & 縣市導航智慧接駁系統 (v3.9.51)
 
-> **2026/07/01 大改點全線全班次 · 100% 純前端離線運算 · 嚴禁反向折返搭乘（法規合規） · 快車優先與多元轉乘策略保留 · 全車次與全車站雙專區 · Google Maps 多中繼站遊程規劃 · PWA 離線手機 App**
+> **2026/07/01 大改點全線全班次 · 100% 純前端離線運算 · 嚴禁反向折返搭乘（法規合規） · 快車為原則拒絕提早換慢車 · 多元轉乘策略方案完整保留 · 全車次與全車站雙專區 · Google Maps 多中繼站遊程規劃 · PWA 離線手機 App**
 
-[![Version](https://img.shields.io/badge/version-v3.9.50-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-v3.9.51-blue.svg)](CHANGELOG.md)
 [![PWA](https://img.shields.io/badge/PWA-100%25%20Offline-success.svg)](manifest.json)
 [![Stable Policy](https://img.shields.io/badge/Local%20Stable-Passed-brightgreen.svg)](verify_local_stable.py)
 [![Multi-Version](https://img.shields.io/badge/Multi--Version-Supported-purple.svg)](versions/index.html)
