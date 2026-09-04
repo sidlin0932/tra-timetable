@@ -1,9 +1,15 @@
 [
   {
+    "version": "v3.9.50",
+    "date": "2026-09-05",
+    "title": "v3.9.50 - 環島全路網航向向量防護 & 快車優先多元策略方案完整保留",
+    "path": "index.html"
+  },
+  {
     "version": "v3.9.49",
     "date": "2026-09-04",
     "title": "v3.9.49 - 根因修復：修復大專區 DOM 巢狀閉合標籤缺失，徹底解決專區按鈕「完全無反應/看不到」重大缺陷",
-    "path": "index.html"
+    "path": "versions/v3.9.49/index.html"
   },
   {
     "version": "v3.9.48",
